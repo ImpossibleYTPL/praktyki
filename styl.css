@@ -11,15 +11,16 @@ form{
     max-width: 500px;
     margin: 0 auto;
   }
-input , select{
+input, select{
     padding: 10px;
     font-size: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 15px;
+    width: 340px;
   }
 #reset, #submit{
-    background-color: #4CAF50;
+    background-color: #3c7bf0;
     color: white;
     font-size: 25px;
     padding: 12px 20px;
@@ -27,3 +28,6 @@ input , select{
     border-radius: 4px;
     cursor: pointer;
   }
+p{
+    font-size: 20px;
+}
