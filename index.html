@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" href="styl.css">
 </head>
 <body>
-    <h2>Formularz Rekrutacyjny PZSKłanino</h2>
+    <h1>Formularz Rekrutacyjny PZSKłanino</h1>
     <form action="" method="post"><div>
         <p>Dane Osobowe:</p>
 Nazwisko: <input name="Nazwisko"><br>
@@ -69,15 +70,7 @@ Data: <input type="date" name="data"><br>
 <p>Adres Zamieszkania: </p>
 Mijescowość: <input type="text" name="miejsce_zam" maxlength="32"><br>
 Ulica Nr. Domu: <input type="text" name="ulica" maxlength="52"><br>
-Gmina: <select name="gminy">
-    <option value="puck">Gmina Puck</option>
-    <option value="hel">Gmina Hel</option>
-    <option value="jastarnia">Gmina Jastarnia</option>
-    <option value="wladyslawowo">Gmina Władysławowo</option>
-    <option value="kosakowo">Gmina Kosakowo</option>
-    <option value="krokowa">Gmina Korkowa</option>
-    <option value="gmina_inna">Inna</option>
-</select>  <br>
+Gmina: <input type="text" name="gmina"><br>
 Kod Pocztowy: <input type="text" name="kod_pocztowy" maxlength="6"> <br>
 Poczta: <input type="text" name="poczta"> <br>
 
@@ -103,8 +96,8 @@ Email: <input type="email" name="email_op"><br> <br>
 
 Szkoła Podstawowa do której uczęszczał Kandydat: <input type="text" name="szkola"> <br><br>
 
-<input type="submit" value="Wyślij formularz">
-<input type="reset" value="Wyczyść dane">
+<input type="submit" value="Wyślij formularz" id="submit">
+<input type="reset" value="Wyczyść dane" id="reset">
 </div></form>
 </body>
 </html>
