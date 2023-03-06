@@ -49,13 +49,15 @@ fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf
 
     </script> -->
 
-    <script>
+    <!-- <script>
       const date = new Date();
 
-      var data = date.getFullYear + "-" + date.getMonth + "-" + date.getDay;
+      var data = date.getFullYear() + "-" + parseFloat(date.getMonth() + 1) + "-" + date.getDate();
+      var clock = date.getHours() + ":" + ('0' + date.getMinutes()).slice(-2) + ":" + ('0' + date.getSeconds()).slice(-2);
 
       console.log(data);
-    </script>
+      console.log(clock);
+    </script> -->
 </head>
 <body>
     

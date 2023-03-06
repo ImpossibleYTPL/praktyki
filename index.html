@@ -18,7 +18,8 @@
 <input type="text" maxlength="11" name="PESEL" placeholder="PESEL"><br>
 <input type="tel" maxlength="9" name="nr_tel" placeholder="Numer Telefonu Kandydata"> <br>
 <input type="email" name="email" placeholder="Email"><br>
-<input type="hidden" name="data"><br>
+<input type="hidden" name="data" id="data" value=""><br>
+<input type="hidden" name="godz" id="godz" value="">
 <p>Profil: </p>
 <select name="profil">
 <option></option>
@@ -121,9 +122,16 @@ ok += ("<option>" + row[4].substring(1,row[4].length-1) + " " + row[13].substrin
 }
     ok += "</select>";
     document.getElementById("szkola").innerHTML = ok;
-    console.log(document.getElementById("szkola"));
-    console.log(ok);
 });
+</script>
+<script>
+    const date = new Date();
+
+    var data = date.getFullYear() + "-" + parseFloat(date.getMonth() + 1) + "-" + date.getDate();
+    var clock = date.getHours() + ":" + ('0' + date.getMinutes()).slice(-2) + ":" + ('0' + date.getSeconds()).slice(-2);
+
+    document.getElementById("data").value = data;
+    document.getElementById("godz").value = clock;
 </script>
 
 <input type="submit" value="Wyślij formularz" id="submit">
