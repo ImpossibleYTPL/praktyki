@@ -94,10 +94,38 @@ Data Urodzenia: <br><input type="date" name="Data_ur"> <br>
 <input type="tel" maxlength="9" name="nr_tel_op" placeholder="Numer Telfeonu"><br>
 <input type="email" name="email_op" placeholder="Email"><br> <br>
 
-<input type="text" name="szkola" placeholder="Szkoła Podstawowa do ktorej uczęszczał Kandydat"> <br><br>
+<div id="szkola">
+    
+</div>
+
+<script>
+    var ok = "<select>";
+    fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf-8' }})
+    .then(response => response.arrayBuffer())
+    .then(buffer => {
+const decoder = new TextDecoder('utf-8');
+const text = decoder.decode(buffer);
+const rows = text.trim().split('\n'); // rozdziel wiersze
+const table = []; // pusta tablica do przechowywania wartości tabeli
+for (let i = 0; i < rows.length; i++) {
+  const columns = rows[i].split(';'); // rozdziel kolumny
+  table.push(columns); // dodaj cały wiersz do tablicy
+}
+for (let i = 0; i < rows.length; i++) {
+const row = table[i]; // wybierz trzeci wiersz
+if(i == 0) continue;
+ok += ("<option>" + row[4].substring(1,row[4].length-1) + " " + row[13].substring(1, row[13].length-1) +  " " + row[15].substring(1, row[15].length-1) + " " + row[16].substring(1, row[16].length-1) + "</option>");
+}
+    ok += "</select>";
+    document.getElementById("szkola").innerHTML = ok;
+    console.log(document.getElementById("szkola"));
+    console.log(ok);
+});
+</script>
 
 <input type="submit" value="Wyślij formularz" id="submit">
 <input type="reset" value="Wyczyść dane" id="reset">
 </div></form>
 </body>
+
 </html>
