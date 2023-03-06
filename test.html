@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Document</title>
-    <script>
+    <!-- <script>
 fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf-8' }})
   .then(response => response.arrayBuffer())
   .then(buffer => {
@@ -47,6 +47,14 @@ fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf
 //   })
 //   .catch(error => console.error(error));
 
+    </script> -->
+
+    <script>
+      const date = new Date();
+
+      var data = date.getFullYear + "-" + date.getMonth + "-" + date.getDay;
+
+      console.log(data);
     </script>
 </head>
 <body>
