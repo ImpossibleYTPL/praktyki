@@ -8,11 +8,11 @@
 <body>
     <h1>Formularz Rekrutacyjny PZS Kłanino</h1>
     <form action="" method="post"><div>
-        <p>Dane Osobowe:</p>
+        <p>Dane Osobowe:</p> <br>
 <input name="Nazwisko" placeholder="Nazwisko"><br>
 <input name="Imie" placeholder="Imię"><br>
 <input name="drugie_imie" placeholder="Drugie Imię"><br>
-Data Urodzenia: <br><input type="date" name="Data_ur"> <br>
+<p>Data Urodzenia: </p><br><input type="date" name="Data_ur"> <br>
 <input name="miejsce_ur" placeholder="Mijesce Urodzenia"><br>
 <input type="text" maxlength="11" name="PESEL" placeholder="PESEL"><br>
 <input type="tel" maxlength="9" name="nr_tel" placeholder="Numer Telefonu Kandydata"> <br>
@@ -64,17 +64,17 @@ Data Urodzenia: <br><input type="date" name="Data_ur"> <br>
 <option value="wielo_zaw3">Klasa Wielozawodowa</option>
 <option value="mundur3">Liceum Mundurowe</option>
 <option value="dietetyk3">Liceum profil dietetyka i aktywność fizyczna</option>
-</select>
+</select> <br> <br>
 
 
-<p>Adres Zamieszkania: </p>
+<p>Adres Zamieszkania: </p> <br>
 <input type="text" name="miejsce_zam" maxlength="32" placeholder="Miejscowość"><br>
 <input type="text" name="ulica" maxlength="52" placeholder="Ulica Nr. Domu"><br>
 <input type="text" name="gmina" placeholder="Gmina"><br>
 <input type="text" name="kod_pocztowy" maxlength="6" placeholder="Kod Pocztowy"> <br>
 <input type="text" name="poczta" placeholder="Poczta"> <br>
 
-<p>Dane Osobowe Rodziców/Opiekunów Prawnych: </p>
+<p>Dane Osobowe Rodziców/Opiekunów Prawnych: </p> <br>
 <input name="Imie_matki" placeholder="Imię Matki"><br>
 <input name="Nazwisko_matki" placeholder="Nazwikso Matki"><br>
 <input type="text" name="adres_matki" placeholder="Adres Zamieszkania"><br>
@@ -94,8 +94,10 @@ Data Urodzenia: <br><input type="date" name="Data_ur"> <br>
 <input type="tel" maxlength="9" name="nr_tel_op" placeholder="Numer Telfeonu"><br>
 <input type="email" name="email_op" placeholder="Email"><br> <br>
 
+
+<p>Szkoała Podstawowa do Której Uczęszczał Kandydat</p>
 <div id="szkola">
-    
+ 
 </div>
 
 <script>
@@ -105,14 +107,14 @@ Data Urodzenia: <br><input type="date" name="Data_ur"> <br>
     .then(buffer => {
 const decoder = new TextDecoder('utf-8');
 const text = decoder.decode(buffer);
-const rows = text.trim().split('\n'); // rozdziel wiersze
-const table = []; // pusta tablica do przechowywania wartości tabeli
+const rows = text.trim().split('\n');
+const table = [];
 for (let i = 0; i < rows.length; i++) {
-  const columns = rows[i].split(';'); // rozdziel kolumny
-  table.push(columns); // dodaj cały wiersz do tablicy
+  const columns = rows[i].split(';'); 
+  table.push(columns);
 }
 for (let i = 0; i < rows.length; i++) {
-const row = table[i]; // wybierz trzeci wiersz
+const row = table[i]; 
 if(i == 0) continue;
 ok += ("<option>" + row[4].substring(1,row[4].length-1) + " " + row[13].substring(1, row[13].length-1) +  " " + row[15].substring(1, row[15].length-1) + " " + row[16].substring(1, row[16].length-1) + "</option>");
 }
