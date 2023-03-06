@@ -24,18 +24,23 @@ fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf
     }
   });
 
-  fetch('https://bdl.stat.gov.pl/api/v1/subjects?lang=pl&parentId=0&level=2&format=json')
-  .then(response => response.json())
-  .then(data => {
-    // Tutaj przetwarzamy dane i wyświetlamy nazwy powiatów
-    const powiaty = data.results?.bindings;
-    if (powiaty) {
-      powiaty.forEach(powiat => console.log(powiat.prefLabel.value));
-    } else {
-      console.log("Brak wyników");
-    }
-  })
-  .catch(error => console.error(error));
+//   fetch('https://bdl.stat.gov.pl/api/v1/data/by-variable/3643?', {
+//   headers: {
+//     Host: "ok",
+//     'X-ClientId:': "6c8575ac-c71a-4fa6-8247-08db1e38b103"
+//   }
+// })
+//   .then(response => response.json())
+//   .then(data => {
+//     // Tutaj przetwarzamy dane i wyświetlamy nazwy powiatów
+//     const powiaty = data.results?.bindings;
+//     if (powiaty) {
+//       powiaty.forEach(powiat => console.log(powiat.prefLabel.value));
+//     } else {
+//       console.log("Brak wyników");
+//     }
+//   })
+//   .catch(error => console.error(error));
 
     </script>
 </head>
