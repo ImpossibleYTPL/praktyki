@@ -18,11 +18,15 @@ fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf
       const columns = rows[i].split(';'); // rozdziel kolumny
       table.push(columns); // dodaj cały wiersz do tablicy
     }
+    document.write("<select id='ok' style='width=350px'>");
     for (let i = 0; i < rows.length; i++) {
     const row = table[i]; // wybierz trzeci wiersz
     if(i == 0) continue;
-    document.write(row[4].substring(1,row[4].length-1) + " " + row[13].substring(1, row[13].length-1) +  " " + row[15].substring(1, row[15].length-1) + " " + row[16].substring(1, row[16].length-1));
-    }
+    document.write("<option>" + row[4].substring(1,row[4].length-1) + " " + row[13].substring(1, row[13].length-1) +  " " + row[15].substring(1, row[15].length-1) + " " + row[16].substring(1, row[16].length-1) + "</option>");
+    
+  }
+  document.write("<option> inna </option>")
+  document.write("</select>");
   });
 
 //   fetch('https://bdl.stat.gov.pl/api/v1/data/by-variable/3643?', {
