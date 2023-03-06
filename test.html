@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf-8' }})
+  .then(response => response.arrayBuffer())
+  .then(buffer => {
+    const decoder = new TextDecoder('utf-8');
+    const text = decoder.decode(buffer);
+    const rows = text.trim().split('\n'); // rozdziel wiersze
+    const table = []; // pusta tablica do przechowywania wartości tabeli
+    for (let i = 0; i < rows.length; i++) {
+      const columns = rows[i].split(';'); // rozdziel kolumny
+      table.push(columns); // dodaj cały wiersz do tablicy
+    }
+    for (let i = 0; i < rows.length; i++) {
+    const row = table[i]; // wybierz trzeci wiersz
+    document.write(row[4].substring(1,row[4].length-1));
+    }
+  });
+
+  fetch('https://bdl.stat.gov.pl/api/v1/subjects?lang=pl&parentId=0&level=2&format=json')
+  .then(response => response.json())
+  .then(data => {
+    // Tutaj przetwarzamy dane i wyświetlamy nazwy powiatów
+    const powiaty = data.results?.bindings;
+    if (powiaty) {
+      powiaty.forEach(powiat => console.log(powiat.prefLabel.value));
+    } else {
+      console.log("Brak wyników");
+    }
+  })
+  .catch(error => console.error(error));
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
