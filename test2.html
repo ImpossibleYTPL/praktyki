@@ -992,6 +992,10 @@ var pp = {"ajax_url":"https:\/\/pzsklanino.edu.pl\/wp-admin\/admin-ajax.php"};
         text-align: center;
         font-size: 20px;
     }
+	#data_uro,#adres,#adres1, #adres2, #adres3{
+		font-weight: lighter;
+	}
+
     .formularz p{
         font-weight: bold;
     }
@@ -999,7 +1003,11 @@ var pp = {"ajax_url":"https:\/\/pzsklanino.edu.pl\/wp-admin\/admin-ajax.php"};
         text-align: center;
         width: 500px;
         height: 40px;
-    }
+		border-width: 1px;
+		border-style: groove;
+		border-color: #ffffff;
+		font-size: 20px;
+	    }
     #reset, #submit{
     background-color: #3c7bf0;
     color: white;
@@ -1009,140 +1017,223 @@ var pp = {"ajax_url":"https:\/\/pzsklanino.edu.pl\/wp-admin\/admin-ajax.php"};
     text-align: center;
     float: none;
     width: 250px;
-    }
-
+	padding-bottom: 40px;
+	}
+	#zamche, #MATche, #OJCAche, #OPche{
+		text-align: center;
+		width: 30px;
+		height: 15px;
+	}
 </style>
 
 <div class="formularz">
 
-<br>    <p>Dane Osobowe:</p>
-<input name="Nazwisko" placeholder="Nazwisko"><br>
-<input name="Imie" placeholder="Imię"><br>
-<input name="drugie_imie" placeholder="Drugie Imię"><br>
-<p>Data Urodzenia: </p><input type="date" name="Data_ur"> <br>
-<input name="miejsce_ur" placeholder="Mijesce Urodzenia"><br>
-<input type="text" maxlength="11" name="PESEL" placeholder="PESEL"><br>
-<input type="tel" maxlength="9" name="nr_tel" placeholder="Numer Telefonu Kandydata"> <br>
-<input type="email" name="email" placeholder="Email"><br>
-<input type="hidden" name="data" id="data" value=""><br>
-<input type="hidden" name="godz" id="godz" value="">
-<p>Profil Kandydata: </p>
-<select name="profil">
-<option></option>
-<option value="informatyk">Technik Informatyk</option>
-<option value="hotelarka">Technik Hotelarstwa</option>
-<option value="org_tur">Technik Organizacji Turystyki</option>
-<option value="ziug">Technik Żywienia i Usług Gastronomicznych</option>
-<option value="grafik">Tehcnik Grafiki i Poligrafii Cyfrowej</option>
-<option value="kucharz">Kucharz</option>
-<option value="monter">Monter Kadłubów i Jednostek Pływających</option>
-<option value="mechanik">Mechanik</option>
-<option value="wielo_zaw">Klasa Wielozawodowa</option>
-<option value="mundur">Liceum Mundurowe</option>
-<option value="dietetyk">Liceum profil dietetyka i aktywność fizyczna</option>
-</select>
+	<br>
+	<p>Dane Osobowe:</p>
+	<input name="Nazwisko" placeholder="Nazwisko"><br>
+	<input name="Imie" placeholder="Imię"><br>
+	<input name="drugie_imie" placeholder="Drugie Imię"><br>
+	<p id="data_uro">Data Urodzenia: </p><input type="date" name="Data_ur"> <br>
+	<input name="miejsce_ur" placeholder="Mijesce Urodzenia"><br>
+	<input type="text" maxlength="11" name="PESEL" placeholder="PESEL"><br>
+	<input type="tel" maxlength="9" name="nr_tel" placeholder="Numer Telefonu Kandydata"> <br>
+	<input type="email" name="email" placeholder="Email"><br>
+	<input type="hidden" name="data" id="data" value=""><br>
+	<input type="hidden" name="godz" id="godz" value="">
+	<p>Profil: </p>
+	<select name="profil">
+	<option></option>
+	<option value="informatyk">Technik Informatyk</option>
+	<option value="hotelarka">Technik Hotelarstwa</option>
+	<option value="org_tur">Technik Organizacji Turystyki</option>
+	<option value="ziug">Technik Żywienia i Usług Gastronomicznych</option>
+	<option value="grafik">Tehcnik Grafiki i Poligrafii Cyfrowej</option>
+	<option value="kucharz">Kucharz</option>
+	<option value="monter">Monter Kadłubów i Jednostek Pływających</option>
+	<option value="mechanik">Mechanik</option>
+	<option value="wielo_zaw">Klasa Wielozawodowa</option>
+	<option value="mundur">Liceum Mundurowe</option>
+	<option value="dietetyk">Liceum profil dietetyka i aktywność fizyczna</option>
+	</select>
+	
+	<p>Drugi Profil: </p>
+	<select name="profil2">
+	<option value="brak2">Brak</option>
+	<option value="informatyk2">Technik Informatyk</option>
+	<option value="hotelarka2">Technik Hotelarstwa</option>
+	<option value="org_tur2">Technik Organizacji Turystyki</option>
+	<option value="ziug2">Technik Żywienia i Usług Gastronomicznych</option>
+	<option value="grafik2">Tehcnik Grafiki i Poligrafii Cyfrowej</option>
+	<option value="kucharz2">Kucharz</option>
+	<option value="monter2">Monter Kadłubów i Jednostek Pływających</option>
+	<option value="mechanik2">Mechanik</option>
+	<option value="wielo_zaw2">Klasa Wielozawodowa</option>
+	<option value="mundur2">Liceum Mundurowe</option>
+	<option value="dietetyk2">Liceum profil dietetyka i aktywność fizyczna</option>
+	</select>
+	
+	<p>Trzeci Profil: </p>
+	<select name="profil3">
+	<option value="brak3">Brak</option>
+	<option value="informatyk3">Technik Informatyk</option>
+	<option value="hotelarka3">Technik Hotelarstwa</option>
+	<option value="org_tur3">Technik Organizacji Turystyki</option>
+	<option value="ziug3">Technik Żywienia i Usług Gastronomicznych</option>
+	<option value="grafik3">Tehcnik Grafiki i Poligrafii Cyfrowej</option>
+	<option value="kucharz3">Kucharz</option>
+	<option value="monter3">Monter Kadłubów i Jednostek Pływających</option>
+	<option value="mechanik3">Mechanik</option>
+	<option value="wielo_zaw3">Klasa Wielozawodowa</option>
+	<option value="mundur3">Liceum Mundurowe</option>
+	<option value="dietetyk3">Liceum profil dietetyka i aktywność fizyczna</option>
+	</select> <br> <br>
+	
+	
+	<p>Adres Zamieszkania: </p>
+	<input type="text" name="miejsce_zam" maxlength="32" placeholder="Miejscowość"><br>
+	<input type="text" name="ulica" maxlength="52" placeholder="Ulica Nr. Domu"><br>
+	<input type="text" name="kod_pocztowy" maxlength="6" placeholder="Kod Pocztowy"> <br>
+	<input type="text" name="gmina" placeholder="Gmina"><br>
+	<input type="text" name="poczta" placeholder="Poczta"><br>
+	
+<br>
+	<p>Adres Zameldowania: </p>
 
-<p>Drugi Profil: </p>
-<select name="profil2">
-<option value="brak2">Brak</option>
-<option value="informatyk2">Technik Informatyk</option>
-<option value="hotelarka2">Technik Hotelarstwa</option>
-<option value="org_tur2">Technik Organizacji Turystyki</option>
-<option value="ziug2">Technik Żywienia i Usług Gastronomicznych</option>
-<option value="grafik2">Tehcnik Grafiki i Poligrafii Cyfrowej</option>
-<option value="kucharz2">Kucharz</option>
-<option value="monter2">Monter Kadłubów i Jednostek Pływających</option>
-<option value="mechanik2">Mechanik</option>
-<option value="wielo_zaw2">Klasa Wielozawodowa</option>
-<option value="mundur2">Liceum Mundurowe</option>
-<option value="dietetyk2">Liceum profil dietetyka i aktywność fizyczna</option>
-</select>
+		<b id="adres">Adres Zameldowania taki sam jak zamieszkania</b><input type="checkbox" id="zamche" name="zamche">
+		
+		<div id="zameldowanie">
+	<input type="text" name="miejsce_zamel" maxlength="32" placeholder="Miejscowość"><br>
+	<input type="text" name="ulica_zamel" maxlength="52" placeholder="Ulica Nr. Domu"><br>
+	<input type="text" name="kod_pocztowy_zamel" maxlength="6" placeholder="Kod Pocztowy"> <br>
+	<input type="text" name="gmina_zamel" placeholder="Gmina"><br>
+	<input type="text" name="poczta_zamel" placeholder="Poczta"> <br>
+	</div>
+	
+	<script>
+	  document.getElementById("zamche").addEventListener("change", ()=> {
+		if(document.getElementById("zamche").checked) {
+		  document.getElementById("zameldowanie").innerHTML = "";
+		} else document.getElementById("zameldowanie").innerHTML = 
+		   `<input type="text" name="miejsce_zamel" maxlength="32" placeholder="Miejscowość"><br>
+			<input type="text" name="ulica_zamel" maxlength="52" placeholder="Ulica Nr. Domu"><br>
+			<input type="text" name="gmina_zamel" placeholder="Gmina"><br>
+			<input type="text" name="kod_pocztowy_zamel" maxlength="6" placeholder="Kod Pocztowy"> <br>
+			<input type="text" name="poczta_zamel" placeholder="Poczta"> <br>`
+	  });
+	</script>
+	<br>
+	<p>Dane Osobowe Rodziców/Opiekunów Prawnych: </p>
+	<input name="Imie_matki" placeholder="Imię Matki"><br>
+	<input name="Nazwisko_matki" placeholder="Nazwisko Matki"><br>
+	<input type="tel" maxlength="9" name="nr_tel_matki" placeholder="Numer Telefonu"><br>
+	<input type="email" name="email_matki" placeholder="Email"><br>
 
-<p>Trzeci Profil: </p>
-<select name="profil3">
-<option value="brak3">Brak</option>
-<option value="informatyk3">Technik Informatyk</option>
-<option value="hotelarka3">Technik Hotelarstwa</option>
-<option value="org_tur3">Technik Organizacji Turystyki</option>
-<option value="ziug3">Technik Żywienia i Usług Gastronomicznych</option>
-<option value="grafik3">Tehcnik Grafiki i Poligrafii Cyfrowej</option>
-<option value="kucharz3">Kucharz</option>
-<option value="monter3">Monter Kadłubów i Jednostek Pływających</option>
-<option value="mechanik3">Mechanik</option>
-<option value="wielo_zaw3">Klasa Wielozawodowa</option>
-<option value="mundur3">Liceum Mundurowe</option>
-<option value="dietetyk3">Liceum profil dietetyka i aktywność fizyczna</option>
-</select> <br> <br>
+	 <b id="adres1">Adres taki sam jak Kandydata</b> <input type="checkbox" id="MATche" name="MATche" >
 
+	<div id="adresMAT">
+	<input type="text" name="miejsce_zamMAT" maxlength="32" placeholder="Miejscowość"><br>
+	<input type="text" name="ulicaMAT" maxlength="52" placeholder="Ulica Nr. Domu"><br>
+	<input type="text" name="kod_pocztowyMAT" maxlength="6" placeholder="Kod Pocztowy"> <br>
+	</div>
 
-<p>Adres Zamieszkania: </p>
-<input type="text" name="miejsce_zam" maxlength="32" placeholder="Miejscowość"><br>
-<input type="text" name="ulica" maxlength="52" placeholder="Ulica Nr. Domu"><br>
-<input type="text" name="gmina" placeholder="Gmina"><br>
-<input type="text" name="kod_pocztowy" maxlength="6" placeholder="Kod Pocztowy"> <br>
-<input type="text" name="poczta" placeholder="Poczta"> <br>
+	<script>
+	  document.getElementById("MATche").addEventListener("change", ()=> {
+		if(document.getElementById("MATche").checked) {
+		  document.getElementById("adresMAT").innerHTML = "";
+		} else document.getElementById("adresMAT").innerHTML = `<input type="text" name="miejsce_zamMAT" maxlength="32" placeholder="Miejscowość"><br>
+	<input type="text" name="ulicaMAT" maxlength="52" placeholder="Ulica Nr. Domu"><br>
+	<input type="text" name="kod_pocztowyMAT" maxlength="6" placeholder="Kod Pocztowy"> <br>`
+	  });
+	</script> <br>
 
-<br><p>Dane Osobowe Rodziców/Opiekunów Prawnych: </p>
-<input name="Imie_matki" placeholder="Imię Matki"><br>
-<input name="Nazwisko_matki" placeholder="Nazwikso Matki"><br>
-<input type="text" name="adres_matki" placeholder="Adres Zamieszkania"><br>
-<input type="tel" maxlength="9" name="nr_tel_matki" placeholder="Numer Telefonu"><br>
-<input type="email" name="email_matki" placeholder="Email"><br> <br>
+	 <br>
+	<input name="Imie_ojca" placeholder="Imię Ojca"><br>
+	<input name="Nazwisko_ojca" placeholder="Nazwisko Ojca"><br>
+	<input type="tel" maxlength="9" name="nr_tel_ojca" placeholder=" Numer Telefonu"><br>
+	<input type="email" name="email_ojca" placeholder="Email"><br>
 
-<input name="Imie_ojca" placeholder="Imię Ojca"><br>
-<input name="Nazwisko_ojca" placeholder="Nazwisko Ojca"><br>
-<input type="text" name="adres_ojca" placeholder="Adres Zamieszkania"><br>
-<input type="tel" maxlength="9" name="nr_tel_ojca" placeholder=" Numer Telefonu"><br>
-<input type="email" name="email_ojca" placeholder="Email"><br> <br>
+	<b id="adres2">Adres taki sam jak Kandydata</b> <input type="checkbox" id="OJCAche" name="OJCAche">
+	
+	<div id="adresOJCA">
+	<input type="text" name="miejsce_zOJCA" maxlength="32" placeholder="Miejscowość"><br>
+	<input type="text" name="ulicaOJCA" maxlength="52" placeholder="Ulica Nr. Domu"><br>
+	<input type="text" name="kod_pocztowyOJCA" maxlength="6" placeholder="Kod Pocztowy"> <br>
+	</div>
+	
+	<script>
+	document.getElementById("OJCAche").addEventListener("change", ()=> {
+	  if(document.getElementById("OJCAche").checked) {
+		document.getElementById("adresOJCA").innerHTML = "";
+	  } else document.getElementById("adresOJCA").innerHTML = `<input type="text" name="miejsce_zamOP" maxlength="32" placeholder="Miejscowość"><br>
+	<input type="text" name="ulicaOJCA" maxlength="52" placeholder="Ulica Nr. Domu"><br>
+	<input type="text" name="kod_pocztowyOJCA" maxlength="6" placeholder="Kod Pocztowy"> <br>`
+	});
+	</script><br><br>
+	
+	<input name="Imie_op" placeholder="Imię Opiekuna Prawnego"><br>
+	<input name="Nazwisko_op" placeholder="Nazwikso Opiekuna Prawnego"><br>
+	<input type="tel" maxlength="9" name="nr_tel_op" placeholder="Numer Telfeonu"><br>
+	<input type="email" name="email_op" placeholder="Email"><br>
+	
+	<b id="adres3">Adres taki sam jak Kandydata</b> <input type="checkbox" id="OPche" name="OPche">
+	
+	<div id="adresOP">
+		<input type="text" name="miejsce_zOP" maxlength="32" placeholder="Miejscowość"><br>
+		<input type="text" name="ulicaOP" maxlength="52" placeholder="Ulica Nr. Domu"><br>
+		<input type="text" name="kod_pocztowyOP" maxlength="6" placeholder="Kod Pocztowy"> <br>
+		</div> <br>
 
-
-<input name="Imie_op" placeholder="Imię Opiekuna Prawnego"><br>
-<input name="Nazwisko_op" placeholder="Nazwikso Opiekuna Prawnego"><br>
-<input type="text" name="adres_op" placeholder="Adres Zamieszkania"><br>
-<input type="tel" maxlength="9" name="nr_tel_op" placeholder="Numer Telfeonu"><br>
-<input type="email" name="email_op" placeholder="Email"><br> <br>
-
-
-<p>Szkoała Podstawowa do Której Uczęszczał Kandydat</p>
-<div id="szkola">
- 
-</div>
-
-<script>
-    var ok = "<select>";
-    fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf-8' }})
-    .then(response => response.arrayBuffer())
-    .then(buffer => {
-const decoder = new TextDecoder('utf-8');
-const text = decoder.decode(buffer);
-const rows = text.trim().split('\n');
-const table = [];
-for (let i = 0; i < rows.length; i++) {
-  const columns = rows[i].split(';'); 
-  table.push(columns);
-}
-for (let i = 0; i < rows.length; i++) {
-const row = table[i]; 
-if(i == 0) continue;
-ok += ("<option>" + row[4].substring(1,row[4].length-1) + " " + row[13].substring(1, row[13].length-1) +  " " + row[15].substring(1, row[15].length-1) + " " + row[16].substring(1, row[16].length-1) + "</option>");
-}
-    ok += "</select>";
-    document.getElementById("szkola").innerHTML = ok;
-});
-</script>
-<script>
-    const date = new Date();
-
-    var data = date.getFullYear() + "-" + parseFloat(date.getMonth() + 1) + "-" + date.getDate();
-    var clock = date.getHours() + ":" + ('0' + date.getMinutes()).slice(-2) + ":" + ('0' + date.getSeconds()).slice(-2);
-
-    document.getElementById("data").value = data;
-    document.getElementById("godz").value = clock;
-</script>
-</div>
-<br> <br>
-<input type="submit" value="Wyślij formularz" id="submit">
-<input type="reset" value="Wyczyść dane" id="reset">
+	<script>
+		document.getElementById("OPche").addEventListener("change", ()=> {
+		  if(document.getElementById("OPche").checked) {
+			document.getElementById("adresOP").innerHTML = "";
+		  } else document.getElementById("adresOP").innerHTML = `<input type="text" name="miejsce_zamOP" maxlength="32" placeholder="Miejscowość"><br>
+		<input type="text" name="ulicaOP" maxlength="52" placeholder="Ulica Nr. Domu"><br>
+		<input type="text" name="kod_pocztowyOP" maxlength="6" placeholder="Kod Pocztowy"> <br>`
+		});
+		</script>
+	
+	
+	<p>Szkoała Podstawowa do Której Uczęszczał Kandydat</p>
+	<div id="szkola">
+	 
+	</div>
+	
+	<script>
+		var ok = "<select>";
+		fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf-8' }})
+		.then(response => response.arrayBuffer())
+		.then(buffer => {
+	const decoder = new TextDecoder('utf-8');
+	const text = decoder.decode(buffer);
+	const rows = text.trim().split('\n');
+	const table = [];
+	for (let i = 0; i < rows.length; i++) {
+	  const columns = rows[i].split(';'); 
+	  table.push(columns);
+	}
+	for (let i = 0; i < rows.length; i++) {
+	const row = table[i]; 
+	if(i == 0) continue;
+	ok += ("<option>" + row[4].substring(1,row[4].length-1) + " " + row[13].substring(1, row[13].length-1) +  " " + row[15].substring(1, row[15].length-1) + " " + row[16].substring(1, row[16].length-1) + "</option>");
+	}
+		ok += "</select>";
+		document.getElementById("szkola").innerHTML = ok;
+	});
+	</script>
+	<script>
+		const date = new Date();
+	
+		var data = date.getFullYear() + "-" + parseFloat(date.getMonth() + 1) + "-" + date.getDate();
+		var clock = date.getHours() + ":" + ('0' + date.getMinutes()).slice(-2) + ":" + ('0' + date.getSeconds()).slice(-2);
+	
+		document.getElementById("data").value = data;
+		document.getElementById("godz").value = clock;
+	</script>
+	<br><br>
+	<input type="submit" value="Wyślij formularz" id="submit">
+	<input type="reset" value="Wyczyść dane" id="reset">
+	</div>
 </div>
 </form>
 				<section class="elementor-section elementor-top-section elementor-element elementor-element-b7f7440 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b7f7440" data-element_type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
