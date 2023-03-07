@@ -76,4 +76,26 @@ $profil1 = $_POST['profil'];
 $profil2 = $_POST['profil2'];
 $profil3 = $_POST['profil3'];
 
+require_once "DataBase.php";
+
+$link = new mysqli($servername, $username, $password, $dbname);
+
+if($link->errno != 0) die("Blad polaczenia z baza");
+
+$result = $link->prepare("SELECT PESEL FORM `kandydat` Where `Pesel` = $PESEL");
+$result->execute();
+$result->bind_result($ok);
+
+if($result->num_rows >= 1) die("Ten pesel jest juz w bazie");
+$result->close();
+setcookie("send", "ok", time() + 86400);
+if($_COOKIE['send'] == 'ok') die("wysyłasz za dużo zgłoszen");
+
+$result = $link->prepare("SELECT * FROM `adres` WHERE Miejscowosc = $KAcity AND Ulica = $KAstreet AND Gmina = $KAGMINA AND `Kod pocztowy` = $KApostcode AND Poczta = $KApost");
+$result->execute();
+$result->bind_result($ok);
+if($result->num_rows >= 1) $adresID = $result->fetch()[0];
+$result->close();
+
+$link->close();
 ?>
