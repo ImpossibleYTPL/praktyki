@@ -4,53 +4,53 @@
 
 //kandydat
 
-$firstname = $_POST['Imie'];
-$secondname = $_POST['drugie_imie'];
-$surname = $_POST['Nazwisko'];
-$bornDate = $_POST['Data_ur'];
-$bornLocation = $_POST['miejsce_ur'];
-$PESEL = $_POST['PESEL'];
-$tel = $_POST['nr_tel'];
-$mail = $_POST['email'];
+$firstname = filter_input(INPUT_POST, 'Imie', FILTER_SANITIZE_STRING);
+$secondname = filter_input(INPUT_POST, 'drugie_imie', FILTER_SANITIZE_STRING);
+$surname = filter_input(INPUT_POST, 'Nazwisko', FILTER_SANITIZE_STRING);
+$bornDate = filter_input(INPUT_POST, 'Data_ur', FILTER_SANITIZE_STRING);
+$bornLocation = filter_input(INPUT_POST, 'miejsce_ur', FILTER_SANITIZE_STRING);
+$PESEL = filter_input(INPUT_POST, 'PESEL', FILTER_SANITIZE_STRING);
+$tel = filter_input(INPUT_POST, 'nr_tel', FILTER_SANITIZE_STRING);
+$mail = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
 //adres kandydata
 
-$KAcity = $_POST['miejsce_zam'];
-$KAstreet = $_POST['ulica'];
-$KAGMINA = $_POST['gmina'];
-$KApostcode = $_POST['kod_pocztowy'];
-$KApost = $_POST['poczta'];
+$KAcity = filter_input(INPUT_POST, 'miejsce_zam', FILTER_SANITIZE_STRING);
+$KAstreet = filter_input(INPUT_POST, 'ulica', FILTER_SANITIZE_STRING);
+$KAGMINA = filter_input(INPUT_POST, 'gmina', FILTER_SANITIZE_STRING);
+$KApostcode = filter_input(INPUT_POST, 'kod_pocztowy', FILTER_SANITIZE_STRING);
+$KApost = filter_input(INPUT_POST, 'poczta', FILTER_SANITIZE_STRING);
 
 //adres zameldowania
 
-$MAcity = (!$_POST['zamche']) ? $_POST['miejsce_zamel'] : $KAcity;
-$MAstreet = (!$_POST['zamche']) ? $_POST['ulica_zamel'] : $KAstreet;
-$MAGMINA = (!$_POST['zamche']) ? $_POST['gmina_zamel'] : $KAGMINA;
-$MApostcode = (!$_POST['zamche']) ? $_POST['kod_pocztowy_zamel'] : $KApostcode;
-$MApost = (!$_POST['zamche']) ? $_POST['poczta'] : $KApost;
+$MAcity = (!isset($_POST['zamche'])) ? filter_input(INPUT_POST, 'miejsce_zamel', FILTER_SANITIZE_STRING) : $KAcity;
+$MAstreet = (!isset($_POST['zamche'])) ? filter_input(INPUT_POST, 'ulica_zamel', FILTER_SANITIZE_STRING) : $KAstreet;
+$MAGMINA = (!isset($_POST['zamche'])) ? filter_input(INPUT_POST, 'gmina_zamel', FILTER_SANITIZE_STRING) : $KAGMINA;
+$MApostcode = (!isset($_POST['zamche'])) ? filter_input(INPUT_POST, 'kod_pocztowy_zamel', FILTER_SANITIZE_STRING) : $KApostcode;
+$MApost = (!isset($_POST['zamche'])) ? filter_input(INPUT_POST, 'poczta', FILTER_SANITIZE_STRING) : $KApost;
 
 //opiekunowie
 //matka
 
-$MDname = $_POST['Imie_matki'];
-$MDsurname = $_POST['Nazwisko_matki'];
-$MDcity = (!$_POST['MATche']) ? $_POST['miejsceMAT'] : $KAcity;
-$MDstreet = (!$_POST['MATche']) ? $_POST['ulicaMAT'] : $KAstreet;
-$MDGMINA = (!$_POST['MATche']) ? $_POST['gminaMAT'] : $KAGMINA;
-$MDpostcode = (!$_POST['MATche']) ? $_POST['kod_pocztowyMAT'] : $KApostcode;
-$MDpost = (!$_POST['MATche']) ? $_POST['pocztaMAT'] : $KApost;
-$MDtel = $_POST['nr_tel_matki'];
-$MDmail = $_POST['email_matki'];
+$MDname = filter_input(INPUT_POST, 'Imie_matki', FILTER_SANITIZE_STRING);
+$MDsurname = filter_input(INPUT_POST, 'Nazwisko_matki', FILTER_SANITIZE_STRING);
+$MDcity = (!isset($_POST['MATche'])) ? filter_input(INPUT_POST, 'miejsce_zamMAT', FILTER_SANITIZE_STRING) : $KAcity;
+$MDstreet = (!isset($_POST['MATche'])) ? filter_input(INPUT_POST, 'ulicaMAT', FILTER_SANITIZE_STRING) : $KAstreet;
+$MDGMINA = (!isset($_POST['MATche'])) ? filter_input(INPUT_POST, 'gminaMAT', FILTER_SANITIZE_STRING) : $KAGMINA;
+$MDpostcode = (!isset($_POST['MATche'])) ? filter_input(INPUT_POST, 'kod_pocztowyMAT', FILTER_SANITIZE_STRING) : $KApostcode;
+$MDpost = (!isset($_POST['MATche'])) ? filter_input(INPUT_POST, 'pocztaMAT', FILTER_SANITIZE_STRING) : $KApost;
+$MDtel = filter_input(INPUT_POST, 'nr_tel_matki', FILTER_SANITIZE_STRING);
+$MDmail = filter_input(INPUT_POST, 'email_matki', FILTER_SANITIZE_EMAIL);
 
 //ojciec
 
-$FDname = $_POST['Imie_ojca'];
-$FDsurname = $_POST['Nazwisko_ojca'];
-$FDcity = (!$_POST['OJCAche']) ? $_POST['miejscOJCA'] : $KAcity;
-$FDstreet = (!$_POST['OJCAche']) ? $_POST['ulicaOJCA'] : $KAstreet;
-$FDGMINA = (!$_POST['OJCAche']) ? $_POST['gminaOJCA'] : $KAGMINA;
-$FDpostcode = (!$_POST['OJCAche']) ? $_POST['kod_pocztowyOJCA'] : $KApostcode;
-$FDpost = (!$_POST['OJCAche']) ? $_POST['pocztaOJCA'] : $KApost;
+$FDname = filter_input(INPUT_POST, 'Imie_ojca', FILTER_SANITIZE_STRING);
+$FDsurname = filter_input(INPUT_POST, 'Nazwisko_ojca', FILTER_SANITIZE_STRING);
+$FDcity = (!isset($_POST['OJCAche'])) ? $_POST['miejsce_zOJCA'] : $KAcity;
+$FDstreet = (!isset($_POST['OJCAche'])) ? $_POST['ulicaOJCA'] : $KAstreet;
+$FDGMINA = (!isset($_POST['OJCAche'])) ? $_POST['gminaOJCA'] : $KAGMINA;
+$FDpostcode = (!isset($_POST['OJCAche'])) ? $_POST['kod_pocztowyOJCA'] : $KApostcode;
+$FDpost = (!isset($_POST['OJCAche'])) ? $_POST['pocztaOJCA'] : $KApost;
 $FDtel = $_POST['nr_tel_ojca'];
 $FDmail = $_POST['email_ojca'];
 
@@ -60,7 +60,7 @@ $GDname = $_POST['Imie_op'];
 $GDsurname = $_POST['Nazwisko_op'];
 $GDcity = $_POST['miejsce_zGD'];
 $GDstreet = $_POST['ulicaGD'];
-$GDGMINA = $_POST['gmidaGD'];
+$GDGMINA = $_POST['gminaGD'];
 $GDpostcode = $_POST['kod_pocztowyGD'];
 $GDpost = $_POST['pocztaGD'];
 $GDtel = $_POST['nr_tel_op'];
@@ -82,16 +82,19 @@ $link = new mysqli($servername, $username, $password, $dbname);
 
 if($link->errno != 0) die("Blad polaczenia z baza");
 
-$result = $link->prepare("SELECT PESEL FORM `kandydat` Where `Pesel` = $PESEL");
+$result = $link->prepare("SELECT PESEL FROM `kandydat` Where `Pesel` = ?");
+$result->bind_param('s', $PESEL);
 $result->execute();
 $result->bind_result($ok);
 
 if($result->num_rows >= 1) die("Ten pesel jest juz w bazie");
 $result->close();
+if(isset($_COOKIE['send'])) die("wysyłasz za dużo zgłoszen");
+else
 setcookie("send", "ok", time() + 86400);
-if($_COOKIE['send'] == 'ok') die("wysyłasz za dużo zgłoszen");
 
-$result = $link->prepare("SELECT * FROM `adres` WHERE Miejscowosc = $KAcity AND Ulica = $KAstreet AND Gmina = $KAGMINA AND `Kod pocztowy` = $KApostcode AND Poczta = $KApost");
+$result = $link->prepare("SELECT `ID` FROM `adres` WHERE Miejscowosc = ? AND Ulica = ? AND Gmina = ? AND `Kod pocztowy` = ? AND Poczta = ?");
+$result->bind_param('sssss', $KAcity, $KAstreet, $KAGMINA, $KApostcode, $KApost);
 $result->execute();
 $result->bind_result($ok);
 if($result->num_rows >= 1) $adresID = $result->fetch()[0];
