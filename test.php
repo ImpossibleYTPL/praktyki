@@ -104,7 +104,6 @@ else{
     $result->bind_param('sssss', $KAcity, $KAstreet,$KAGMINA,$KApostcode,$KApost);
     $result->execute();
 }
-
 $result->close();
 $link->close();
 ?>
