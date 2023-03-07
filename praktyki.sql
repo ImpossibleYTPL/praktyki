@@ -124,38 +124,29 @@ ALTER TABLE `adres`
 --
 ALTER TABLE `kandydat`
   ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `Pesel` (`Pesel`),
-  ADD KEY `ID Adres` (`ID Adres`),
-  ADD KEY `ID Zameldowanie` (`ID Zameldowanie`);
-
+  ADD UNIQUE KEY `Pesel` (`Pesel`);
 --
 -- Indeksy dla tabeli `kierunki`
 --
 ALTER TABLE `kierunki`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `ID Kandydata` (`ID Kandydata`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indeksy dla tabeli `opiekun`
 --
 ALTER TABLE `opiekun`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `ID Ardesu` (`ID Ardesu`),
-  ADD KEY `ID Kandydata` (`ID Kandydata`);
-
+  ADD PRIMARY KEY (`ID`);
 --
 -- Indeksy dla tabeli `wniosek`
 --
 ALTER TABLE `wniosek`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `ID Kandydata` (`ID Kandydata`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indeksy dla tabeli `zameldowanie`
 --
 ALTER TABLE `zameldowanie`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `ID Adresu` (`ID Adresu`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- AUTO_INCREMENT dla zrzuconych tabel
@@ -204,34 +195,6 @@ ALTER TABLE `zameldowanie`
 --
 -- Ograniczenia dla tabeli `kandydat`
 --
-ALTER TABLE `kandydat`
-  ADD CONSTRAINT `kandydat_ibfk_1` FOREIGN KEY (`ID Adres`) REFERENCES `adres` (`ID`),
-  ADD CONSTRAINT `kandydat_ibfk_2` FOREIGN KEY (`ID Zameldowanie`) REFERENCES `zameldowanie` (`ID`);
-
---
--- Ograniczenia dla tabeli `kierunki`
---
-ALTER TABLE `kierunki`
-  ADD CONSTRAINT `kierunki_ibfk_1` FOREIGN KEY (`ID Kandydata`) REFERENCES `kandydat` (`ID`);
-
---
--- Ograniczenia dla tabeli `opiekun`
---
-ALTER TABLE `opiekun`
-  ADD CONSTRAINT `opiekun_ibfk_1` FOREIGN KEY (`ID Ardesu`) REFERENCES `adres` (`ID`),
-  ADD CONSTRAINT `opiekun_ibfk_2` FOREIGN KEY (`ID Kandydata`) REFERENCES `kandydat` (`ID`);
-
---
--- Ograniczenia dla tabeli `wniosek`
---
-ALTER TABLE `wniosek`
-  ADD CONSTRAINT `wniosek_ibfk_1` FOREIGN KEY (`ID Kandydata`) REFERENCES `kandydat` (`ID`);
-
---
--- Ograniczenia dla tabeli `zameldowanie`
---
-ALTER TABLE `zameldowanie`
-  ADD CONSTRAINT `zameldowanie_ibfk_1` FOREIGN KEY (`ID Adresu`) REFERENCES `adres` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
