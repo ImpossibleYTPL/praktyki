@@ -96,6 +96,5 @@ $result->execute();
 $result->bind_result($ok);
 if($result->num_rows >= 1) $adresID = $result->fetch()[0];
 $result->close();
-
 $link->close();
 ?>
