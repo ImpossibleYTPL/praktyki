@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./Assets/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./Assets/dist/css/bootstrap.css">
+    <title>Formularz Rekrutacyjny PZS Kłanino</title>
+</head>
+<body>
+    <form>
+        <div class="formularz">
+            <h1>FORMULARZ REKRUTACYJNY PZS KLANINO</h1>
+            <br>
+            <p>Dane Osobowe:</p>
+            <input name="Nazwisko" placeholder="Nazwisko"><br>
+            <input name="Imie" placeholder="Imię"><br>
+            <input name="drugie_imie" placeholder="Drugie Imię"><br>
+            <p id="data_uro">Data Urodzenia: </p><input type="date" name="Data_ur"> <br>
+            <input name="miejsce_ur" placeholder="Mijesce Urodzenia"><br>
+            <input type="text" maxlength="11" name="PESEL" placeholder="PESEL" id="pesel"><br>
+            <input type="tel" maxlength="9" name="nr_tel" placeholder="Numer Telefonu Kandydata"> <br>
+            <input type="email" name="email" placeholder="Email"><br>
+            <input type="hidden" name="data" id="data" value=""><br>
+            <input type="hidden" name="godz" id="godz" value="">
+            
+            <p>Profil: </p>
+            <select name="profil" id="profil">
+            <option></option>
+            <option value="informatyk">Technik Informatyk</option>
+            <option value="hotelarka">Technik Hotelarstwa</option>
+            <option value="org_tur">Technik Organizacji Turystyki</option>
+            <option value="ziug">Technik Żywienia i Usług Gastronomicznych</option>
+            <option value="grafik">Tehcnik Grafiki i Poligrafii Cyfrowej</option>
+            <option value="kucharz">Kucharz</option>
+            <option value="monter">Monter Kadłubów i Jednostek Pływających</option>
+            <option value="mechanik">Mechanik</option>
+            <option value="wielo_zaw">Klasa Wielozawodowa</option>
+            <option value="mundur">Liceum Mundurowe</option>
+            <option value="dietetyk">Liceum profil dietetyka i aktywność fizyczna</option>
+            </select>
+            
+            <p>Drugi Profil: </p>
+            <select name="profil2" id="profil2">
+            <option value="brak2">Brak</option>
+            <option value="informatyk2">Technik Informatyk</option>
+            <option value="hotelarka2">Technik Hotelarstwa</option>
+            <option value="org_tur2">Technik Organizacji Turystyki</option>
+            <option value="ziug2">Technik Żywienia i Usług Gastronomicznych</option>
+            <option value="grafik2">Tehcnik Grafiki i Poligrafii Cyfrowej</option>
+            <option value="kucharz2">Kucharz</option>
+            <option value="monter2">Monter Kadłubów i Jednostek Pływających</option>
+            <option value="mechanik2">Mechanik</option>
+            <option value="wielo_zaw2">Klasa Wielozawodowa</option>
+            <option value="mundur2">Liceum Mundurowe</option>
+            <option value="dietetyk2">Liceum profil dietetyka i aktywność fizyczna</option>
+            </select>
+            
+            <p>Trzeci Profil: </p>
+            <select name="profil3" id="profil3">
+            <option value="brak3">Brak</option>
+            <option value="informatyk3">Technik Informatyk</option>
+            <option value="hotelarka3">Technik Hotelarstwa</option>
+            <option value="org_tur3">Technik Organizacji Turystyki</option>
+            <option value="ziug3">Technik Żywienia i Usług Gastronomicznych</option>
+            <option value="grafik3">Tehcnik Grafiki i Poligrafii Cyfrowej</option>
+            <option value="kucharz3">Kucharz</option>
+            <option value="monter3">Monter Kadłubów i Jednostek Pływających</option>
+            <option value="mechanik3">Mechanik</option>
+            <option value="wielo_zaw3">Klasa Wielozawodowa</option>
+            <option value="mundur3">Liceum Mundurowe</option>
+            <option value="dietetyk3">Liceum profil dietetyka i aktywność fizyczna</option>
+            </select> <br> <br>
+            
+            
+            <p>Adres Zamieszkania: </p>
+            <input type="text" name="miejsce_zam" maxlength="32" placeholder="Miejscowość"><br>
+            <input type="text" name="ulica" maxlength="52" placeholder="Ulica Nr. Domu"><br>
+            <input type="text" name="kod_pocztowy" maxlength="6" placeholder="Kod Pocztowy"> <br>
+            <input type="text" name="gmina" placeholder="Gmina"><br>
+            <input type="text" name="poczta" placeholder="Poczta"><br>
+            
+        <br>
+            <p>Adres Zameldowania: </p>
+        
+                <b id="adres">Adres Zameldowania taki sam jak zamieszkania</b><input type="checkbox" id="zamche" name="zamche">
+                
+                <div id="zameldowanie">
+            <input type="text" name="miejsce_zamel" maxlength="32" placeholder="Miejscowość"><br>
+            <input type="text" name="ulica_zamel" maxlength="52" placeholder="Ulica Nr. Domu"><br>
+            <input type="text" name="kod_pocztowy_zamel" maxlength="6" placeholder="Kod Pocztowy"> <br>
+            <input type="text" name="gmina_zamel" placeholder="Gmina"><br>
+            <input type="text" name="poczta_zamel" placeholder="Poczta"> <br>
+            </div>
+            <br>
+            <p>Dane Osobowe Rodziców/Opiekunów Prawnych: </p>
+            <input name="Imie_matki" placeholder="Imię Matki"><br>
+            <input name="Nazwisko_matki" placeholder="Nazwisko Matki"><br>
+            <input type="tel" maxlength="9" name="nr_tel_matki" placeholder="Numer Telefonu"><br>
+            <input type="email" name="email_matki" placeholder="Email"><br>
+        
+             <b id="adres1">Adres taki sam jak Kandydata</b> <input type="checkbox" id="MATche" name="MATche" >
+        
+            <div id="adresMAT">
+            <input type="text" name="miejsce_zamMAT" maxlength="32" placeholder="Miejscowość"><br>
+            <input type="text" name="ulicaMAT" maxlength="52" placeholder="Ulica Nr. Domu"><br>
+            <input type="text" name="kod_pocztowyMAT" maxlength="6" placeholder="Kod Pocztowy"> <br>
+            </div>
+            <br>
+            <input name="Imie_ojca" placeholder="Imię Ojca"><br>
+            <input name="Nazwisko_ojca" placeholder="Nazwisko Ojca"><br>
+            <input type="tel" maxlength="9" name="nr_tel_ojca" placeholder=" Numer Telefonu"><br>
+            <input type="email" name="email_ojca" placeholder="Email"><br>
+        
+            <b id="adres2">Adres taki sam jak Kandydata</b> <input type="checkbox" id="OJCAche" name="OJCAche">
+            
+            <div id="adresOJCA">
+            <input type="text" name="miejsce_zOJCA" maxlength="32" placeholder="Miejscowość"><br>
+            <input type="text" name="ulicaOJCA" maxlength="52" placeholder="Ulica Nr. Domu"><br>
+            <input type="text" name="kod_pocztowyOJCA" maxlength="6" placeholder="Kod Pocztowy"> <br>
+            </div><br>
+            
+            <input name="Imie_op" placeholder="Imię Opiekuna Prawnego"><br>
+            <input name="Nazwisko_op" placeholder="Nazwisko Opiekuna Prawnego"><br>
+            <input type="tel" maxlength="9" name="nr_tel_op" placeholder="Numer Telfeonu"><br>
+            <input type="email" name="email_op" placeholder="Email"><br>
+            
+            <b id="adres3">Adres taki sam jak Kandydata</b> <input type="checkbox" id="OPche" name="OPche">
+            
+            <div id="adresOP">
+                <input type="text" name="miejsce_zOP" maxlength="32" placeholder="Miejscowość"><br>
+                <input type="text" name="ulicaOP" maxlength="52" placeholder="Ulica Nr. Domu"><br>
+                <input type="text" name="kod_pocztowyOP" maxlength="6" placeholder="Kod Pocztowy"> <br>
+                </div> <br>
+            <p>Szkoała Podstawowa do Której Uczęszczał Kandydat</p>
+            <div id="szkola">
+            </div>
+            <br><br>
+            <input type="submit" value="Wyślij formularz" id="submit">
+            <input type="reset" value="Wyczyść dane" id="reset">
+            </div>
+        </div>
+        </form>
+</body>
+</html>
