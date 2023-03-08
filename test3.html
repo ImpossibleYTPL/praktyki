@@ -64,7 +64,7 @@
         <input name="drugie_imie" placeholder="Drugie Imię"><br>
         <p id="data_uro">Data Urodzenia: </p><input type="date" name="Data_ur"> <br>
         <input name="miejsce_ur" placeholder="Mijesce Urodzenia"><br>
-        <input type="text" maxlength="11" name="PESEL" placeholder="PESEL"><br>
+        <input type="text" maxlength="11" name="PESEL" placeholder="PESEL" id="pesel"><br>
         <input type="tel" maxlength="9" name="nr_tel" placeholder="Numer Telefonu Kandydata"> <br>
         <input type="email" name="email" placeholder="Email"><br>
         <input type="hidden" name="data" id="data" value=""><br>
@@ -265,5 +265,58 @@
         </div>
     </div>
     </form>
+    <script>
+      //validate form
+      const pesel = document.querySelector("#pesel");
+      pesel.classList.add("test");
+      const mails = document.querySelectorAll("input[type=email]");
+      const dataur = document.querySelector("input[type=date]");
+      pesel.addEventListener("input", ()=>{validatePesel()});
+      console.log(mails);
+      mails.forEach((mails)=>{mails.addEventListener("input", (target) => {validateMail(target.target)});});
+      function validatePESEL(pesel) {
+        console.log(pesel);
+        var weights = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3];
+        var sum = 0;
+        
+        // Sprawdzenie długości numeru PESEL
+        if (pesel.length !== 11) {
+        return false;
+        }
+      
+        // Obliczenie sumy kontrolnej
+        for (var i = 0; i < 10; i++) {
+        sum += pesel[i] * weights[i];
+        }
+      
+        // Sprawdzenie poprawności sumy kontrolnej
+        var checksum = (10 - (sum % 10)) % 10;
+        if (checksum !== parseInt(pesel[10])) {
+          return false;
+        }
+        return true;
+      }
+    
+      function validateEmail(email) {
+          // Wzorzec do sprawdzania poprawności adresu e-mail
+          var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
+          // Testowanie wzorca na adresie e-mail
+        console.log(pattern.test(email));
+          return pattern.test(email);
+      }
+    
+      function validatePesel() {
+        console.log(validatePESEL(pesel.value));
+        if(!validatePESEL(pesel.value)) pesel.style.border = "red 1px solid"
+        else pesel.style.border = "";
+      }
+    
+      function validateMail(target){
+        console.log(target);
+        if(!validateEmail(target.value)) target.style.border = "red 1px solid"
+        else target.style.border = "";
+      }
+    </script>
 </body>
 </html>
