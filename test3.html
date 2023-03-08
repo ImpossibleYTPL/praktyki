@@ -10,6 +10,7 @@
         body {        
             background: rgb(25,0,167);
             background: linear-gradient(90deg, rgba(25,0,167,1) 0%, rgba(255,255,255,1) 50%, rgba(255,148,0,1) 100%);
+            font-family: Arial Narrow, sans-serif;	
         }
         .formularz, .formularz p{
             text-align: center;
@@ -40,7 +41,6 @@
         text-align: center;
         float: none;
         width: 250px;
-        padding-bottom: 40px;
         transition: background-color 1s;
         }
         #reset:hover, #submit:hover{
@@ -71,8 +71,9 @@
         <input type="email" name="email" placeholder="Email"><br>
         <input type="hidden" name="data" id="data" value=""><br>
         <input type="hidden" name="godz" id="godz" value="">
+        
         <p>Profil: </p>
-        <select name="profil">
+        <select name="profil" id="profil">
         <option></option>
         <option value="informatyk">Technik Informatyk</option>
         <option value="hotelarka">Technik Hotelarstwa</option>
@@ -88,7 +89,7 @@
         </select>
         
         <p>Drugi Profil: </p>
-        <select name="profil2">
+        <select name="profil2" id="profil2">
         <option value="brak2">Brak</option>
         <option value="informatyk2">Technik Informatyk</option>
         <option value="hotelarka2">Technik Hotelarstwa</option>
@@ -104,7 +105,7 @@
         </select>
         
         <p>Trzeci Profil: </p>
-        <select name="profil3">
+        <select name="profil3" id="profil3">
         <option value="brak3">Brak</option>
         <option value="informatyk3">Technik Informatyk</option>
         <option value="hotelarka3">Technik Hotelarstwa</option>
