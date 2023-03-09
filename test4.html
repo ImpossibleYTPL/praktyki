@@ -10,14 +10,14 @@
     <title>Formularz Rekrutacyjny PZS Kłanino</title>
 </head>
 <body>
-    <form>
+    <form class="g3 needs-validation" novalidate>
         <div class="container text-center">
             <div class="row justify-content-around gx-5">
-              <div class="col-sm-6 text-center">
+              <div class="col-sm-6 position-relative">
                 <h3>Dane kandydata</h3>
                 <h4>‎</h4>
-                <div class="form-floating mb-3">
-                    <input type="text" name="Nazwisko" id="floatingNazwisko" class="form-control" placeholder="Nazwisko">
+                <div class="form-floating mb-3 position-relative">
+                    <input type="text" name="Nazwisko" id="floatingNazwisko" class="form-control" placeholder="Nazwisko" required>
                     <label for="floatingNazwisko">Nazwisko</label>
                 </div>
                 <div class="form-floating mb-3">
@@ -93,6 +93,17 @@
                 <div class="form-floating mb-3">
                     <input type="text" name="PocztaZameldowanie" class="form-control" id="floatingInputZameldowaniePoczta" placeholder="Poczta">
                     <label for="floatingInputZameldoewaniePoczta">Poczta</label>
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Default file input example</label>
+                    <input class="form-control" type="file" id="formFile">
+                  </div>
+                  <div class="mb-3">
+                    <label for="formFile" class="form-label">Default file input example</label>
+                    <input class="form-control" type="file" id="formFile">
+                  </div>
+                <div class="d-grid gap-2 justify-content-end mb-3">
+                    <input class="btn btn-primary btn-lg" type="submit" value="Wyślij" />
                 </div>
               </div>
               <div class="col-sm-6">
