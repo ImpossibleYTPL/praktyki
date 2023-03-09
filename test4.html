@@ -152,6 +152,9 @@
                 <div class="d-grid gap-2 justify-content-end mb-3">
                     <input class="btn btn-primary btn-lg" type="submit" value="Wyślij" id="submit"/>
                 </div>
+                <div class="mb-3">
+                    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcH--ckAAAAAIS0cUrm8GBWzUCXOo6lvSDrSk4f"></script>
+                </div>
               </div>
               <div class="col-sm-6">
                 <h3 class="">Dane rodziców/opiekuna prawnego</h3>
@@ -290,7 +293,7 @@
         const matkaMiejscowosc = document.getElementById("floatingMiejscowoscMatki");
         const matkaUlica = document.getElementById("floatingUlicaMatki");
         const matkaKod = document.getElementById("floatingKodMatki");
-
+        
         const ojciecMiejscowosc = document.getElementById("floatingMiejscowoscOjca");
         const ojciecUlica = document.getElementById("floatingUlicaOjca");
         const ojciecKod = document.getElementById("floatingKodOjca");
@@ -298,7 +301,7 @@
         const opiekunMiejscowosc = document.getElementById("floatingMiejscowoscOpiekuna");
         const opiekunUlica = document.getElementById("floatingUlicaOpiekuna");
         const opiekunKod = document.getElementById("floatingKodOpiekuna");
-
+        
         console.log(adresMiejscowosc);
         switchElement.addEventListener('change', ()=>adres());
         switchElementMatki.addEventListener('change', ()=>adres());
@@ -385,7 +388,7 @@
             for (var i = 0; i < 10; i++) {
                 sum += pesel[i] * weights[i];
             }
-      
+            
             var checksum = (10 - (sum % 10)) % 10;
             if (checksum !== parseInt(pesel[10])) {
                 return false;
@@ -393,32 +396,32 @@
             return true;
         }
     
-      function validateEmail(email) {
-          // Wzorzec do sprawdzania poprawności adresu e-mail
+        function validateEmail(email) {
+            // Wzorzec do sprawdzania poprawności adresu e-mail
           var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       
           // Testowanie wzorca na adresie e-mail
           return pattern.test(email);
-      }
+        }
 
-      const mails = document.querySelectorAll("input[type=email]");
-      const pesel = document.getElementById("floatingPesel");
+        const mails = document.querySelectorAll("input[type=email]");
+        const pesel = document.getElementById("floatingPesel");
 
-      mails.forEach((mail)=>{
+        mails.forEach((mail)=>{
         mail.addEventListener("input", (target)=>{ValidateMail(target)})
       })
       pesel.addEventListener("input", ()=>{ValidatePesel()});
-
-    function ValidateMail(target) {
-        if(!validateEmail(target.target.value)) target.target.classList.add("is-invalid");
+      
+      function ValidateMail(target) {
+          if(!validateEmail(target.target.value)) target.target.classList.add("is-invalid");
         else target.target.classList.remove("is-invalid");
     }
-
+    
     function ValidatePesel() {
         if(!validatePESEL(pesel.value)) pesel.classList.add("is-invalid");
         else pesel.classList.remove("is-invalid");
     }
-
+    
     if(error) document.getElementById("submit").setAttribute("disabled", "");
     else document.getElementById("submit").removeAttribute("disabled");
     </script>
@@ -443,25 +446,32 @@
                 ok += "</select><label for='wyborSzkola'>Szkoła do której uczęszczał kandydat</label>";
                 document.getElementById("szkola").innerHTML = ok;
         });
-    </script>
+        </script>
+        <script>
+            grecaptcha.enterprise.ready(function() {
+                grecaptcha.enterprise.execute('6LcH--ckAAAAAIS0cUrm8GBWzUCXOo6lvSDrSk4f', {action: 'login'}).then(function(token) {
+                    console.log("ok");
+                });
+            });
+        </script>
 <footer class="bg-dark text-center text-white">
     <div class="container p-4">
       <section class="mb-4">
         <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
           ><i class="fab fa-facebook-f"></i
-        ></a>
+            ></a>
         <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
           ><i class="fab fa-twitter"></i
         ></a>
         <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
           ><i class="fab fa-google"></i
-        ></a>
+            ></a>
         <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
           ><i class="fab fa-instagram"></i
-        ></a>
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-linkedin-in"></i
-        ></a>
+            ></a>
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-linkedin-in"></i
+                ></a>
         <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
           ><i class="fab fa-github"></i
         ></a>
