@@ -11,137 +11,139 @@
 </head>
 <body>
     <form>
-        <div class="formularz">
-            <h1>FORMULARZ REKRUTACYJNY PZS KLANINO</h1>
-            <br>
-            <p>Dane Osobowe:</p>
-            <input name="Nazwisko" placeholder="Nazwisko"><br>
-            <input name="Imie" placeholder="Imię"><br>
-            <input name="drugie_imie" placeholder="Drugie Imię"><br>
-            <p id="data_uro">Data Urodzenia: </p><input type="date" name="Data_ur"> <br>
-            <input name="miejsce_ur" placeholder="Mijesce Urodzenia"><br>
-            <input type="text" maxlength="11" name="PESEL" placeholder="PESEL" id="pesel"><br>
-            <input type="tel" maxlength="9" name="nr_tel" placeholder="Numer Telefonu Kandydata"> <br>
-            <input type="email" name="email" placeholder="Email"><br>
-            <input type="hidden" name="data" id="data" value=""><br>
-            <input type="hidden" name="godz" id="godz" value="">
-            
-            <p>Profil: </p>
-            <select name="profil" id="profil">
-            <option></option>
-            <option value="informatyk">Technik Informatyk</option>
-            <option value="hotelarka">Technik Hotelarstwa</option>
-            <option value="org_tur">Technik Organizacji Turystyki</option>
-            <option value="ziug">Technik Żywienia i Usług Gastronomicznych</option>
-            <option value="grafik">Tehcnik Grafiki i Poligrafii Cyfrowej</option>
-            <option value="kucharz">Kucharz</option>
-            <option value="monter">Monter Kadłubów i Jednostek Pływających</option>
-            <option value="mechanik">Mechanik</option>
-            <option value="wielo_zaw">Klasa Wielozawodowa</option>
-            <option value="mundur">Liceum Mundurowe</option>
-            <option value="dietetyk">Liceum profil dietetyka i aktywność fizyczna</option>
-            </select>
-            
-            <p>Drugi Profil: </p>
-            <select name="profil2" id="profil2">
-            <option value="brak2">Brak</option>
-            <option value="informatyk2">Technik Informatyk</option>
-            <option value="hotelarka2">Technik Hotelarstwa</option>
-            <option value="org_tur2">Technik Organizacji Turystyki</option>
-            <option value="ziug2">Technik Żywienia i Usług Gastronomicznych</option>
-            <option value="grafik2">Tehcnik Grafiki i Poligrafii Cyfrowej</option>
-            <option value="kucharz2">Kucharz</option>
-            <option value="monter2">Monter Kadłubów i Jednostek Pływających</option>
-            <option value="mechanik2">Mechanik</option>
-            <option value="wielo_zaw2">Klasa Wielozawodowa</option>
-            <option value="mundur2">Liceum Mundurowe</option>
-            <option value="dietetyk2">Liceum profil dietetyka i aktywność fizyczna</option>
-            </select>
-            
-            <p>Trzeci Profil: </p>
-            <select name="profil3" id="profil3">
-            <option value="brak3">Brak</option>
-            <option value="informatyk3">Technik Informatyk</option>
-            <option value="hotelarka3">Technik Hotelarstwa</option>
-            <option value="org_tur3">Technik Organizacji Turystyki</option>
-            <option value="ziug3">Technik Żywienia i Usług Gastronomicznych</option>
-            <option value="grafik3">Tehcnik Grafiki i Poligrafii Cyfrowej</option>
-            <option value="kucharz3">Kucharz</option>
-            <option value="monter3">Monter Kadłubów i Jednostek Pływających</option>
-            <option value="mechanik3">Mechanik</option>
-            <option value="wielo_zaw3">Klasa Wielozawodowa</option>
-            <option value="mundur3">Liceum Mundurowe</option>
-            <option value="dietetyk3">Liceum profil dietetyka i aktywność fizyczna</option>
-            </select> <br> <br>
-            
-            
-            <p>Adres Zamieszkania: </p>
-            <input type="text" name="miejsce_zam" maxlength="32" placeholder="Miejscowość"><br>
-            <input type="text" name="ulica" maxlength="52" placeholder="Ulica Nr. Domu"><br>
-            <input type="text" name="kod_pocztowy" maxlength="6" placeholder="Kod Pocztowy"> <br>
-            <input type="text" name="gmina" placeholder="Gmina"><br>
-            <input type="text" name="poczta" placeholder="Poczta"><br>
-            
-        <br>
-            <p>Adres Zameldowania: </p>
-        
-                <b id="adres">Adres Zameldowania taki sam jak zamieszkania</b><input type="checkbox" id="zamche" name="zamche">
-                
-                <div id="zameldowanie">
-            <input type="text" name="miejsce_zamel" maxlength="32" placeholder="Miejscowość"><br>
-            <input type="text" name="ulica_zamel" maxlength="52" placeholder="Ulica Nr. Domu"><br>
-            <input type="text" name="kod_pocztowy_zamel" maxlength="6" placeholder="Kod Pocztowy"> <br>
-            <input type="text" name="gmina_zamel" placeholder="Gmina"><br>
-            <input type="text" name="poczta_zamel" placeholder="Poczta"> <br>
+        <div class="container text-center">
+            <div class="row align-items-start">
+              <div class="col-sm-4 text-center">
+                <h2>Dane kandydata</h2>
+                <div class="form-floating mb-3">
+                    <input type="text" name="Nazwisko" id="floatingNazwisko" class="form-control" placeholder="Nazwisko">
+                    <label for="floatingNazwisko">Nazwisko</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="Imie" id="floatingImie" class="form-control" placeholder="Imie">
+                    <label for="floatingImie">Imie</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="DrugieImie" id="floatingNazwisko" class="form-control" placeholder="Drugie Imie">
+                    <label for="floatingNazwisko sm">Drugie Imie</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="date" name="DataUrodzenia" id="floatingDataUrodzenia" class="form-control" placeholder="Data Urodzenia">
+                    <label for="floatingDataUrodzenia">Data Urodzenia</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="MiejsceUrodzenia" id="floatingMiejsceUrodzenia" class="form-control" placeholder="Miejsce Urodzenia">
+                    <label for="floatingMiejsceUrodzenia">Miejsce Urodzenia</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="Pesel" id="floatingPesel" class="form-control" placeholder="Pesel">
+                    <label for="floatingPesel">Pesel</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="NumerTelefonu" id="floatingNumerTelefonu" class="form-control" placeholder="Numer telefonu">
+                    <label for="floatingNumerTelefonu">Numer telefonu</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="Mail" id="floatingMail" class="form-control" placeholder="E-mial">
+                    <label for="floatingMail">E-mail</label>
+                </div>
+                <h4>Adres zamieszkania</h4>
+                <div class="form-floating mb-3">
+                    <input type="text" name="Miejscowosc" class="form-control" id="floatingInputAdresMiejscowosc" placeholder="Miejscowość">
+                    <label for="floatingInputAdresMiejscowosc">Miejscowość</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="UlicaNrDomu" class="form-control" id="floatingInputAdresUlica" placeholder="Ulica Nr. Domu">
+                    <label for="floatingInputAdresUlica">Ulica Nr. Domu</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="kodPocztowy" class="form-control" id="floatingInputAdresKod" placeholder="Kod pocztowy">
+                    <label for="floatingInputAdresKod">Kod pocztowy</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="Gmina" class="form-control" id="floatingInputAdresGmina" placeholder="Gmina">
+                    <label for="floatingInputAdresGmina">Gmina</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="Poczta" class="form-control" id="floatingInputAdresPoczta" placeholder="Poczta">
+                    <label for="floatingInputAdresPoczta">Poczta</label>
+                </div>
+                <h4>Adres zameldowania</h4>
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefaultKandydat">
+                    <label class="form-check-label" for="flexSwitchCheckDefaultKandydat">Adres zameldowania taki sam jak zamieszkania</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="MiejscowoscZameldowanie" class="form-control" id="floatingInputZameldowanieMiejscowosc" placeholder="Miejscowość">
+                    <label for="floatingInputZameldoewanieMiejscowosc">Miejscowość</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="UlicaNrDomuZameldowanie" class="form-control" id="floatingInputZameldowanieUlica" placeholder="Ulica Nr. Domu">
+                    <label for="floatingInputZameldoewanieUlica">Ulica Nr. Domu</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="kodPocztowyZameldowanie" class="form-control" id="floatingInputZameldowanieKod" placeholder="Kod pocztowy">
+                    <label for="floatingInputZameldoewanieKod">Kod pocztowy</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="GminaZameldowanie" class="form-control" id="floatingInputZameldowanieGmina" placeholder="Gmina">
+                    <label for="floatingInputZameldoewanieGmina">Gmina</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="PocztaZameldowanie" class="form-control" id="floatingInputZameldowaniePoczta" placeholder="Poczta">
+                    <label for="floatingInputZameldoewaniePoczta">Poczta</label>
+                </div>
+              </div>
+              <div class="col">
+                <h2>Dane rodziców/opiekuna prawnego</h2>
+              </div>
             </div>
-            <br>
-            <p>Dane Osobowe Rodziców/Opiekunów Prawnych: </p>
-            <input name="Imie_matki" placeholder="Imię Matki"><br>
-            <input name="Nazwisko_matki" placeholder="Nazwisko Matki"><br>
-            <input type="tel" maxlength="9" name="nr_tel_matki" placeholder="Numer Telefonu"><br>
-            <input type="email" name="email_matki" placeholder="Email"><br>
+          </div>
+    </form>
+    <script>
+        const switchElement = document.getElementById("flexSwitchCheckDefaultKandydat");
+        const adresMiejscowosc = document.getElementById("floatingInputAdresMiejscowosc");
+        const adresUlica = document.getElementById("floatingInputAdresUlica");
+        const adresKod = document.getElementById("floatingInputAdresKod");
+        const adresGmina = document.getElementById("floatingInputAdresGmina");
+        const adresPoczta = document.getElementById("floatingInputAdresPoczta");
         
-             <b id="adres1">Adres taki sam jak Kandydata</b> <input type="checkbox" id="MATche" name="MATche" >
+        const zameldowanieMiejscowosc = document.getElementById("floatingInputZameldowanieMiejscowosc");
+        const zameldowanieUlica = document.getElementById("floatingInputZameldowanieUlica");
+        const zameldowanieKod = document.getElementById("floatingInputZameldowanieKod");
+        const zameldowanieGmina = document.getElementById("floatingInputZameldowanieGmina");
+        const zameldowaniePoczta = document.getElementById("floatingInputZameldowaniePoczta");
+
+        console.log(adresMiejscowosc);
+        switchElement.addEventListener('change', ()=>adresZameldowania());
+        adresMiejscowosc.addEventListener('input', ()=>adresZameldowania());
+        adresUlica.addEventListener("input", ()=>adresZameldowania());
+        adresKod.addEventListener("input", ()=>adresZameldowania());
+        adresGmina.addEventListener("input", ()=>adresZameldowania());
+        adresPoczta.addEventListener("input", ()=>adresZameldowania());
+
+        function adresZameldowania() {
+            console.log(document.getElementById("flexSwitchCheckDefaultKandydat").checked);
+            if(document.getElementById("flexSwitchCheckDefaultKandydat").checked) {
+                zameldowanieMiejscowosc.setAttribute("disabled", "");
+                zameldowanieUlica.setAttribute("disabled", "");
+                zameldowanieKod.setAttribute("disabled", "");
+                zameldowanieGmina.setAttribute("disabled", "");
+                zameldowaniePoczta.setAttribute("disabled", "");
         
-            <div id="adresMAT">
-            <input type="text" name="miejsce_zamMAT" maxlength="32" placeholder="Miejscowość"><br>
-            <input type="text" name="ulicaMAT" maxlength="52" placeholder="Ulica Nr. Domu"><br>
-            <input type="text" name="kod_pocztowyMAT" maxlength="6" placeholder="Kod Pocztowy"> <br>
-            </div>
-            <br>
-            <input name="Imie_ojca" placeholder="Imię Ojca"><br>
-            <input name="Nazwisko_ojca" placeholder="Nazwisko Ojca"><br>
-            <input type="tel" maxlength="9" name="nr_tel_ojca" placeholder=" Numer Telefonu"><br>
-            <input type="email" name="email_ojca" placeholder="Email"><br>
-        
-            <b id="adres2">Adres taki sam jak Kandydata</b> <input type="checkbox" id="OJCAche" name="OJCAche">
-            
-            <div id="adresOJCA">
-            <input type="text" name="miejsce_zOJCA" maxlength="32" placeholder="Miejscowość"><br>
-            <input type="text" name="ulicaOJCA" maxlength="52" placeholder="Ulica Nr. Domu"><br>
-            <input type="text" name="kod_pocztowyOJCA" maxlength="6" placeholder="Kod Pocztowy"> <br>
-            </div><br>
-            
-            <input name="Imie_op" placeholder="Imię Opiekuna Prawnego"><br>
-            <input name="Nazwisko_op" placeholder="Nazwisko Opiekuna Prawnego"><br>
-            <input type="tel" maxlength="9" name="nr_tel_op" placeholder="Numer Telfeonu"><br>
-            <input type="email" name="email_op" placeholder="Email"><br>
-            
-            <b id="adres3">Adres taki sam jak Kandydata</b> <input type="checkbox" id="OPche" name="OPche">
-            
-            <div id="adresOP">
-                <input type="text" name="miejsce_zOP" maxlength="32" placeholder="Miejscowość"><br>
-                <input type="text" name="ulicaOP" maxlength="52" placeholder="Ulica Nr. Domu"><br>
-                <input type="text" name="kod_pocztowyOP" maxlength="6" placeholder="Kod Pocztowy"> <br>
-                </div> <br>
-            <p>Szkoała Podstawowa do Której Uczęszczał Kandydat</p>
-            <div id="szkola">
-            </div>
-            <br><br>
-            <input type="submit" value="Wyślij formularz" id="submit">
-            <input type="reset" value="Wyczyść dane" id="reset">
-            </div>
-        </div>
-        </form>
+                zameldowanieMiejscowosc.value = adresMiejscowosc.value;
+                zameldowanieUlica.value = adresUlica.value;
+                zameldowanieKod.value = adresKod.value;
+                zameldowanieGmina.value = adresGmina.value;
+                zameldowaniePoczta.value = adresPoczta.value;
+            } else {
+                zameldowanieMiejscowosc.removeAttribute("disabled");
+                zameldowanieUlica.removeAttribute("disabled");
+                zameldowanieKod.removeAttribute("disabled");
+                zameldowanieGmina.removeAttribute("disabled");
+                zameldowaniePoczta.removeAttribute("disabled");
+            }
+        }
+        </script>
 </body>
 </html>
