@@ -230,44 +230,44 @@
         <div id="szkola">
          
         </div>
-        
-        <script>
-            var ok = "<select>";
-            fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf-8' }})
-            .then(response => response.arrayBuffer())
-            .then(buffer => {
-        const decoder = new TextDecoder('utf-8');
-        const text = decoder.decode(buffer);
-        const rows = text.trim().split('\n');
-        const table = [];
-        for (let i = 0; i < rows.length; i++) {
-          const columns = rows[i].split(';'); 
-          table.push(columns);
-        }
-        for (let i = 0; i < rows.length; i++) {
-        const row = table[i]; 
-        if(i == 0) continue;
-        ok += ("<option>" + row[4].substring(1,row[4].length-1) + " " + row[13].substring(1, row[13].length-1) +  " " + row[15].substring(1, row[15].length-1) + " " + row[16].substring(1, row[16].length-1) + "</option>");
-        }
-            ok += "</select>";
-            document.getElementById("szkola").innerHTML = ok;
-        });
-        </script>
-        <script>
-            const date = new Date();
-        
-            var data = date.getFullYear() + "-" + parseFloat(date.getMonth() + 1) + "-" + date.getDate();
-            var clock = date.getHours() + ":" + ('0' + date.getMinutes()).slice(-2) + ":" + ('0' + date.getSeconds()).slice(-2);
-        
-            document.getElementById("data").value = data;
-            document.getElementById("godz").value = clock;
-        </script>
+      
         <br><br>
         <input type="submit" value="Wyślij formularz" id="submit">
         <input type="reset" value="Wyczyść dane" id="reset">
         </div>
     </div>
     </form>
+    <script>
+      var ok = "<select>";
+      fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf-8' }})
+      .then(response => response.arrayBuffer())
+      .then(buffer => {
+  const decoder = new TextDecoder('utf-8');
+  const text = decoder.decode(buffer);
+  const rows = text.trim().split('\n');
+  const table = [];
+  for (let i = 0; i < rows.length; i++) {
+    const columns = rows[i].split(';'); 
+    table.push(columns);
+  }
+  for (let i = 0; i < rows.length; i++) {
+  const row = table[i]; 
+  if(i == 0) continue;
+  ok += ("<option>" + row[4].substring(1,row[4].length-1) + " " + row[13].substring(1, row[13].length-1) +  " " + row[15].substring(1, row[15].length-1) + " " + row[16].substring(1, row[16].length-1) + "</option>");
+  }
+      ok += "</select>";
+      document.getElementById("szkola").innerHTML = ok;
+  });
+  </script>
+  <script>
+      const date = new Date();
+  
+      var data = date.getFullYear() + "-" + parseFloat(date.getMonth() + 1) + "-" + date.getDate();
+      var clock = date.getHours() + ":" + ('0' + date.getMinutes()).slice(-2) + ":" + ('0' + date.getSeconds()).slice(-2);
+  
+      document.getElementById("data").value = data;
+      document.getElementById("godz").value = clock;
+  </script>
     <script>
       //validate form
       const pesel = document.querySelector("#pesel");
