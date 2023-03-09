@@ -12,9 +12,10 @@
 <body>
     <form>
         <div class="container text-center">
-            <div class="row align-items-start">
-              <div class="col-sm-4 text-center">
-                <h2>Dane kandydata</h2>
+            <div class="row justify-content-around gx-5">
+              <div class="col-sm-6 text-center">
+                <h3>Dane kandydata</h3>
+                <h4>‎</h4>
                 <div class="form-floating mb-3">
                     <input type="text" name="Nazwisko" id="floatingNazwisko" class="form-control" placeholder="Nazwisko">
                     <label for="floatingNazwisko">Nazwisko</label>
@@ -94,14 +95,117 @@
                     <label for="floatingInputZameldoewaniePoczta">Poczta</label>
                 </div>
               </div>
-              <div class="col">
-                <h2>Dane rodziców/opiekuna prawnego</h2>
+              <div class="col-sm-6">
+                <h3 class="">Dane rodziców/opiekuna prawnego</h3>
+                <h4>Dane matki</h4>
+                <div class="form-floating mb-3">
+                    <input type="text" name="NazwiskoMatki" id="floatingNazwisko" class="form-control" placeholder="Nazwisko">
+                    <label for="floatingNazwisko">Nazwisko</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="ImieMatki" id="floatingImie" class="form-control" placeholder="Imię">
+                    <label for="floatingImie">Imię</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="NumerTelefonuMatki" id="floatingNumerTelefonu" class="form-control" placeholder="Numer telefonu">
+                    <label for="floatingNumerTelefonu">Nuemr telefonu</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="MailMatki" id="floatingMail" class="form-control" placeholder="E-mail">
+                    <label for="floatingMail">E-mail</label>
+                </div>
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefaultMatka">
+                    <label class="form-check-label" for="flexSwitchCheckDefaultMatka">Adres zamieszkania taki jak kandydata</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="MiejscowoscMatki" id="floatingMiejscowoscMatki" class="form-control" placeholder="Miejscowosc">
+                    <label for="floatingMiejscowoscMatki">Miejscowosc</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="UlicaMatki" id="floatingUlicaMatki" class="form-control" placeholder="Ulica Nr. Domu">
+                    <label for="floatingUlicaMatki">Ulica Nr. Domu</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="KodMatki" id="floatingKodMatki" class="form-control" placeholder="Kod Pocztowy">
+                    <label for="floatingKodMatki">Kod pocztowy</label>
+                </div>
+                <h4>Dane Ojca</h4>
+                <div class="form-floating mb-3">
+                    <input type="text" name="NazwiskoOjca" id="floatingNazwisko" class="form-control" placeholder="Nazwisko">
+                    <label for="floatingNazwisko">Nazwisko</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="ImieOjca" id="floatingImie" class="form-control" placeholder="Imię">
+                    <label for="floatingImie">Imię</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="NumerTelefonuOjca" id="floatingNumerTelefonu" class="form-control" placeholder="Numer telefonu">
+                    <label for="floatingNumerTelefonu">Nuemr telefonu</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="MailOjca" id="floatingMail" class="form-control" placeholder="E-mail">
+                    <label for="floatingMail">E-mail</label>
+                </div>
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefaultOjca">
+                    <label class="form-check-label" for="flexSwitchCheckDefaultMatka">Adres zamieszkania taki jak kandydata</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="MiejscowoscOjca" id="floatingMiejscowoscOjca" class="form-control" placeholder="Miejscowosc">
+                    <label for="floatingMiejscowoscOjca">Miejscowosc</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="UlicaOjca" id="floatingUlicaOjca" class="form-control" placeholder="Ulica Nr. Domu">
+                    <label for="floatingUlicaOjca">Ulica Nr. Domu</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="KodOjca" id="floatingKodOjca" class="form-control" placeholder="Kod Pocztowy">
+                    <label for="floatingKodOjca">Kod pocztowy</label>
+                </div>
+                <h4>Dane opiekuna prawnego</h4>
+                <div class="form-floating mb-3">
+                    <input type="text" name="NazwiskoOpiekuna" id="floatingNazwisko" class="form-control" placeholder="Nazwisko">
+                    <label for="floatingNazwisko">Nazwisko</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="ImieOpiekuna" id="floatingImie" class="form-control" placeholder="Imię">
+                    <label for="floatingImie">Imię</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="NumerTelefonuOpiekuna" id="floatingNumerTelefonu" class="form-control" placeholder="Numer telefonu">
+                    <label for="floatingNumerTelefonu">Nuemr telefonu</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="MailOpiekuna" id="floatingMail" class="form-control" placeholder="E-mail">
+                    <label for="floatingMail">E-mail</label>
+                </div>
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefaultOpiekuna">
+                    <label class="form-check-label" for="flexSwitchCheckDefaultMatka">Adres zamieszkania taki jak kandydata</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="MiejscowoscOpiekuna" id="floatingMiejscowoscOpiekuna" class="form-control" placeholder="Miejscowosc">
+                    <label for="floatingMiejscowoscMatki">Miejscowosc</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="UlicaOpiekuna" id="floatingUlicaOpiekuna" class="form-control" placeholder="Ulica Nr. Domu">
+                    <label for="floatingUlicaMatki">Ulica Nr. Domu</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="KodOpiekuna" id="floatingKodOpiekuna" class="form-control" placeholder="Kod Pocztowy">
+                    <label for="floatingKodOpiekuna">Kod pocztowy</label>
+                </div>
               </div>
             </div>
           </div>
     </form>
     <script>
         const switchElement = document.getElementById("flexSwitchCheckDefaultKandydat");
+        const switchElementMatki = document.getElementById("flexSwitchCheckDefaultMatka");
+        const switchElementOjca = document.getElementById("flexSwitchCheckDefaultOjca");
+        const switchElementOpiekuna = document.getElementById("flexSwitchCheckDefaultOpiekuna");
+
         const adresMiejscowosc = document.getElementById("floatingInputAdresMiejscowosc");
         const adresUlica = document.getElementById("floatingInputAdresUlica");
         const adresKod = document.getElementById("floatingInputAdresKod");
@@ -114,17 +218,32 @@
         const zameldowanieGmina = document.getElementById("floatingInputZameldowanieGmina");
         const zameldowaniePoczta = document.getElementById("floatingInputZameldowaniePoczta");
 
-        console.log(adresMiejscowosc);
-        switchElement.addEventListener('change', ()=>adresZameldowania());
-        adresMiejscowosc.addEventListener('input', ()=>adresZameldowania());
-        adresUlica.addEventListener("input", ()=>adresZameldowania());
-        adresKod.addEventListener("input", ()=>adresZameldowania());
-        adresGmina.addEventListener("input", ()=>adresZameldowania());
-        adresPoczta.addEventListener("input", ()=>adresZameldowania());
+        const matkaMiejscowosc = document.getElementById("floatingMiejscowoscMatki");
+        const matkaUlica = document.getElementById("floatingUlicaMatki");
+        const matkaKod = document.getElementById("floatingKodMatki");
 
-        function adresZameldowania() {
-            console.log(document.getElementById("flexSwitchCheckDefaultKandydat").checked);
-            if(document.getElementById("flexSwitchCheckDefaultKandydat").checked) {
+        const ojciecMiejscowosc = document.getElementById("floatingMiejscowoscOjca");
+        const ojciecUlica = document.getElementById("floatingUlicaOjca");
+        const ojciecKod = document.getElementById("floatingKodOjca");
+
+        const opiekunMiejscowosc = document.getElementById("floatingMiejscowoscOpiekuna");
+        const opiekunUlica = document.getElementById("floatingUlicaOpiekuna");
+        const opiekunKod = document.getElementById("floatingKodOpiekuna");
+
+        console.log(adresMiejscowosc);
+        switchElement.addEventListener('change', ()=>adres());
+        switchElementMatki.addEventListener('change', ()=>adres());
+        switchElementOjca.addEventListener('change', ()=>adres());
+        switchElementOpiekuna.addEventListener('change', ()=>adres());
+
+        adresMiejscowosc.addEventListener('input', ()=>adres());
+        adresUlica.addEventListener("input", ()=>adres());
+        adresKod.addEventListener("input", ()=>adres());
+        adresGmina.addEventListener("input", ()=>adres());
+        adresPoczta.addEventListener("input", ()=>adres());
+
+        function adres() {
+            if(switchElement.checked) {
                 zameldowanieMiejscowosc.setAttribute("disabled", "");
                 zameldowanieUlica.setAttribute("disabled", "");
                 zameldowanieKod.setAttribute("disabled", "");
@@ -143,7 +262,50 @@
                 zameldowanieGmina.removeAttribute("disabled");
                 zameldowaniePoczta.removeAttribute("disabled");
             }
+
+            if(switchElementMatki.checked) {
+                matkaMiejscowosc.setAttribute("disabled", "");
+                matkaUlica.setAttribute("disabled", "");
+                matkaKod.setAttribute("disabled", "");
+
+                matkaMiejscowosc.value = adresMiejscowosc.value;
+                matkaUlica.value = adresUlica.value;
+                matkaKod.value = adresKod.value;
+            } else {
+                matkaMiejscowosc.removeAttribute("disabled");
+                matkaUlica.removeAttribute("disabled");
+                matkaKod.removeAttribute("disabled");
+            }
+
+            if(switchElementOjca.checked) {
+                ojciecMiejscowosc.setAttribute("disabled", "");
+                ojciecUlica.setAttribute("disabled", "");
+                ojciecKod.setAttribute("disabled", "");
+
+                ojciecMiejscowosc.value = adresMiejscowosc.value;
+                ojciecUlica.value = adresUlica.value;
+                ojciecKod.value = adresKod.value;
+            } else {
+                ojciecMiejscowosc.removeAttribute("disabled");
+                ojciecUlica.removeAttribute("disabled");
+                ojciecKod.removeAttribute("disabled");
+            }
+
+            if(switchElementOpiekuna.checked) {
+                opiekunMiejscowosc.setAttribute("disabled", "");
+                opiekunUlica.setAttribute("disabled", "");
+                opiekunKod.setAttribute("disabled", "");
+
+                opiekunMiejscowosc.value = adresMiejscowosc.value;
+                opiekunUlica.value = adresUlica.value;
+                opiekunKod.value = adresKod.value;
+            } else {
+                opiekunMiejscowosc.removeAttribute("disabled");
+                opiekunUlica.removeAttribute("disabled");
+                opiekunKod.removeAttribute("disabled");
+            }
         }
+
         </script>
 </body>
 </html>
