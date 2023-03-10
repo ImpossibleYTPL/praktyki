@@ -286,6 +286,30 @@
         const switchElementOjca = document.getElementById("flexSwitchCheckDefaultOjca");
         const switchElementOpiekuna = document.getElementById("flexSwitchCheckDefaultOpiekuna");
 
+        const nazwisko = document.querySelector("input[name=Nazwisko]");
+        const imie = document.querySelector("input[name=Imie]");
+        const drugieImie = document.querySelector("input[name=DrugieImie]");
+        const dataUrodzenia = document.querySelector("input[name=DataUrodzenia]");
+        const MiejsceUrodzenia = document.querySelector("input[name=MiejsceUrodzenia]");
+        const pesel = document.querySelector("input[name=Pesel]");
+        const numerTelefonu = document.querySelector("input[name=NumerTelefonu]");
+        const mail = document.querySelector("input[name=Mail]");
+
+        const nazwiskoMatki = document.querySelector("input[name=NazwiskoMatki]");
+        const imieMatki = document.querySelector("input[name=ImieMatki]");
+        const numerTelefonuMatki = document.querySelector("input[name=NumerTelefonuMatki]");
+        const mailMatki = document.querySelector("input[name=MailMatki]");
+
+        const nazwiskoOjca = document.querySelector("input[name=NazwiskoOjca]");
+        const imieOjca = document.querySelector("input[name=ImieOjca]");
+        const numerTelefonuOjca = document.querySelector("input[name=NumerTelefonuOjca]");
+        const mailOjca = document.querySelector("input[name=MailOjca]");
+
+        const nazwiskoOpiekuna = document.querySelector("input[name=NazwiskoOpiekuna]");
+        const imieOpiekuna = document.querySelector("input[name=ImieOpiekuna]");
+        const numerTelefonuOpiekuna = document.querySelector("input[name=NumerTelefonuOpiekuna]");
+        const mailOpiekuna = document.querySelector("input[name=MailOpiekuna]");
+
         const adresMiejscowosc = document.getElementById("floatingInputAdresMiejscowosc");
         const adresUlica = document.getElementById("floatingInputAdresUlica");
         const adresKod = document.getElementById("floatingInputAdresKod");
@@ -413,7 +437,6 @@
         }
 
         const mails = document.querySelectorAll("input[type=email]");
-        const pesel = document.getElementById("floatingPesel");
 
         mails.forEach((mail)=>{
         mail.addEventListener("input", (target)=>{ValidateMail(target)})
