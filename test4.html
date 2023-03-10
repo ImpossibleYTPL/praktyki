@@ -51,7 +51,7 @@
     <form class="g3 needs-validation" novalidate style="margin-top: 20px; margin-bottom: 20px;">
         <div class="container">
             <div class="row justify-content-around gx-5">
-              <div class="col-sm-6 position-relative border border-primary">
+              <div class="col-sm-6 position-relative border">
                 <h3>Dane kandydata</h3>
                 <h4>‎</h4>
                 <div class="form-floating mb-3 position-relative">
@@ -156,7 +156,7 @@
                     <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcH--ckAAAAAIS0cUrm8GBWzUCXOo6lvSDrSk4f"></script>
                 </div>
               </div>
-              <div class="col-sm-6 border border-primary">
+              <div class="col-sm-6 border">
                 <h3 class="">Dane rodziców/opiekuna prawnego</h3>
                 <h4>Dane matki</h4>
                 <div class="form-floating mb-3">
@@ -265,13 +265,21 @@
                 <div class="form-floating mb-3">
                     <input type="text" name="KodOpiekuna" id="floatingKodOpiekuna" class="form-control" placeholder="Kod Pocztowy">
                     <label for="floatingKodOpiekuna">Kod pocztowy</label>
-                </div>
+                  </div>
               </div>
             </div>
           </div>
-    </form>
-    <script>
+          <input type="hidden" name="data">
+          <input type="hidden" name="godzina">
+        </form>
+        <script>
         var error = true;
+        
+        const hiddens = document.querySelectorAll("input[type=hidden]");
+        const data = new Date();
+
+        hiddens[0].value = data.getDate() + "-" + (data.getMonth() + 1) + "-" + data.getFullYear();
+        hiddens[1].value = data.getHours() + ":" + data.getMinutes() + ":" + data.getSeconds();
 
         const switchElement = document.getElementById("flexSwitchCheckDefaultKandydat");
         const switchElementMatki = document.getElementById("flexSwitchCheckDefaultMatka");
@@ -446,6 +454,8 @@
                 ok += "</select><label for='wyborSzkola'>Szkoła do której uczęszczał kandydat</label>";
                 document.getElementById("szkola").innerHTML = ok;
         });
+
+
         </script>
         <script>
             grecaptcha.enterprise.ready(function() {
