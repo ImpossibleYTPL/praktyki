@@ -27,7 +27,111 @@
           </ul>
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="kandydat" role="tabpanel" aria-labelledby="home-tab">
-
+                <div class="container">
+                    <div class="row justify-content-around gx-5">
+                      <div class="col-sm-6 position-relative border">
+                        <h3>Dane kandydata</h3>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="text" name="Nazwisko" id="floatingNazwisko" class="form-control" placeholder="Nazwisko" required>
+                            <label for="floatingNazwisko">Nazwisko</label>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="text" name="Imie" id="floatingImie" class="form-control" placeholder="Imie">
+                            <label for="floatingImie">Imie</label>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="text" name="DrugieImie" id="floatingNazwisko" class="form-control" placeholder="Drugie Imie">
+                            <label for="floatingNazwisko sm">Drugie Imie</label>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="date" name="DataUrodzenia" id="floatingDataUrodzenia" class="form-control" placeholder="Data Urodzenia">
+                            <label for="floatingDataUrodzenia">Data Urodzenia</label>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="text" name="MiejsceUrodzenia" id="floatingMiejsceUrodzenia" class="form-control" placeholder="Miejsce Urodzenia">
+                            <label for="floatingMiejsceUrodzenia">Miejsce Urodzenia</label>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="text" name="Pesel" id="floatingPesel" class="form-control" placeholder="Pesel">
+                            <label for="floatingPesel">Pesel</label>
+                            <div class="invalid-feedback">
+                                Niepoprowany pesel
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="text" name="NumerTelefonu" id="floatingNumerTelefonu" class="form-control" placeholder="Numer telefonu">
+                            <label for="floatingNumerTelefonu">Numer telefonu</label>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="email" name="Mail" id="floatingMail" class="form-control" placeholder="E-mial">
+                            <label for="floatingMail">E-mail</label>
+                            <div class="invalid-feedback">
+                                Niepoprowany adres e-mail
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Default file input example</label>
+                            <input class="form-control" type="file" id="formFile">
+                          </div>
+                          <div class="mb-3">
+                            <label for="formFile" class="form-label">Default file input example</label>
+                            <input class="form-control" type="file" id="formFile">
+                          </div>
+                        
+                        <div id="szkola" class="mb-3 form-floating">
+                          
+                        </div>
+                        </div>
+                        <div class="col-sm-6 position-relative border">
+                        <h4>Adres zamieszkania</h4>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="text" name="Miejscowosc" class="form-control" id="floatingInputAdresMiejscowosc" placeholder="Miejscowość">
+                            <label for="floatingInputAdresMiejscowosc">Miejscowość</label>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="text" name="UlicaNrDomu" class="form-control" id="floatingInputAdresUlica" placeholder="Ulica Nr. Domu">
+                            <label for="floatingInputAdresUlica">Ulica Nr. Domu</label>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="text" name="kodPocztowy" class="form-control" id="floatingInputAdresKod" placeholder="Kod pocztowy">
+                            <label for="floatingInputAdresKod">Kod pocztowy</label>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="text" name="Gmina" class="form-control" id="floatingInputAdresGmina" placeholder="Gmina">
+                            <label for="floatingInputAdresGmina">Gmina</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="Poczta" class="form-control" id="floatingInputAdresPoczta" placeholder="Poczta">
+                            <label for="floatingInputAdresPoczta">Poczta</label>
+                        </div>
+                        <h4>Adres zameldowania</h4>
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefaultKandydat">
+                            <label class="form-check-label" for="flexSwitchCheckDefaultKandydat">Adres zameldowania taki sam jak zamieszkania</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="MiejscowoscZameldowanie" class="form-control" id="floatingInputZameldowanieMiejscowosc" placeholder="Miejscowość">
+                            <label for="floatingInputZameldoewanieMiejscowosc">Miejscowość</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="UlicaNrDomuZameldowanie" class="form-control" id="floatingInputZameldowanieUlica" placeholder="Ulica Nr. Domu">
+                            <label for="floatingInputZameldoewanieUlica">Ulica Nr. Domu</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="kodPocztowyZameldowanie" class="form-control" id="floatingInputZameldowanieKod" placeholder="Kod pocztowy">
+                            <label for="floatingInputZameldoewanieKod">Kod pocztowy</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="GminaZameldowanie" class="form-control" id="floatingInputZameldowanieGmina" placeholder="Gmina">
+                            <label for="floatingInputZameldoewanieGmina">Gmina</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="PocztaZameldowanie" class="form-control" id="floatingInputZameldowaniePoczta" placeholder="Poczta">
+                            <label for="floatingInputZameldoewaniePoczta">Poczta</label>
+                        </div>
+                      </div>
+                    </div>
+                </div>
             </div>
             <div class="tab-pane fade" id="Opiekuni" role="tabpanel" aria-labelledby="profile-tab">
 
