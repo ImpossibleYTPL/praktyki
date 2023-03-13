@@ -256,17 +256,30 @@
           <input type="hidden" name="godzina">
         </div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                    <div class="container-fluid justify-content-center">
-                        <label>Egzamin ósmoklasisty</label>
+                <div class="row justify-content-center gx-5">
+                    <div class="col-sm-3 mb-3">
                         <div class="form-check">
+                            <label>Egzamin ósmoklasisty</label><br />
                             <input type="checkbox" name="egzaminZwolniony" id="egzaminZwolniony">
                             <label for="egzaminZwolniony">Zwolniny z egzaminu ósmoklasisty</label>
                         </div>
-                        <div class="form-floating">
-                            <input type="number" id="egzaminPolski" class="form-control">
-                            <label for="egzaminPolski">Język polski</label>
+                        <div class="form-floating form-control-sm">
+                            <input type="number" id="egzaminPolski" class="form-control" max="100" min="0">
+                            <label for="egzaminPolski form-label">Język polski</label>
+                        </div>
+                        <div class="form-floating form-control-sm">
+                            <input type="number" id="egzaminMatematyka" class="form-control" max="100" min="0">
+                            <label for="egzaminPolski form-label">Matematyka</label>
+                        </div>
+                        <div class="form-floating form-control-sm">
+                            <input type="number" id="egzaminJezyk" class="form-control" max="100" min="0">
+                            <label for="egzaminPolski form-label">Język obcy nowożytny</label>
                         </div>
                     </div>
+                    <div class="col-sm-3 mb-3">
+            
+                    </div>
+                </div>
                      <div class="row justify-content-center gx-5">
                         <div class="col-sm-3 mb-3">
 
