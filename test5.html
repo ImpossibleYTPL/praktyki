@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.items p {display: none}
+        div.items p:target {display: block}
+    </style>
+</head>
+<body>
+    <p>
+        <a href="#item1">item 1</a>
+        <a href="#item2">item 2</a>
+        <a href="#item3">item 3</a>
+        <a href="#default">wyczyść</a>
+      
+      <div class="items">
+        <p id="item1">... item 1...
+        <p id="item2">... item 2...
+        <p id="item3">...
+        <p id="default"><!-- domyślnie nie jest wyświetlany żaden tekst -->
+      </div>
+</body>
+</html>
