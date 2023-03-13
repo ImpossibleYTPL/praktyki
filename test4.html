@@ -138,18 +138,10 @@
                     <input type="text" name="PocztaZameldowanie" class="form-control" id="floatingInputZameldowaniePoczta" placeholder="Poczta">
                     <label for="floatingInputZameldoewaniePoczta">Poczta</label>
                 </div>
-                <div class="mb-3">
-                    <label for="formFile" class="form-label">Default file input example</label>
-                    <input class="form-control" type="file" id="formFile">
-                  </div>
-                  <div class="mb-3">
-                    <label for="formFile" class="form-label">Default file input example</label>
-                    <input class="form-control" type="file" id="formFile">
-                  </div>
-
-                  <div class="mb-3 form-floating">
-                    <select name="profil" id="profil" class="form-select">
-                      <option></option>
+                
+                <div class="mb-3 form-floating">
+                  <select name="profil" id="profil" class="form-select">
+                    <option></option>
                       <option value="informatyk">Technik Informatyk</option>
                       <option value="hotelarka">Technik Hotelarstwa</option>
                       <option value="org_tur">Technik Organizacji Turystyki</option>
@@ -182,7 +174,7 @@
                     </select>
                     <label for="profil2" class="form-label">Drugi kierunek</label>
                   </div>
-                    
+                  
                   <div class="mb-3 form-floating">
                     <select name="profil3" id="profil3" class="form-select">
                       <option value="brak3">Brak</option>
@@ -200,7 +192,15 @@
                     </select>
                     <label for="profil3" class="form-label">Trzeci kierunek</label>
                   </div>
-
+                  <div class="mb-3">
+                      <label for="formFile" class="form-label">Default file input example</label>
+                      <input class="form-control" type="file" id="formFile">
+                    </div>
+                    <div class="mb-3">
+                      <label for="formFile" class="form-label">Default file input example</label>
+                      <input class="form-control" type="file" id="formFile">
+                    </div>
+                  
                   <div id="szkola" class="mb-3 form-floating">
                     
                   </div>
@@ -209,12 +209,12 @@
                 <h3 class="">Dane rodziców/opiekuna prawnego</h3>
                 <h4>Dane matki</h4>
                 <div class="form-floating mb-3">
-                    <input type="text" name="NazwiskoMatki" id="floatingNazwisko" class="form-control" placeholder="Nazwisko">
-                    <label for="floatingNazwisko">Nazwisko</label>
+                  <input type="text" name="NazwiskoMatki" id="floatingNazwisko" class="form-control" placeholder="Nazwisko">
+                  <label for="floatingNazwisko">Nazwisko</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" name="ImieMatki" id="floatingImie" class="form-control" placeholder="Imię">
-                    <label for="floatingImie">Imię</label>
+                  <input type="text" name="ImieMatki" id="floatingImie" class="form-control" placeholder="Imię">
+                  <label for="floatingImie">Imię</label>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" name="NumerTelefonuMatki" id="floatingNumerTelefonu" class="form-control" placeholder="Numer telefonu">
@@ -315,9 +315,7 @@
                     <input type="text" name="KodOpiekuna" id="floatingKodOpiekuna" class="form-control" placeholder="Kod Pocztowy">
                     <label for="floatingKodOpiekuna">Kod pocztowy</label>
                   </div>
-                  <div class="d-grid gap-2 justify-content-end mb-3">
-                    <input class="btn btn-primary btn-lg" type="submit" value="Wyślij" id="submit"/>
-                </div>
+                    <input class="btn btn-primary w-100" type="submit" value="Wyślij" id="submit"/>
                 <div class="mb-3">
                     <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcH--ckAAAAAIS0cUrm8GBWzUCXOo6lvSDrSk4f"></script>
                 </div>
