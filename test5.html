@@ -14,6 +14,7 @@
     <title>Formularz Rekrutacyjny PZS Kłanino</title>
 </head>
     <body>
+        <form>
         <ul class="nav nav-tabs nav-fill w-100 justify-content-center" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
               <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#kandydat" type="button" role="tab" aria-controls="kandydat" aria-selected="true">kandydat</button>
@@ -134,11 +135,132 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="Opiekuni" role="tabpanel" aria-labelledby="profile-tab">
-
+                <div class="row justify-content-center gx-5">
+                <div class="col-sm-3">
+                <h4>Dane matki</h4>
+                <div class="form-floating mb-3">
+                  <input type="text" name="NazwiskoMatki" id="floatingNazwisko" class="form-control" placeholder="Nazwisko">
+                  <label for="floatingNazwisko">Nazwisko</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="text" name="ImieMatki" id="floatingImie" class="form-control" placeholder="Imię">
+                  <label for="floatingImie">Imię</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="NumerTelefonuMatki" id="floatingNumerTelefonu" class="form-control" placeholder="Numer telefonu">
+                    <label for="floatingNumerTelefonu">Nuemr telefonu</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" name="MailMatki" id="floatingMail" class="form-control" placeholder="E-mail">
+                    <label for="floatingMail">E-mail</label>
+                    <div class="invalid-feedback">
+                        Niepoprowany adres e-mail
+                    </div>
+                </div>
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefaultMatka">
+                    <label class="form-check-label" for="flexSwitchCheckDefaultMatka">Adres zamieszkania taki jak kandydata</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="MiejscowoscMatki" id="floatingMiejscowoscMatki" class="form-control" placeholder="Miejscowosc">
+                    <label for="floatingMiejscowoscMatki">Miejscowosc</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="UlicaMatki" id="floatingUlicaMatki" class="form-control" placeholder="Ulica Nr. Domu">
+                    <label for="floatingUlicaMatki">Ulica Nr. Domu</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="KodMatki" id="floatingKodMatki" class="form-control" placeholder="Kod Pocztowy">
+                    <label for="floatingKodMatki">Kod pocztowy</label>
+                </div>
+                </div>
+                <div class="col-sm-3">
+                <h4>Dane Ojca</h4>
+                <div class="form-floating mb-3">
+                    <input type="text" name="NazwiskoOjca" id="floatingNazwisko" class="form-control" placeholder="Nazwisko">
+                    <label for="floatingNazwisko">Nazwisko</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="ImieOjca" id="floatingImie" class="form-control" placeholder="Imię">
+                    <label for="floatingImie">Imię</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="NumerTelefonuOjca" id="floatingNumerTelefonu" class="form-control" placeholder="Numer telefonu">
+                    <label for="floatingNumerTelefonu">Nuemr telefonu</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" name="MailOjca" id="floatingMail" class="form-control" placeholder="E-mail">
+                    <label for="floatingMail">E-mail</label>
+                    <div class="invalid-feedback">
+                        Niepoprowany adres e-mail
+                    </div>
+                </div>
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefaultOjca">
+                    <label class="form-check-label" for="flexSwitchCheckDefaultMatka">Adres zamieszkania taki jak kandydata</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="MiejscowoscOjca" id="floatingMiejscowoscOjca" class="form-control" placeholder="Miejscowosc">
+                    <label for="floatingMiejscowoscOjca">Miejscowosc</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="UlicaOjca" id="floatingUlicaOjca" class="form-control" placeholder="Ulica Nr. Domu">
+                    <label for="floatingUlicaOjca">Ulica Nr. Domu</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="KodOjca" id="floatingKodOjca" class="form-control" placeholder="Kod Pocztowy">
+                    <label for="floatingKodOjca">Kod pocztowy</label>
+                </div>
+                </div>
+                <div class="col-sm-3">
+                <h4>Dane opiekuna prawnego</h4>
+                <div class="form-floating mb-3">
+                    <input type="text" name="NazwiskoOpiekuna" id="floatingNazwisko" class="form-control" placeholder="Nazwisko">
+                    <label for="floatingNazwisko">Nazwisko</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="ImieOpiekuna" id="floatingImie" class="form-control" placeholder="Imię">
+                    <label for="floatingImie">Imię</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="NumerTelefonuOpiekuna" id="floatingNumerTelefonu" class="form-control" placeholder="Numer telefonu">
+                    <label for="floatingNumerTelefonu">Nuemr telefonu</label>
+                </div>
+                <div class="form-floating mb-3 position-relative">
+                    <input type="email" name="MailOpiekuna" id="floatingMail" class="form-control" placeholder="E-mail">
+                    <label for="floatingMail">E-mail</label>
+                    <div class="invalid-feedback">
+                        Niepoprowany adres e-mail
+                    </div>
+                </div>
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefaultOpiekuna">
+                    <label class="form-check-label" for="flexSwitchCheckDefaultMatka">Adres zamieszkania taki jak kandydata</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="MiejscowoscOpiekuna" id="floatingMiejscowoscOpiekuna" class="form-control" placeholder="Miejscowosc">
+                    <label for="floatingMiejscowoscMatki">Miejscowosc</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="UlicaOpiekuna" id="floatingUlicaOpiekuna" class="form-control" placeholder="Ulica Nr. Domu">
+                    <label for="floatingUlicaMatki">Ulica Nr. Domu</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="KodOpiekuna" id="floatingKodOpiekuna" class="form-control" placeholder="Kod Pocztowy">
+                    <label for="floatingKodOpiekuna">Kod pocztowy</label>
+                  </div>
+              </div>
+              </div>
+            </div>
+          <input type="hidden" name="data">
+          <input type="hidden" name="godzina">
+        </form>
             </div>
             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 
             </div>
           </div>
+        </form>
+        <script src="index.js"></script>
     </body>
 </html>
