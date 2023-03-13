@@ -8,9 +8,33 @@
     <link rel="stylesheet" href="./Assets/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./Assets/dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="./Assets/dist/js/bootstrap.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <title>Formularz Rekrutacyjny PZS Kłanino</title>
 </head>
     <body>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#kandydat" type="button" role="tab" aria-controls="kandydat" aria-selected="true">kandydat</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#Opiekuni" type="button" role="tab" aria-controls="Opiekuni" aria-selected="false">Opiekuni</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="kandydat" role="tabpanel" aria-labelledby="home-tab">
 
+            </div>
+            <div class="tab-pane fade" id="Opiekuni" role="tabpanel" aria-labelledby="profile-tab">
+
+            </div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+
+            </div>
+          </div>
     </body>
 </html>
