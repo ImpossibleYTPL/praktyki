@@ -17,7 +17,7 @@
         <form>
         <ul class="nav nav-tabs nav-fill justify-content-center" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#kandydat" type="button" role="tab" aria-controls="kandydat" aria-selected="true">kandydat</button>
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#kandydat" type="button" role="tab" aria-controls="kandydat" aria-selected="true">Kandydat</button>
             </li>
             <li class="nav-item" role="presentation">
               <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#Opiekuni" type="button" role="tab" aria-controls="Opiekuni" aria-selected="false">Opiekuni</button>
@@ -258,16 +258,267 @@
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                 <div class="row justify-content-around gx-5">
                     <div class="col-sm-3 mb-3">
-                        <div class="form-floating">ok1</div>
+                        <br><h5>Ocena z Zachowania</h5>
+                        <div class="form-floating"></div>
+                        <div class="mb-3 form-floating">
+                            <div class="form-floating"></div>
+                            <select name="oceny" id="oceny" class="form-select">
+                              <option></option>
+                              <option value="ocena1">Wzorowe</option>
+                              <option value="ocena2">Bardzo Dobre</option>
+                              <option value="ocena3">Dobre</option>
+                              <option value="ocena4">Poprawne</option>
+                              <option value="ocena5">Nieodpowiednie</option>
+                              <option value="ocena6">Naganne</option>
+                            </select>
+                            <label for="oceny" class="form-label">Ocena z Zachowania</label>
+                          </div>
+                          <br><h5>Wyniki Egzaminu Ósmoklasisty</h5>
+                          <div class="mb-3 form-floating">
+                            <div class="form-floating mb-3 position-relative">
+                                <input type="text" name="egz_pol" id="floatingEgzPol" class="form-control" required>
+                                <label for="floatingEgzPol">Język Polski</label>
+                            </div>
+                            <div class="form-floating mb-3 position-relative">
+                                <input type="text" name="egz_mat" id="floatingEgzMat" class="form-control" required>
+                                <label for="floatingEgzMat">Matematyka</label>
+                            </div>
+                            <div class="form-floating mb-3 position-relative">
+                                <input type="text" name="egz_ang" id="floatingEgzAng" class="form-control" required>
+                                <label for="floatingEgzAng">Angielski</label>
+                            </div>
+                          </div>
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <div class="form-floating">ok2</div>
+                        <br>    <h5>Oceny</h5>
+                        <div class="form-floating">
+                            <div class="mb-3 form-floating">
+                                <select name="oceny_Pol" id="oceny_Pol" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Pol" class="form-label">Język Polski</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Ang" id="oceny_Ang" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Ang" class="form-label">Język Angielski</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Niem" id="oceny_Niem" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Niem" class="form-label">Język Niemiecki</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Ros" id="oceny_Ros" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Ros" class="form-label">Język Rosyjski</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_His" id="oceny_His" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_His" class="form-label">Historia</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Wos" id="oceny_Wos" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Wos" class="form-label">Wiedzia o Społeczeństwie</label>
+                              </div> 
+                        </div>
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <div class="form-floating">ok3</div>
+                        <br> <br> <h5></h5>
+                        <div class="form-floating">
+                            <div class="mb-3 form-floating">
+                                <select name="oceny_Mat" id="oceny_Mat" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Mat" class="form-label">Matematyka</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Chem" id="oceny_Chem" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Chem" class="form-label">Chemia</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Fiz" id="oceny_Fiz" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Fiz" class="form-label">Fizyka</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Geo" id="oceny_Geo" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Geo" class="form-label">Geografia</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Bio" id="oceny_Bio" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Bio" class="form-label">Biologia</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Przy" id="oceny_Przy" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Przy" class="form-label">Przyroda</label>
+                              </div> 
+                        </div>
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <div class="form-floating">ok4</div>
+                        <br> <br><h5></h5>
+                        <div class="form-floating">
+                            <div class="mb-3 form-floating">
+                                <select name="oceny_Muz" id="oceny_Muz" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Muz" class="form-label">Muzyka</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Tech" id="oceny_Tech" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Tech" class="form-label">Technika</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Edb" id="oceny_Edb" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Edb" class="form-label">Edukacja Dla Bezpieczeństwa</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Plas" id="oceny_Plas" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Plas" class="form-label">Plastyka</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Rel" id="oceny_Rel" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Rel" class="form-label">Religia/Etyka</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Wf" id="oceny_Wf" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Wf" class="form-label">Wychowanie Fizyczne</label>
+                              </div> 
+                        </div>
                     </div>
                 </div>
             </div>
