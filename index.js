@@ -181,29 +181,33 @@ else pesel.classList.remove("is-invalid");
 if(error) document.getElementById("submit").setAttribute("disabled", "");
 else document.getElementById("submit").removeAttribute("disabled");
 
-var ok = `<select id="wyborSzkola" class="form-select">`;
-fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf-8' }})
-    .then(response => response.arrayBuffer())
-    .then(buffer => {
-        const decoder = new TextDecoder('utf-8');
-        const text = decoder.decode(buffer);
-        const rows = text.trim().split('\n');
-        const table = [];
-        for (let i = 0; i < rows.length; i++) {
-            const columns = rows[i].split(';'); 
-            table.push(columns);
-        }
-        for (let i = 0; i < rows.length; i++) {
-            const row = table[i]; 
-            if(i == 0) continue;
-            ok += ("<option>" + row[4].substring(1,row[4].length-1) + " " + row[13].substring(1, row[13].length-1) +  " " + row[15].substring(1, row[15].length-1) + " " + row[16].substring(1, row[16].length-1) + "</option>");
-        }
-        ok += "</select><label for='wyborSzkola'>Szkoła do której uczęszczał kandydat</label>";
-        document.getElementById("szkola").innerHTML = ok;
-});
 
-    grecaptcha.enterprise.ready(function() {
-        grecaptcha.enterprise.execute('6LcH--ckAAAAAIS0cUrm8GBWzUCXOo6lvSDrSk4f', {action: 'login'}).then(function(token) {
-            console.log("ok");
-        });
+function ready() {
+    
+    var ok = `<select id="wyborSzkola" class="form-select">`;
+    fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf-8' }})
+        .then(response => response.arrayBuffer())
+        .then(buffer => {
+            const decoder = new TextDecoder('utf-8');
+            const text = decoder.decode(buffer);
+            const rows = text.trim().split('\n');
+            const table = [];
+            for (let i = 0; i < rows.length; i++) {
+                const columns = rows[i].split(';'); 
+                table.push(columns);
+            }
+            for (let i = 0; i < rows.length; i++) {
+                const row = table[i]; 
+                if(i == 0) continue;
+                ok += ("<option>" + row[4].substring(1,row[4].length-1) + " " + row[13].substring(1, row[13].length-1) +  " " + row[15].substring(1, row[15].length-1) + " " + row[16].substring(1, row[16].length-1) + "</option>");
+            }
+            ok += "</select><label for='wyborSzkola'>Szkoła do której uczęszczał kandydat</label>";
+            document.getElementById("szkola").innerHTML = ok;
     });
+    
+        grecaptcha.enterprise.ready(function() {
+            grecaptcha.enterprise.execute('6LcH--ckAAAAAIS0cUrm8GBWzUCXOo6lvSDrSk4f', {action: 'login'}).then(function(token) {
+                console.log("ok");
+            });
+        });
+    }

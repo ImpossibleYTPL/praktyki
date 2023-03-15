@@ -105,16 +105,34 @@
                             </div>
                           </div>
                         <div class="mb-3">
-                          <label for="formFile" class="form-label">Default file input example</label>
+                          <label for="formFile" class="form-label">Zdjęcie</label>
                           <input class="form-control" type="file" id="formFile">
                         </div>
-                          <div class="mb-3">
-                            <label for="formFile" class="form-label">Default file input example</label>
-                            <input class="form-control" type="file" id="formFile">
-                          </div>
                           <div id="szkola" class="mb-3 form-floating">
 
                           </div>
+                          <script>
+                                var ok = `<select id="wyborSzkola" class="form-select">`;
+                                fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf-8' }})
+                                  .then(response => response.arrayBuffer())
+                                  .then(buffer => {
+                                      const decoder = new TextDecoder('utf-8');
+                                      const text = decoder.decode(buffer);
+                                      const rows = text.trim().split('\n');
+                                      const table = [];
+                                      for (let i = 0; i < rows.length; i++) {
+                                          const columns = rows[i].split(';'); 
+                                          table.push(columns);
+                                      }
+                                      for (let i = 0; i < rows.length; i++) {
+                                          const row = table[i]; 
+                                          if(i == 0) continue;
+                                          ok += ("<option>" + row[4].substring(1,row[4].length-1) + " " + row[13].substring(1, row[13].length-1) +  " " + row[15].substring(1, row[15].length-1) + " " + row[16].substring(1, row[16].length-1) + "</option>");
+                                      }
+                                    ok += "<option>INNA SZKOŁA SPOZA POWIATU</option></select><label for='wyborSzkola'>Szkoła do której uczęszczał kandydat</label>";
+                                    document.getElementById("szkola").innerHTML = ok;
+                                  });                         
+                          </script>
                         </div>
                         <div class="col-sm-6 position-relative">
                           <h4>Adres zamieszkania</h4>
@@ -172,7 +190,7 @@
                   </div>
             </div>
             <div class="tab-pane fade" id="Opiekuni" role="tabpanel" aria-labelledby="profile-tab">
-                <div class="row justify-content-center">
+                <div class="row justify-content-center m-0 mt-3">
                 <div class="col-sm-3">
                 <h4>Dane matki</h4>
                 <div class="form-floating mb-3">
@@ -296,7 +314,7 @@
           <input type="hidden" name="godzina">
         </div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                <div class="row justify-content-around gx-5">
+                <div class="row justify-content-around m-0 mt-3">
                     <div class="col-sm-3 mb-3">
                         <br><h5>Ocena z Zachowania</h5>
                         <div class="form-floating"></div>
@@ -756,6 +774,120 @@
             Dwóch lub więcej tytułów finalisty konkursu przedmiotowego
           </label>
         </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            Dwóch lub więcej tytułów laureata konkursu tematycznego lub interdyscyplinarnego
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            Dwóch lub więcej tytułów finalisty konkursu tematycznego lub interdyscyplinarnego
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            Tytułu finalisty konkursu przedmiotowego
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            Tytułu laureata konkursu tematycznego lub interdyscyplinarnego
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            Tytułu finalisty konkursu tematycznego lub interdyscyplinarnego
+          </label>
+        </div>
+
+        <div class="h3">
+          uzyskanie w zawodach wiedzy będących konkursem albo turniejem, oraz zasięgu ponadwojewódzkim lub wojewódzkim, przeprowadzanymi zgodnie z przepisami wydanymi na podstawie art. 32a ust.4 iart.22 ust.2 pkt 8 ustawy o systemie oświaty:
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            dwóch lub więcej tytułów finalisty konkursu z przedmiotu lub przedmiotów artystycznych objętych ramowym planem nauczania szkoły artystycznej
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            dwóch lub więcej tytułów laureata turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            dwóch lub więcej tytułów finalisty turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            tytułu finalisty konkursu z przedmiotu lub przedmiotów artystycznych objętych ramowym planem nauczania szkoły artystycznej
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            tytułu laureata turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            tytułu finalisty turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
+          </label>
+        </div>
+
+        <div class="h4">
+          uzyskanie wysokiego miejsca w zawodach wiedzy innych niż wymienione w pkt 1–4, artystycznych lub sportowych, organizowanych przez kuratora oświaty lub inne podmioty działające na terenie szkoły, na szczeblu:
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            międzynarodowym
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            krajowym
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            wojewódzkim
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            powiatowym
+          </label>
+        </div>
+
         <div class="btn-group d-flex justify-content-end p-3">
           <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('kryteria-tab').click()">Powrót</button>
           <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('osiagniecia-tab').click()">Dalej</button>
