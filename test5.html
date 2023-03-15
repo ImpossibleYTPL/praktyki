@@ -75,53 +75,59 @@
                             <label for="floatingImie">Imie</label>
                         </div>
                         <div class="form-floating mb-3 position-relative">
-                            <input type="text" name="DrugieImie" id="floatingNazwisko" class="form-control" placeholder="Drugie Imie">
-                            <label for="floatingNazwisko sm">Drugie Imie</label>
+                          <input type="text" name="DrugieImie" id="floatingNazwisko" class="form-control" placeholder="Drugie Imie">
+                          <label for="floatingNazwisko sm">Drugie Imie</label>
                         </div>
                         <div class="form-floating mb-3 position-relative">
-                            <input type="date" name="DataUrodzenia" id="floatingDataUrodzenia" class="form-control" placeholder="Data Urodzenia">
-                            <label for="floatingDataUrodzenia">Data Urodzenia</label>
+                          <input type="date" name="DataUrodzenia" id="floatingDataUrodzenia" class="form-control" placeholder="Data Urodzenia">
+                          <label for="floatingDataUrodzenia">Data Urodzenia</label>
                         </div>
                         <div class="form-floating mb-3 position-relative">
-                            <input type="text" name="MiejsceUrodzenia" id="floatingMiejsceUrodzenia" class="form-control" placeholder="Miejsce Urodzenia">
+                          <input type="text" name="MiejsceUrodzenia" id="floatingMiejsceUrodzenia" class="form-control" placeholder="Miejsce Urodzenia">
                             <label for="floatingMiejsceUrodzenia">Miejsce Urodzenia</label>
                         </div>
                         <div class="form-floating mb-3 position-relative">
                             <input type="text" name="Pesel" id="floatingPesel" class="form-control" placeholder="Pesel">
                             <label for="floatingPesel">Pesel</label>
                             <div class="invalid-feedback">
-                                Niepoprowany pesel
+                              Niepoprowany pesel
                             </div>
-                        </div>
-                        <div class="form-floating mb-3 position-relative">
+                          </div>
+                          <div class="form-floating mb-3 position-relative">
                             <input type="text" name="NumerTelefonu" id="floatingNumerTelefonu" class="form-control" placeholder="Numer telefonu">
                             <label for="floatingNumerTelefonu">Numer telefonu</label>
-                        </div>
-                        <div class="form-floating mb-3 position-relative">
+                          </div>
+                          <div class="form-floating mb-3 position-relative">
                             <input type="email" name="Mail" id="floatingMail" class="form-control" placeholder="E-mial">
                             <label for="floatingMail">E-mail</label>
                             <div class="invalid-feedback">
-                                Niepoprowany adres e-mail
+                              Niepoprowany adres e-mail
                             </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label">Default file input example</label>
-                            <input class="form-control" type="file" id="formFile">
                           </div>
+                        <div class="mb-3">
+                          <label for="formFile" class="form-label">Default file input example</label>
+                          <input class="form-control" type="file" id="formFile">
+                        </div>
                           <div class="mb-3">
                             <label for="formFile" class="form-label">Default file input example</label>
                             <input class="form-control" type="file" id="formFile">
                           </div>
-                        
-                        <div id="szkola" class="mb-3 form-floating">
-                          
+                          <div id="szkola" class="mb-3 form-floating">
+                            <div class="container-fluid d-sm-inline-flex justify-content-lg-end">
+                            <div class="container">
+                                <button class="btn btn-primary" onclick="document.getElementById('profile-tab').click()">Dalej</button>
+                            </div>
+                            <div class="container">
+                              <button class="btn btn-primary" disabled onclick="document.getElementById('profile-tab').click()">Powrót</button>
+                          </div>
                         </div>
+                          </div>
                         </div>
                         <div class="col-sm-6 position-relative">
-                        <h4>Adres zamieszkania</h4>
+                          <h4>Adres zamieszkania</h4>
                         <div class="form-floating mb-3 position-relative">
-                            <input type="text" name="Miejscowosc" class="form-control" id="floatingInputAdresMiejscowosc" placeholder="Miejscowość">
-                            <label for="floatingInputAdresMiejscowosc">Miejscowość</label>
+                          <input type="text" name="Miejscowosc" class="form-control" id="floatingInputAdresMiejscowosc" placeholder="Miejscowość">
+                          <label for="floatingInputAdresMiejscowosc">Miejscowość</label>
                         </div>
                         <div class="form-floating mb-3 position-relative">
                             <input type="text" name="UlicaNrDomu" class="form-control" id="floatingInputAdresUlica" placeholder="Ulica Nr. Domu">
@@ -166,7 +172,7 @@
                         </div>
                       </div>
                     </div>
-                </div>
+                  </div>
             </div>
             <div class="tab-pane fade" id="Opiekuni" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="row justify-content-center gx-5">
