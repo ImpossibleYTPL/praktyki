@@ -8,26 +8,20 @@
     <link rel="stylesheet" href="./Assets/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./Assets/dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="./Assets/dist/js/bootstrap.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <title>Formularz Rekrutacyjny PZS Kłanino</title>
     <style>
-        .material-symbols-outlined {
-          font-variation-settings:
-          'FILL' 1,
-          'wght' 200,
-          'GRAD' 1,
-          'opsz' 20
-        }
-        </style>
+      .navbar-brand{
+          color: white;
+          font-family: Arial, Helvetica, sans-serif;
+          font-weight: bold;
+      }
+  </style>
 </head>
-<style>
-    .navbar-brand{
-        color: white;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: bold;
-    }
-</style>
-<body>
-    <nav class="navbar bg-body-tertiary justify-content-around navbar-expand" style="background: linear-gradient(90deg, #1e73be 0%, #000000 100%); color: white">
+    <body>
+      <nav class="navbar bg-body-tertiary justify-content-around navbar-expand" style="background: linear-gradient(90deg, #1e73be 0%, #000000 100%); color: white">
         <div class="container">
           <a class="navbar-brand" href="#">
             <img src="./logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top" style="color: white">
@@ -48,164 +42,135 @@
             </ul>
         </div>
       </nav>
-    <form class="g3 needs-validation" novalidate style="margin-top: 20px; margin-bottom: 20px;">
-        <div class="container">
-            <div class="row justify-content-around gx-5">
-              <div class="col-sm-6 position-relative border">
-                <h3>Dane kandydata</h3>
-                <div class="form-floating mb-3 position-relative">
-                    <input type="text" name="Nazwisko" id="floatingNazwisko" class="form-control" placeholder="Nazwisko" required>
-                    <label for="floatingNazwisko">Nazwisko</label>
-                </div>
-                <div class="form-floating mb-3 position-relative">
-                    <input type="text" name="Imie" id="floatingImie" class="form-control" placeholder="Imie">
-                    <label for="floatingImie">Imie</label>
-                </div>
-                <div class="form-floating mb-3 position-relative">
-                    <input type="text" name="DrugieImie" id="floatingNazwisko" class="form-control" placeholder="Drugie Imie">
-                    <label for="floatingNazwisko sm">Drugie Imie</label>
-                </div>
-                <div class="form-floating mb-3 position-relative">
-                    <input type="date" name="DataUrodzenia" id="floatingDataUrodzenia" class="form-control" placeholder="Data Urodzenia">
-                    <label for="floatingDataUrodzenia">Data Urodzenia</label>
-                </div>
-                <div class="form-floating mb-3 position-relative">
-                    <input type="text" name="MiejsceUrodzenia" id="floatingMiejsceUrodzenia" class="form-control" placeholder="Miejsce Urodzenia">
-                    <label for="floatingMiejsceUrodzenia">Miejsce Urodzenia</label>
-                </div>
-                <div class="form-floating mb-3 position-relative">
-                    <input type="text" name="Pesel" id="floatingPesel" class="form-control" placeholder="Pesel">
-                    <label for="floatingPesel">Pesel</label>
-                    <div class="invalid-feedback">
-                        Niepoprowany pesel
+        <form>
+        <ul class="nav nav-tabs nav-fill justify-content-center" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#kandydat" type="button" role="tab" aria-controls="kandydat" aria-selected="true">Kandydat</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#Opiekuni" type="button" role="tab" aria-controls="Opiekuni" aria-selected="false">Opiekuni</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Oceny</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="kryteria-tab" data-bs-toggle="tab" data-bs-target="#kryteria" type="button" role="tab" aria-controls="kryteria" aria-selected="false">Kryteria</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="osiagniecia-tab" data-bs-toggle="tab" data-bs-target="#osiagniecia" type="button" role="tab" aria-controls="osiagniecia" aria-selected="false">Osiągnięcia</button>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active p-1" id="kandydat" role="tabpanel" aria-labelledby="home-tab">
+                <div class="container">
+                    <div class="row justify-content-around gx-5">
+                      <div class="col-sm-6 position-relative border-end">
+                        <h4>Dane kandydata</h4>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="text" name="Nazwisko" id="floatingNazwisko" class="form-control" placeholder="Nazwisko" required>
+                            <label for="floatingNazwisko">Nazwisko</label>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="text" name="Imie" id="floatingImie" class="form-control" placeholder="Imie">
+                            <label for="floatingImie">Imie</label>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="text" name="DrugieImie" id="floatingNazwisko" class="form-control" placeholder="Drugie Imie">
+                            <label for="floatingNazwisko sm">Drugie Imie</label>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="date" name="DataUrodzenia" id="floatingDataUrodzenia" class="form-control" placeholder="Data Urodzenia">
+                            <label for="floatingDataUrodzenia">Data Urodzenia</label>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="text" name="MiejsceUrodzenia" id="floatingMiejsceUrodzenia" class="form-control" placeholder="Miejsce Urodzenia">
+                            <label for="floatingMiejsceUrodzenia">Miejsce Urodzenia</label>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="text" name="Pesel" id="floatingPesel" class="form-control" placeholder="Pesel">
+                            <label for="floatingPesel">Pesel</label>
+                            <div class="invalid-feedback">
+                                Niepoprowany pesel
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="text" name="NumerTelefonu" id="floatingNumerTelefonu" class="form-control" placeholder="Numer telefonu">
+                            <label for="floatingNumerTelefonu">Numer telefonu</label>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="email" name="Mail" id="floatingMail" class="form-control" placeholder="E-mial">
+                            <label for="floatingMail">E-mail</label>
+                            <div class="invalid-feedback">
+                                Niepoprowany adres e-mail
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Default file input example</label>
+                            <input class="form-control" type="file" id="formFile">
+                          </div>
+                          <div class="mb-3">
+                            <label for="formFile" class="form-label">Default file input example</label>
+                            <input class="form-control" type="file" id="formFile">
+                          </div>
+                        
+                        <div id="szkola" class="mb-3 form-floating">
+                          
+                        </div>
+                        </div>
+                        <div class="col-sm-6 position-relative">
+                        <h4>Adres zamieszkania</h4>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="text" name="Miejscowosc" class="form-control" id="floatingInputAdresMiejscowosc" placeholder="Miejscowość">
+                            <label for="floatingInputAdresMiejscowosc">Miejscowość</label>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="text" name="UlicaNrDomu" class="form-control" id="floatingInputAdresUlica" placeholder="Ulica Nr. Domu">
+                            <label for="floatingInputAdresUlica">Ulica Nr. Domu</label>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="text" name="kodPocztowy" class="form-control" id="floatingInputAdresKod" placeholder="Kod pocztowy">
+                            <label for="floatingInputAdresKod">Kod pocztowy</label>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="text" name="Gmina" class="form-control" id="floatingInputAdresGmina" placeholder="Gmina">
+                            <label for="floatingInputAdresGmina">Gmina</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="Poczta" class="form-control" id="floatingInputAdresPoczta" placeholder="Poczta">
+                            <label for="floatingInputAdresPoczta">Poczta</label>
+                        </div>
+                        <h4>Adres zameldowania</h4>
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefaultKandydat">
+                            <label class="form-check-label" for="flexSwitchCheckDefaultKandydat">Adres zameldowania taki sam jak zamieszkania</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="MiejscowoscZameldowanie" class="form-control" id="floatingInputZameldowanieMiejscowosc" placeholder="Miejscowość">
+                            <label for="floatingInputZameldoewanieMiejscowosc">Miejscowość</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="UlicaNrDomuZameldowanie" class="form-control" id="floatingInputZameldowanieUlica" placeholder="Ulica Nr. Domu">
+                            <label for="floatingInputZameldoewanieUlica">Ulica Nr. Domu</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="kodPocztowyZameldowanie" class="form-control" id="floatingInputZameldowanieKod" placeholder="Kod pocztowy">
+                            <label for="floatingInputZameldoewanieKod">Kod pocztowy</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="GminaZameldowanie" class="form-control" id="floatingInputZameldowanieGmina" placeholder="Gmina">
+                            <label for="floatingInputZameldoewanieGmina">Gmina</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="PocztaZameldowanie" class="form-control" id="floatingInputZameldowaniePoczta" placeholder="Poczta">
+                            <label for="floatingInputZameldoewaniePoczta">Poczta</label>
+                        </div>
+                      </div>
                     </div>
                 </div>
-                <div class="form-floating mb-3 position-relative">
-                    <input type="text" name="NumerTelefonu" id="floatingNumerTelefonu" class="form-control" placeholder="Numer telefonu">
-                    <label for="floatingNumerTelefonu">Numer telefonu</label>
-                </div>
-                <div class="form-floating mb-3 position-relative">
-                    <input type="email" name="Mail" id="floatingMail" class="form-control" placeholder="E-mial">
-                    <label for="floatingMail">E-mail</label>
-                    <div class="invalid-feedback">
-                        Niepoprowany adres e-mail
-                    </div>
-                </div>
-                <h4>Adres zamieszkania</h4>
-                <div class="form-floating mb-3 position-relative">
-                    <input type="text" name="Miejscowosc" class="form-control" id="floatingInputAdresMiejscowosc" placeholder="Miejscowość">
-                    <label for="floatingInputAdresMiejscowosc">Miejscowość</label>
-                </div>
-                <div class="form-floating mb-3 position-relative">
-                    <input type="text" name="UlicaNrDomu" class="form-control" id="floatingInputAdresUlica" placeholder="Ulica Nr. Domu">
-                    <label for="floatingInputAdresUlica">Ulica Nr. Domu</label>
-                </div>
-                <div class="form-floating mb-3 position-relative">
-                    <input type="text" name="kodPocztowy" class="form-control" id="floatingInputAdresKod" placeholder="Kod pocztowy">
-                    <label for="floatingInputAdresKod">Kod pocztowy</label>
-                </div>
-                <div class="form-floating mb-3 position-relative">
-                    <input type="text" name="Gmina" class="form-control" id="floatingInputAdresGmina" placeholder="Gmina">
-                    <label for="floatingInputAdresGmina">Gmina</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" name="Poczta" class="form-control" id="floatingInputAdresPoczta" placeholder="Poczta">
-                    <label for="floatingInputAdresPoczta">Poczta</label>
-                </div>
-                <h4>Adres zameldowania</h4>
-                <div class="form-check form-switch mb-3">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefaultKandydat">
-                    <label class="form-check-label" for="flexSwitchCheckDefaultKandydat">Adres zameldowania taki sam jak zamieszkania</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" name="MiejscowoscZameldowanie" class="form-control" id="floatingInputZameldowanieMiejscowosc" placeholder="Miejscowość">
-                    <label for="floatingInputZameldoewanieMiejscowosc">Miejscowość</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" name="UlicaNrDomuZameldowanie" class="form-control" id="floatingInputZameldowanieUlica" placeholder="Ulica Nr. Domu">
-                    <label for="floatingInputZameldoewanieUlica">Ulica Nr. Domu</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" name="kodPocztowyZameldowanie" class="form-control" id="floatingInputZameldowanieKod" placeholder="Kod pocztowy">
-                    <label for="floatingInputZameldoewanieKod">Kod pocztowy</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" name="GminaZameldowanie" class="form-control" id="floatingInputZameldowanieGmina" placeholder="Gmina">
-                    <label for="floatingInputZameldoewanieGmina">Gmina</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" name="PocztaZameldowanie" class="form-control" id="floatingInputZameldowaniePoczta" placeholder="Poczta">
-                    <label for="floatingInputZameldoewaniePoczta">Poczta</label>
-                </div>
-                
-                <div class="mb-3 form-floating">
-                  <select name="profil" id="profil" class="form-select">
-                    <option></option>
-                      <option value="informatyk">Technik Informatyk</option>
-                      <option value="hotelarka">Technik Hotelarstwa</option>
-                      <option value="org_tur">Technik Organizacji Turystyki</option>
-                      <option value="ziug">Technik Żywienia i Usług Gastronomicznych</option>
-                      <option value="grafik">Tehcnik Grafiki i Poligrafii Cyfrowej</option>
-                      <option value="kucharz">Kucharz</option>
-                      <option value="monter">Monter Kadłubów i Jednostek Pływających</option>
-                      <option value="mechanik">Mechanik</option>
-                      <option value="wielo_zaw">Klasa Wielozawodowa</option>
-                      <option value="mundur">Liceum Mundurowe</option>
-                      <option value="dietetyk">Liceum profil dietetyka i aktywność fizyczna</option>
-                    </select>
-                    <label for="profil" class="form-label">Pierwszy kierunek</label>
-                  </div>
-
-                  <div class="mb-3 form-floating">
-                    <select name="profil2" id="profil2" class="form-select">
-                      <option value="brak2">Brak</option>
-                      <option value="informatyk2">Technik Informatyk</option>
-                      <option value="hotelarka2">Technik Hotelarstwa</option>
-                      <option value="org_tur2">Technik Organizacji Turystyki</option>
-                      <option value="ziug2">Technik Żywienia i Usług Gastronomicznych</option>
-                      <option value="grafik2">Tehcnik Grafiki i Poligrafii Cyfrowej</option>
-                      <option value="kucharz2">Kucharz</option>
-                      <option value="monter2">Monter Kadłubów i Jednostek Pływających</option>
-                      <option value="mechanik2">Mechanik</option>
-                      <option value="wielo_zaw2">Klasa Wielozawodowa</option>
-                      <option value="mundur2">Liceum Mundurowe</option>
-                      <option value="dietetyk2">Liceum profil dietetyka i aktywność fizyczna</option>
-                    </select>
-                    <label for="profil2" class="form-label">Drugi kierunek</label>
-                  </div>
-                  
-                  <div class="mb-3 form-floating">
-                    <select name="profil3" id="profil3" class="form-select">
-                      <option value="brak3">Brak</option>
-                      <option value="informatyk3">Technik Informatyk</option>
-                      <option value="hotelarka3">Technik Hotelarstwa</option>
-                      <option value="org_tur3">Technik Organizacji Turystyki</option>
-                      <option value="ziug3">Technik Żywienia i Usług Gastronomicznych</option>
-                      <option value="grafik3">Tehcnik Grafiki i Poligrafii Cyfrowej</option>
-                      <option value="kucharz3">Kucharz</option>
-                      <option value="monter3">Monter Kadłubów i Jednostek Pływających</option>
-                      <option value="mechanik3">Mechanik</option>
-                      <option value="wielo_zaw3">Klasa Wielozawodowa</option>
-                      <option value="mundur3">Liceum Mundurowe</option>
-                      <option value="dietetyk3">Liceum profil dietetyka i aktywność fizyczna</option>
-                    </select>
-                    <label for="profil3" class="form-label">Trzeci kierunek</label>
-                  </div>
-                  <div class="mb-3">
-                      <label for="formFile" class="form-label">Default file input example</label>
-                      <input class="form-control" type="file" id="formFile">
-                    </div>
-                    <div class="mb-3">
-                      <label for="formFile" class="form-label">Default file input example</label>
-                      <input class="form-control" type="file" id="formFile">
-                    </div>
-                  
-                  <div id="szkola" class="mb-3 form-floating">
-                    
-                  </div>
-              </div>
-              <div class="col-sm-6 border">
-                <h3 class="">Dane rodziców/opiekuna prawnego</h3>
+            </div>
+            <div class="tab-pane fade" id="Opiekuni" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="row justify-content-center gx-5">
+                <div class="col-sm-3">
                 <h4>Dane matki</h4>
                 <div class="form-floating mb-3">
                   <input type="text" name="NazwiskoMatki" id="floatingNazwisko" class="form-control" placeholder="Nazwisko">
@@ -242,6 +207,8 @@
                     <input type="text" name="KodMatki" id="floatingKodMatki" class="form-control" placeholder="Kod Pocztowy">
                     <label for="floatingKodMatki">Kod pocztowy</label>
                 </div>
+                </div>
+                <div class="col-sm-3">
                 <h4>Dane Ojca</h4>
                 <div class="form-floating mb-3">
                     <input type="text" name="NazwiskoOjca" id="floatingNazwisko" class="form-control" placeholder="Nazwisko">
@@ -278,6 +245,8 @@
                     <input type="text" name="KodOjca" id="floatingKodOjca" class="form-control" placeholder="Kod Pocztowy">
                     <label for="floatingKodOjca">Kod pocztowy</label>
                 </div>
+                </div>
+                <div class="col-sm-3">
                 <h4>Dane opiekuna prawnego</h4>
                 <div class="form-floating mb-3">
                     <input type="text" name="NazwiskoOpiekuna" id="floatingNazwisko" class="form-control" placeholder="Nazwisko">
@@ -314,380 +283,627 @@
                     <input type="text" name="KodOpiekuna" id="floatingKodOpiekuna" class="form-control" placeholder="Kod Pocztowy">
                     <label for="floatingKodOpiekuna">Kod pocztowy</label>
                   </div>
-                    <input class="btn btn-primary w-100" type="submit" value="Wyślij" id="submit"/>
-                <div class="mb-3">
-                    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcH--ckAAAAAIS0cUrm8GBWzUCXOo6lvSDrSk4f"></script>
-                </div>
               </div>
+              
             </div>
-          </div>
           <input type="hidden" name="data">
           <input type="hidden" name="godzina">
-        </form>
-        <script>
-        var error = true;
-        
-        const hiddens = document.querySelectorAll("input[type=hidden]");
-        const data = new Date();
-
-        hiddens[0].value = data.getDate() + "-" + (data.getMonth() + 1) + "-" + data.getFullYear();
-        hiddens[1].value = data.getHours() + ":" + data.getMinutes() + ":" + data.getSeconds();
-
-        const switchElement = document.getElementById("flexSwitchCheckDefaultKandydat");
-        const switchElementMatki = document.getElementById("flexSwitchCheckDefaultMatka");
-        const switchElementOjca = document.getElementById("flexSwitchCheckDefaultOjca");
-        const switchElementOpiekuna = document.getElementById("flexSwitchCheckDefaultOpiekuna");
-
-        const nazwisko = document.querySelector("input[name=Nazwisko]");
-        const imie = document.querySelector("input[name=Imie]");
-        const drugieImie = document.querySelector("input[name=DrugieImie]");
-        const dataUrodzenia = document.querySelector("input[name=DataUrodzenia]");
-        const MiejsceUrodzenia = document.querySelector("input[name=MiejsceUrodzenia]");
-        const pesel = document.querySelector("input[name=Pesel]");
-        const numerTelefonu = document.querySelector("input[name=NumerTelefonu]");
-        const mail = document.querySelector("input[name=Mail]");
-
-        const nazwiskoMatki = document.querySelector("input[name=NazwiskoMatki]");
-        const imieMatki = document.querySelector("input[name=ImieMatki]");
-        const numerTelefonuMatki = document.querySelector("input[name=NumerTelefonuMatki]");
-        const mailMatki = document.querySelector("input[name=MailMatki]");
-
-        const nazwiskoOjca = document.querySelector("input[name=NazwiskoOjca]");
-        const imieOjca = document.querySelector("input[name=ImieOjca]");
-        const numerTelefonuOjca = document.querySelector("input[name=NumerTelefonuOjca]");
-        const mailOjca = document.querySelector("input[name=MailOjca]");
-
-        const nazwiskoOpiekuna = document.querySelector("input[name=NazwiskoOpiekuna]");
-        const imieOpiekuna = document.querySelector("input[name=ImieOpiekuna]");
-        const numerTelefonuOpiekuna = document.querySelector("input[name=NumerTelefonuOpiekuna]");
-        const mailOpiekuna = document.querySelector("input[name=MailOpiekuna]");
-
-        const adresMiejscowosc = document.getElementById("floatingInputAdresMiejscowosc");
-        const adresUlica = document.getElementById("floatingInputAdresUlica");
-        const adresKod = document.getElementById("floatingInputAdresKod");
-        const adresGmina = document.getElementById("floatingInputAdresGmina");
-        const adresPoczta = document.getElementById("floatingInputAdresPoczta");
-        
-        const zameldowanieMiejscowosc = document.getElementById("floatingInputZameldowanieMiejscowosc");
-        const zameldowanieUlica = document.getElementById("floatingInputZameldowanieUlica");
-        const zameldowanieKod = document.getElementById("floatingInputZameldowanieKod");
-        const zameldowanieGmina = document.getElementById("floatingInputZameldowanieGmina");
-        const zameldowaniePoczta = document.getElementById("floatingInputZameldowaniePoczta");
-
-        const matkaMiejscowosc = document.getElementById("floatingMiejscowoscMatki");
-        const matkaUlica = document.getElementById("floatingUlicaMatki");
-        const matkaKod = document.getElementById("floatingKodMatki");
-        
-        const ojciecMiejscowosc = document.getElementById("floatingMiejscowoscOjca");
-        const ojciecUlica = document.getElementById("floatingUlicaOjca");
-        const ojciecKod = document.getElementById("floatingKodOjca");
-
-        const opiekunMiejscowosc = document.getElementById("floatingMiejscowoscOpiekuna");
-        const opiekunUlica = document.getElementById("floatingUlicaOpiekuna");
-        const opiekunKod = document.getElementById("floatingKodOpiekuna");
-        
-        console.log(adresMiejscowosc);
-        switchElement.addEventListener('change', ()=>adres());
-        switchElementMatki.addEventListener('change', ()=>adres());
-        switchElementOjca.addEventListener('change', ()=>adres());
-        switchElementOpiekuna.addEventListener('change', ()=>adres());
-
-        adresMiejscowosc.addEventListener('input', ()=>adres());
-        adresUlica.addEventListener("input", ()=>adres());
-        adresKod.addEventListener("input", ()=>adres());
-        adresGmina.addEventListener("input", ()=>adres());
-        adresPoczta.addEventListener("input", ()=>adres());
-
-        function adres() {
-            if(switchElement.checked) {
-                zameldowanieMiejscowosc.setAttribute("disabled", "");
-                zameldowanieUlica.setAttribute("disabled", "");
-                zameldowanieKod.setAttribute("disabled", "");
-                zameldowanieGmina.setAttribute("disabled", "");
-                zameldowaniePoczta.setAttribute("disabled", "");
-        
-                zameldowanieMiejscowosc.value = adresMiejscowosc.value;
-                zameldowanieUlica.value = adresUlica.value;
-                zameldowanieKod.value = adresKod.value;
-                zameldowanieGmina.value = adresGmina.value;
-                zameldowaniePoczta.value = adresPoczta.value;
-            } else {
-                zameldowanieMiejscowosc.removeAttribute("disabled");
-                zameldowanieUlica.removeAttribute("disabled");
-                zameldowanieKod.removeAttribute("disabled");
-                zameldowanieGmina.removeAttribute("disabled");
-                zameldowaniePoczta.removeAttribute("disabled");
-            }
-
-            if(switchElementMatki.checked) {
-                matkaMiejscowosc.setAttribute("disabled", "");
-                matkaUlica.setAttribute("disabled", "");
-                matkaKod.setAttribute("disabled", "");
-
-                matkaMiejscowosc.value = adresMiejscowosc.value;
-                matkaUlica.value = adresUlica.value;
-                matkaKod.value = adresKod.value;
-            } else {
-                matkaMiejscowosc.removeAttribute("disabled");
-                matkaUlica.removeAttribute("disabled");
-                matkaKod.removeAttribute("disabled");
-            }
-
-            if(switchElementOjca.checked) {
-                ojciecMiejscowosc.setAttribute("disabled", "");
-                ojciecUlica.setAttribute("disabled", "");
-                ojciecKod.setAttribute("disabled", "");
-
-                ojciecMiejscowosc.value = adresMiejscowosc.value;
-                ojciecUlica.value = adresUlica.value;
-                ojciecKod.value = adresKod.value;
-            } else {
-                ojciecMiejscowosc.removeAttribute("disabled");
-                ojciecUlica.removeAttribute("disabled");
-                ojciecKod.removeAttribute("disabled");
-            }
-
-            if(switchElementOpiekuna.checked) {
-                opiekunMiejscowosc.setAttribute("disabled", "");
-                opiekunUlica.setAttribute("disabled", "");
-                opiekunKod.setAttribute("disabled", "");
-
-                opiekunMiejscowosc.value = adresMiejscowosc.value;
-                opiekunUlica.value = adresUlica.value;
-                opiekunKod.value = adresKod.value;
-            } else {
-                opiekunMiejscowosc.removeAttribute("disabled");
-                opiekunUlica.removeAttribute("disabled");
-                opiekunKod.removeAttribute("disabled");
-            }
-        }
-
-        function validatePESEL(pesel) {
-            var weights = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3];
-            var sum = 0;
-                if (pesel.length !== 11) {
-                    return false;
-                }
-
-            for (var i = 0; i < 10; i++) {
-                sum += pesel[i] * weights[i];
-            }
-            
-            var checksum = (10 - (sum % 10)) % 10;
-            if (checksum !== parseInt(pesel[10])) {
-                return false;
-            }
-            return true;
-        }
-    
-        function validateEmail(email) {
-            // Wzorzec do sprawdzania poprawności adresu e-mail
-          var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      
-          // Testowanie wzorca na adresie e-mail
-          return pattern.test(email);
-        }
-
-        const mails = document.querySelectorAll("input[type=email]");
-
-        mails.forEach((mail)=>{
-        mail.addEventListener("input", (target)=>{ValidateMail(target)})
-      })
-      pesel.addEventListener("input", ()=>{ValidatePesel()});
-      
-      function ValidateMail(target) {
-          if(!validateEmail(target.target.value)) target.target.classList.add("is-invalid");
-        else target.target.classList.remove("is-invalid");
-    }
-    
-    function ValidatePesel() {
-        if(!validatePESEL(pesel.value)) pesel.classList.add("is-invalid");
-        else pesel.classList.remove("is-invalid");
-    }
-    
-    if(error) document.getElementById("submit").setAttribute("disabled", "");
-    else document.getElementById("submit").removeAttribute("disabled");
-    </script>
-    <script>
-        var ok = `<select id="wyborSzkola" class="form-select">`;
-        fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf-8' }})
-            .then(response => response.arrayBuffer())
-            .then(buffer => {
-                const decoder = new TextDecoder('utf-8');
-                const text = decoder.decode(buffer);
-                const rows = text.trim().split('\n');
-                const table = [];
-                for (let i = 0; i < rows.length; i++) {
-                    const columns = rows[i].split(';'); 
-                    table.push(columns);
-                }
-                for (let i = 0; i < rows.length; i++) {
-                    const row = table[i]; 
-                    if(i == 0) continue;
-                    ok += ("<option>" + row[4].substring(1,row[4].length-1) + " " + row[13].substring(1, row[13].length-1) +  " " + row[15].substring(1, row[15].length-1) + " " + row[16].substring(1, row[16].length-1) + "</option>");
-                }
-                ok += "</select><label for='wyborSzkola'>Szkoła do której uczęszczał kandydat</label>";
-                document.getElementById("szkola").innerHTML = ok;
-        });
-
-
-        </script>
-        <script>
-            grecaptcha.enterprise.ready(function() {
-                grecaptcha.enterprise.execute('6LcH--ckAAAAAIS0cUrm8GBWzUCXOo6lvSDrSk4f', {action: 'login'}).then(function(token) {
-                    console.log("ok");
-                });
-            });
-        </script>
-<footer class="bg-dark text-center text-white">
-    <div class="container p-4">
-      <section class="mb-4">
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-facebook-f"></i
-            ></a>
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-twitter"></i
-        ></a>
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-google"></i
-            ></a>
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-instagram"></i
-            ></a>
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-linkedin-in"></i
-                ></a>
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-github"></i
-        ></a>
-      </section>
-      <section class="">
-        <form action="">
-          <div class="row d-flex justify-content-center">
-            <div class="col-auto">
-              <p class="pt-2">
-                <strong>Sign up for our newsletter</strong>
-              </p>
-            </div>
-            <div class="col-md-5 col-12">
-              <div class="form-outline form-white mb-4">
-                <input type="email" id="form5Example21" class="form-control" />
-                <label class="form-label" for="form5Example21">Email address</label>
-              </div>
-            </div>
-            <div class="col-auto">
-              <button type="submit" class="btn btn-outline-light mb-4">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </form>
-      </section>
-      <section class="mb-4">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-          repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-          eum harum corrupti dicta, aliquam sequi voluptate quas.
-        </p>
-      </section>
-      <section class="">
-        <div class="row">
-          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase">Links</h5>
-  
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#!" class="text-white">Link 1</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 2</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 3</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 4</a>
-              </li>
-            </ul>
-          </div>
-          <!--Grid column-->
-  
-          <!--Grid column-->
-          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase">Links</h5>
-  
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#!" class="text-white">Link 1</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 2</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 3</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 4</a>
-              </li>
-            </ul>
-          </div>
-          <!--Grid column-->
-  
-          <!--Grid column-->
-          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase">Links</h5>
-  
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#!" class="text-white">Link 1</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 2</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 3</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 4</a>
-              </li>
-            </ul>
-          </div>
-          <!--Grid column-->
-  
-          <!--Grid column-->
-          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase">Links</h5>
-  
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#!" class="text-white">Link 1</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 2</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 3</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 4</a>
-              </li>
-            </ul>
-          </div>
-          <!--Grid column-->
         </div>
-        <!--Grid row-->
-      </section>
-      <!-- Section: Links -->
-    </div>
-    <!-- Grid container -->
-  
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2020 Copyright:
-      <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-    </div>
-    <!-- Copyright -->
-  </footer>
-  <!-- Footer -->
-</body>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="row justify-content-around gx-5">
+                    <div class="col-sm-3 mb-3">
+                        <br><h5>Ocena z Zachowania</h5>
+                        <div class="form-floating"></div>
+                        <div class="mb-3 form-floating">
+                            <div class="form-floating"></div>
+                            <select name="oceny" id="oceny" class="form-select">
+                              <option></option>
+                              <option value="ocena1">Wzorowe</option>
+                              <option value="ocena2">Bardzo Dobre</option>
+                              <option value="ocena3">Dobre</option>
+                              <option value="ocena4">Poprawne</option>
+                              <option value="ocena5">Nieodpowiednie</option>
+                              <option value="ocena6">Naganne</option>
+                            </select>
+                            <label for="oceny" class="form-label">Ocena z Zachowania</label>
+                          </div>
+                          <br><h5>Wyniki Egzaminu Ósmoklasisty</h5>
+                          <div class="form-check mb-3">
+                            <input type="checkbox" name="egzamin" id="egzamin">
+                            <label for="egzamin" class="form-label">Zwolniony z egzaminu</label>
+                          </div>
+                          <div class="mb-3 form-floating">
+                            <div class="form-floating mb-3 position-relative">
+                                <input type="text" name="egz_pol" id="floatingEgzPol" class="form-control" required>
+                                <label for="floatingEgzPol">Język Polski</label>
+                            </div>
+                            <div class="form-floating mb-3 position-relative">
+                                <input type="text" name="egz_mat" id="floatingEgzMat" class="form-control" required>
+                                <label for="floatingEgzMat">Matematyka</label>
+                            </div>
+                            <div class="form-floating mb-3 position-relative">
+                                <input type="text" name="egz_ang" id="floatingEgzAng" class="form-control" required>
+                                <label for="floatingEgzAng">Angielski</label>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <br>    <h5>Oceny</h5>
+                        <div class="form-floating">
+                            <div class="mb-3 form-floating">
+                                <select name="oceny_Pol" id="oceny_Pol" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Pol" class="form-label">Język Polski</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Ang" id="oceny_Ang" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Ang" class="form-label">Język Angielski</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Niem" id="oceny_Niem" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Niem" class="form-label">Język Niemiecki</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Ros" id="oceny_Ros" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Ros" class="form-label">Język Rosyjski</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_His" id="oceny_His" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_His" class="form-label">Historia</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Wos" id="oceny_Wos" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Wos" class="form-label">Wiedzia o Społeczeństwie</label>
+                              </div> 
+                        </div>
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <br> <br> <h5></h5>
+                        <div class="form-floating">
+                            <div class="mb-3 form-floating">
+                                <select name="oceny_Mat" id="oceny_Mat" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Mat" class="form-label">Matematyka</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Chem" id="oceny_Chem" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Chem" class="form-label">Chemia</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Fiz" id="oceny_Fiz" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Fiz" class="form-label">Fizyka</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Geo" id="oceny_Geo" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Geo" class="form-label">Geografia</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Bio" id="oceny_Bio" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Bio" class="form-label">Biologia</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Przy" id="oceny_Przy" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Przy" class="form-label">Przyroda</label>
+                              </div> 
+                        </div>
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <br> <br><h5></h5>
+                        <div class="form-floating">
+                            <div class="mb-3 form-floating">
+                                <select name="oceny_Muz" id="oceny_Muz" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Muz" class="form-label">Muzyka</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Tech" id="oceny_Tech" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Tech" class="form-label">Technika</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Edb" id="oceny_Edb" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Edb" class="form-label">Edukacja Dla Bezpieczeństwa</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Plas" id="oceny_Plas" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Plas" class="form-label">Plastyka</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Rel" id="oceny_Rel" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Rel" class="form-label">Religia/Etyka</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Wf" id="oceny_Wf" class="form-select">
+                                  <option value="ocena0">0-Brak Oceny</option>
+                                  <option value="ocena1">1-Niedostateczny</option>
+                                  <option value="ocena2">2-Dopuszczający</option>
+                                  <option value="ocena3">3-Dostateczny</option>
+                                  <option value="ocena4">4-Dobry</option>
+                                  <option value="ocena5">5-Bardzo Dobry</option>
+                                  <option value="ocena6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Wf" class="form-label">Wychowanie Fizyczne</label>
+                              </div> 
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="tab-pane fade p-1" id="kryteria" role="tabpanel" aria-labelledby="kryteria-tab">
+
+
+          <div class="row g-1 border-bottom p-3">
+            <div class="col border-end">
+                Kryteria ustawowe
+            </div>
+            <div class="col ps-3">
+                Kryterium Dokument potwierdzający spełnienie kryterium
+            </div>
+        </div>
+        <div class="row g-1 border-bottom p-3">
+            <div class="col">
+                <div class="form-check border-end">
+                    <input type="checkbox" name="problemyZdrowotne" class="form-check-input" id="problemyZdrowotne">
+                    <label for="problemyZdrowotne" class="form-check-label">Kandydat z problemami zdrowotnymi, ograniczającymi możliwość wyboru kierunku kształcenia ze względu na stan zdrowia</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="container w-100 justify-content-start">
+                    Opinia publicznej poradni psychologiczno-pedagogicznej, w tym publicznej poradni specjalistycznej.
+                </div>
+            </div>
+        </div>
+        <div class="row g-1 border-bottom p-3">
+            <div class="col">
+                <div class="form-check border-end">
+                    <input type="checkbox" name="problemyZdrowotne" class="form-check-input" id="problemyZdrowotne">
+                    <label for="problemyZdrowotne" class="form-check-label">Wielodzietność rodziny kandydata</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="container w-100 justify-content-start">
+                    Oświadczenie o wielodzietności rodziny kandydata.
+                </div>
+            </div>
+        </div>
+    
+    
+        <div class="row g-1 border-bottom p-3">
+            <div class="col">
+                <div class="form-check border-end h-100">
+                    <input type="checkbox" name="problemyZdrowotne" class="form-check-input" id="problemyZdrowotne">
+                    <label for="problemyZdrowotne" class="form-check-label">Niepełnosprawność kandydata</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="container w-100 justify-content-start">
+                    Orzeczenie o potrzebie kształcenia specjalnego wydane ze względu na niepełnosprawność, orzeczenie o niepełnosprawności lub o stopniu niepełnosprawności lub orzeczenie równoważne w rozumieniu przepisów ustawy z dnia 27 sierpnia 1997 r. o rehabilitacji zawodowej i społecznej oraz zatrudnianiu osób niepełnosprawnych (Dz. U. z 2021 r. poz. 573).
+                    Oryginał, notarialnie poświadczona kopia albo urzędowo poświadczony zgodnie z art. 76a § 1 Kodeksu postępowania administracyjnego odpis lub wyciąg z dokumentu lub kopia poświadczona za zgodność z oryginałem przez rodzica kandydata.
+                </div>
+            </div>
+        </div>
+    
+    
+    
+        <div class="row g-1 border-bottom p-3">
+            <div class="col">
+                <div class="form-check border-end h-100">
+                    <input type="checkbox" name="problemyZdrowotne" class="form-check-input" id="problemyZdrowotne">
+                    <label for="problemyZdrowotne" class="form-check-label">Niepełnosprawność dziecka kandydata</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="container w-100 justify-content-start">
+                    Orzeczenie o niepełnosprawności lub o stopniu niepełnosprawności lub orzeczenie równoważne w rozumieniu przepisów ustawy z dnia 27 sierpnia 1997 r. o rehabilitacji zawodowej i społecznej oraz zatrudnianiu osób niepełnosprawnych (Dz. U. z 2021 r. poz. 573).
+                    Oryginał, notarialnie poświadczona kopia albo urzędowo poświadczony zgodnie z art. 76a § 1 Kodeksu postępowania administracyjnego odpis lub wyciąg z dokumentu lub kopia poświadczona za zgodność z oryginałem przez rodzica kandydata.
+                </div>
+            </div>
+        </div>
+    
+    
+    
+        <div class="row g-1 border-bottom p-3">
+            <div class="col">
+                <div class="form-check border-end h-100">
+                    <input type="checkbox" name="problemyZdrowotne" class="form-check-input" id="problemyZdrowotne">
+                    <label for="problemyZdrowotne" class="form-check-label">Niepełnosprawność innej osoby bliskiej, nad którą kandydat sprawuje opieke</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="container w-100 justify-content-start">
+                    Orzeczenia o niepełnosprawności lub o stopniu niepełnosprawności lub orzeczenia równoważne w rozumieniu przepisów ustawy z dnia 27 sierpnia 1997 r. o rehabilitacji zawodowej i społecznej oraz zatrudnianiu osób niepełnosprawnych (Dz. U. z 2021 r. poz. 573).
+                    Oryginał, notarialnie poświadczona kopia albo urzędowo poświadczony zgodnie z art. 76a § 1 Kodeksu postępowania administracyjnego odpis lub wyciąg z dokumentu lub kopia poświadczona za zgodność z oryginałem przez rodzica kandydata.
+                </div>
+            </div>
+        </div>
+    
+    
+        <div class="row g-1 border-bottom p-3">
+            <div class="col">
+                <div class="form-check border-end h-100">
+                    <input type="checkbox" name="problemyZdrowotne" class="form-check-input" id="problemyZdrowotne">
+                    <label for="problemyZdrowotne" class="form-check-label">Samotne wychowanie dziecka przez kandydata</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="container w-100 justify-content-start">
+                    Prawomocny wyrok sądu rodzinnego orzekający rozwód lub separację lub akt zgonu oraz oświadczenie o samotnym wychowywaniu dziecka oraz niewychowywaniu żadnego dziecka wspólnie z jego rodzicem. Oryginał, notarialnie poświadczona kopia albo urzędowo poświadczony zgodnie z art. 76a § 1 Kodeksu postępowania administracyjnego odpis lub wyciąg z dokumentu kopia poświadczona na zgodność z oryginałem przez rodzica kandydata.
+                </div>
+            </div>
+        </div>
+
+        
+      </div>
+      <div class="tab-pane fade p-1" id="osiagniecia" role="tabpanel" aria-labelledby="osiagniecia-tab">
+        <div class="h3">
+          osiągniecia
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            Świadectwo ukończenia szkoły podstawowej z wyróżnieniem
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            Osiągnięcia w zakresie aktywności społecznej, w tym na rzecz środowiska szkolnego, w szczególności w formie wolontariatu
+          </label>
+        </div>
+
+        <div class="h3">
+          Uzyskanie w zawodach wiedzy będących konkursem o zasięgu ponadwojewódzkim organizowanym przez kuratorów oświaty na podstawie zawartych porozumień:
+        </div>
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            Tytuł finalisty konkursu przedmiotowego
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            Tytułu laureata konkursu tematycznego lub interdyscyplinarnego
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            Tytułu finalisty konkursu tematycznego lub interdyscyplinarnego
+          </label>
+        </div>
+
+        <div class="h3">
+          Uzyskanie w zawodach wiedzy będących konkursem o zasięgu międzynarodowym lub ogólnopolskim albo turniejem o zasięgu ogólnopolskim, przeprowadzanymi zgodnie z przepisami wydanymi na podstawie art. 22 ust. 2 pkt 8 i art. 32a ust. 4 ustawy o systemie oświaty:
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            Tytułu finalisty konkursu z przedmiotu lub przedmiotów artystycznych objętych ramowym planem nauczania szkoły artystycznej
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            Tytułu laureata turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            Tytułu finalisty turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
+          </label>
+        </div>
+
+        <div class="h3">
+          Uzyskanie w zawodach wiedzy będących konkursem o zasięgu wojewódzkim organizowanym przez kuratora oświaty:
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" name="wyroznienie" id="wyroznienie">
+          <label for="wyroznienie">
+            Dwóch lub więcej tytułów finalisty konkursu przedmiotowego
+          </label>
+        </div>
+
+      </div>
+            </div>
+            </div>
+        </form>
+        <script src="index.js"></script>
+
+        <style>
+          .row justify-content-center gx-5{
+            width: 100%;
+          }
+        </style>
+
+        <footer class="bg-dark text-center text-white">
+          <div class="container p-4">
+            <section class="mb-4">
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-facebook-f"></i
+                  ></a>
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-google"></i
+                  ></a>
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-instagram"></i
+                  ></a>
+                  <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-linkedin-in"></i
+                      ></a>
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-github"></i
+              ></a>
+            </section>
+            <section class="">
+              <form action="">
+                <div class="row d-flex justify-content-center">
+                  <div class="col-auto">
+                    <p class="pt-2">
+                      <strong>Sign up for our newsletter</strong>
+                    </p>
+                  </div>
+                  <div class="col-md-5 col-12">
+                    <div class="form-outline form-white mb-4">
+                      <input type="email" id="form5Example21" class="form-control" />
+                      <label class="form-label" for="form5Example21">Email address</label>
+                    </div>
+                  </div>
+                  <div class="col-auto">
+                    <button type="submit" class="btn btn-outline-light mb-4">
+                      Subscribe
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </section>
+            <section class="mb-4">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
+                repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
+                eum harum corrupti dicta, aliquam sequi voluptate quas.
+              </p>
+            </section>
+            <section class="">
+              <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                  <h5 class="text-uppercase">Links</h5>
+        
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#!" class="text-white">Link 1</a>
+                    </li>
+                    <li>
+                      <a href="#!" class="text-white">Link 2</a>
+                    </li>
+                    <li>
+                      <a href="#!" class="text-white">Link 3</a>
+                    </li>
+                    <li>
+                      <a href="#!" class="text-white">Link 4</a>
+                    </li>
+                  </ul>
+                </div>
+                <!--Grid column-->
+        
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                  <h5 class="text-uppercase">Links</h5>
+        
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#!" class="text-white">Link 1</a>
+                    </li>
+                    <li>
+                      <a href="#!" class="text-white">Link 2</a>
+                    </li>
+                    <li>
+                      <a href="#!" class="text-white">Link 3</a>
+                    </li>
+                    <li>
+                      <a href="#!" class="text-white">Link 4</a>
+                    </li>
+                  </ul>
+                </div>
+                <!--Grid column-->
+        
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                  <h5 class="text-uppercase">Links</h5>
+        
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#!" class="text-white">Link 1</a>
+                    </li>
+                    <li>
+                      <a href="#!" class="text-white">Link 2</a>
+                    </li>
+                    <li>
+                      <a href="#!" class="text-white">Link 3</a>
+                    </li>
+                    <li>
+                      <a href="#!" class="text-white">Link 4</a>
+                    </li>
+                  </ul>
+                </div>
+                <!--Grid column-->
+        
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                  <h5 class="text-uppercase">Links</h5>
+        
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#!" class="text-white">Link 1</a>
+                    </li>
+                    <li>
+                      <a href="#!" class="text-white">Link 2</a>
+                    </li>
+                    <li>
+                      <a href="#!" class="text-white">Link 3</a>
+                    </li>
+                    <li>
+                      <a href="#!" class="text-white">Link 4</a>
+                    </li>
+                  </ul>
+                </div>
+                <!--Grid column-->
+              </div>
+              <!--Grid row-->
+            </section>
+            <!-- Section: Links -->
+          </div>
+          <!-- Grid container -->
+        
+          <!-- Copyright -->
+          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2020 Copyright:
+            <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+          </div>
+          <!-- Copyright -->
+        </footer>
+    </body>
 </html>
