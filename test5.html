@@ -42,7 +42,7 @@
             </ul>
         </div>
       </nav>
-        <form>
+        <form novalidate class="">
         <ul class="nav nav-tabs nav-fill justify-content-center" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
               <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#kandydat" type="button" role="tab" aria-controls="kandydat" aria-selected="true">Kandydat</button>
@@ -67,7 +67,7 @@
                       <div class="col-sm-6 position-relative border-end">
                         <h4>Dane kandydata</h4>
                         <div class="form-floating mb-3 position-relative">
-                            <input type="text" name="Nazwisko" id="floatingNazwisko" class="form-control" placeholder="Nazwisko" required>
+                            <input type="text" name="Nazwisko" id="floatingNazwisko" class="form-control" placeholder="Nazwisko">
                             <label for="floatingNazwisko">Nazwisko</label>
                         </div>
                         <div class="form-floating mb-3 position-relative">
@@ -113,14 +113,7 @@
                             <input class="form-control" type="file" id="formFile">
                           </div>
                           <div id="szkola" class="mb-3 form-floating">
-                            <div class="container-fluid d-sm-inline-flex justify-content-lg-end">
-                            <div class="container">
-                                <button class="btn btn-primary" onclick="document.getElementById('profile-tab').click()">Dalej</button>
-                            </div>
-                            <div class="container">
-                              <button class="btn btn-primary" disabled onclick="document.getElementById('profile-tab').click()">Powrót</button>
-                          </div>
-                        </div>
+
                           </div>
                         </div>
                         <div class="col-sm-6 position-relative">
@@ -173,9 +166,13 @@
                       </div>
                     </div>
                   </div>
+                    <div class="btn-group d-flex justify-content-end p-3">
+                        <button class="btn-lg btn btn-secondary w-auto" type="button" disabled onclick="document.getElementById('home-tab').click()">Powrót</button>
+                        <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('profile-tab').click()">Dalej</button>
+                  </div>
             </div>
             <div class="tab-pane fade" id="Opiekuni" role="tabpanel" aria-labelledby="profile-tab">
-                <div class="row justify-content-center gx-5">
+                <div class="row justify-content-center">
                 <div class="col-sm-3">
                 <h4>Dane matki</h4>
                 <div class="form-floating mb-3">
@@ -290,7 +287,10 @@
                     <label for="floatingKodOpiekuna">Kod pocztowy</label>
                   </div>
               </div>
-              
+              <div class="btn-group d-flex justify-content-end p-3">
+                <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('home-tab').click()">Powrót</button>
+                <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('contact-tab').click()">Dalej</button>
+          </div>
             </div>
           <input type="hidden" name="data">
           <input type="hidden" name="godzina">
@@ -320,15 +320,15 @@
                           </div>
                           <div class="mb-3 form-floating">
                             <div class="form-floating mb-3 position-relative">
-                                <input type="text" name="egz_pol" id="floatingEgzPol" class="form-control" required>
+                                <input type="text" name="egz_pol" id="floatingEgzPol" class="form-control">
                                 <label for="floatingEgzPol">Język Polski</label>
                             </div>
                             <div class="form-floating mb-3 position-relative">
-                                <input type="text" name="egz_mat" id="floatingEgzMat" class="form-control" required>
+                                <input type="text" name="egz_mat" id="floatingEgzMat" class="form-control">
                                 <label for="floatingEgzMat">Matematyka</label>
                             </div>
                             <div class="form-floating mb-3 position-relative">
-                                <input type="text" name="egz_ang" id="floatingEgzAng" class="form-control" required>
+                                <input type="text" name="egz_ang" id="floatingEgzAng" class="form-control">
                                 <label for="floatingEgzAng">Angielski</label>
                             </div>
                           </div>
@@ -564,6 +564,10 @@
                               </div> 
                         </div>
                     </div>
+                    <div class="btn-group d-flex justify-content-end p-3">
+                      <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('profile-tab').click()">Powrót</button>
+                      <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('kryteria-tab').click()">Dalej</button>
+                </div>
                 </div>
         </div>
         <div class="tab-pane fade p-1" id="kryteria" role="tabpanel" aria-labelledby="kryteria-tab">
@@ -621,7 +625,6 @@
         </div>
     
     
-    
         <div class="row g-1 border-bottom p-3">
             <div class="col">
                 <div class="form-check border-end h-100">
@@ -667,7 +670,11 @@
                     Prawomocny wyrok sądu rodzinnego orzekający rozwód lub separację lub akt zgonu oraz oświadczenie o samotnym wychowywaniu dziecka oraz niewychowywaniu żadnego dziecka wspólnie z jego rodzicem. Oryginał, notarialnie poświadczona kopia albo urzędowo poświadczony zgodnie z art. 76a § 1 Kodeksu postępowania administracyjnego odpis lub wyciąg z dokumentu kopia poświadczona na zgodność z oryginałem przez rodzica kandydata.
                 </div>
             </div>
-        </div>
+          </div>
+          <div class="btn-group d-flex justify-content-end p-3">
+            <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('contact-tab').click()">Powrót</button>
+            <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('osiagniecia-tab').click()">Dalej</button>
+      </div>
 
         
       </div>
@@ -749,7 +756,10 @@
             Dwóch lub więcej tytułów finalisty konkursu przedmiotowego
           </label>
         </div>
-
+        <div class="btn-group d-flex justify-content-end p-3">
+          <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('kryteria-tab').click()">Powrót</button>
+          <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('osiagniecia-tab').click()">Dalej</button>
+    </div>
       </div>
             </div>
             </div>
