@@ -84,12 +84,13 @@ adresKod.addEventListener("input", ()=>adres());
 adresGmina.addEventListener("input", ()=>adres());
 adresPoczta.addEventListener("input", ()=>adres());
 
-//first page
+//first page Event Listeners
 nazwisko.addEventListener('input', ()=>{FirstPageCheck()});
 imie.addEventListener('input', ()=>{FirstPageCheck()});
 dataUrodzenia.addEventListener('input', ()=>{FirstPageCheck()});
 MiejsceUrodzenia.addEventListener('input', ()=>{FirstPageCheck()});
 pesel.addEventListener('input', ()=>{FirstPageCheck()});
+mail.addEventListener('input', ()=>{FirstPageCheck()});
 adresMiejscowosc.addEventListener('input', ()=>{FirstPageCheck()});
 adresUlica.addEventListener('input', ()=>{FirstPageCheck()});
 adresKod.addEventListener('input', ()=>{FirstPageCheck()});
