@@ -59,8 +59,21 @@ const opiekunMiejscowosc = document.getElementById("floatingMiejscowoscOpiekuna"
 const opiekunUlica = document.getElementById("floatingUlicaOpiekuna");
 const opiekunKod = document.getElementById("floatingKodOpiekuna");
 
-console.log(adresMiejscowosc);
-switchElement.addEventListener('change', ()=>adres());
+//buttony
+const KP = document.getElementById('KP');
+const KD = document.getElementById('KD');
+const OPP = document.getElementById('OPP');
+const OPD = document.getElementById('OPD');
+const OCP = document.getElementById('OCP');
+const OCD = document.getElementById('OCD');
+const KRP = document.getElementById('KRP');
+const KRD = document.getElementById('KRD');
+const OSP = document.getElementById('OSP');
+const OSD = document.getElementById('OSD');
+
+
+//Add Event Listener to eevry button and input
+switchElement.addEventListener('change', ()=>{adres(); FirstPageCheck()});
 switchElementMatki.addEventListener('change', ()=>adres());
 switchElementOjca.addEventListener('change', ()=>adres());
 switchElementOpiekuna.addEventListener('change', ()=>adres());
@@ -70,6 +83,23 @@ adresUlica.addEventListener("input", ()=>adres());
 adresKod.addEventListener("input", ()=>adres());
 adresGmina.addEventListener("input", ()=>adres());
 adresPoczta.addEventListener("input", ()=>adres());
+
+//first page
+nazwisko.addEventListener('input', ()=>{FirstPageCheck()});
+imie.addEventListener('input', ()=>{FirstPageCheck()});
+dataUrodzenia.addEventListener('input', ()=>{FirstPageCheck()});
+MiejsceUrodzenia.addEventListener('input', ()=>{FirstPageCheck()});
+pesel.addEventListener('input', ()=>{FirstPageCheck()});
+adresMiejscowosc.addEventListener('input', ()=>{FirstPageCheck()});
+adresUlica.addEventListener('input', ()=>{FirstPageCheck()});
+adresKod.addEventListener('input', ()=>{FirstPageCheck()});
+adresGmina.addEventListener('input', ()=>{FirstPageCheck()});
+adresPoczta.addEventListener('input', ()=>{FirstPageCheck()});
+zameldowanieMiejscowosc.addEventListener('input', ()=>{FirstPageCheck()});
+zameldowanieUlica.addEventListener('input', ()=>{FirstPageCheck()});
+zameldowanieKod.addEventListener('input', ()=>{FirstPageCheck()});
+zameldowanieGmina.addEventListener('input', ()=>{FirstPageCheck()});
+zameldowaniePoczta.addEventListener('input', ()=>{FirstPageCheck()});
 
 function adres() {
     if(switchElement.checked) {
@@ -178,36 +208,36 @@ if(!validatePESEL(pesel.value)) pesel.classList.add("is-invalid");
 else pesel.classList.remove("is-invalid");
 }
 
-if(error) document.getElementById("submit").setAttribute("disabled", "");
-else document.getElementById("submit").removeAttribute("disabled");
 
-
-function ready() {
-    
-    var ok = `<select id="wyborSzkola" class="form-select">`;
-    fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf-8' }})
-        .then(response => response.arrayBuffer())
-        .then(buffer => {
-            const decoder = new TextDecoder('utf-8');
-            const text = decoder.decode(buffer);
-            const rows = text.trim().split('\n');
-            const table = [];
-            for (let i = 0; i < rows.length; i++) {
-                const columns = rows[i].split(';'); 
-                table.push(columns);
-            }
-            for (let i = 0; i < rows.length; i++) {
-                const row = table[i]; 
-                if(i == 0) continue;
-                ok += ("<option>" + row[4].substring(1,row[4].length-1) + " " + row[13].substring(1, row[13].length-1) +  " " + row[15].substring(1, row[15].length-1) + " " + row[16].substring(1, row[16].length-1) + "</option>");
-            }
-            ok += "</select><label for='wyborSzkola'>Szkoła do której uczęszczał kandydat</label>";
-            document.getElementById("szkola").innerHTML = ok;
-    });
-    
-        grecaptcha.enterprise.ready(function() {
-            grecaptcha.enterprise.execute('6LcH--ckAAAAAIS0cUrm8GBWzUCXOo6lvSDrSk4f', {action: 'login'}).then(function(token) {
-                console.log("ok");
-            });
-        });
+    function FirstPageCheck(){
+        error = Validate1STForm()
+        if(error) KD.setAttribute('disabled', '');
+        else KD.removeAttribute('disabled');
     }
+
+    function Validate1STForm(){
+        console.log('validating..')
+        if(nazwisko.value === '') return true;
+        else if(imie.value === '') return true;
+        else if(dataUrodzenia.value === '') return true;
+        else if(MiejsceUrodzenia.value === '') return true;
+        else if(pesel.value === '') return true;
+        else if(adresMiejscowosc.value === '') return true;
+        else if(adresUlica.value === '') return true;
+        else if(adresKod.value === '') return true;
+        else if(adresGmina.value === '') return true;
+        else if(adresPoczta.value === '') return true;
+        else if(zameldowanieMiejscowosc.value === '') return true;
+        else if(zameldowanieUlica.value === '') return true;
+        else if(zameldowanieKod.value === '') return true;
+        else if(zameldowanieGmina.value === '') return true;
+        else if(zameldowaniePoczta.value === '') return true;
+        else if(!validateEmail(mail.value)) return true;
+        else if(!validatePESEL(pesel.value)) return true;
+        else return false;
+    }
+
+    function Load(){
+        document.getElementById('home-tab').click;
+        FirstPageCheck();
+      }

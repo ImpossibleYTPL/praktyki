@@ -19,8 +19,16 @@
           font-weight: bold;
       }
   </style>
+      <style>
+        .nav li button{
+          color: black !important;
+        }       
+        .nav li .active {
+          color: rgb(57, 159, 255) !important;
+        }
+      </style>
 </head>
-    <body>
+    <body onload="Load()">
       <nav class="navbar bg-body-tertiary justify-content-around navbar-expand" style="background: linear-gradient(90deg, #1e73be 0%, #000000 100%); color: white">
         <div class="container">
           <a class="navbar-brand" href="#">
@@ -185,8 +193,8 @@
                     </div>
                   </div>
                     <div class="btn-group d-flex justify-content-end p-3">
-                        <button class="btn-lg btn btn-secondary w-auto" type="button" disabled onclick="document.getElementById('home-tab').click()">Powrót</button>
-                        <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('profile-tab').click()">Dalej</button>
+                        <button class="btn-lg btn btn-secondary w-auto" type="button" disabled onclick="document.getElementById('home-tab').click()" id="KP">Powrót</button>
+                        <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('profile-tab').click()" id="KD">Dalej</button>
                   </div>
             </div>
             <div class="tab-pane fade" id="Opiekuni" role="tabpanel" aria-labelledby="profile-tab">
@@ -306,8 +314,8 @@
                   </div>
               </div>
               <div class="btn-group d-flex justify-content-end p-3">
-                <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('home-tab').click()">Powrót</button>
-                <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('contact-tab').click()">Dalej</button>
+                <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('home-tab').click()" id="OPP">Powrót</button>
+                <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('contact-tab').click()" id="OPD">Dalej</button>
           </div>
             </div>
           <input type="hidden" name="data">
@@ -583,8 +591,8 @@
                         </div>
                     </div>
                     <div class="btn-group d-flex justify-content-end p-3">
-                      <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('profile-tab').click()">Powrót</button>
-                      <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('kryteria-tab').click()">Dalej</button>
+                      <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('profile-tab').click()" id="OCP">Powrót</button>
+                      <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('kryteria-tab').click()" id="OCD">Dalej</button>
                 </div>
                 </div>
         </div>
@@ -602,8 +610,8 @@
         <div class="row g-1 border-bottom p-3">
             <div class="col">
                 <div class="form-check border-end">
-                    <input type="checkbox" name="problemyZdrowotne" class="form-check-input" id="problemyZdrowotne">
-                    <label for="problemyZdrowotne" class="form-check-label">Kandydat z problemami zdrowotnymi, ograniczającymi możliwość wyboru kierunku kształcenia ze względu na stan zdrowia</label>
+                    <input type="checkbox" name="kryteria1" class="form-check-input" id="kryteria1">
+                    <label for="kryteria1" class="form-check-label">Kandydat z problemami zdrowotnymi, ograniczającymi możliwość wyboru kierunku kształcenia ze względu na stan zdrowia</label>
                 </div>
             </div>
             <div class="col">
@@ -615,8 +623,8 @@
         <div class="row g-1 border-bottom p-3">
             <div class="col">
                 <div class="form-check border-end">
-                    <input type="checkbox" name="problemyZdrowotne" class="form-check-input" id="problemyZdrowotne">
-                    <label for="problemyZdrowotne" class="form-check-label">Wielodzietność rodziny kandydata</label>
+                    <input type="checkbox" name="kryteria2" class="form-check-input" id="kryteria2">
+                    <label for="kryteria2" class="form-check-label">Wielodzietność rodziny kandydata</label>
                 </div>
             </div>
             <div class="col">
@@ -630,8 +638,8 @@
         <div class="row g-1 border-bottom p-3">
             <div class="col">
                 <div class="form-check border-end h-100">
-                    <input type="checkbox" name="problemyZdrowotne" class="form-check-input" id="problemyZdrowotne">
-                    <label for="problemyZdrowotne" class="form-check-label">Niepełnosprawność kandydata</label>
+                    <input type="checkbox" name="kryteria3" class="form-check-input" id="kryteria3">
+                    <label for="kryteria3" class="form-check-label">Niepełnosprawność kandydata</label>
                 </div>
             </div>
             <div class="col">
@@ -646,8 +654,8 @@
         <div class="row g-1 border-bottom p-3">
             <div class="col">
                 <div class="form-check border-end h-100">
-                    <input type="checkbox" name="problemyZdrowotne" class="form-check-input" id="problemyZdrowotne">
-                    <label for="problemyZdrowotne" class="form-check-label">Niepełnosprawność dziecka kandydata</label>
+                    <input type="checkbox" name="kryteria4" class="form-check-input" id="kryteria4">
+                    <label for="kryteria4" class="form-check-label">Niepełnosprawność dziecka kandydata</label>
                 </div>
             </div>
             <div class="col">
@@ -663,8 +671,8 @@
         <div class="row g-1 border-bottom p-3">
             <div class="col">
                 <div class="form-check border-end h-100">
-                    <input type="checkbox" name="problemyZdrowotne" class="form-check-input" id="problemyZdrowotne">
-                    <label for="problemyZdrowotne" class="form-check-label">Niepełnosprawność innej osoby bliskiej, nad którą kandydat sprawuje opieke</label>
+                    <input type="checkbox" name="kryteria5" class="form-check-input" id="kryteria5">
+                    <label for="kryteria5" class="form-check-label">Niepełnosprawność innej osoby bliskiej, nad którą kandydat sprawuje opieke</label>
                 </div>
             </div>
             <div class="col">
@@ -679,8 +687,8 @@
         <div class="row g-1 border-bottom p-3">
             <div class="col">
                 <div class="form-check border-end h-100">
-                    <input type="checkbox" name="problemyZdrowotne" class="form-check-input" id="problemyZdrowotne">
-                    <label for="problemyZdrowotne" class="form-check-label">Samotne wychowanie dziecka przez kandydata</label>
+                    <input type="checkbox" name="Kryteria6" class="form-check-input" id="Kryteria6">
+                    <label for="Kryteria6" class="form-check-label">Samotne wychowanie dziecka przez kandydata</label>
                 </div>
             </div>
             <div class="col">
@@ -690,8 +698,8 @@
             </div>
           </div>
           <div class="btn-group d-flex justify-content-end p-3">
-            <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('contact-tab').click()">Powrót</button>
-            <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('osiagniecia-tab').click()">Dalej</button>
+            <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('contact-tab').click()" id="KRP">Powrót</button>
+            <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('osiagniecia-tab').click()" id="KRD">Dalej</button>
       </div>
 
         
@@ -709,8 +717,8 @@
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie2" id="wyroznienie2">
+          <label for="wyroznienie2">
             Osiągnięcia w zakresie aktywności społecznej, w tym na rzecz środowiska szkolnego, w szczególności w formie wolontariatu
           </label>
         </div>
@@ -719,22 +727,22 @@
           Uzyskanie w zawodach wiedzy będących konkursem o zasięgu ponadwojewódzkim organizowanym przez kuratorów oświaty na podstawie zawartych porozumień:
         </div>
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie3" id="wyroznienie3">
+          <label for="wyroznienie3">
             Tytuł finalisty konkursu przedmiotowego
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie4" id="wyroznienie4">
+          <label for="wyroznienie4">
             Tytułu laureata konkursu tematycznego lub interdyscyplinarnego
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie5" id="wyroznienie5">
+          <label for="wyroznienie5">
             Tytułu finalisty konkursu tematycznego lub interdyscyplinarnego
           </label>
         </div>
@@ -744,22 +752,22 @@
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie6" id="wyroznienie6">
+          <label for="wyroznienie6">
             Tytułu finalisty konkursu z przedmiotu lub przedmiotów artystycznych objętych ramowym planem nauczania szkoły artystycznej
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie7" id="wyroznienie7">
+          <label for="wyroznienie7">
             Tytułu laureata turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie8" id="wyroznienie8">
+          <label for="wyroznienie8">
             Tytułu finalisty turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
           </label>
         </div>
@@ -769,43 +777,43 @@
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie9" id="wyroznienie9">
+          <label for="wyroznienie9">
             Dwóch lub więcej tytułów finalisty konkursu przedmiotowego
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie10" id="wyroznienie10">
+          <label for="wyroznienie10">
             Dwóch lub więcej tytułów laureata konkursu tematycznego lub interdyscyplinarnego
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie11" id="wyroznienie11">
+          <label for="wyroznienie11">
             Dwóch lub więcej tytułów finalisty konkursu tematycznego lub interdyscyplinarnego
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie12" id="wyroznienie12">
+          <label for="wyroznienie12">
             Tytułu finalisty konkursu przedmiotowego
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie13" id="wyroznienie13">
+          <label for="wyroznienie13">
             Tytułu laureata konkursu tematycznego lub interdyscyplinarnego
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie14" id="wyroznienie14">
+          <label for="wyroznienie14">
             Tytułu finalisty konkursu tematycznego lub interdyscyplinarnego
           </label>
         </div>
@@ -815,43 +823,43 @@
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie15" id="wyroznienie15">
+          <label for="wyroznienie15">
             dwóch lub więcej tytułów finalisty konkursu z przedmiotu lub przedmiotów artystycznych objętych ramowym planem nauczania szkoły artystycznej
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie16" id="wyroznienie16">
+          <label for="wyroznienie16">
             dwóch lub więcej tytułów laureata turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie17" id="wyroznienie17">
+          <label for="wyroznienie17">
             dwóch lub więcej tytułów finalisty turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie18" id="wyroznienie18">
+          <label for="wyroznienie18">
             tytułu finalisty konkursu z przedmiotu lub przedmiotów artystycznych objętych ramowym planem nauczania szkoły artystycznej
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie19" id="wyroznienie19">
+          <label for="wyroznienie19">
             tytułu laureata turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie20" id="wyroznienie20">
+          <label for="wyroznienie20">
             tytułu finalisty turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
           </label>
         </div>
@@ -861,36 +869,36 @@
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie21" id="wyroznienie21">
+          <label for="wyroznienie21">
             międzynarodowym
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie22" id="wyroznienie22">
+          <label for="wyroznienie22">
             krajowym
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie23" id="wyroznienie23">
+          <label for="wyroznienie23">
             wojewódzkim
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
+          <input type="checkbox" name="wyroznienie24" id="wyroznienie24">
+          <label for="wyroznienie24">
             powiatowym
           </label>
         </div>
 
         <div class="btn-group d-flex justify-content-end p-3">
-          <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('kryteria-tab').click()">Powrót</button>
-          <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('osiagniecia-tab').click()">Dalej</button>
+          <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('kryteria-tab').click()" id="OSP">Powrót</button>
+          <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('osiagniecia-tab').click()" id="OSD">Dalej</button>
     </div>
       </div>
             </div>
