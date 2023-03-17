@@ -238,6 +238,18 @@ else pesel.classList.remove("is-invalid");
         else return false;
     }
 
+    function Validate2SCForm(){
+        if(nazwiskoMatki === '' || nazwiskoOjca === '' || nazwiskoOpiekuna === '') {
+            if (nazwiskoMatki === '') {
+
+            }
+            else if(nazwiskoOjca === '') {
+
+            }
+            else if(nazwiskoOpiekuna === '')
+        }
+    }
+
     function Load(){
         document.getElementById('home-tab').click;
         FirstPageCheck();
