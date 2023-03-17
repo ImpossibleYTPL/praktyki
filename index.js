@@ -60,7 +60,6 @@ const opiekunUlica = document.getElementById("floatingUlicaOpiekuna");
 const opiekunKod = document.getElementById("floatingKodOpiekuna");
 
 //buttony
-const KP = document.getElementById('KP');
 const KD = document.getElementById('KD');
 const OPP = document.getElementById('OPP');
 const OPD = document.getElementById('OPD');
