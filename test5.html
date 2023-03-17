@@ -704,6 +704,7 @@
 
         
       </div>
+      <div class="tab-pane fade p-1" id="osiagniecia" role="tabpanel" aria-labelledby="osiagniecia-tab">
 
       <!--
         nowe
@@ -725,7 +726,22 @@
             </label>
           </div>
 
-          <div class="form-check">
+          <style>
+          .form-check {
+            display: flex !important;
+            align-items: flex-start;
+          }
+          
+          .form-check>input {
+            margin-top: 7px;
+          }
+          
+          .form-check>label {
+            padding-left: 7px;
+          }
+
+          </style>
+          <div class="form-check" id="specjalny">
             <input type="checkbox" name="wyroznienie2" id="wyroznienie2">
             <label for="wyroznienienie2">
               Osiągnięcia w zakresie aktywności społecznej, w tym na rzecz środowiska szkolnego, w szczególności w formie wolontariatu
@@ -734,32 +750,14 @@
         </div>
     </div>
 
-    <!--
-      koniec nowe
-    -->
-
-      <div class="tab-pane fade p-1" id="osiagniecia" role="tabpanel" aria-labelledby="osiagniecia-tab">
-        <div class="h3">
-          osiągniecia
-        </div>
-
-        <div class="form-check">
-          <input type="checkbox" name="wyroznienie" id="wyroznienie">
-          <label for="wyroznienie">
-            Świadectwo ukończenia szkoły podstawowej z wyróżnieniem
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input type="checkbox" name="wyroznienie2" id="wyroznienie2">
-          <label for="wyroznienie2">
-            Osiągnięcia w zakresie aktywności społecznej, w tym na rzecz środowiska szkolnego, w szczególności w formie wolontariatu
-          </label>
-        </div>
-
-        <div class="h3">
+    <div class="row g-1 border-bottom p-3">
+      <div class="col border-end justify-content-center d-flex align-items-center">
+        <div class="h6 text-sm-center h-25">
           Uzyskanie w zawodach wiedzy będących konkursem o zasięgu ponadwojewódzkim organizowanym przez kuratorów oświaty na podstawie zawartych porozumień:
         </div>
+      </div>
+      <div class="col ps-3">
+
         <div class="form-check">
           <input type="checkbox" name="wyroznienie3" id="wyroznienie3">
           <label for="wyroznienie3">
@@ -780,36 +778,46 @@
             Tytułu finalisty konkursu tematycznego lub interdyscyplinarnego
           </label>
         </div>
-
-        <div class="h3">
-          Uzyskanie w zawodach wiedzy będących konkursem o zasięgu międzynarodowym lub ogólnopolskim albo turniejem o zasięgu ogólnopolskim, przeprowadzanymi zgodnie z przepisami wydanymi na podstawie art. 22 ust. 2 pkt 8 i art. 32a ust. 4 ustawy o systemie oświaty:
         </div>
+  </div>
 
-        <div class="form-check">
-          <input type="checkbox" name="wyroznienie6" id="wyroznienie6">
-          <label for="wyroznienie6">
-            Tytułu finalisty konkursu z przedmiotu lub przedmiotów artystycznych objętych ramowym planem nauczania szkoły artystycznej
-          </label>
-        </div>
+  <div class="row g-1 border-bottom p-3">
+    <div class="col border-end justify-content-center d-flex align-items-center">
+      <div class="h6 text-sm-center h-25">
+        Uzyskanie w zawodach wiedzy będących konkursem o zasięgu międzynarodowym lub ogólnopolskim albo turniejem o zasięgu ogólnopolskim, przeprowadzanymi zgodnie z przepisami wydanymi na podstawie art. 22 ust. 2 pkt 8 i art. 32a ust. 4 ustawy o systemie oświaty:
+      </div>
+    </div>
+    <div class="col ps-3">
+      <div class="form-check">
+        <input type="checkbox" name="wyroznienie6" id="wyroznienie6">
+        <label for="wyroznienie6">
+          Tytułu finalisty konkursu z przedmiotu lub przedmiotów artystycznych objętych ramowym planem nauczania szkoły artystycznej
+        </label>
+      </div>
 
-        <div class="form-check">
-          <input type="checkbox" name="wyroznienie7" id="wyroznienie7">
-          <label for="wyroznienie7">
-            Tytułu laureata turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
-          </label>
-        </div>
+      <div class="form-check">
+        <input type="checkbox" name="wyroznienie7" id="wyroznienie7">
+        <label for="wyroznienie7">
+          Tytułu laureata turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
+        </label>
+      </div>
 
-        <div class="form-check">
-          <input type="checkbox" name="wyroznienie8" id="wyroznienie8">
-          <label for="wyroznienie8">
-            Tytułu finalisty turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
-          </label>
-        </div>
+      <div class="form-check">
+        <input type="checkbox" name="wyroznienie8" id="wyroznienie8">
+        <label for="wyroznienie8">
+          Tytułu finalisty turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
+        </label>
+      </div>
+    </div>
+    </div>
 
-        <div class="h3">
+    <div class="row g-1 border-bottom p-3">
+      <div class="col border-end justify-content-center d-flex align-items-center">
+        <div class="h6 text-sm-center h-25">
           Uzyskanie w zawodach wiedzy będących konkursem o zasięgu wojewódzkim organizowanym przez kuratora oświaty:
         </div>
-
+      </div>
+      <div class="col ps-3">
         <div class="form-check">
           <input type="checkbox" name="wyroznienie9" id="wyroznienie9">
           <label for="wyroznienie9">
@@ -851,84 +859,129 @@
             Tytułu finalisty konkursu tematycznego lub interdyscyplinarnego
           </label>
         </div>
+      </div>
+      </div>
+
+      <div class="row g-1 border-bottom p-3">
+        <div class="col border-end justify-content-center d-flex align-items-center">
+          <div class="h6 text-sm-center h-25">
+            uzyskanie w zawodach wiedzy będących konkursem albo turniejem, oraz zasięgu ponadwojewódzkim lub wojewódzkim, przeprowadzanymi zgodnie z przepisami wydanymi na podstawie art. 32a ust.4 iart.22 ust.2 pkt 8 ustawy o systemie oświaty:
+          </div>
+        </div>
+        <div class="col ps-3">
+          <div class="form-check">
+            <input type="checkbox" name="wyroznienie15" id="wyroznienie15">
+            <label for="wyroznienie15">
+              dwóch lub więcej tytułów finalisty konkursu z przedmiotu lub przedmiotów artystycznych objętych ramowym planem nauczania szkoły artystycznej
+            </label>
+          </div>
+  
+          <div class="form-check">
+            <input type="checkbox" name="wyroznienie16" id="wyroznienie16">
+            <label for="wyroznienie16">
+              dwóch lub więcej tytułów laureata turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
+            </label>
+          </div>
+  
+          <div class="form-check">
+            <input type="checkbox" name="wyroznienie17" id="wyroznienie17">
+            <label for="wyroznienie17">
+              dwóch lub więcej tytułów finalisty turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
+            </label>
+          </div>
+  
+          <div class="form-check">
+            <input type="checkbox" name="wyroznienie18" id="wyroznienie18">
+            <label for="wyroznienie18">
+              tytułu finalisty konkursu z przedmiotu lub przedmiotów artystycznych objętych ramowym planem nauczania szkoły artystycznej
+            </label>
+          </div>
+  
+          <div class="form-check">
+            <input type="checkbox" name="wyroznienie19" id="wyroznienie19">
+            <label for="wyroznienie19">
+              tytułu laureata turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
+            </label>
+          </div>
+  
+          <div class="form-check">
+            <input type="checkbox" name="wyroznienie20" id="wyroznienie20">
+            <label for="wyroznienie20">
+              tytułu finalisty turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
+            </label>
+          </div>
+        </div>
+        </div>
+
+        <div class="row g-1 border-bottom p-3">
+          <div class="col border-end justify-content-center d-flex align-items-center">
+            <div class="h6 text-sm-center h-25">
+              uzyskanie wysokiego miejsca w zawodach wiedzy innych niż wymienione w pkt 1–4, artystycznych lub sportowych, organizowanych przez kuratora oświaty lub inne podmioty działające na terenie szkoły, na szczeblu:
+            </div>
+          </div>
+          <div class="col ps-3">
+            <div class="form-check">
+              <input type="checkbox" name="wyroznienie21" id="wyroznienie21">
+              <label for="wyroznienie21">
+                międzynarodowym
+              </label>
+            </div>
+    
+            <div class="form-check">
+              <input type="checkbox" name="wyroznienie22" id="wyroznienie22">
+              <label for="wyroznienie22">
+                krajowym
+              </label>
+            </div>
+    
+            <div class="form-check">
+              <input type="checkbox" name="wyroznienie23" id="wyroznienie23">
+              <label for="wyroznienie23">
+                wojewódzkim
+              </label>
+            </div>
+    
+            <div class="form-check">
+              <input type="checkbox" name="wyroznienie24" id="wyroznienie24">
+              <label for="wyroznienie24">
+                powiatowym
+              </label>
+            </div>
+          </div>
+          
+      </div>
+    <!--
+      koniec nowe
+    -->
 
         <div class="h3">
-          uzyskanie w zawodach wiedzy będących konkursem albo turniejem, oraz zasięgu ponadwojewódzkim lub wojewódzkim, przeprowadzanymi zgodnie z przepisami wydanymi na podstawie art. 32a ust.4 iart.22 ust.2 pkt 8 ustawy o systemie oświaty:
+         
         </div>
 
-        <div class="form-check">
-          <input type="checkbox" name="wyroznienie15" id="wyroznienie15">
-          <label for="wyroznienie15">
-            dwóch lub więcej tytułów finalisty konkursu z przedmiotu lub przedmiotów artystycznych objętych ramowym planem nauczania szkoły artystycznej
-          </label>
+
+        <div class="h3">
+          
         </div>
 
-        <div class="form-check">
-          <input type="checkbox" name="wyroznienie16" id="wyroznienie16">
-          <label for="wyroznienie16">
-            dwóch lub więcej tytułów laureata turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
-          </label>
+
+
+        <div class="h3">
+          
         </div>
 
-        <div class="form-check">
-          <input type="checkbox" name="wyroznienie17" id="wyroznienie17">
-          <label for="wyroznienie17">
-            dwóch lub więcej tytułów finalisty turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
-          </label>
+
+
+        <div class="h3">
+          
         </div>
 
-        <div class="form-check">
-          <input type="checkbox" name="wyroznienie18" id="wyroznienie18">
-          <label for="wyroznienie18">
-            tytułu finalisty konkursu z przedmiotu lub przedmiotów artystycznych objętych ramowym planem nauczania szkoły artystycznej
-          </label>
-        </div>
 
-        <div class="form-check">
-          <input type="checkbox" name="wyroznienie19" id="wyroznienie19">
-          <label for="wyroznienie19">
-            tytułu laureata turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input type="checkbox" name="wyroznienie20" id="wyroznienie20">
-          <label for="wyroznienie20">
-            tytułu finalisty turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
-          </label>
-        </div>
 
         <div class="h4">
-          uzyskanie wysokiego miejsca w zawodach wiedzy innych niż wymienione w pkt 1–4, artystycznych lub sportowych, organizowanych przez kuratora oświaty lub inne podmioty działające na terenie szkoły, na szczeblu:
+          
         </div>
 
-        <div class="form-check">
-          <input type="checkbox" name="wyroznienie21" id="wyroznienie21">
-          <label for="wyroznienie21">
-            międzynarodowym
-          </label>
-        </div>
 
-        <div class="form-check">
-          <input type="checkbox" name="wyroznienie22" id="wyroznienie22">
-          <label for="wyroznienie22">
-            krajowym
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input type="checkbox" name="wyroznienie23" id="wyroznienie23">
-          <label for="wyroznienie23">
-            wojewódzkim
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input type="checkbox" name="wyroznienie24" id="wyroznienie24">
-          <label for="wyroznienie24">
-            powiatowym
-          </label>
-        </div>
 
         <div class="btn-group d-flex justify-content-end p-3">
           <button class="btn-lg btn btn-secondary w-auto" onclick="document.getElementById('kryteria-tab').removeAttribute('disabled'); document.getElementById('kryteria-tab').click();  document.getElementById('kryteria-tab').setAttribute('disabled', '');" id="OSP">Powrót</button>
