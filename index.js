@@ -238,16 +238,40 @@ else pesel.classList.remove("is-invalid");
     }
 
     function Validate2SCForm(){
-        if(nazwiskoMatki === '' || nazwiskoOjca === '' || nazwiskoOpiekuna === '') {
-            if (nazwiskoMatki === '') {
-                console.log('ok');
-            }
-            else if(nazwiskoOjca === '') {
-                console.log('ok');
-            }
-            else if(nazwiskoOpiekuna === '') {
-                console.log('ok');
-            }
+        let matka, ojciec, opiekun = false;
+        let err = false;
+
+        if(nazwiskoMatki.value != '' ||
+            imieMatki.value != '' ||
+            numerTelefonuMatki.value != '' ||
+            mailMatki != '' ||
+            matkaMiejscowosc != '' ||
+            matkaUlica != '' ||
+            matkaKod != ''
+        ) matka = true;
+
+
+        if(nazwiskoOjca.value != '' ||
+        imieOjca.value != '' ||
+        numerTelefonuOjca.value != '' ||
+        mailOjca != '' ||
+        ojciecMiejscowosc != '' ||
+        ojciecUlica != '' ||
+        ojciecKod != ''
+    ) ojciec = true;
+
+
+        if(nazwiskoOpiekuna.value != '' ||
+        imieOpiekuna.value != '' ||
+        numerTelefonuOpiekuna.value != '' ||
+        mailOpiekuna != '' ||
+        opiekunMiejscowosc != '' ||
+        opiekunUlica != '' ||
+        opiekunKod != ''
+        ) opiekun = true;
+
+        if(!matka && !ojciec && !opiekun) {
+            
         }
     }
 
