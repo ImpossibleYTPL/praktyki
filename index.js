@@ -240,16 +240,20 @@ else pesel.classList.remove("is-invalid");
     function Validate2SCForm(){
         if(nazwiskoMatki === '' || nazwiskoOjca === '' || nazwiskoOpiekuna === '') {
             if (nazwiskoMatki === '') {
-
+                console.log('ok');
             }
             else if(nazwiskoOjca === '') {
-
+                console.log('ok');
             }
-            else if(nazwiskoOpiekuna === '')
+            else if(nazwiskoOpiekuna === '') {
+                console.log('ok');
+            }
         }
     }
 
     function Load(){
-        document.getElementById('home-tab').click;
-        FirstPageCheck();
+        document.getElementById('rekrutacja-tab').removeAttribute('disabled');
+        document.getElementById('rekrutacja-tab').click;
+        document.getElementById('rekrutacja-tab').setAttribute('disabled', '');
+        //FirstPageCheck();
       }

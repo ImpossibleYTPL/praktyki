@@ -27,6 +27,7 @@
           color: rgb(57, 159, 255) !important;
         }
       </style>
+      
 </head>
     <body onload="Load()">
       <nav class="navbar bg-body-tertiary justify-content-around navbar-expand" style="background: linear-gradient(90deg, #1e73be 0%, #000000 100%); color: white">
@@ -52,8 +53,11 @@
       </nav>
         <form novalidate class="">
         <ul class="nav nav-tabs nav-fill justify-content-center" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="rekrutacja-tab" disabled data-bs-toggle="tab" data-bs-target="#rekrutacja" type="button" role="tab" aria-controls="rekrutacja" aria-selected="true">Rekrutacja</button>
+          </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="home-tab" disabled data-bs-toggle="tab" data-bs-target="#kandydat" type="button" role="tab" aria-controls="kandydat" aria-selected="true">Kandydat</button>
+              <button class="nav-link" id="home-tab" disabled data-bs-toggle="tab" data-bs-target="#kandydat" type="button" role="tab" aria-controls="kandydat" aria-selected="true">Kandydat</button>
             </li>
             <li class="nav-item" role="presentation">
               <button class="nav-link" id="profile-tab" disabled data-bs-toggle="tab" data-bs-target="#Opiekuni" type="button" role="tab" aria-controls="Opiekuni" aria-selected="false">Opiekuni</button>
@@ -67,9 +71,21 @@
             <li class="nav-item" role="presentation">
               <button class="nav-link" id="kryteria-tab" disabled data-bs-toggle="tab" data-bs-target="#kryteria" type="button" role="tab" aria-controls="kryteria" aria-selected="false">Kryteria</button>
             </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="wyslij-tab" disabled data-bs-toggle="tab" data-bs-target="#wyslij" type="button" role="tab" aria-controls="wyslij" aria-selected="false">Wyślij</button>
+            </li>
           </ul>
           <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active p-1" id="kandydat" role="tabpanel" aria-labelledby="home-tab">
+            <div class="tab-pane fade show active p-1" id="rekrutacja" role="tabpanel" aria-labelledby="rekrutacja-tab">
+              <div class="h2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus esse ullam vero commodi, nesciunt itaque quas consequatur reiciendis incidunt voluptas accusamus sunt cupiditate eligendi officiis, nam libero, ratione facilis at?</div>
+            
+              <div class="btn-group d-flex show active justify-content-end p-3">
+                <button class="btn-lg btn btn-secondary w-auto" type="button" disabled id="RP">Powrót</button>
+                <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('home-tab').removeAttribute('disabled'); document.getElementById('home-tab').click();  document.getElementById('home-tab').setAttribute('disabled', '');" id="RD">Dalej</button>
+              </div>
+            </div>
+
+            <div class="tab-pane fade p-1" id="kandydat" role="tabpanel" aria-labelledby="home-tab">
                 <div class="container">
                     <div class="row justify-content-around gx-5">
                       <div class="col-sm-6 position-relative border-end">
@@ -191,8 +207,9 @@
                         </div>
                       </div>
 
-                      <div class="btn-group d-flex justify-content-center p-3 w-25">
-                        <button class="btn btn-primary w-auto" type="button" onclick="document.getElementById('profile-tab').removeAttribute('disabled'); document.getElementById('profile-tab').click();  document.getElementById('profile-tab').setAttribute('disabled', '');" id="KD">Dalej</button>
+                      <div class="btn-group d-flex justify-content-end p-3">
+                        <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('rekrutacja-tab').removeAttribute('disabled'); document.getElementById('rekrutacja-tab').click();  document.getElementById('rekrutacja-tab').setAttribute('disabled', '');" id="KP">Powrót</button>
+                        <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('profile-tab').removeAttribute('disabled'); document.getElementById('profile-tab').click();  document.getElementById('profile-tab').setAttribute('disabled', '');" id="KD">Dalej</button>
                       </div>
                     </div>
                   </div>
@@ -955,13 +972,20 @@
     -->
         <div class="btn-group d-flex justify-content-end p-3">
           <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('contact-tab').removeAttribute('disabled'); document.getElementById('contact-tab').click();  document.getElementById('contact-tab').setAttribute('disabled', '');" id="OSP">Powrót</button>
-          <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('kryteria-tab').removeAttribute('disabled'); document.getElementById('kryteria-tab').click();  document.getElementById('kryteria-tab').setAttribute('disabled', '');" id="OSD">Dalej</button>
+          <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('wyslij-tab').removeAttribute('disabled'); document.getElementById('wyslij-tab').click();  document.getElementById('wyslij-tab').setAttribute('disabled', '');" id="OSD">Dalej</button>
     </div>
       </div>
-            </div>
-            </div>
-        </form>
-        <script src="index.js"></script>
+      <div class="tab-pane fade show p-1" id="wyslij" role="tabpanel" aria-labelledby="wyslij-tab">
+        <p class="h2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, tempora tempore praesentium magnam ipsam labore non iste eaque vitae natus quam veritatis earum aspernatur provident repudiandae incidunt, vel et omnis!</p>
+        <div class="btn-group d-flex justify-content-end p-3">
+          <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('kryteria-tab').removeAttribute('disabled'); document.getElementById('kryteria-tab').click();  document.getElementById('kryteria-tab').setAttribute('disabled', '');" id="WYP">Powrót</button>
+          <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('wyslij-tab').removeAttribute('disabled'); document.getElementById('wyslij-tab').click();  document.getElementById('wyslij-tab').setAttribute('disabled', '');" id="WYD">Wyslij</button>
+        </div>
+      </div>
+      </div>
+      </div>
+      </form>
+        
         <footer class="bg-dark text-center text-white">
           <div class="container p-4">
             <section class="mb-4">
@@ -1111,5 +1135,7 @@
           </div>
           <!-- Copyright -->
         </footer>
+        <script src="index.js"></script>
+        
     </body>
 </html>
