@@ -26,19 +26,25 @@
         .nav li .active {
           color: rgb(57, 159, 255) !important;
         }
+
+        @media screen and (max-width: 1040px){
+          #navlogo {
+            display: none;
+          }
+        }
       </style>
       
 </head>
     <body onload="Load()">
-      <nav class="navbar bg-body-tertiary justify-content-around navbar-expand" style="background: linear-gradient(90deg, #1e73be 0%, #000000 100%); color: white">
+      <nav class="navbar bg-body-tertiary justify-content-around navbar-expand h-25" id="navlogo" style="background: linear-gradient(90deg, #1e73be 0%, #000000 100%); color: white">
         <div class="container">
           <a class="navbar-brand" href="#">
             <img src="./logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top" style="color: white">
             PZS Kłanino
           </a>
         </div>
-        <div class="container d-inline-block">
-            <ul class="list-group list-group-horizontal justify-content-around" style="list-style-type: none">	                   		
+        <div class="container d-flex justify-content-sm-center w-100">
+            <ul class="list-group list-group-horizontal gap-5 list-group-horizontal-sm justify-content-around w-100 p-2" style="list-style-type: none">	                   		
                 <li>
                     <span class="material-symbols-outlined" style="transform: translateY(6px);"> call </span> +48 58 673 87 83
                 </li>
