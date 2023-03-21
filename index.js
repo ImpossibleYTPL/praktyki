@@ -1,4 +1,5 @@
 var error = true;
+var errMatka, errOjciec, errOpiekun = false;
 
 const hiddens = document.querySelectorAll("input[type=hidden]");
 const data = new Date();
@@ -100,6 +101,40 @@ zameldowanieUlica.addEventListener('input', ()=>{FirstPageCheck()});
 zameldowanieKod.addEventListener('input', ()=>{FirstPageCheck()});
 zameldowanieGmina.addEventListener('input', ()=>{FirstPageCheck()});
 zameldowaniePoczta.addEventListener('input', ()=>{FirstPageCheck()});
+
+//second page Event Listeners
+
+switchElementMatki.addEventListener('input', ()=>{SecondPageValidateForm()});
+switchElementOjca.addEventListener('input', ()=>{SecondPageValidateForm()});
+switchElementOpiekuna.addEventListener('input', ()=>{SecondPageValidateForm()});
+
+//matka
+nazwiskoMatki.addEventListener('input', ()=>{SecondPageValidateForm()});
+imieMatki.addEventListener('input', ()=>{SecondPageValidateForm()});
+numerTelefonuMatki.addEventListener('input', ()=>{SecondPageValidateForm()});
+mailMatki.addEventListener('input', ()=>{SecondPageValidateForm()});
+matkaMiejscowosc.addEventListener('input', ()=>{SecondPageValidateForm()});
+matkaUlica.addEventListener('input', ()=>{SecondPageValidateForm()});
+matkaKod.addEventListener('input', ()=>{SecondPageValidateForm()});
+
+//ojciec
+nazwiskoOjca.addEventListener('input', ()=>{SecondPageValidateForm()});
+imieOjca.addEventListener('input', ()=>{SecondPageValidateForm()});
+numerTelefonuOjca.addEventListener('input', ()=>{SecondPageValidateForm()});
+mailOjca.addEventListener('input', ()=>{SecondPageValidateForm()});
+ojciecMiejscowosc.addEventListener('input', ()=>{SecondPageValidateForm()});
+ojciecUlica.addEventListener('input', ()=>{SecondPageValidateForm()});
+ojciecKod.addEventListener('input', ()=>{SecondPageValidateForm()});
+
+//opiekun
+nazwiskoOpiekuna.addEventListener('input', ()=>{SecondPageValidateForm()});
+imieOpiekuna.addEventListener('input', ()=>{SecondPageValidateForm()});
+numerTelefonuOpiekuna.addEventListener('input', ()=>{SecondPageValidateForm()});
+mailOpiekuna.addEventListener('input', ()=>{SecondPageValidateForm()});
+opiekunMiejscowosc.addEventListener('input', ()=>{SecondPageValidateForm()});
+opiekunUlica.addEventListener('input', ()=>{SecondPageValidateForm()});
+opiekunKod.addEventListener('input', ()=>{SecondPageValidateForm()});
+
 
 function adres() {
     if(switchElement.checked) {
@@ -237,41 +272,79 @@ else pesel.classList.remove("is-invalid");
         else return false;
     }
 
-    function Validate2SCForm(){
-        let matka, ojciec, opiekun = false;
-        let err = false;
+    function SecondPageValidateForm(){
 
-        if(nazwiskoMatki.value != '' ||
-            imieMatki.value != '' ||
-            numerTelefonuMatki.value != '' ||
-            mailMatki != '' ||
-            matkaMiejscowosc != '' ||
-            matkaUlica != '' ||
-            matkaKod != ''
-        ) matka = true;
+        const matka = !!(nazwiskoMatki.value != '' ||
+        imieMatki.value != '' ||
+        numerTelefonuMatki.value != '' ||
+        mailMatki.value != '' ||
+        matkaMiejscowosc.value != '' ||
+        matkaUlica.value != '' ||
+        matkaKod.value != '')
 
-
-        if(nazwiskoOjca.value != '' ||
+        const ojciec = !!(nazwiskoOjca.value != '' ||
         imieOjca.value != '' ||
         numerTelefonuOjca.value != '' ||
-        mailOjca != '' ||
-        ojciecMiejscowosc != '' ||
-        ojciecUlica != '' ||
-        ojciecKod != ''
-    ) ojciec = true;
+        mailOjca.value != '' ||
+        ojciecMiejscowosc.value != '' ||
+        ojciecUlica.value != '' ||
+        ojciecKod.value != '')
 
-
-        if(nazwiskoOpiekuna.value != '' ||
+        const opiekun = !!(nazwiskoOpiekuna.value != '' ||
         imieOpiekuna.value != '' ||
         numerTelefonuOpiekuna.value != '' ||
-        mailOpiekuna != '' ||
-        opiekunMiejscowosc != '' ||
-        opiekunUlica != '' ||
-        opiekunKod != ''
-        ) opiekun = true;
+        mailOpiekuna.value != '' ||
+        opiekunMiejscowosc.value != '' ||
+        opiekunUlica.value != '' ||
+        opiekunKod.value != '')
+
+        console.log("matka: " + matka + " ojciec: " + ojciec + " opiekun: " + opiekun)
 
         if(!matka && !ojciec && !opiekun) {
-            
+            OPD.setAttribute('disabled', '');
+            return false();
+        }
+
+        if (matka) {
+            errMatka =
+            (nazwiskoMatki.value != '' &&
+            imieMatki.value != '' &&
+            numerTelefonuMatki.value != '' &&
+            mailMatki.value != '' &&
+            matkaMiejscowosc != '' &&
+            matkaUlica.value != '' &&
+            matkaKod.value != '' &&
+            validateEmail(mailMatki.value))
+        }
+
+        if (ojciec) {
+            errOjciec =
+            (nazwiskoOjca.value != '' &&
+            imieOjca.value != '' &&
+            numerTelefonuOjca.value != '' &&
+            mailOjca.value != '' &&
+            ojciecMiejscowosc != '' &&
+            ojciecUlica.value != '' &&
+            ojciecKod.value != '' &&
+            validateEmail(mailOjca.value))
+        }
+
+        if (opiekun) {
+            errOpiekun =
+            (nazwiskoOpiekuna.value != '' &&
+            imieOpiekuna.value != '' &&
+            numerTelefonuOpiekuna.value != '' &&
+            mailOpiekuna.value != '' &&
+            opiekunMiejscowosc != '' &&
+            opiekunUlica.value != '' &&
+            opiekunKod.value != '' &&
+            validateEmail(mailOpiekuna.value))
+        }
+
+        if(errMatka || errOjciec || errOpiekun) {
+            OPD.removeAttribute('disabled');
+        } else {
+            OPD.setAttribute('disabled', '');
         }
     }
 
