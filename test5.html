@@ -146,31 +146,74 @@
                           <label for="formFile" class="form-label">Zdjęcie</label>
                           <input class="form-control" type="file" id="formFile">
                         </div>
-                          <div id="szkola" class="mb-3 form-floating">
+                        <div class="form-floating mb-3">
+                          <select name="kierunek1" id="kierunek1" class="form-select">
+                            <option value=""></option>
+                            <optgroup label="Liceum">
+                            <option value="">Liceum o profilu mundurowym</option>
+                            <option value="">Liceum o profilu dietetyka i aktywność fizyczna</option>
+                            </optgroup>
+                            <optgroup label="Technikum">
+                            <option value="">TECHNIK GRAFIKI I POLIGRAFII CYFROWEJ</option>
+                            <option value="">TECHNIK ORGANIZACJI TURYSTYKI</option>
+                            <option value="">TECHNIK ŻYWIENIA I USŁUG GASTRONOMICZNYCH</option>
+                            <option value="">TECHNIK HOTELARSTWA</option>
+                            <option value="">TECHNIK INFORMATYK</option>
+                          </optgroup>
+                          <optgroup label="Szkoła branżowa I stopnia">
+                            <option value="">Pracownik obsługi hotelowej</option>
+                            <option value="">Mechanik - monter maszyn i urządzeń Monter kadłubów jednostek pływających</option>
+                            <option value="">Kucharz</option>
+                          </optgroup>
+                          </select>
+                          <label for="kierunek1" class="form-label">Pierwszy kierunek</label>
+                        </div>
 
-                          </div>
-                          <script>
-                                var ok = `<select id="wyborSzkola" class="form-select">`;
-                                fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf-8' }})
-                                  .then(response => response.arrayBuffer())
-                                  .then(buffer => {
-                                      const decoder = new TextDecoder('utf-8');
-                                      const text = decoder.decode(buffer);
-                                      const rows = text.trim().split('\n');
-                                      const table = [];
-                                      for (let i = 0; i < rows.length; i++) {
-                                          const columns = rows[i].split(';'); 
-                                          table.push(columns);
-                                      }
-                                      for (let i = 0; i < rows.length; i++) {
-                                          const row = table[i]; 
-                                          if(i == 0) continue;
-                                          ok += ("<option>" + row[4].substring(1,row[4].length-1) + " " + row[13].substring(1, row[13].length-1) +  " " + row[15].substring(1, row[15].length-1) + " " + row[16].substring(1, row[16].length-1) + "</option>");
-                                      }
-                                    ok += "<option>INNA SZKOŁA SPOZA POWIATU</option></select><label for='wyborSzkola'>Szkoła do której uczęszczał kandydat</label>";
-                                    document.getElementById("szkola").innerHTML = ok;
-                                  });                         
-                          </script>
+                        <div class="form-floating mb-3">
+                          <select name="kierunek2" id="kierunek2" class="form-select">
+                            <option value="">Brak</option>
+                            <optgroup label="Liceum">
+                            <option value="">Liceum o profilu mundurowym</option>
+                            <option value="">Liceum o profilu dietetyka i aktywność fizyczna</option>
+                            </optgroup>
+                            <optgroup label="Technikum">
+                            <option value="">TECHNIK GRAFIKI I POLIGRAFII CYFROWEJ</option>
+                            <option value="">TECHNIK ORGANIZACJI TURYSTYKI</option>
+                            <option value="">TECHNIK ŻYWIENIA I USŁUG GASTRONOMICZNYCH</option>
+                            <option value="">TECHNIK HOTELARSTWA</option>
+                            <option value="">TECHNIK INFORMATYK</option>
+                          </optgroup>
+                          <optgroup label="Szkoła branżowa I stopnia">
+                            <option value="">Pracownik obsługi hotelowej</option>
+                            <option value="">Mechanik - monter maszyn i urządzeń Monter kadłubów jednostek pływających</option>
+                            <option value="">Kucharz</option>
+                          </optgroup>
+                          </select>
+                          <label for="kierunek2" class="form-label">Pierwszy kierunek</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                          <select name="kierunek3" id="kierunek3" class="form-select">
+                            <option value="">Brak</option>
+                            <optgroup label="Liceum">
+                            <option value="">Liceum o profilu mundurowym</option>
+                            <option value="">Liceum o profilu dietetyka i aktywność fizyczna</option>
+                            </optgroup>
+                            <optgroup label="Technikum">
+                            <option value="">TECHNIK GRAFIKI I POLIGRAFII CYFROWEJ</option>
+                            <option value="">TECHNIK ORGANIZACJI TURYSTYKI</option>
+                            <option value="">TECHNIK ŻYWIENIA I USŁUG GASTRONOMICZNYCH</option>
+                            <option value="">TECHNIK HOTELARSTWA</option>
+                            <option value="">TECHNIK INFORMATYK</option>
+                          </optgroup>
+                          <optgroup label="Szkoła branżowa I stopnia">
+                            <option value="">Pracownik obsługi hotelowej</option>
+                            <option value="">Mechanik - monter maszyn i urządzeń Monter kadłubów jednostek pływających</option>
+                            <option value="">Kucharz</option>
+                          </optgroup>
+                          </select>
+                          <label for="kierunek3" class="form-label">Pierwszy kierunek</label>
+                        </div>
                         </div>
                         <div class="col-sm-6 position-relative">
                           <h4>Adres zamieszkania</h4>
@@ -219,6 +262,31 @@
                             <input type="text" name="PocztaZameldowanie" class="form-control" id="floatingInputZameldowaniePoczta" placeholder="Poczta">
                             <label for="floatingInputZameldoewaniePoczta">Poczta</label>
                         </div>
+                          <div id="szkola" class="mb-3 form-floating">
+
+                          </div>
+                          <script>
+                                var ok = `<select id="wyborSzkola" class="form-select">`;
+                                fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf-8' }})
+                                  .then(response => response.arrayBuffer())
+                                  .then(buffer => {
+                                      const decoder = new TextDecoder('utf-8');
+                                      const text = decoder.decode(buffer);
+                                      const rows = text.trim().split('\n');
+                                      const table = [];
+                                      for (let i = 0; i < rows.length; i++) {
+                                          const columns = rows[i].split(';'); 
+                                          table.push(columns);
+                                      }
+                                      for (let i = 0; i < rows.length; i++) {
+                                          const row = table[i]; 
+                                          if(i == 0) continue;
+                                          ok += ("<option>" + row[4].substring(1,row[4].length-1) + " " + row[13].substring(1, row[13].length-1) +  " " + row[15].substring(1, row[15].length-1) + " " + row[16].substring(1, row[16].length-1) + "</option>");
+                                      }
+                                    ok += "<option>INNA SZKOŁA SPOZA POWIATU</option></select><label for='wyborSzkola'>Szkoła do której uczęszczał kandydat</label>";
+                                    document.getElementById("szkola").innerHTML = ok;
+                                  });                         
+                          </script>
                       </div>
 
                       <div class="btn-group d-flex justify-content-end p-3">
@@ -230,6 +298,7 @@
             </div>
             <div class="tab-pane fade" id="Opiekuni" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="row justify-content-center m-0 mt-3">
+                <div class="h5 container d-flex mb-5 ms-5 mt-3">Wymagany jest conajmniej jeden rodzic/opiekun</div>
                 <div class="col-sm-3">
                 <h4>Dane matki</h4>
                 <div class="form-floating mb-3">
@@ -344,9 +413,6 @@
                     <label for="floatingKodOpiekuna">Kod pocztowy</label>
                   </div>
               </div>
-              <div id="invalid-opiekun">
-                Wymagany jeden opiekun
-              </div>
               <div class="btn-group d-flex justify-content-end p-3">
                 <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('home-tab').removeAttribute('disabled'); document.getElementById('home-tab').click();  document.getElementById('home-tab').setAttribute('disabled', '');" id="OPP">Powrót</button>
                 <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('contact-tab').removeAttribute('disabled'); document.getElementById('contact-tab').click();  document.getElementById('contact-tab').setAttribute('disabled', '');" id="OPD">Dalej</button>
@@ -357,19 +423,18 @@
         </div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                 <div class="row justify-content-around m-0 mt-3">
-                    <div class="col-sm-3 mb-3">
+                    <div class="col-sm-3 mb-3 border-end">
                         <br><h5>Ocena z Zachowania</h5>
                         <div class="form-floating"></div>
                         <div class="mb-3 form-floating">
                             <div class="form-floating"></div>
                             <select name="oceny" id="oceny" class="form-select">
-                              <option></option>
-                              <option value="ocena1">Wzorowe</option>
-                              <option value="ocena2">Bardzo Dobre</option>
-                              <option value="ocena3">Dobre</option>
-                              <option value="ocena4">Poprawne</option>
-                              <option value="ocena5">Nieodpowiednie</option>
                               <option value="ocena6">Naganne</option>
+                              <option value="ocena5">Nieodpowiednie</option>
+                              <option value="ocena4">Poprawne</option>
+                              <option value="ocena3">Dobre</option>
+                              <option value="ocena2">Bardzo Dobre</option>
+                              <option value="ocena1">Wzorowe</option>
                             </select>
                             <label for="oceny" class="form-label">Ocena z Zachowania</label>
                           </div>
@@ -380,16 +445,16 @@
                           </div>
                           <div class="mb-3 form-floating">
                             <div class="form-floating mb-3 position-relative">
-                                <input type="text" name="egz_pol" id="floatingEgzPol" class="form-control">
-                                <label for="floatingEgzPol">Język Polski</label>
+                                <input type="text" name="egz_pol" id="EgzPol" class="form-control">
+                                <label for="EgzPol">Język Polski</label>
                             </div>
                             <div class="form-floating mb-3 position-relative">
-                                <input type="text" name="egz_mat" id="floatingEgzMat" class="form-control">
-                                <label for="floatingEgzMat">Matematyka</label>
+                                <input type="text" name="egz_mat" id="EgzMat" class="form-control">
+                                <label for="EgzMat">Matematyka</label>
                             </div>
                             <div class="form-floating mb-3 position-relative">
-                                <input type="text" name="egz_ang" id="floatingEgzAng" class="form-control">
-                                <label for="floatingEgzAng">Angielski</label>
+                                <input type="text" name="egz_ang" id="EgzAng" class="form-control">
+                                <label for="EgzAng">Angielski</label>
                             </div>
                           </div>
                     </div>

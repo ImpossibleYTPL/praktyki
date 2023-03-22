@@ -71,6 +71,12 @@ const KRD = document.getElementById('KRD');
 const OSP = document.getElementById('OSP');
 const OSD = document.getElementById('OSD');
 
+//oceny
+const egzaminCheckbox = document.getElementById('egzamin');
+const egzPol = document.getElementById('EgzPol');
+const egzMat = document.getElementById('EgzMat');
+const egzAng = document.getElementById('EgzAng');
+
 
 //Add Event Listener to eevry button and input
 switchElement.addEventListener('change', ()=>{adres(); FirstPageCheck()});
@@ -269,6 +275,7 @@ else pesel.classList.remove("is-invalid");
         else if(zameldowaniePoczta.value === '') return true;
         else if(!validateEmail(mail.value)) return true;
         else if(!validatePESEL(pesel.value)) return true;
+        else if (document.getElementById('kierunek1').value === '') return true;
         else return false;
     }
 
