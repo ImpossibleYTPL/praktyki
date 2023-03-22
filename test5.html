@@ -57,7 +57,7 @@
             </ul>
         </div>
       </nav>
-        <form novalidate class="">
+        <form novalidate action="test.php" method="post">
         <ul class="nav nav-tabs nav-fill justify-content-center" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="rekrutacja-tab" disabled data-bs-toggle="tab" data-bs-target="#rekrutacja" type="button" role="tab" aria-controls="rekrutacja" aria-selected="true">Rekrutacja</button>
@@ -95,7 +95,7 @@
               z podpisem kwalifikowanym </div>
               <div class="btn-group d-flex show active justify-content-end p-3">
                 <button class="btn-lg btn btn-secondary w-auto" type="button" disabled id="RP">Powrót</button>
-                <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('home-tab').removeAttribute('disabled'); document.getElementById('home-tab').click();  document.getElementById('home-tab').setAttribute('disabled', '');" id="RD">Dalej</button>
+                <button class="btn-lg btn btn-primary w-auto" type="button" id="RD">Dalej</button>
               </div>
             </div>
 
@@ -290,8 +290,8 @@
                       </div>
 
                       <div class="btn-group d-flex justify-content-end p-3">
-                        <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('rekrutacja-tab').removeAttribute('disabled'); document.getElementById('rekrutacja-tab').click();  document.getElementById('rekrutacja-tab').setAttribute('disabled', '');" id="KP">Powrót</button>
-                        <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('profile-tab').removeAttribute('disabled'); document.getElementById('profile-tab').click();  document.getElementById('profile-tab').setAttribute('disabled', '');" id="KD">Dalej</button>
+                        <button class="btn-lg btn btn-secondary w-auto" type="button" id="KP">Powrót</button>
+                        <button class="btn-lg btn btn-primary w-auto" type="button" id="KD">Dalej</button>
                       </div>
                     </div>
                   </div>
@@ -414,8 +414,8 @@
                   </div>
               </div>
               <div class="btn-group d-flex justify-content-end p-3">
-                <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('home-tab').removeAttribute('disabled'); document.getElementById('home-tab').click();  document.getElementById('home-tab').setAttribute('disabled', '');" id="OPP">Powrót</button>
-                <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('contact-tab').removeAttribute('disabled'); document.getElementById('contact-tab').click();  document.getElementById('contact-tab').setAttribute('disabled', '');" id="OPD">Dalej</button>
+                <button class="btn-lg btn btn-secondary w-auto" type="button" id="OPP">Powrót</button>
+                <button class="btn-lg btn btn-primary w-auto" type="button" id="OPD">Dalej</button>
           </div>
             </div>
           <input type="hidden" name="data">
@@ -690,8 +690,8 @@
                         </div>
                     </div>
                     <div class="btn-group d-flex justify-content-end p-3">
-                      <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('profile-tab').removeAttribute('disabled'); document.getElementById('profile-tab').click();  document.getElementById('profile-tab').setAttribute('disabled', '');" id="OCP">Powrót</button>
-                      <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('osiagniecia-tab').removeAttribute('disabled'); document.getElementById('osiagniecia-tab').click();  document.getElementById('osiagniecia-tab').setAttribute('disabled', '');" id="OCD">Dalej</button>
+                      <button class="btn-lg btn btn-secondary w-auto" type="button" id="OCP">Powrót</button>
+                      <button class="btn-lg btn btn-primary w-auto" type="button" id="OCD">Dalej</button>
                 </div>
                 </div>
         </div>
@@ -797,8 +797,8 @@
             </div>
           </div>
           <div class="btn-group d-flex justify-content-end p-3">
-            <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('osiagniecia-tab').removeAttribute('disabled'); document.getElementById('osiagniecia-tab').click();  document.getElementById('osiagniecia-tab').setAttribute('disabled', '');" id="KRP">Powrót</button>
-            <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('wyslij-tab').removeAttribute('disabled'); document.getElementById('wyslij-tab').click();  document.getElementById('wyslij-tab').setAttribute('disabled', '');" id="KRD">Dalej</button>
+            <button class="btn-lg btn btn-secondary w-auto" type="button" id="KRP">Powrót</button>
+            <button class="btn-lg btn btn-primary w-auto" type="button" id="KRD">Dalej</button>
       </div>
 
         
@@ -1053,8 +1053,8 @@
       koniec nowe
     -->
         <div class="btn-group d-flex justify-content-end p-3">
-          <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('contact-tab').removeAttribute('disabled'); document.getElementById('contact-tab').click();  document.getElementById('contact-tab').setAttribute('disabled', '');" id="OSP">Powrót</button>
-          <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('kryteria-tab').removeAttribute('disabled'); document.getElementById('kryteria-tab').click();  document.getElementById('kryteria-tab').setAttribute('disabled', '');" id="OSD">Dalej</button>
+          <button class="btn-lg btn btn-secondary w-auto" type="button" id="OSP">Powrót</button>
+          <button class="btn-lg btn btn-primary w-auto" type="button" id="OSD">Dalej</button>
     </div>
       </div>
       <div class="tab-pane fade show p-1 m-5" id="wyslij" role="tabpanel" aria-labelledby="wyslij-tab">
@@ -1148,8 +1148,8 @@
             </label>
         </div>
         <div class="btn-group d-flex justify-content-end p-3">
-          <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('kryteria-tab').removeAttribute('disabled'); document.getElementById('kryteria-tab').click();  document.getElementById('kryteria-tab').setAttribute('disabled', '');" id="WYP">Powrót</button>
-          <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('wyslij-tab').removeAttribute('disabled'); document.getElementById('wyslij-tab').click();  document.getElementById('wyslij-tab').setAttribute('disabled', '');" id="WYD">Wyslij</button>
+          <button class="btn-lg btn btn-secondary w-auto" type="button" id="WP">Powrót</button>
+          <button class="btn-lg btn btn-primary w-auto" type="submit" id="WD">Wyslij</button>
         </div>
       </div>
       </div>
@@ -1306,6 +1306,5 @@
           <!-- Copyright -->
         </footer>
         <script src="index.js"></script>
-        
-    </body>
+      </body>
 </html>

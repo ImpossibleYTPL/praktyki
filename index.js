@@ -60,16 +60,37 @@ const opiekunMiejscowosc = document.getElementById("floatingMiejscowoscOpiekuna"
 const opiekunUlica = document.getElementById("floatingUlicaOpiekuna");
 const opiekunKod = document.getElementById("floatingKodOpiekuna");
 
+//tabs
+const rekrutacjaTab = document.getElementById('rekrutacja-tab');
+const kandydatTab = document.getElementById('home-tab');
+const opiekuniTab = document.getElementById('profile-tab');
+const ocenyTab = document.getElementById('contact-tab');
+const osiagnieciaTab = document.getElementById('osiagniecia-tab');
+const kryteriaTab = document.getElementById('kryteria-tab');
+const wyslijTab = document.getElementById('wyslij-tab');
+
 //buttony
+//rekrutacja
+const RP = document.getElementById('RP')
+const RD = document.getElementById('RD');
+//kandydat
+const KP = document.getElementById('KP');
 const KD = document.getElementById('KD');
+//opiekuni
 const OPP = document.getElementById('OPP');
 const OPD = document.getElementById('OPD');
+//oceny
 const OCP = document.getElementById('OCP');
 const OCD = document.getElementById('OCD');
+//kryteria
 const KRP = document.getElementById('KRP');
 const KRD = document.getElementById('KRD');
+//osiagniecia
 const OSP = document.getElementById('OSP');
 const OSD = document.getElementById('OSD');
+//wyslij
+const WP = document.getElementById('WP')
+const WD = document.getElementById('WD');
 
 //oceny
 const egzaminCheckbox = document.getElementById('egzamin');
@@ -78,69 +99,136 @@ const egzMat = document.getElementById('EgzMat');
 const egzAng = document.getElementById('EgzAng');
 
 
-//Add Event Listener to eevry button and input
-switchElement.addEventListener('change', ()=>{adres(); FirstPageCheck()});
-switchElementMatki.addEventListener('change', ()=>adres());
-switchElementOjca.addEventListener('change', ()=>adres());
-switchElementOpiekuna.addEventListener('change', ()=>adres());
+//Add Event Listener to every button and input
+function events(){
+     switchElement.addEventListener('change', ()=>{adres(); FirstPageCheck()});
+     switchElementMatki.addEventListener('change', ()=>adres());
+     switchElementOjca.addEventListener('change', ()=>adres());
+     switchElementOpiekuna.addEventListener('change', ()=>adres());
+     
+     adresMiejscowosc.addEventListener('input', ()=>adres());
+     adresUlica.addEventListener("input", ()=>adres());
+     adresKod.addEventListener("input", ()=>adres());
+     adresGmina.addEventListener("input", ()=>adres());
+     adresPoczta.addEventListener("input", ()=>adres());
 
-adresMiejscowosc.addEventListener('input', ()=>adres());
-adresUlica.addEventListener("input", ()=>adres());
-adresKod.addEventListener("input", ()=>adres());
-adresGmina.addEventListener("input", ()=>adres());
-adresPoczta.addEventListener("input", ()=>adres());
+     //tabs Event Listeners
+     //rekrutacja
+     RD.addEventListener('click', ()=>{ToKandydat()});
+     //kandydat
+     KP.addEventListener('click', ()=>{ToRekrutacja()});
+     KD.addEventListener('click', ()=>{ToOpiekuni()});
+     //opiekuni
+     OPP.addEventListener('click', ()=>{ToKandydat()});
+     OPD.addEventListener('click', ()=>{ToOceny()});
+     //oceny
+     OCP.addEventListener('click', ()=>{ToOpiekuni()});
+     OCD.addEventListener('click', ()=>{ToOsiagniecia()});
+     //osiagniecia
+     OSP.addEventListener('click', ()=>{ToOceny()});
+     OSD.addEventListener('click', ()=>{ToKryteria()});
+     //kryteria
+     KRP.addEventListener('click', ()=>{ToOsiagniecia()});
+     KRD.addEventListener('click', ()=>{ToWyslij()});
+     //wyslij
+     WP.addEventListener('click', ()=>{ToKryteria()});
 
-//first page Event Listeners
-nazwisko.addEventListener('input', ()=>{FirstPageCheck()});
-imie.addEventListener('input', ()=>{FirstPageCheck()});
-dataUrodzenia.addEventListener('input', ()=>{FirstPageCheck()});
-MiejsceUrodzenia.addEventListener('input', ()=>{FirstPageCheck()});
-pesel.addEventListener('input', ()=>{FirstPageCheck()});
-mail.addEventListener('input', ()=>{FirstPageCheck()});
-adresMiejscowosc.addEventListener('input', ()=>{FirstPageCheck()});
-adresUlica.addEventListener('input', ()=>{FirstPageCheck()});
-adresKod.addEventListener('input', ()=>{FirstPageCheck()});
-adresGmina.addEventListener('input', ()=>{FirstPageCheck()});
-adresPoczta.addEventListener('input', ()=>{FirstPageCheck()});
-zameldowanieMiejscowosc.addEventListener('input', ()=>{FirstPageCheck()});
-zameldowanieUlica.addEventListener('input', ()=>{FirstPageCheck()});
-zameldowanieKod.addEventListener('input', ()=>{FirstPageCheck()});
-zameldowanieGmina.addEventListener('input', ()=>{FirstPageCheck()});
-zameldowaniePoczta.addEventListener('input', ()=>{FirstPageCheck()});
+     //first page Event Listeners
+     nazwisko.addEventListener('input', ()=>{FirstPageCheck()});
+     imie.addEventListener('input', ()=>{FirstPageCheck()});
+     dataUrodzenia.addEventListener('input', ()=>{FirstPageCheck()});
+     MiejsceUrodzenia.addEventListener('input', ()=>{FirstPageCheck()});
+     pesel.addEventListener('input', ()=>{FirstPageCheck()});
+     mail.addEventListener('input', ()=>{FirstPageCheck()});
+     adresMiejscowosc.addEventListener('input', ()=>{FirstPageCheck()});
+     adresUlica.addEventListener('input', ()=>{FirstPageCheck()});
+     adresKod.addEventListener('input', ()=>{FirstPageCheck()});
+     adresGmina.addEventListener('input', ()=>{FirstPageCheck()});
+     adresPoczta.addEventListener('input', ()=>{FirstPageCheck()});
+     zameldowanieMiejscowosc.addEventListener('input', ()=>{FirstPageCheck()});
+     zameldowanieUlica.addEventListener('input', ()=>{FirstPageCheck()});
+     zameldowanieKod.addEventListener('input', ()=>{FirstPageCheck()});
+     zameldowanieGmina.addEventListener('input', ()=>{FirstPageCheck()});
+     zameldowaniePoczta.addEventListener('input', ()=>{FirstPageCheck()});
+     
+     //second page Event Listeners
+     
+     switchElementMatki.addEventListener('input', ()=>{SecondPageValidateForm()});
+     switchElementOjca.addEventListener('input', ()=>{SecondPageValidateForm()});
+     switchElementOpiekuna.addEventListener('input', ()=>{SecondPageValidateForm()});
+     
+     //matka
+     nazwiskoMatki.addEventListener('input', ()=>{SecondPageValidateForm()});
+     imieMatki.addEventListener('input', ()=>{SecondPageValidateForm()});
+     numerTelefonuMatki.addEventListener('input', ()=>{SecondPageValidateForm()});
+     mailMatki.addEventListener('input', ()=>{SecondPageValidateForm()});
+     matkaMiejscowosc.addEventListener('input', ()=>{SecondPageValidateForm()});
+     matkaUlica.addEventListener('input', ()=>{SecondPageValidateForm()});
+     matkaKod.addEventListener('input', ()=>{SecondPageValidateForm()});
+     
+     //ojciec
+     nazwiskoOjca.addEventListener('input', ()=>{SecondPageValidateForm()});
+     imieOjca.addEventListener('input', ()=>{SecondPageValidateForm()});
+     numerTelefonuOjca.addEventListener('input', ()=>{SecondPageValidateForm()});
+     mailOjca.addEventListener('input', ()=>{SecondPageValidateForm()});
+     ojciecMiejscowosc.addEventListener('input', ()=>{SecondPageValidateForm()});
+     ojciecUlica.addEventListener('input', ()=>{SecondPageValidateForm()});
+     ojciecKod.addEventListener('input', ()=>{SecondPageValidateForm()});
+     
+     //opiekun
+     nazwiskoOpiekuna.addEventListener('input', ()=>{SecondPageValidateForm()});
+     imieOpiekuna.addEventListener('input', ()=>{SecondPageValidateForm()});
+     numerTelefonuOpiekuna.addEventListener('input', ()=>{SecondPageValidateForm()});
+     mailOpiekuna.addEventListener('input', ()=>{SecondPageValidateForm()});
+     opiekunMiejscowosc.addEventListener('input', ()=>{SecondPageValidateForm()});
+     opiekunUlica.addEventListener('input', ()=>{SecondPageValidateForm()});
+     opiekunKod.addEventListener('input', ()=>{SecondPageValidateForm()});
+ }
 
-//second page Event Listeners
 
-switchElementMatki.addEventListener('input', ()=>{SecondPageValidateForm()});
-switchElementOjca.addEventListener('input', ()=>{SecondPageValidateForm()});
-switchElementOpiekuna.addEventListener('input', ()=>{SecondPageValidateForm()});
 
-//matka
-nazwiskoMatki.addEventListener('input', ()=>{SecondPageValidateForm()});
-imieMatki.addEventListener('input', ()=>{SecondPageValidateForm()});
-numerTelefonuMatki.addEventListener('input', ()=>{SecondPageValidateForm()});
-mailMatki.addEventListener('input', ()=>{SecondPageValidateForm()});
-matkaMiejscowosc.addEventListener('input', ()=>{SecondPageValidateForm()});
-matkaUlica.addEventListener('input', ()=>{SecondPageValidateForm()});
-matkaKod.addEventListener('input', ()=>{SecondPageValidateForm()});
 
-//ojciec
-nazwiskoOjca.addEventListener('input', ()=>{SecondPageValidateForm()});
-imieOjca.addEventListener('input', ()=>{SecondPageValidateForm()});
-numerTelefonuOjca.addEventListener('input', ()=>{SecondPageValidateForm()});
-mailOjca.addEventListener('input', ()=>{SecondPageValidateForm()});
-ojciecMiejscowosc.addEventListener('input', ()=>{SecondPageValidateForm()});
-ojciecUlica.addEventListener('input', ()=>{SecondPageValidateForm()});
-ojciecKod.addEventListener('input', ()=>{SecondPageValidateForm()});
+function ToRekrutacja(){
+    rekrutacjaTab.removeAttribute('disabled');
+    rekrutacjaTab.click();
+    rekrutacjaTab.setAttribute('disabled', '');
+}
+function ToKandydat(){
+    console.log('To kondydat')
+    kandydatTab.removeAttribute('disabled');
+    kandydatTab.click();
+    kandydatTab.setAttribute('disabled', '');
+}
 
-//opiekun
-nazwiskoOpiekuna.addEventListener('input', ()=>{SecondPageValidateForm()});
-imieOpiekuna.addEventListener('input', ()=>{SecondPageValidateForm()});
-numerTelefonuOpiekuna.addEventListener('input', ()=>{SecondPageValidateForm()});
-mailOpiekuna.addEventListener('input', ()=>{SecondPageValidateForm()});
-opiekunMiejscowosc.addEventListener('input', ()=>{SecondPageValidateForm()});
-opiekunUlica.addEventListener('input', ()=>{SecondPageValidateForm()});
-opiekunKod.addEventListener('input', ()=>{SecondPageValidateForm()});
+function ToOpiekuni(){
+    opiekuniTab.removeAttribute('disabled');
+    opiekuniTab.click();
+    opiekuniTab.setAttribute('disabled', '');
+}
 
+function ToOceny(){
+    ocenyTab.removeAttribute('disabled');
+    ocenyTab.click();
+    ocenyTab.setAttribute('disabled', '');
+}
+
+function ToOsiagniecia(){
+    osiagnieciaTab.removeAttribute('disabled');
+    osiagnieciaTab.click();
+    osiagnieciaTab.setAttribute('disabled', '');
+}
+
+function ToKryteria(){
+    kryteriaTab.removeAttribute('disabled');
+    kryteriaTab.click();
+    kryteriaTab.setAttribute('disabled', '');
+}
+
+function ToWyslij(){
+    wyslijTab.removeAttribute('disabled');
+    wyslijTab.click();
+    wyslijTab.setAttribute('disabled', '');
+}
 
 function adres() {
     if(switchElement.checked) {
@@ -359,5 +447,7 @@ else pesel.classList.remove("is-invalid");
         document.getElementById('rekrutacja-tab').removeAttribute('disabled');
         document.getElementById('rekrutacja-tab').click;
         document.getElementById('rekrutacja-tab').setAttribute('disabled', '');
+        events();
+        console.log('loaded');
         //FirstPageCheck();
       }
