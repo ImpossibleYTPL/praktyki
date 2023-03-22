@@ -1,12 +1,6 @@
 var error = true;
 var errMatka, errOjciec, errOpiekun = false;
 
-const hiddens = document.querySelectorAll("input[type=hidden]");
-const data = new Date();
-
-hiddens[0].value = data.getDate() + "-" + (data.getMonth() + 1) + "-" + data.getFullYear();
-hiddens[1].value = data.getHours() + ":" + data.getMinutes() + ":" + data.getSeconds();
-
 const switchElement = document.getElementById("flexSwitchCheckDefaultKandydat");
 const switchElementMatki = document.getElementById("flexSwitchCheckDefaultMatka");
 const switchElementOjca = document.getElementById("flexSwitchCheckDefaultOjca");
@@ -98,9 +92,13 @@ const egzPol = document.getElementById('EgzPol');
 const egzMat = document.getElementById('EgzMat');
 const egzAng = document.getElementById('EgzAng');
 
+//zgoda
+const zgoda = document.getElementById('zgoda');
 
 //Add Event Listener to every button and input
 function events(){
+     zgoda.addEventListener('change', ()=>Zgoda());
+
      switchElement.addEventListener('change', ()=>{adres(); FirstPageCheck()});
      switchElementMatki.addEventListener('change', ()=>adres());
      switchElementOjca.addEventListener('change', ()=>adres());
@@ -192,43 +190,60 @@ function ToRekrutacja(){
     rekrutacjaTab.removeAttribute('disabled');
     rekrutacjaTab.click();
     rekrutacjaTab.setAttribute('disabled', '');
+    topFunction();
 }
 function ToKandydat(){
     console.log('To kondydat')
     kandydatTab.removeAttribute('disabled');
     kandydatTab.click();
     kandydatTab.setAttribute('disabled', '');
+    topFunction()
 }
 
 function ToOpiekuni(){
     opiekuniTab.removeAttribute('disabled');
     opiekuniTab.click();
     opiekuniTab.setAttribute('disabled', '');
+    topFunction();
 }
 
 function ToOceny(){
     ocenyTab.removeAttribute('disabled');
     ocenyTab.click();
     ocenyTab.setAttribute('disabled', '');
+    topFunction();
 }
 
 function ToOsiagniecia(){
     osiagnieciaTab.removeAttribute('disabled');
     osiagnieciaTab.click();
     osiagnieciaTab.setAttribute('disabled', '');
+    topFunction();
 }
 
 function ToKryteria(){
     kryteriaTab.removeAttribute('disabled');
     kryteriaTab.click();
     kryteriaTab.setAttribute('disabled', '');
+    topFunction();
 }
 
 function ToWyslij(){
     wyslijTab.removeAttribute('disabled');
     wyslijTab.click();
     wyslijTab.setAttribute('disabled', '');
+    topFunction();
 }
+
+function Zgoda(){
+    if(zgoda.checked) WD.removeAttribute('disabled')
+    else WD.setAttribute('disabled', '');
+}
+
+function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
 
 function adres() {
     if(switchElement.checked) {
