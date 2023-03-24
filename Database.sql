@@ -290,6 +290,16 @@ ALTER TABLE `osiagniecia`
 --
 ALTER TABLE `wniosek`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+  --
+  --TRIGGER
+  --
+  CREATE TRIGGER `Sprawdz kod pocztowy` BEFORE INSERT ON `adres`
+ FOR EACH ROW BEGIN
+  IF NEW.`Kod pocztowy` NOT REGEXP '^[0-9]{2}-[0-9]{3}$' THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Nieprawidłowy kod pocztowy';
+  END IF;
+END
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
