@@ -18,6 +18,7 @@ foreach ($_POST as $key => $value) {
     $value = ucfirst($value);
     $data[$key] = $value;
 }
+var_dump($data);
 
 $pdo = $link->prepare("SELECT * FROM `kandydat` WHERE `Pesel` = ?");
 $pdo->bind_param("s", "$data[Pesel]");
