@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 24 Mar 2023, 10:44
+-- Czas generowania: 24 Mar 2023, 10:46
 -- Wersja serwera: 10.4.27-MariaDB
 -- Wersja PHP: 8.2.0
 
@@ -18,8 +18,23 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `bzd`
+-- Baza danych: `ok`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `adres`
+--
+
+CREATE TABLE `adres` (
+  `ID` int(11) NOT NULL,
+  `Miejscowosc` varchar(60) NOT NULL,
+  `Ulica` varchar(80) NOT NULL,
+  `Kod pocztowy` varchar(6) NOT NULL,
+  `Gmina` varchar(60) DEFAULT NULL,
+  `Poczta` varchar(60) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
@@ -95,6 +110,33 @@ CREATE TABLE `oceny` (
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `opieka`
+--
+
+CREATE TABLE `opieka` (
+  `ID` int(11) NOT NULL,
+  `ID Kandydata` int(11) NOT NULL,
+  `ID Opiekuna` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `opiekun`
+--
+
+CREATE TABLE `opiekun` (
+  `ID` int(11) NOT NULL,
+  `Nazwisko` varchar(60) NOT NULL,
+  `Imie` varchar(60) NOT NULL,
+  `Numer telefonu` varchar(15) NOT NULL,
+  `Mail` varchar(255) NOT NULL,
+  `ID Adres` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `osiagniecia`
 --
 
@@ -126,9 +168,33 @@ CREATE TABLE `osiagniecia` (
   `24` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `wniosek`
+--
+
+CREATE TABLE `wniosek` (
+  `ID` int(11) NOT NULL,
+  `Data` date NOT NULL,
+  `Godzina` time NOT NULL,
+  `Kierunek1` varchar(80) NOT NULL,
+  `Kierunek2` varchar(80) NOT NULL,
+  `Kierunek3` varchar(80) NOT NULL,
+  `Szkola` varchar(255) NOT NULL,
+  `ID Kandydat` int(11) NOT NULL,
+  `Punkty` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
 --
 -- Indeksy dla zrzutów tabel
 --
+
+--
+-- Indeksy dla tabeli `adres`
+--
+ALTER TABLE `adres`
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indeksy dla tabeli `kandydat`
@@ -150,14 +216,38 @@ ALTER TABLE `oceny`
   ADD UNIQUE KEY `Angielski` (`Angielski`);
 
 --
+-- Indeksy dla tabeli `opieka`
+--
+ALTER TABLE `opieka`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indeksy dla tabeli `opiekun`
+--
+ALTER TABLE `opiekun`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indeksy dla tabeli `osiagniecia`
 --
 ALTER TABLE `osiagniecia`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indeksy dla tabeli `wniosek`
+--
+ALTER TABLE `wniosek`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- AUTO_INCREMENT dla zrzuconych tabel
 --
+
+--
+-- AUTO_INCREMENT dla tabeli `adres`
+--
+ALTER TABLE `adres`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT dla tabeli `kandydat`
@@ -178,9 +268,27 @@ ALTER TABLE `oceny`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT dla tabeli `opieka`
+--
+ALTER TABLE `opieka`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT dla tabeli `opiekun`
+--
+ALTER TABLE `opiekun`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT dla tabeli `osiagniecia`
 --
 ALTER TABLE `osiagniecia`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT dla tabeli `wniosek`
+--
+ALTER TABLE `wniosek`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
