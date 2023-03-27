@@ -58,7 +58,7 @@
             </ul>
         </div>
       </nav>
-        <form novalidate class="">
+        <form novalidate action="test.php" method="post">
         <ul class="nav nav-tabs nav-fill justify-content-center" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="rekrutacja-tab" disabled data-bs-toggle="tab" data-bs-target="#rekrutacja" type="button" role="tab" aria-controls="rekrutacja" aria-selected="true">Rekrutacja</button>
@@ -96,7 +96,7 @@
               z podpisem kwalifikowanym </div>
               <div class="btn-group d-flex show active justify-content-end p-3">
                 <button class="btn-lg btn btn-secondary w-auto" type="button" disabled id="RP">Powrót</button>
-                <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('home-tab').removeAttribute('disabled'); document.getElementById('home-tab').click();  document.getElementById('home-tab').setAttribute('disabled', '');" id="RD">Dalej</button>
+                <button class="btn-lg btn btn-primary w-auto" type="button" id="RD">Dalej</button>
               </div>
             </div>
 
@@ -147,31 +147,74 @@
                           <label for="formFile" class="form-label">Zdjęcie</label>
                           <input class="form-control" type="file" id="formFile">
                         </div>
-                          <div id="szkola" class="mb-3 form-floating">
+                        <div class="form-floating mb-3">
+                          <select name="kierunek1" id="kierunek1" class="form-select">
+                            <option value=""></option>
+                            <optgroup label="Liceum">
+                            <option value="Liceum o profilu mundurowym">Liceum o profilu mundurowym</option>
+                            <option value="Liceum o profilu dietetyka i aktywność fizyczna">Liceum o profilu dietetyka i aktywność fizyczna</option>
+                            </optgroup>
+                            <optgroup label="Technikum">
+                            <option value="TECHNIK GRAFIKI I POLIGRAFII CYFROWEJ">TECHNIK GRAFIKI I POLIGRAFII CYFROWEJ</option>
+                            <option value="TECHNIK ORGANIZACJI TURYSTYKI">TECHNIK ORGANIZACJI TURYSTYKI</option>
+                            <option value="TECHNIK ŻYWIENIA I USŁUG GASTRONOMICZNYCH">TECHNIK ŻYWIENIA I USŁUG GASTRONOMICZNYCH</option>
+                            <option value="TECHNIK HOTELARSTWA">TECHNIK HOTELARSTWA</option>
+                            <option value="TECHNIK INFORMATYK">TECHNIK INFORMATYK</option>
+                          </optgroup>
+                          <optgroup label="Szkoła branżowa I stopnia">
+                            <option value="Pracownik obsługi hotelowej">Pracownik obsługi hotelowej</option>
+                            <option value="Mechanik - monter maszyn i urządzeń Monter kadłubów jednostek pływających">Mechanik - monter maszyn i urządzeń Monter kadłubów jednostek pływających</option>
+                            <option value="Kucharz">Kucharz</option>
+                          </optgroup>
+                          </select>
+                          <label for="kierunek1" class="form-label">Pierwszy kierunek</label>
+                        </div>
 
-                          </div>
-                          <script>
-                                var ok = `<select id="wyborSzkola" class="form-select">`;
-                                fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf-8' }})
-                                  .then(response => response.arrayBuffer())
-                                  .then(buffer => {
-                                      const decoder = new TextDecoder('utf-8');
-                                      const text = decoder.decode(buffer);
-                                      const rows = text.trim().split('\n');
-                                      const table = [];
-                                      for (let i = 0; i < rows.length; i++) {
-                                          const columns = rows[i].split(';'); 
-                                          table.push(columns);
-                                      }
-                                      for (let i = 0; i < rows.length; i++) {
-                                          const row = table[i]; 
-                                          if(i == 0) continue;
-                                          ok += ("<option>" + row[4].substring(1,row[4].length-1) + " " + row[13].substring(1, row[13].length-1) +  " " + row[15].substring(1, row[15].length-1) + " " + row[16].substring(1, row[16].length-1) + "</option>");
-                                      }
-                                    ok += "<option>INNA SZKOŁA SPOZA POWIATU</option></select><label for='wyborSzkola'>Szkoła do której uczęszczał kandydat</label>";
-                                    document.getElementById("szkola").innerHTML = ok;
-                                  });                         
-                          </script>
+                        <div class="form-floating mb-3">
+                          <select name="kierunek2" id="kierunek2" class="form-select">
+                            <option value="">Brak</option>
+                            <optgroup label="Liceum">
+                              <option value="Liceum o profilu mundurowym">Liceum o profilu mundurowym</option>
+                              <option value="Liceum o profilu dietetyka i aktywność fizyczna">Liceum o profilu dietetyka i aktywność fizyczna</option>
+                              </optgroup>
+                              <optgroup label="Technikum">
+                              <option value="TECHNIK GRAFIKI I POLIGRAFII CYFROWEJ">TECHNIK GRAFIKI I POLIGRAFII CYFROWEJ</option>
+                              <option value="TECHNIK ORGANIZACJI TURYSTYKI">TECHNIK ORGANIZACJI TURYSTYKI</option>
+                              <option value="TECHNIK ŻYWIENIA I USŁUG GASTRONOMICZNYCH">TECHNIK ŻYWIENIA I USŁUG GASTRONOMICZNYCH</option>
+                              <option value="TECHNIK HOTELARSTWA">TECHNIK HOTELARSTWA</option>
+                              <option value="TECHNIK INFORMATYK">TECHNIK INFORMATYK</option>
+                            </optgroup>
+                            <optgroup label="Szkoła branżowa I stopnia">
+                              <option value="Pracownik obsługi hotelowej">Pracownik obsługi hotelowej</option>
+                              <option value="Mechanik - monter maszyn i urządzeń Monter kadłubów jednostek pływających">Mechanik - monter maszyn i urządzeń Monter kadłubów jednostek pływających</option>
+                              <option value="Kucharz">Kucharz</option>
+                            </optgroup>
+                          </select>
+                          <label for="kierunek2" class="form-label">Drugi kierunek</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                          <select name="kierunek3" id="kierunek3" class="form-select">
+                            <option value="">Brak</option>
+                            <optgroup label="Liceum">
+                              <option value="Liceum o profilu mundurowym">Liceum o profilu mundurowym</option>
+                              <option value="Liceum o profilu dietetyka i aktywność fizyczna">Liceum o profilu dietetyka i aktywność fizyczna</option>
+                              </optgroup>
+                              <optgroup label="Technikum">
+                              <option value="TECHNIK GRAFIKI I POLIGRAFII CYFROWEJ">TECHNIK GRAFIKI I POLIGRAFII CYFROWEJ</option>
+                              <option value="TECHNIK ORGANIZACJI TURYSTYKI">TECHNIK ORGANIZACJI TURYSTYKI</option>
+                              <option value="TECHNIK ŻYWIENIA I USŁUG GASTRONOMICZNYCH">TECHNIK ŻYWIENIA I USŁUG GASTRONOMICZNYCH</option>
+                              <option value="TECHNIK HOTELARSTWA">TECHNIK HOTELARSTWA</option>
+                              <option value="TECHNIK INFORMATYK">TECHNIK INFORMATYK</option>
+                            </optgroup>
+                            <optgroup label="Szkoła branżowa I stopnia">
+                              <option value="Pracownik obsługi hotelowej">Pracownik obsługi hotelowej</option>
+                              <option value="Mechanik - monter maszyn i urządzeń Monter kadłubów jednostek pływających">Mechanik - monter maszyn i urządzeń Monter kadłubów jednostek pływających</option>
+                              <option value="Kucharz">Kucharz</option>
+                            </optgroup>
+                          </select>
+                          <label for="kierunek3" class="form-label">Trzeci kierunek</label>
+                        </div>
                         </div>
                         <div class="col-sm-6 position-relative">
                           <h4>Adres zamieszkania</h4>
@@ -197,7 +240,7 @@
                         </div>
                         <h4>Adres zameldowania</h4>
                         <div class="form-check form-switch mb-3">
-                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefaultKandydat">
+                            <input class="form-check-input" type="checkbox" value="1" role="switch" id="flexSwitchCheckDefaultKandydat">
                             <label class="form-check-label" for="flexSwitchCheckDefaultKandydat">Adres zameldowania taki sam jak zamieszkania</label>
                         </div>
                         <div class="form-floating mb-3">
@@ -220,17 +263,43 @@
                             <input type="text" name="PocztaZameldowanie" class="form-control" id="floatingInputZameldowaniePoczta" placeholder="Poczta">
                             <label for="floatingInputZameldoewaniePoczta">Poczta</label>
                         </div>
+                          <div id="szkola" class="mb-3 form-floating">
+
+                          </div>
+                          <script>
+                                var ok = `<select id="wyborSzkola" class="form-select">`;
+                                fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf-8' }})
+                                  .then(response => response.arrayBuffer())
+                                  .then(buffer => {
+                                      const decoder = new TextDecoder('utf-8');
+                                      const text = decoder.decode(buffer);
+                                      const rows = text.trim().split('\n');
+                                      const table = [];
+                                      for (let i = 0; i < rows.length; i++) {
+                                          const columns = rows[i].split(';'); 
+                                          table.push(columns);
+                                      }
+                                      for (let i = 0; i < rows.length; i++) {
+                                          const row = table[i]; 
+                                          if(i == 0) continue;
+                                          ok += ("<option>" + row[4].substring(1,row[4].length-1) + " " + row[13].substring(1, row[13].length-1) +  " " + row[15].substring(1, row[15].length-1) + " " + row[16].substring(1, row[16].length-1) + "</option>");
+                                      }
+                                    ok += "<option>INNA SZKOŁA SPOZA POWIATU</option></select><label for='wyborSzkola'>Szkoła do której uczęszczał kandydat</label>";
+                                    document.getElementById("szkola").innerHTML = ok;
+                                  });                         
+                          </script>
                       </div>
 
                       <div class="btn-group d-flex justify-content-end p-3">
-                        <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('rekrutacja-tab').removeAttribute('disabled'); document.getElementById('rekrutacja-tab').click();  document.getElementById('rekrutacja-tab').setAttribute('disabled', '');" id="KP">Powrót</button>
-                        <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('profile-tab').removeAttribute('disabled'); document.getElementById('profile-tab').click();  document.getElementById('profile-tab').setAttribute('disabled', '');" id="KD">Dalej</button>
+                        <button class="btn-lg btn btn-secondary w-auto" type="button" id="KP">Powrót</button>
+                        <button class="btn-lg btn btn-primary w-auto" type="button" id="KD">Dalej</button>
                       </div>
                     </div>
                   </div>
             </div>
             <div class="tab-pane fade" id="Opiekuni" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="row justify-content-center m-0 mt-3">
+                <div class="h5 container d-flex mb-5 ms-5 mt-3">Wymagany jest conajmniej jeden rodzic/opiekun</div>
                 <div class="col-sm-3">
                 <h4>Dane matki</h4>
                 <div class="form-floating mb-3">
@@ -253,7 +322,7 @@
                     </div>
                 </div>
                 <div class="form-check form-switch mb-3">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefaultMatka">
+                    <input class="form-check-input" type="checkbox" value="1" role="switch" id="flexSwitchCheckDefaultMatka">
                     <label class="form-check-label" for="flexSwitchCheckDefaultMatka">Adres zamieszkania taki jak kandydata</label>
                 </div>
                 <div class="form-floating mb-3">
@@ -291,7 +360,7 @@
                     </div>
                 </div>
                 <div class="form-check form-switch mb-3">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefaultOjca">
+                    <input class="form-check-input" type="checkbox" value="1" role="switch" id="flexSwitchCheckDefaultOjca">
                     <label class="form-check-label" for="flexSwitchCheckDefaultMatka">Adres zamieszkania taki jak kandydata</label>
                 </div>
                 <div class="form-floating mb-3">
@@ -329,7 +398,7 @@
                     </div>
                 </div>
                 <div class="form-check form-switch mb-3">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefaultOpiekuna">
+                    <input class="form-check-input" type="checkbox" value="1" role="switch" id="flexSwitchCheckDefaultOpiekuna">
                     <label class="form-check-label" for="flexSwitchCheckDefaultMatka">Adres zamieszkania taki jak kandydata</label>
                 </div>
                 <div class="form-floating mb-3">
@@ -345,304 +414,286 @@
                     <label for="floatingKodOpiekuna">Kod pocztowy</label>
                   </div>
               </div>
-              <div id="invalid-opiekun">
-                Wymagany jeden opiekun
-              </div>
               <div class="btn-group d-flex justify-content-end p-3">
-                <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('home-tab').removeAttribute('disabled'); document.getElementById('home-tab').click();  document.getElementById('home-tab').setAttribute('disabled', '');" id="OPP">Powrót</button>
-                <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('contact-tab').removeAttribute('disabled'); document.getElementById('contact-tab').click();  document.getElementById('contact-tab').setAttribute('disabled', '');" id="OPD">Dalej</button>
+                <button class="btn-lg btn btn-secondary w-auto" type="button" id="OPP">Powrót</button>
+                <button class="btn-lg btn btn-primary w-auto" type="button" id="OPD">Dalej</button>
           </div>
             </div>
-          <input type="hidden" name="data">
-          <input type="hidden" name="godzina">
         </div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-          <div class="row justify-content-around m-0 mt-3">
-              <div class="col-sm-3 mb-3">
-                  <br><h5>Ocena z Zachowania</h5>
-                  <div class="form-floating"></div>
-                  <div class="mb-3 form-floating">
-                      <div class="form-floating"></div>
-                      <select name="ocena Zachowanie" id="oceny" class="form-select">
-                        <option></option>
-                        <option value="ocena1">Wzorowe</option>
-                        <option value="ocena2">Bardzo Dobre</option>
-                        <option value="ocena3">Dobre</option>
-                        <option value="ocena4">Poprawne</option>
-                        <option value="ocena5">Nieodpowiednie</option>
-                        <option value="ocena6">Naganne</option>
-                      </select>
-                      <label for="oceny" class="form-label">Ocena z Zachowania</label>
+                <div class="row justify-content-around m-0 mt-3">
+                    <div class="col-sm-3 mb-3 border-end">
+                        <br><h5>Ocena z Zachowania</h5>
+                        <div class="form-floating"></div>
+                        <div class="mb-3 form-floating">
+                            <div class="form-floating"></div>
+                            <select name="oceny" id="oceny" class="form-select">
+                              <option value="Naganne">Naganne</option>
+                              <option value="Nieodpowiednie">Nieodpowiednie</option>
+                              <option value="Poprawne">Poprawne</option>
+                              <option value="Dobre">Dobre</option>
+                              <option value="Bardzo dobre">Bardzo Dobre</option>
+                              <option value="Wzorowe">Wzorowe</option>
+                            </select>
+                            <label for="oceny" class="form-label">Ocena z Zachowania</label>
+                          </div>
+                          <br><h5>Wyniki Egzaminu Ósmoklasisty</h5>
+                          <div class="form-check mb-3">
+                            <input type="checkbox" value="1" name="egzamin" id="egzamin">
+                            <label for="egzamin" class="form-label">Zwolniony z egzaminu</label>
+                          </div>
+                          <div class="mb-3 form-floating">
+                            <div class="form-floating mb-3 position-relative">
+                                <input type="text" name="egz_pol" id="EgzPol" class="form-control">
+                                <label for="EgzPol">Język Polski</label>
+                            </div>
+                            <div class="form-floating mb-3 position-relative">
+                                <input type="text" name="egz_mat" id="EgzMat" class="form-control">
+                                <label for="EgzMat">Matematyka</label>
+                            </div>
+                            <div class="form-floating mb-3 position-relative">
+                                <input type="text" name="egz_ang" id="EgzAng" class="form-control">
+                                <label for="EgzAng">Angielski</label>
+                            </div>
+                          </div>
                     </div>
-                    <br><h5>Wyniki Egzaminu Ósmoklasisty</h5>
-                    <div class="form-check mb-3">
-                      <input type="checkbox" name="egzamin" id="egzamin">
-                      <label for="egzamin" class="form-label">Zwolniony z egzaminu</label>
+                    <div class="col-sm-3 mb-3">
+                        <br>    <h5>Oceny</h5>
+                        <div class="form-floating">
+                            <div class="mb-3 form-floating">
+                                <select name="oceny_Pol" id="oceny_Pol" class="form-select">
+                                  <option value="0">0-Brak Oceny</option>
+                                  <option value="1">1-Niedostateczny</option>
+                                  <option value="2">2-Dopuszczający</option>
+                                  <option value="3">3-Dostateczny</option>
+                                  <option value="4">4-Dobry</option>
+                                  <option value="5">5-Bardzo Dobry</option>
+                                  <option value="6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Pol" class="form-label">Język Polski</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Ang" id="oceny_Ang" class="form-select">
+                                  <option value="0">0-Brak Oceny</option>
+                                  <option value="1">1-Niedostateczny</option>
+                                  <option value="2">2-Dopuszczający</option>
+                                  <option value="3">3-Dostateczny</option>
+                                  <option value="4">4-Dobry</option>
+                                  <option value="5">5-Bardzo Dobry</option>
+                                  <option value="6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Ang" class="form-label">Język Angielski</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Niem" id="oceny_Niem" class="form-select">
+                                  <option value="0">0-Brak Oceny</option>
+                                  <option value="1">1-Niedostateczny</option>
+                                  <option value="2">2-Dopuszczający</option>
+                                  <option value="3">3-Dostateczny</option>
+                                  <option value="4">4-Dobry</option>
+                                  <option value="5">5-Bardzo Dobry</option>
+                                  <option value="6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Niem" class="form-label">Język Niemiecki</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Ros" id="oceny_Ros" class="form-select">
+                                  <option value="0">0-Brak Oceny</option>
+                                  <option value="1">1-Niedostateczny</option>
+                                  <option value="2">2-Dopuszczający</option>
+                                  <option value="3">3-Dostateczny</option>
+                                  <option value="4">4-Dobry</option>
+                                  <option value="5">5-Bardzo Dobry</option>
+                                  <option value="6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Ros" class="form-label">Język Rosyjski</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_His" id="oceny_His" class="form-select">
+                                  <option value="0">0-Brak Oceny</option>
+                                  <option value="1">1-Niedostateczny</option>
+                                  <option value="2">2-Dopuszczający</option>
+                                  <option value="3">3-Dostateczny</option>
+                                  <option value="4">4-Dobry</option>
+                                  <option value="5">5-Bardzo Dobry</option>
+                                  <option value="6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_His" class="form-label">Historia</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Wos" id="oceny_Wos" class="form-select">
+                                  <option value="0">0-Brak Oceny</option>
+                                  <option value="1">1-Niedostateczny</option>
+                                  <option value="2">2-Dopuszczający</option>
+                                  <option value="3">3-Dostateczny</option>
+                                  <option value="4">4-Dobry</option>
+                                  <option value="5">5-Bardzo Dobry</option>
+                                  <option value="6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Wos" class="form-label">Wiedzia o Społeczeństwie</label>
+                              </div> 
+                        </div>
                     </div>
-                    <div class="mb-3 form-floating">
-                      <div class="form-floating mb-3 position-relative">
-                          <input type="text" name="ocena Egzamin polski" id="floatingEgzPol" class="form-control">
-                          <label for="floatingEgzPol">Język Polski</label>
-                      </div>
-                      <div class="form-floating mb-3 position-relative">
-                          <input type="text" name="ocena Egzamin matematyka" id="floatingEgzMat" class="form-control">
-                          <label for="floatingEgzMat">Matematyka</label>
-                      </div>
-                      <div class="form-floating mb-3 position-relative">
-                          <input type="text" name="ocena Egzamin angielski" id="floatingEgzAng" class="form-control">
-                          <label for="floatingEgzAng">Angielski</label>
-                      </div>
+                    <div class="col-sm-3 mb-3">
+                        <br> <br> <h5></h5>
+                        <div class="form-floating">
+                            <div class="mb-3 form-floating">
+                                <select name="oceny_Mat" id="oceny_Mat" class="form-select">
+                                  <option value="0">0-Brak Oceny</option>
+                                  <option value="1">1-Niedostateczny</option>
+                                  <option value="2">2-Dopuszczający</option>
+                                  <option value="3">3-Dostateczny</option>
+                                  <option value="4">4-Dobry</option>
+                                  <option value="5">5-Bardzo Dobry</option>
+                                  <option value="6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Mat" class="form-label">Matematyka</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Chem" id="oceny_Chem" class="form-select">
+                                  <option value="0">0-Brak Oceny</option>
+                                  <option value="1">1-Niedostateczny</option>
+                                  <option value="2">2-Dopuszczający</option>
+                                  <option value="3">3-Dostateczny</option>
+                                  <option value="4">4-Dobry</option>
+                                  <option value="5">5-Bardzo Dobry</option>
+                                  <option value="6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Chem" class="form-label">Chemia</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Fiz" id="oceny_Fiz" class="form-select">
+                                  <option value="0">0-Brak Oceny</option>
+                                  <option value="1">1-Niedostateczny</option>
+                                  <option value="2">2-Dopuszczający</option>
+                                  <option value="3">3-Dostateczny</option>
+                                  <option value="4">4-Dobry</option>
+                                  <option value="5">5-Bardzo Dobry</option>
+                                  <option value="6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Fiz" class="form-label">Fizyka</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Geo" id="oceny_Geo" class="form-select">
+                                  <option value="0">0-Brak Oceny</option>
+                                  <option value="1">1-Niedostateczny</option>
+                                  <option value="2">2-Dopuszczający</option>
+                                  <option value="3">3-Dostateczny</option>
+                                  <option value="4">4-Dobry</option>
+                                  <option value="5">5-Bardzo Dobry</option>
+                                  <option value="6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Geo" class="form-label">Geografia</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Bio" id="oceny_Bio" class="form-select">
+                                  <option value="0">0-Brak Oceny</option>
+                                  <option value="1">1-Niedostateczny</option>
+                                  <option value="2">2-Dopuszczający</option>
+                                  <option value="3">3-Dostateczny</option>
+                                  <option value="4">4-Dobry</option>
+                                  <option value="5">5-Bardzo Dobry</option>
+                                  <option value="6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Bio" class="form-label">Biologia</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Przy" id="oceny_Przy" class="form-select">
+                                  <option value="0">0-Brak Oceny</option>
+                                  <option value="1">1-Niedostateczny</option>
+                                  <option value="2">2-Dopuszczający</option>
+                                  <option value="3">3-Dostateczny</option>
+                                  <option value="4">4-Dobry</option>
+                                  <option value="5">5-Bardzo Dobry</option>
+                                  <option value="6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Przy" class="form-label">Przyroda</label>
+                              </div> 
+                        </div>
                     </div>
-              </div>
-              <div class="col-sm-3 mb-3">
-                  <br>    <h5>Oceny</h5>
-                  <div class="form-floating">
-                      <div class="mb-3 form-floating">
-                          <select name="ocena Polski" id="oceny_Pol" class="form-select">
-                            <option value="ocena0">0-Brak Oceny</option>
-                            <option value="ocena1">1-Niedostateczny</option>
-                            <option value="ocena2">2-Dopuszczający</option>
-                            <option value="ocena3">3-Dostateczny</option>
-                            <option value="ocena4">4-Dobry</option>
-                            <option value="ocena5">5-Bardzo Dobry</option>
-                            <option value="ocena6">6-Celujący</option>
-                          </select>
-                          <label for="oceny_Pol" class="form-label">Język Polski</label>
-                        </div> 
-                        <div class="mb-3 form-floating">
-                          <select name="ocena Angielski" id="oceny_Ang" class="form-select">
-                            <option value="ocena0">0-Brak Oceny</option>
-                            <option value="ocena1">1-Niedostateczny</option>
-                            <option value="ocena2">2-Dopuszczający</option>
-                            <option value="ocena3">3-Dostateczny</option>
-                            <option value="ocena4">4-Dobry</option>
-                            <option value="ocena5">5-Bardzo Dobry</option>
-                            <option value="ocena6">6-Celujący</option>
-                          </select>
-                          <label for="oceny_Ang" class="form-label">Język Angielski</label>
-                        </div> 
-                        <div class="mb-3 form-floating">
-                          <select name="ocena Niemiecki" id="oceny_Niem" class="form-select">
-                            <option value="ocena0">0-Brak Oceny</option>
-                            <option value="ocena1">1-Niedostateczny</option>
-                            <option value="ocena2">2-Dopuszczający</option>
-                            <option value="ocena3">3-Dostateczny</option>
-                            <option value="ocena4">4-Dobry</option>
-                            <option value="ocena5">5-Bardzo Dobry</option>
-                            <option value="ocena6">6-Celujący</option>
-                          </select>
-                          <label for="oceny_Niem" class="form-label">Język Niemiecki</label>
-                        </div> 
-                        <div class="mb-3 form-floating">
-                          <select name="ocena Rosyjski" id="oceny_Ros" class="form-select">
-                            <option value="ocena0">0-Brak Oceny</option>
-                            <option value="ocena1">1-Niedostateczny</option>
-                            <option value="ocena2">2-Dopuszczający</option>
-                            <option value="ocena3">3-Dostateczny</option>
-                            <option value="ocena4">4-Dobry</option>
-                            <option value="ocena5">5-Bardzo Dobry</option>
-                            <option value="ocena6">6-Celujący</option>
-                          </select>
-                          <label for="oceny_Ros" class="form-label">Język Rosyjski</label>
-                        </div> 
-                        <div class="mb-3 form-floating">
-                          <select name="ocena Historia" id="oceny_His" class="form-select">
-                            <option value="ocena0">0-Brak Oceny</option>
-                            <option value="ocena1">1-Niedostateczny</option>
-                            <option value="ocena2">2-Dopuszczający</option>
-                            <option value="ocena3">3-Dostateczny</option>
-                            <option value="ocena4">4-Dobry</option>
-                            <option value="ocena5">5-Bardzo Dobry</option>
-                            <option value="ocena6">6-Celujący</option>
-                          </select>
-                          <label for="oceny_His" class="form-label">Historia</label>
-                        </div> 
-                        <div class="mb-3 form-floating">
-                          <select name="ocena Wiedzia o spoleczenstwie" id="oceny_Wos" class="form-select">
-                            <option value="ocena0">0-Brak Oceny</option>
-                            <option value="ocena1">1-Niedostateczny</option>
-                            <option value="ocena2">2-Dopuszczający</option>
-                            <option value="ocena3">3-Dostateczny</option>
-                            <option value="ocena4">4-Dobry</option>
-                            <option value="ocena5">5-Bardzo Dobry</option>
-                            <option value="ocena6">6-Celujący</option>
-                          </select>
-                          <label for="oceny_Wos" class="form-label">Wiedzia o Społeczeństwie</label>
-                        </div> 
-                  </div>
-              </div>
-              <div class="col-sm-3 mb-3">
-                  <br> <br> <h5></h5>
-                  <div class="form-floating">
-                      <div class="mb-3 form-floating">
-                          <select name="ocena Matematyka" id="oceny_Mat" class="form-select">
-                            <option value="ocena0">0-Brak Oceny</option>
-                            <option value="ocena1">1-Niedostateczny</option>
-                            <option value="ocena2">2-Dopuszczający</option>
-                            <option value="ocena3">3-Dostateczny</option>
-                            <option value="ocena4">4-Dobry</option>
-                            <option value="ocena5">5-Bardzo Dobry</option>
-                            <option value="ocena6">6-Celujący</option>
-                          </select>
-                          <label for="oceny_Mat" class="form-label">Matematyka</label>
-                        </div> 
-                        <div class="mb-3 form-floating">
-                          <select name="ocena Chemia" id="oceny_Chem" class="form-select">
-                            <option value="ocena0">0-Brak Oceny</option>
-                            <option value="ocena1">1-Niedostateczny</option>
-                            <option value="ocena2">2-Dopuszczający</option>
-                            <option value="ocena3">3-Dostateczny</option>
-                            <option value="ocena4">4-Dobry</option>
-                            <option value="ocena5">5-Bardzo Dobry</option>
-                            <option value="ocena6">6-Celujący</option>
-                          </select>
-                          <label for="oceny_Chem" class="form-label">Chemia</label>
-                        </div> 
-                        <div class="mb-3 form-floating">
-                          <select name="ocena FIzyka" id="oceny_Fiz" class="form-select">
-                            <option value="ocena0">0-Brak Oceny</option>
-                            <option value="ocena1">1-Niedostateczny</option>
-                            <option value="ocena2">2-Dopuszczający</option>
-                            <option value="ocena3">3-Dostateczny</option>
-                            <option value="ocena4">4-Dobry</option>
-                            <option value="ocena5">5-Bardzo Dobry</option>
-                            <option value="ocena6">6-Celujący</option>
-                          </select>
-                          <label for="oceny_Fiz" class="form-label">Fizyka</label>
-                        </div> 
-                        <div class="mb-3 form-floating">
-                          <select name="ocena Geografia" id="oceny_Geo" class="form-select">
-                            <option value="ocena0">0-Brak Oceny</option>
-                            <option value="ocena1">1-Niedostateczny</option>
-                            <option value="ocena2">2-Dopuszczający</option>
-                            <option value="ocena3">3-Dostateczny</option>
-                            <option value="ocena4">4-Dobry</option>
-                            <option value="ocena5">5-Bardzo Dobry</option>
-                            <option value="ocena6">6-Celujący</option>
-                          </select>
-                          <label for="oceny_Geo" class="form-label">Geografia</label>
-                        </div> 
-                        <div class="mb-3 form-floating">
-                          <select name="ocena Biologia" id="oceny_Bio" class="form-select">
-                            <option value="ocena0">0-Brak Oceny</option>
-                            <option value="ocena1">1-Niedostateczny</option>
-                            <option value="ocena2">2-Dopuszczający</option>
-                            <option value="ocena3">3-Dostateczny</option>
-                            <option value="ocena4">4-Dobry</option>
-                            <option value="ocena5">5-Bardzo Dobry</option>
-                            <option value="ocena6">6-Celujący</option>
-                          </select>
-                          <label for="oceny_Bio" class="form-label">Biologia</label>
-                        </div> 
-                        <div class="mb-3 form-floating">
-                          <select name="ocena Przyroda" id="oceny_Przy" class="form-select">
-                            <option value="ocena0">0-Brak Oceny</option>
-                            <option value="ocena1">1-Niedostateczny</option>
-                            <option value="ocena2">2-Dopuszczający</option>
-                            <option value="ocena3">3-Dostateczny</option>
-                            <option value="ocena4">4-Dobry</option>
-                            <option value="ocena5">5-Bardzo Dobry</option>
-                            <option value="ocena6">6-Celujący</option>
-                          </select>
-                          <label for="oceny_Przy" class="form-label">Przyroda</label>
-                        </div> 
-                  </div>
-              </div>
-              <div class="col-sm-3 mb-3">
-                  <br> <br><h5></h5>
-                  <div class="form-floating">
-                      <div class="mb-3 form-floating">
-                          <select name="ocena Muzyka" id="oceny_Muz" class="form-select">
-                            <option value="ocena0">0-Brak Oceny</option>
-                            <option value="ocena1">1-Niedostateczny</option>
-                            <option value="ocena2">2-Dopuszczający</option>
-                            <option value="ocena3">3-Dostateczny</option>
-                            <option value="ocena4">4-Dobry</option>
-                            <option value="ocena5">5-Bardzo Dobry</option>
-                            <option value="ocena6">6-Celujący</option>
-                          </select>
-                          <label for="oceny_Muz" class="form-label">Muzyka</label>
-                        </div> 
-                        <div class="mb-3 form-floating">
-                          <select name="ocena Technika" id="oceny_Tech" class="form-select">
-                            <option value="ocena0">0-Brak Oceny</option>
-                            <option value="ocena1">1-Niedostateczny</option>
-                            <option value="ocena2">2-Dopuszczający</option>
-                            <option value="ocena3">3-Dostateczny</option>
-                            <option value="ocena4">4-Dobry</option>
-                            <option value="ocena5">5-Bardzo Dobry</option>
-                            <option value="ocena6">6-Celujący</option>
-                          </select>
-                          <label for="oceny_Tech" class="form-label">Technika</label>
-                        </div> 
-                        <div class="mb-3 form-floating">
-                          <select name="ocena Edukacja dla bezpieczenstwa" id="oceny_Edb" class="form-select">
-                            <option value="ocena0">0-Brak Oceny</option>
-                            <option value="ocena1">1-Niedostateczny</option>
-                            <option value="ocena2">2-Dopuszczający</option>
-                            <option value="ocena3">3-Dostateczny</option>
-                            <option value="ocena4">4-Dobry</option>
-                            <option value="ocena5">5-Bardzo Dobry</option>
-                            <option value="ocena6">6-Celujący</option>
-                          </select>
-                          <label for="oceny_Edb" class="form-label">Edukacja Dla Bezpieczeństwa</label>
-                        </div> 
-                        <div class="mb-3 form-floating">
-                          <select name="ocena Plastyka" id="oceny_Plas" class="form-select">
-                            <option value="ocena0">0-Brak Oceny</option>
-                            <option value="ocena1">1-Niedostateczny</option>
-                            <option value="ocena2">2-Dopuszczający</option>
-                            <option value="ocena3">3-Dostateczny</option>
-                            <option value="ocena4">4-Dobry</option>
-                            <option value="ocena5">5-Bardzo Dobry</option>
-                            <option value="ocena6">6-Celujący</option>
-                          </select>
-                          <label for="oceny_Plas" class="form-label">Plastyka</label>
-                        </div> 
-                        <div class="mb-3 form-floating">
-                          <select name="ocena Religia" id="oceny_Rel" class="form-select">
-                            <option value="ocena0">0-Brak Oceny</option>
-                            <option value="ocena1">1-Niedostateczny</option>
-                            <option value="ocena2">2-Dopuszczający</option>
-                            <option value="ocena3">3-Dostateczny</option>
-                            <option value="ocena4">4-Dobry</option>
-                            <option value="ocena5">5-Bardzo Dobry</option>
-                            <option value="ocena6">6-Celujący</option>
-                          </select>
-                          <label for="oceny_Rel" class="form-label">Religia</label>
-                        </div> 
-                        <div class="mb-3 form-floating">
-                          <select name="ocena Etyka" id="oceny_Ety" class="form-select">
-                            <option value="ocena0">0-Brak Oceny</option>
-                            <option value="ocena1">1-Niedostateczny</option>
-                            <option value="ocena2">2-Dopuszczający</option>
-                            <option value="ocena3">3-Dostateczny</option>
-                            <option value="ocena4">4-Dobry</option>
-                            <option value="ocena5">5-Bardzo Dobry</option>
-                            <option value="ocena6">6-Celujący</option>
-                          </select>
-                          <label for="oceny_Ety" class="form-label">Etyka</label>
-                        </div> 
-                        <div class="mb-3 form-floating">
-                          <select name="ocena Wychowanie fizyczne" id="oceny_Wf" class="form-select">
-                            <option value="ocena0">0-Brak Oceny</option>
-                            <option value="ocena1">1-Niedostateczny</option>
-                            <option value="ocena2">2-Dopuszczający</option>
-                            <option value="ocena3">3-Dostateczny</option>
-                            <option value="ocena4">4-Dobry</option>
-                            <option value="ocena5">5-Bardzo Dobry</option>
-                            <option value="ocena6">6-Celujący</option>
-                          </select>
-                          <label for="oceny_Wf" class="form-label">Wychowanie Fizyczne</label>
-                        </div> 
-                  </div>
-              </div>
-              <div class="btn-group d-flex justify-content-end p-3">
-                <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('profile-tab').removeAttribute('disabled'); document.getElementById('profile-tab').click();  document.getElementById('profile-tab').setAttribute('disabled', '');" id="OCP">Powrót</button>
-                <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('osiagniecia-tab').removeAttribute('disabled'); document.getElementById('osiagniecia-tab').click();  document.getElementById('osiagniecia-tab').setAttribute('disabled', '');" id="OCD">Dalej</button>
-          </div>
-          </div>
-  </div>
+                    <div class="col-sm-3 mb-3">
+                        <br> <br><h5></h5>
+                        <div class="form-floating">
+                            <div class="mb-3 form-floating">
+                                <select name="oceny_Muz" id="oceny_Muz" class="form-select">
+                                  <option value="0">0-Brak Oceny</option>
+                                  <option value="1">1-Niedostateczny</option>
+                                  <option value="2">2-Dopuszczający</option>
+                                  <option value="3">3-Dostateczny</option>
+                                  <option value="4">4-Dobry</option>
+                                  <option value="5">5-Bardzo Dobry</option>
+                                  <option value="6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Muz" class="form-label">Muzyka</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Tech" id="oceny_Tech" class="form-select">
+                                  <option value="0">0-Brak Oceny</option>
+                                  <option value="1">1-Niedostateczny</option>
+                                  <option value="2">2-Dopuszczający</option>
+                                  <option value="3">3-Dostateczny</option>
+                                  <option value="4">4-Dobry</option>
+                                  <option value="5">5-Bardzo Dobry</option>
+                                  <option value="6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Tech" class="form-label">Technika</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Edb" id="oceny_Edb" class="form-select">
+                                  <option value="0">0-Brak Oceny</option>
+                                  <option value="1">1-Niedostateczny</option>
+                                  <option value="2">2-Dopuszczający</option>
+                                  <option value="3">3-Dostateczny</option>
+                                  <option value="4">4-Dobry</option>
+                                  <option value="5">5-Bardzo Dobry</option>
+                                  <option value="6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Edb" class="form-label">Edukacja Dla Bezpieczeństwa</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Plas" id="oceny_Plas" class="form-select">
+                                  <option value="0">0-Brak Oceny</option>
+                                  <option value="1">1-Niedostateczny</option>
+                                  <option value="2">2-Dopuszczający</option>
+                                  <option value="3">3-Dostateczny</option>
+                                  <option value="4">4-Dobry</option>
+                                  <option value="5">5-Bardzo Dobry</option>
+                                  <option value="6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Plas" class="form-label">Plastyka</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Rel" id="oceny_Rel" class="form-select">
+                                  <option value="0">0-Brak Oceny</option>
+                                  <option value="1">1-Niedostateczny</option>
+                                  <option value="2">2-Dopuszczający</option>
+                                  <option value="3">3-Dostateczny</option>
+                                  <option value="4">4-Dobry</option>
+                                  <option value="5">5-Bardzo Dobry</option>
+                                  <option value="6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Rel" class="form-label">Religia/Etyka</label>
+                              </div> 
+                              <div class="mb-3 form-floating">
+                                <select name="oceny_Wf" id="oceny_Wf" class="form-select">
+                                  <option value="0">0-Brak Oceny</option>
+                                  <option value="1">1-Niedostateczny</option>
+                                  <option value="2">2-Dopuszczający</option>
+                                  <option value="3">3-Dostateczny</option>
+                                  <option value="4">4-Dobry</option>
+                                  <option value="5">5-Bardzo Dobry</option>
+                                  <option value="6">6-Celujący</option>
+                                </select>
+                                <label for="oceny_Wf" class="form-label">Wychowanie Fizyczne</label>
+                              </div> 
+                        </div>
+                    </div>
+                    <div class="btn-group d-flex justify-content-end p-3">
+                      <button class="btn-lg btn btn-secondary w-auto" type="button" id="OCP">Powrót</button>
+                      <button class="btn-lg btn btn-primary w-auto" type="button" id="OCD">Dalej</button>
+                </div>
+                </div>
+        </div>
         <div class="tab-pane fade p-1" id="kryteria" role="tabpanel" aria-labelledby="kryteria-tab">
 
 
@@ -657,7 +708,7 @@
         <div class="row g-1 border-bottom p-3">
             <div class="col">
                 <div class="form-check border-end">
-                    <input type="checkbox" name="kryteria1" class="form-check-input" id="kryteria1">
+                    <input type="checkbox" value="1" name="kryteria1" class="form-check-input" id="kryteria1">
                     <label for="kryteria1" class="form-check-label">Kandydat z problemami zdrowotnymi, ograniczającymi możliwość wyboru kierunku kształcenia ze względu na stan zdrowia</label>
                 </div>
             </div>
@@ -670,7 +721,7 @@
         <div class="row g-1 border-bottom p-3">
             <div class="col">
                 <div class="form-check border-end">
-                    <input type="checkbox" name="kryteria2" class="form-check-input" id="kryteria2">
+                    <input type="checkbox" value="1" name="kryteria2" class="form-check-input" id="kryteria2">
                     <label for="kryteria2" class="form-check-label">Wielodzietność rodziny kandydata</label>
                 </div>
             </div>
@@ -685,7 +736,7 @@
         <div class="row g-1 border-bottom p-3">
             <div class="col">
                 <div class="form-check border-end h-100">
-                    <input type="checkbox" name="kryteria3" class="form-check-input" id="kryteria3">
+                    <input type="checkbox" value="1" name="kryteria3" class="form-check-input" id="kryteria3">
                     <label for="kryteria3" class="form-check-label">Niepełnosprawność kandydata</label>
                 </div>
             </div>
@@ -701,7 +752,7 @@
         <div class="row g-1 border-bottom p-3">
             <div class="col">
                 <div class="form-check border-end h-100">
-                    <input type="checkbox" name="kryteria4" class="form-check-input" id="kryteria4">
+                    <input type="checkbox" value="1" name="kryteria4" class="form-check-input" id="kryteria4">
                     <label for="kryteria4" class="form-check-label">Niepełnosprawność dziecka kandydata</label>
                 </div>
             </div>
@@ -718,7 +769,7 @@
         <div class="row g-1 border-bottom p-3">
             <div class="col">
                 <div class="form-check border-end h-100">
-                    <input type="checkbox" name="kryteria5" class="form-check-input" id="kryteria5">
+                    <input type="checkbox" value="1" name="kryteria5" class="form-check-input" id="kryteria5">
                     <label for="kryteria5" class="form-check-label">Niepełnosprawność innej osoby bliskiej, nad którą kandydat sprawuje opieke</label>
                 </div>
             </div>
@@ -734,7 +785,7 @@
         <div class="row g-1 border-bottom p-3">
             <div class="col">
                 <div class="form-check border-end h-100">
-                    <input type="checkbox" name="Kryteria6" class="form-check-input" id="Kryteria6">
+                    <input type="checkbox" value="1" name="kryteria6" class="form-check-input" id="Kryteria6">
                     <label for="Kryteria6" class="form-check-label">Samotne wychowanie dziecka przez kandydata</label>
                 </div>
             </div>
@@ -745,8 +796,8 @@
             </div>
           </div>
           <div class="btn-group d-flex justify-content-end p-3">
-            <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('osiagniecia-tab').removeAttribute('disabled'); document.getElementById('osiagniecia-tab').click();  document.getElementById('osiagniecia-tab').setAttribute('disabled', '');" id="KRP">Powrót</button>
-            <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('wyslij-tab').removeAttribute('disabled'); document.getElementById('wyslij-tab').click();  document.getElementById('wyslij-tab').setAttribute('disabled', '');" id="KRD">Dalej</button>
+            <button class="btn-lg btn btn-secondary w-auto" type="button" id="KRP">Powrót</button>
+            <button class="btn-lg btn btn-primary w-auto" type="button" id="KRD">Dalej</button>
       </div>
 
         
@@ -767,7 +818,7 @@
 
 
           <div class="form-check">
-            <input type="checkbox" name="wyroznienie" id="wyroznienie">
+            <input type="checkbox" value="1" name="wyroznienie1" id="wyroznienie">
             <label for="wyroznienie">
               Świadectwo ukończenia szkoły podstawowej z wyróżnieniem
             </label>
@@ -789,7 +840,7 @@
 
           </style>
           <div class="form-check" id="specjalny">
-            <input type="checkbox" name="wyroznienie2" id="wyroznienie2">
+            <input type="checkbox" value="1" name="wyroznienie2" id="wyroznienie2">
             <label for="wyroznienienie2">
               Osiągnięcia w zakresie aktywności społecznej, w tym na rzecz środowiska szkolnego, w szczególności w formie wolontariatu
             </label>
@@ -806,21 +857,21 @@
       <div class="col ps-3">
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie3" id="wyroznienie3">
+          <input type="checkbox" value="1" name="wyroznienie3" id="wyroznienie3">
           <label for="wyroznienie3">
             Tytuł finalisty konkursu przedmiotowego
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie4" id="wyroznienie4">
+          <input type="checkbox" value="1" name="wyroznienie4" id="wyroznienie4">
           <label for="wyroznienie4">
             Tytułu laureata konkursu tematycznego lub interdyscyplinarnego
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie5" id="wyroznienie5">
+          <input type="checkbox" value="1" name="wyroznienie5" id="wyroznienie5">
           <label for="wyroznienie5">
             Tytułu finalisty konkursu tematycznego lub interdyscyplinarnego
           </label>
@@ -836,21 +887,21 @@
     </div>
     <div class="col ps-3">
       <div class="form-check">
-        <input type="checkbox" name="wyroznienie6" id="wyroznienie6">
+        <input type="checkbox" value="1" name="wyroznienie6" id="wyroznienie6">
         <label for="wyroznienie6">
           Tytułu finalisty konkursu z przedmiotu lub przedmiotów artystycznych objętych ramowym planem nauczania szkoły artystycznej
         </label>
       </div>
 
       <div class="form-check">
-        <input type="checkbox" name="wyroznienie7" id="wyroznienie7">
+        <input type="checkbox" value="1" name="wyroznienie7" id="wyroznienie7">
         <label for="wyroznienie7">
           Tytułu laureata turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
         </label>
       </div>
 
       <div class="form-check">
-        <input type="checkbox" name="wyroznienie8" id="wyroznienie8">
+        <input type="checkbox" value="1" name="wyroznienie8" id="wyroznienie8">
         <label for="wyroznienie8">
           Tytułu finalisty turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
         </label>
@@ -866,42 +917,42 @@
       </div>
       <div class="col ps-3">
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie9" id="wyroznienie9">
+          <input type="checkbox" value="1" name="wyroznienie9" id="wyroznienie9">
           <label for="wyroznienie9">
             Dwóch lub więcej tytułów finalisty konkursu przedmiotowego
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie10" id="wyroznienie10">
+          <input type="checkbox" value="1" name="wyroznienie10" id="wyroznienie10">
           <label for="wyroznienie10">
             Dwóch lub więcej tytułów laureata konkursu tematycznego lub interdyscyplinarnego
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie11" id="wyroznienie11">
+          <input type="checkbox" value="1" name="wyroznienie11" id="wyroznienie11">
           <label for="wyroznienie11">
             Dwóch lub więcej tytułów finalisty konkursu tematycznego lub interdyscyplinarnego
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie12" id="wyroznienie12">
+          <input type="checkbox" value="1" name="wyroznienie12" id="wyroznienie12">
           <label for="wyroznienie12">
             Tytułu finalisty konkursu przedmiotowego
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie13" id="wyroznienie13">
+          <input type="checkbox" value="1" name="wyroznienie13" id="wyroznienie13">
           <label for="wyroznienie13">
             Tytułu laureata konkursu tematycznego lub interdyscyplinarnego
           </label>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" name="wyroznienie14" id="wyroznienie14">
+          <input type="checkbox" value="1" name="wyroznienie14" id="wyroznienie14">
           <label for="wyroznienie14">
             Tytułu finalisty konkursu tematycznego lub interdyscyplinarnego
           </label>
@@ -917,42 +968,42 @@
         </div>
         <div class="col ps-3">
           <div class="form-check">
-            <input type="checkbox" name="wyroznienie15" id="wyroznienie15">
+            <input type="checkbox" value="1" name="wyroznienie15" id="wyroznienie15">
             <label for="wyroznienie15">
               dwóch lub więcej tytułów finalisty konkursu z przedmiotu lub przedmiotów artystycznych objętych ramowym planem nauczania szkoły artystycznej
             </label>
           </div>
   
           <div class="form-check">
-            <input type="checkbox" name="wyroznienie16" id="wyroznienie16">
+            <input type="checkbox" value="1" name="wyroznienie16" id="wyroznienie16">
             <label for="wyroznienie16">
               dwóch lub więcej tytułów laureata turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
             </label>
           </div>
   
           <div class="form-check">
-            <input type="checkbox" name="wyroznienie17" id="wyroznienie17">
+            <input type="checkbox" value="1" name="wyroznienie17" id="wyroznienie17">
             <label for="wyroznienie17">
               dwóch lub więcej tytułów finalisty turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
             </label>
           </div>
   
           <div class="form-check">
-            <input type="checkbox" name="wyroznienie18" id="wyroznienie18">
+            <input type="checkbox" value="1" name="wyroznienie18" id="wyroznienie18">
             <label for="wyroznienie18">
               tytułu finalisty konkursu z przedmiotu lub przedmiotów artystycznych objętych ramowym planem nauczania szkoły artystycznej
             </label>
           </div>
   
           <div class="form-check">
-            <input type="checkbox" name="wyroznienie19" id="wyroznienie19">
+            <input type="checkbox" value="1" name="wyroznienie19" id="wyroznienie19">
             <label for="wyroznienie19">
               tytułu laureata turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
             </label>
           </div>
   
           <div class="form-check">
-            <input type="checkbox" name="wyroznienie20" id="wyroznienie20">
+            <input type="checkbox" value="1" name="wyroznienie20" id="wyroznienie20">
             <label for="wyroznienie20">
               tytułu finalisty turnieju z przedmiotu lub przedmiotów artystycznych nieobjętych ramowym planem nauczania szkoły artystycznej
             </label>
@@ -968,28 +1019,28 @@
           </div>
           <div class="col ps-3">
             <div class="form-check">
-              <input type="checkbox" name="wyroznienie21" id="wyroznienie21">
+              <input type="checkbox" value="1" name="wyroznienie21" id="wyroznienie21">
               <label for="wyroznienie21">
                 międzynarodowym
               </label>
             </div>
     
             <div class="form-check">
-              <input type="checkbox" name="wyroznienie22" id="wyroznienie22">
+              <input type="checkbox" value="1" name="wyroznienie22" id="wyroznienie22">
               <label for="wyroznienie22">
                 krajowym
               </label>
             </div>
     
             <div class="form-check">
-              <input type="checkbox" name="wyroznienie23" id="wyroznienie23">
+              <input type="checkbox" value="1" name="wyroznienie23" id="wyroznienie23">
               <label for="wyroznienie23">
                 wojewódzkim
               </label>
             </div>
     
             <div class="form-check">
-              <input type="checkbox" name="wyroznienie24" id="wyroznienie24">
+              <input type="checkbox" value="1" name="wyroznienie24" id="wyroznienie24">
               <label for="wyroznienie24">
                 powiatowym
               </label>
@@ -1001,8 +1052,8 @@
       koniec nowe
     -->
         <div class="btn-group d-flex justify-content-end p-3">
-          <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('contact-tab').removeAttribute('disabled'); document.getElementById('contact-tab').click();  document.getElementById('contact-tab').setAttribute('disabled', '');" id="OSP">Powrót</button>
-          <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('kryteria-tab').removeAttribute('disabled'); document.getElementById('kryteria-tab').click();  document.getElementById('kryteria-tab').setAttribute('disabled', '');" id="OSD">Dalej</button>
+          <button class="btn-lg btn btn-secondary w-auto" type="button" id="OSP">Powrót</button>
+          <button class="btn-lg btn btn-primary w-auto" type="button" id="OSD">Dalej</button>
     </div>
       </div>
       <div class="tab-pane fade show p-1 m-5" id="wyslij" role="tabpanel" aria-labelledby="wyslij-tab">
@@ -1091,13 +1142,13 @@
           kryteriów pierwszeństwa w rekrutacji jest konieczne, aby móc korzystać z tych kryteriów.
               <br> <br>
         <div class="form-check">
-          <input type="checkbox" name="zgoda"><label>Oświadczam ze zapoznałem się z Oświadczeniem Tresci Wniosku oraz Informacjami na temat przetwarzania danych osobowych
-            i wyrażam zgodę na przetwarzanie danych osobowych
-            </label> 
+          <input type="checkbox" value="1" id="zgoda" name="zgoda">
+          <label for="zgoda">Oświadczam ze zapoznałem się z Oświadczeniem Tresci Wniosku oraz Informacjami na temat przetwarzania danych osobowych
+            i wyrażam zgodę na przetwarzanie danych osobowych</label>
         </div>
         <div class="btn-group d-flex justify-content-end p-3">
-          <button class="btn-lg btn btn-secondary w-auto" type="button" onclick="document.getElementById('kryteria-tab').removeAttribute('disabled'); document.getElementById('kryteria-tab').click();  document.getElementById('kryteria-tab').setAttribute('disabled', '');" id="WYP">Powrót</button>
-          <button class="btn-lg btn btn-primary w-auto" type="button" onclick="document.getElementById('wyslij-tab').removeAttribute('disabled'); document.getElementById('wyslij-tab').click();  document.getElementById('wyslij-tab').setAttribute('disabled', '');" id="WYD">Wyslij</button>
+          <button class="btn-lg btn btn-secondary w-auto" type="button" id="WP">Powrót</button>
+          <button class="btn-lg btn btn-primary w-auto" type="submit" id="WD" disabled>Wyslij</button>
         </div>
       </div>
       </div>
@@ -1254,6 +1305,5 @@
           <!-- Copyright -->
         </footer>
         <script src="index.js"></script>
-        
-    </body>
+      </body>
 </html>
