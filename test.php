@@ -199,4 +199,10 @@ $idOpiekuna = $pdo->insert_id;
 }
 }
 
+//kandydat
+
+//opieka
+
+//wniosek
+
  ?>
