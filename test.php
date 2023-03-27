@@ -80,5 +80,40 @@ $pdo ->execute();
 $idKryteria = $pdo->insert_id;
 echo $sql." id: ".$idKryteria;
 
+//oceny
 
+
+
+
+//adres
+
+$pdo = $link->prepare("SELECT * FROM `adres` WHERE `Miejscowosc` = 'Puck' AND `Ulica` = 'Ulica nr' AND `Kod pocztowy` = '84-100' AND `Gmina` = 'Puck' AND `Poczta` = 'Puck'");
+$pdo->execute();
+if($pdo->num_rows() >= 1) {
+    $result = $pdo->fetch();
+    $idAdres = $result['ID'];
+} else {
+    $pdo = $link->prepare("INSERT INTO `adres`(`Miejscowosc`, `Ulica`, `Kod pocztowy`, `Gmina`, `Poczta`) VALUES ( ?, ?, ?, ?, ?)");
+    $pdo->bind_param("sssss" , $data['Miejscowosc'], $data['UlicaNrDomu'], $data['KodPocztowy'], $data['Gmina'], $data['Poczta']);
+    $pdo->execute();
+    $idAdres = $pdo->insert_id;
+}
+
+//zameldowanie
+
+$pdo = $link->prepare("SELECT * FROM `adres` WHERE `Miejscowosc` = 'Puck' AND `Ulica` = 'Ulica nr' AND `Kod pocztowy` = '84-100' AND `Gmina` = 'Puck' AND `Poczta` = 'Puck'");
+$pdo->execute();
+if($pdo->num_rows() >= 1) {
+    $result = $pdo->fetch();
+    $idZameldowanie = $result['ID'];
+} else {
+    $pdo = $link->prepare("INSERT INTO `adres`(`Miejscowosc`, `Ulica`, `Kod pocztowy`, `Gmina`, `Poczta`) VALUES ( ?, ?, ?, ?, ?)");
+    $pdo->bind_param("sssss" , $data['MiejscowoscZameldowanie'], $data['UlicaNrDomuZameldowanie'], $data['KodPocztowyZameldowanie'], $data['GminaZameldowanie'], $data['PocztaZameldowanie']);
+    $pdo->execute();
+    $idZameldowanie = $pdo->insert_id;
+}
+
+//opiekuni
+//matka
+var_dump($data);
  ?>
