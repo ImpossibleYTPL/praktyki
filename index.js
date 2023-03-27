@@ -226,6 +226,7 @@ function ToKryteria(){
     kryteriaTab.click();
     kryteriaTab.setAttribute('disabled', '');
     topFunction();
+    enableDisabled();
 }
 
 function ToWyslij(){
@@ -233,6 +234,7 @@ function ToWyslij(){
     wyslijTab.click();
     wyslijTab.setAttribute('disabled', '');
     topFunction();
+    disableDisabled();
 }
 
 function Zgoda(){
@@ -465,4 +467,44 @@ else pesel.classList.remove("is-invalid");
         events();
         console.log('loaded');
         //FirstPageCheck();
+      }
+
+      function disableDisabled() {
+        zameldowanieGmina.removeAttribute('disabled');
+        zameldowanieKod.removeAttribute('disabled');
+        zameldowanieMiejscowosc.removeAttribute('disabled');
+        zameldowaniePoczta.removeAttribute('disabled');
+        zameldowanieUlica.removeAttribute('disabled');
+
+        matkaKod.removeAttribute('disabled');
+        matkaMiejscowosc.removeAttribute('disabled');
+        matkaUlica.removeAttribute('disabled');
+
+        ojciecKod.removeAttribute('disabled');
+        ojciecMiejscowosc.removeAttribute('disabled');
+        ojciecUlica.removeAttribute('disabled');
+
+        opiekunKod.removeAttribute('disabled');
+        opiekunMiejscowosc.removeAttribute('disabled');
+        opiekunUlica.removeAttribute('disabled');
+      }
+
+      function enableDisabled() {
+        zameldowanieGmina.setAttribute('disabled', '');
+        zameldowanieKod.setAttribute('disabled', '');
+        zameldowanieMiejscowosc.setAttribute('disabled', '');
+        zameldowaniePoczta.setAttribute('disabled', '');
+        zameldowanieUlica.setAttribute('disabled', '');
+
+        matkaKod.setAttribute('disabled', '');
+        matkaMiejscowosc.setAttribute('disabled', '');
+        matkaUlica.setAttribute('disabled', '');
+
+        ojciecKod.setAttribute('disabled', '');
+        ojciecMiejscowosc.setAttribute('disabled', '');
+        ojciecUlica.removeAttribute('disabled');
+
+        opiekunKod.setAttribute('disabled', '');
+        opiekunMiejscowosc.setAttribute('disabled', '');
+        opiekunUlica.setAttribute('disabled', '');
       }

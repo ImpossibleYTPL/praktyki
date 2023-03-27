@@ -35,7 +35,6 @@ foreach ($_POST as $key => $value) {
 $osiagniecia = array();
 foreach($data as $key => $value) {
     if(str_contains($key, "wyroznienie")){
-        $key = str_replace("wyroznienie", "", $key);
         $osiagniecia[$key] = $value;
     }
 }
@@ -60,7 +59,6 @@ echo $sql." id: ".$idOsiagniec;
 $kryteria = array();
 foreach($data as $key => $value) {
     if(str_contains($key, "kryteria")){
-        $key = str_replace("kryteria", "", $key);
         $kryteria[$key] = $value;
     }
 }
@@ -87,33 +85,118 @@ echo $sql." id: ".$idKryteria;
 
 //adres
 
-$pdo = $link->prepare("SELECT * FROM `adres` WHERE `Miejscowosc` = 'Puck' AND `Ulica` = 'Ulica nr' AND `Kod pocztowy` = '84-100' AND `Gmina` = 'Puck' AND `Poczta` = 'Puck'");
+$pdo = $link->prepare("SELECT * FROM `adres` WHERE `Miejscowosc` = '$data[Miejscowosc]' AND `Ulica` = '$data[UlicaNrDomu]' AND `Kod pocztowy` = '$data[kodPocztowy]' AND `Gmina` = '$data[Gmina]' AND `Poczta` = '$data[Poczta]'");
 $pdo->execute();
 if($pdo->num_rows() >= 1) {
     $result = $pdo->fetch();
     $idAdres = $result['ID'];
+    $pdo->close();
 } else {
+    $pdo->close();
     $pdo = $link->prepare("INSERT INTO `adres`(`Miejscowosc`, `Ulica`, `Kod pocztowy`, `Gmina`, `Poczta`) VALUES ( ?, ?, ?, ?, ?)");
-    $pdo->bind_param("sssss" , $data['Miejscowosc'], $data['UlicaNrDomu'], $data['KodPocztowy'], $data['Gmina'], $data['Poczta']);
+    $pdo->bind_param("sssss" , $data['Miejscowosc'], $data['UlicaNrDomu'], $data['kodPocztowy'], $data['Gmina'], $data['Poczta']);
     $pdo->execute();
     $idAdres = $pdo->insert_id;
+    $pdo->close();
 }
 
 //zameldowanie
-
-$pdo = $link->prepare("SELECT * FROM `adres` WHERE `Miejscowosc` = 'Puck' AND `Ulica` = 'Ulica nr' AND `Kod pocztowy` = '84-100' AND `Gmina` = 'Puck' AND `Poczta` = 'Puck'");
+$pdo = $link->prepare("SELECT * FROM `adres` WHERE `Miejscowosc` = '$data[MiejscowoscZameldowanie]' AND `Ulica` = '$data[UlicaNrDomuZameldowanie]' AND `Kod pocztowy` = '$data[kodPocztowyZameldowanie]' AND `Gmina` = '$data[GminaZameldowanie]' AND `Poczta` = '$data[PocztaZameldowanie]'");
 $pdo->execute();
 if($pdo->num_rows() >= 1) {
     $result = $pdo->fetch();
     $idZameldowanie = $result['ID'];
+    $pdo->close();
 } else {
+    $pdo->close();
     $pdo = $link->prepare("INSERT INTO `adres`(`Miejscowosc`, `Ulica`, `Kod pocztowy`, `Gmina`, `Poczta`) VALUES ( ?, ?, ?, ?, ?)");
-    $pdo->bind_param("sssss" , $data['MiejscowoscZameldowanie'], $data['UlicaNrDomuZameldowanie'], $data['KodPocztowyZameldowanie'], $data['GminaZameldowanie'], $data['PocztaZameldowanie']);
+    $pdo->bind_param("sssss" , $data['MiejscowoscZameldowanie'], $data['UlicaNrDomuZameldowanie'], $data['kodPocztowyZameldowanie'], $data['GminaZameldowanie'], $data['PocztaZameldowanie']);
     $pdo->execute();
     $idZameldowanie = $pdo->insert_id;
+    $pdo->close();
 }
 
 //opiekuni
 //matka
-var_dump($data);
+if(!empty($data['KodMatki'])) {
+    $pdo = $link->prepare("SELECT * FROM `opiekun` WHERE `Nazwisko` = '$data[NazwiskoMatki]' AND `Imie` = '$data[ImieMatki]' AND `Numer telefonu` = '$data[NumerTelefonuMatki]' AND `Mail` = '$data[MailMatki]'");
+    if($pdo->num_rows() >= 1) {
+        $idMatki = $pdo->fetch()['ID'];
+        $pdo->close();
+    } else {
+    $pdo->close();
+    $pdo = $link->prepare("SELECT * FROM `adres` WHERE `Miejscowosc` = '$data[MiejscowoscMatki]' AND `Ulica` = '$data[UlicaMatki]' AND `Kod pocztowy` = '$data[KodMatki]' AND `Gmina` = NULL AND `Poczta` = NULL");
+    $pdo->execute();
+if($pdo->num_rows() >= 1) {
+    $result = $pdo->fetch();
+    $idAdresMatki = $result['ID'];
+    $pdo->close();
+} else {
+    $pdo->close();
+    $pdo = $link->prepare("INSERT INTO `adres`(`Miejscowosc`, `Ulica`, `Kod pocztowy`) VALUES ( ?, ?, ?)");
+    $pdo->bind_param("sss" , $data['MiejscowoscMatki'], $data['UlicaMatki'], $data['KodMatki']);
+    $pdo->execute();
+    $idAdresMatki = $pdo->insert_id;
+}
+$pdo->close();
+$pdo = $link->prepare("INSERT INTO `opiekun`(`Nazwisko`, `Imie`, `Numer telefonu`, `Mail`, `ID Adres`) VALUES (?, ?, ?, ?, ?)");
+$pdo->bind_param("ssssi", $data['NazwiskoMatki'], $data['ImieMatki'], $data['NumerTelefonuMatki'], $data['MailMatki'], $idAdresMatki);
+$pdo->execute();
+$idMatki = $pdo->insert_id;
+}
+}
+
+//ojciec
+if(!empty($data['KodOjca'])) {
+    $pdo->close();
+    $pdo = $link->prepare("SELECT * FROM `opiekun` WHERE `Nazwisko` = '$data[NazwiskoOjca]' AND `Imie` = '$data[ImieOjca]' AND `Numer telefonu` = '$data[NumerTelefonuOjca]' AND `Mail` = '$data[MailOjca]'");
+    if($pdo->num_rows() >= 1) {
+        $idOjca = $pdo->fetch()['ID'];
+    } else {
+        $pdo->close();
+    $pdo = $link->prepare("SELECT * FROM `adres` WHERE `Miejscowosc` = '$data[MiejscowoscOjca]' AND `Ulica` = '$data[UlicaOjca]' AND `Kod pocztowy` = '$data[KodOjca]' AND `Gmina` = NULL AND `Poczta` = NULL");
+    $pdo->execute();
+if($pdo->num_rows() >= 1) {
+    $result = $pdo->fetch();
+    $idAdresOjca = $result['ID'];
+} else {
+    $pdo->close();
+    $pdo = $link->prepare("INSERT INTO `adres`(`Miejscowosc`, `Ulica`, `Kod pocztowy`) VALUES ( ?, ?, ?)");
+    $pdo->bind_param("sssss" , $data['MiejscowoscOjca'], $data['UlicaOjca'], $data['KodOjca']);
+    $pdo->execute();
+    $idAdresOjca = $pdo->insert_id;
+}
+$pdo->close();
+$pdo = $link->prepare("INSERT INTO `opiekun`(`Nazwisko`, `Imie`, `Numer telefonu`, `Mail`, `ID Adres`) VALUES (?, ?, ?, ?, ?)");
+$pdo->bind_param("sssss", $data['NazwiskoOjca'], $data['ImieOjca'], $data['NumerTelefonuOjca'], $data['MailOjca'], $idAdresOjca);
+$idOjca = $pdo->insert_id;
+}
+}
+//opiekun
+if(!empty($data['KodOpiekuna'])) {
+    $pdo->close();
+    $pdo = $link->prepare("SELECT * FROM `opiekun` WHERE `Nazwisko` = '$data[NazwiskoOpiekuna]' AND `Imie` = '$data[ImieOpiekuna]' AND `Numer telefonu` = '$data[NumerTelefonuOpiekuna]' AND `Mail` = '$data[MailOpiekuna]'");
+    if($pdo->num_rows() >= 1) {
+        $idMOpiekuna = $pdo->fetch()['ID'];
+    } else {
+        $pdo->close();
+    $pdo = $link->prepare("SELECT * FROM `adres` WHERE `Miejscowosc` = '$data[MiejscowoscOpiekuna]' AND `Ulica` = '$data[UlicaOpiekuna]' AND `Kod pocztowy` = '$data[KodOpiekuna]' AND `Gmina` = NULL AND `Poczta` = NULL");
+    $pdo->execute();
+if($pdo->num_rows() >= 1) {
+    $result = $pdo->fetch();
+    $idAdresOpiekuna = $result['ID'];
+} else {
+    $pdo->close();
+    $pdo = $link->prepare("INSERT INTO `adres`(`Miejscowosc`, `Ulica`, `Kod pocztowy`) VALUES ( ?, ?, ?)");
+    $pdo->bind_param("sssss" , $data['MiejscowoscOpiekuna'], $data['UlicaOpiekuna'], $data['KodOpiekuna']);
+    $pdo->execute();
+    $idAdresOpiekuna = $pdo->insert_id;
+}
+$pdo->close();
+$pdo = $link->prepare("INSERT INTO `opiekun`(`Nazwisko`, `Imie`, `Numer telefonu`, `Mail`, `ID Adres`) VALUES (?, ?, ?, ?, ?)");
+$pdo->bind_param("sssss", $data['NazwiskoOpiekuna'], $data['ImieOpiekuna'], $data['NumerTelefonuOpiekuna'], $data['MailOpiekuna'], $idAdresOpiekuna);
+$idOpiekuna = $pdo->insert_id;
+}
+}
+
  ?>
