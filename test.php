@@ -31,5 +31,54 @@ foreach ($_POST as $key => $value) {
 //     die("Taki pesel znajduje się już w bazie danych");
 // }
 
-var_dump($osiagniecia);
-?>
+//wprowadzenie osiagniec do bazy
+$osiagniecia = array();
+foreach($data as $key => $value) {
+    if(str_contains($key, "wyroznienie")){
+        $key = str_replace("wyroznienie", "", $key);
+        $osiagniecia[$key] = $value;
+    }
+}
+
+$sql = "INSERT INTO `osiagniecia`(";
+$keys = "";
+$values = 'VALUES(';
+
+foreach($osiagniecia as $key => $value) {
+    $keys .= "`".$key."`" . ", ";
+    $values .= $value . ", ";
+}
+$sql .= substr($keys, 0, -2).") ".substr($values, 0, -2).")";
+$pdo = $link->prepare($sql);
+$pdo ->execute();
+
+$idOsiagniec = $pdo->insert_id;
+echo $sql." id: ".$idOsiagniec;
+
+//kryteria
+
+$kryteria = array();
+foreach($data as $key => $value) {
+    if(str_contains($key, "kryteria")){
+        $key = str_replace("kryteria", "", $key);
+        $kryteria[$key] = $value;
+    }
+}
+
+$sql = "INSERT INTO `kryteria`(";
+$keys = "";
+$values = 'VALUES(';
+
+foreach($kryteria as $key => $value) {
+    $keys .= "`".$key."`" . ", ";
+    $values .= $value . ", ";
+}
+$sql .= substr($keys, 0, -2).") ".substr($values, 0, -2).")";
+$pdo = $link->prepare($sql);
+$pdo ->execute();
+
+$idKryteria = $pdo->insert_id;
+echo $sql." id: ".$idKryteria;
+
+
+ ?>
