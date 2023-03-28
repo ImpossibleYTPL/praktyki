@@ -54,30 +54,6 @@ $pdo ->execute();
 $idOsiagniec = $pdo->insert_id;
 echo $sql." id: ".$idOsiagniec;
 
-//kryteria
-
-$kryteria = array();
-foreach($data as $key => $value) {
-    if(str_contains($key, "kryteria")){
-        $kryteria[$key] = $value;
-    }
-}
-
-$sql = "INSERT INTO `kryteria`(";
-$keys = "";
-$values = 'VALUES(';
-
-foreach($kryteria as $key => $value) {
-    $keys .= "`".$key."`" . ", ";
-    $values .= $value . ", ";
-}
-$sql .= substr($keys, 0, -2).") ".substr($values, 0, -2).")";
-$pdo = $link->prepare($sql);
-$pdo ->execute();
-
-$idKryteria = $pdo->insert_id;
-echo $sql." id: ".$idKryteria;
-
 //oceny
 $zachowanie = $data['ocena Zachowanie'];
 
@@ -264,4 +240,5 @@ if(isset($idOpiekuna)) {
 
 $pdo->close();
 $link->close();
+//header("Location: test5.html");
  ?>
