@@ -92,7 +92,7 @@ const kierunek2 = document.getElementById("kierunek2");
 const kierunek3 = document.getElementById("kierunek3");
 
 const kierunek1Inputs = document.getElementById('kierunek1Inputs');
-const kierunek2Inputs = document.getElementById('Kierunek2Inputs');
+const kierunek2Inputs = document.getElementById('kierunek2Inputs');
 const kierunek3Inputs = document.getElementById('kierunek3Inputs');
 
 //zgoda
