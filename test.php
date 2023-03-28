@@ -79,12 +79,39 @@ $idKryteria = $pdo->insert_id;
 echo $sql." id: ".$idKryteria;
 
 //oceny
+$zachowanie = $data['ocena Zachowanie'];
 
+$egzPol = $data['EgzPol'];
+$egzMat = $data['EgzMat'];
+$egzAng = $data['EgzAng'];
 
+$polski = $data['oceny1Polski'];
+$matematyka = $data['oceny1Matematyka'];
+$obcy = $data['oceny1Obcy'];
+
+if(isset($data['oceny1Informatyka'])){ $informatyka = $data['oceny1Informatyka']; $geografia = NULL;}
+else if(isset($data['oceny1Geografia'])){$geografia = $data['oceny1Geografia']; $informatyka = NULL;}
+
+if($geografia == NULL) {
+    if(isset($data['oceny2Geografia'])) $geografia = $data['oceny2Geografia'];
+    if(isset($data['oceny3Geografia'])) $geografia = $data['oceny3Geografia'];
+}
+if($informatyka == NULL) {
+    if(isset($data['oceny2Informatyka'])) $informatyka = $data['oceny2Informatyka'];
+    if(isset($data['oceny3Informatyka'])) $informatyka = $data['oceny3Informatyka'];
+}
+
+$pdo->close();
+$pdo = $link->prepare("INSERT INTO `oceny`(`Zachowanie`, `Egzamin polski`, `Egzamin matematyka`, `Egzamin jezyk obcy`,
+ `Polski`, `Matematyka`, `Jezyk obcy`, `Geografia`, `Informatyka`)
+ VALUES ('?, ?, ?, ?, ?, ?, ?, ?");
+$pdo->bind_param("siiiiiiii", $zachowanie, $egzPol, $egzMat, $egzAng, $polski, $matematyka, $obcy, $geografia, $informatyka);
+$pdo->execute();
+$idOceny = $pdo->insert_id;
 
 
 //adres
-
+$pdo->close();
 $pdo = $link->prepare("SELECT * FROM `adres` WHERE `Miejscowosc` = '$data[Miejscowosc]' AND `Ulica` = '$data[UlicaNrDomu]' AND `Kod pocztowy` = '$data[kodPocztowy]' AND `Gmina` = '$data[Gmina]' AND `Poczta` = '$data[Poczta]'");
 $pdo->execute();
 if($pdo->num_rows() >= 1) {
@@ -200,10 +227,37 @@ $idOpiekuna = $pdo->insert_id;
 }
 
 //kandydat
+$pdo->close();
+$pdo = $link->prepare("SELECT * FROM `kandydat` WHERE `PESEL` = ?");
+$pdo->bind_param("i", $data['Pesel']);
+if($pdo->num_rows() >= 1) {
+    die("Pesel kandydata został już zarejestrowany");
+}
+$pdo->close();
+$pdo = $link->prepare("INSERT INTO `kandydat`(`Nazwisko`, `Imie`, `Drugie imie`, `Data urodzenia`, `Miejsce urodzenia`, `PESEL`, `Numer telefonu`, `Mail`, `ID Adres`, `ID Zameldowania`, `ID Oceny`, `ID Osiagniecia`)
+ VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+$pdo->bind_param("sssssissiiiii", $data['Nazwisko'], $data['Imie'], $data['DrugieImie'], $data['DataUrodzenia'], $data['MiejsceUrodzenia'], $data['Pesel'], $data['NumerTelefonu'], $data['Mail'], $idAdres, $idZameldowanie, $idOceny, $idOsiagniec);
+$pdo->execute();
+$idKandydata = $pdo->insert_id;
 
 //opieka
-
+$pdo->close();
+$pdo = $link->prepare("INSERT INTO `opieka`(`ID Kandydata`, `ID Opiekuna`) VALUES (?, ?)");
+if(isset($idMatki)) {
+    $pdo->bind_param("ii", $idKandydata, $idMatki);
+    $pdo->execute();
+}
+if(isset($idOjca)) {
+    $pdo->bind_param("ii", $idKandydata, $idOjca);
+    $pdo->execute();
+}
+if(isset($idOpiekuna)) {
+    $pdo->bind_param("ii", $idKandydata, $idOpiekuna);
+    $pdo->execute();
+}
 //punkty
+
+
 
 //wniosek
 
