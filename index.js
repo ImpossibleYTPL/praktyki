@@ -87,10 +87,13 @@ const WP = document.getElementById('WP')
 const WD = document.getElementById('WD');
 
 //oceny
-const egzaminCheckbox = document.getElementById('egzamin');
-const egzPol = document.getElementById('EgzPol');
-const egzMat = document.getElementById('EgzMat');
-const egzAng = document.getElementById('EgzAng');
+const kierunek1 = document.getElementById("kierunek1");
+const kierunek2 = document.getElementById("kierunek2");
+const kierunek3 = document.getElementById("kierunek3");
+
+const kierunek1Inputs = document.getElementById('kierunek1Inputs');
+const kierunek2Inputs = document.getElementById('Kierunek2Inputs');
+const kierunek3Inputs = document.getElementById('kierunek3Inputs');
 
 //zgoda
 const zgoda = document.getElementById('zgoda');
@@ -181,7 +184,12 @@ function events(){
      opiekunMiejscowosc.addEventListener('input', ()=>{SecondPageValidateForm()});
      opiekunUlica.addEventListener('input', ()=>{SecondPageValidateForm()});
      opiekunKod.addEventListener('input', ()=>{SecondPageValidateForm()});
- }
+    
+    //oceny
+    kierunek1.addEventListener('change', ()=>{Kierunek1()});
+    kierunek2.addEventListener('change', ()=>{Kierunek2()});
+    kierunek3.addEventListener('change', ()=>{Kierunek3()});
+    }
 
 
 
@@ -507,4 +515,296 @@ else pesel.classList.remove("is-invalid");
         opiekunKod.setAttribute('disabled', '');
         opiekunMiejscowosc.setAttribute('disabled', '');
         opiekunUlica.setAttribute('disabled', '');
+      }
+
+      function Kierunek1(){
+        if(kierunek1.value === 'TECHNIK GRAFIKI I POLIGRAFII CYFROWEJ' || kierunek1.value === 'TECHNIK INFORMATYK') {
+            console.log('inf')
+            kierunek1Inputs.innerHTML = `<div class="mb-3 form-floating">
+            <select name="oceny1Polski" id="oceny" class="form-select">
+              <option value="0">0 - Brak Oceny</option>
+              <option value="1">1 - Niedostateczny</option>
+              <option value="2">2 - Dopuszczający</option>
+              <option value="3">3 - Dostateczny</option>
+              <option value="4">4 - Dobry</option>
+              <option value="5">5 - Bardzo Dobry</option>
+              <option value="6">6 - Celujący</option>
+            </select>
+            <label for="oceny" class="form-label">Język polski</label>
+          </div><div class="mb-3 form-floating">
+          <select name="oceny1Matematyka" id="oceny" class="form-select">
+            <option value="0">0 - Brak Oceny</option>
+            <option value="1">1 - Niedostateczny</option>
+            <option value="2">2 - Dopuszczający</option>
+            <option value="3">3 - Dostateczny</option>
+            <option value="4">4 - Dobry</option>
+            <option value="5">5 - Bardzo Dobry</option>
+            <option value="6">6 - Celujący</option>
+          </select>
+          <label for="oceny" class="form-label">Matamatyka</label>
+        </div><div class="mb-3 form-floating">
+        <select name="oceny1Obcy" id="oceny" class="form-select">
+          <option value="0">0 - Brak Oceny</option>
+          <option value="1">1 - Niedostateczny</option>
+          <option value="2">2 - Dopuszczający</option>
+          <option value="3">3 - Dostateczny</option>
+          <option value="4">4 - Dobry</option>
+          <option value="5">5 - Bardzo Dobry</option>
+          <option value="6">6 - Celujący</option>
+        </select>
+        <label for="oceny" class="form-label">JęzykObcy</label>
+      </div><div class="mb-3 form-floating">
+      <select name="oceny1Informatyka" id="oceny" class="form-select">
+        <option value="0">0 - Brak Oceny</option>
+        <option value="1">1 - Niedostateczny</option>
+        <option value="2">2 - Dopuszczający</option>
+        <option value="3">3 - Dostateczny</option>
+        <option value="4">4 - Dobry</option>
+        <option value="5">5 - Bardzo Dobry</option>
+        <option value="6">6 - Celujący</option>
+      </select>
+      <label for="oceny" class="form-label">Informatyka</label>
+    </div>`;
+        } else {
+            console.log('geo');
+            kierunek1Inputs.innerHTML = `<div class="mb-3 form-floating">
+            <select name="oceny1Polski" id="oceny" class="form-select">
+              <option value="0">0 - Brak Oceny</option>
+              <option value="1">1 - Niedostateczny</option>
+              <option value="2">2 - Dopuszczający</option>
+              <option value="3">3 - Dostateczny</option>
+              <option value="4">4 - Dobry</option>
+              <option value="5">5 - Bardzo Dobry</option>
+              <option value="6">6 - Celujący</option>
+            </select>
+            <label for="oceny" class="form-label">Język polski</label>
+          </div><div class="mb-3 form-floating">
+          <select name="oceny1Matematyka" id="oceny" class="form-select">
+            <option value="0">0 - Brak Oceny</option>
+            <option value="1">1 - Niedostateczny</option>
+            <option value="2">2 - Dopuszczający</option>
+            <option value="3">3 - Dostateczny</option>
+            <option value="4">4 - Dobry</option>
+            <option value="5">5 - Bardzo Dobry</option>
+            <option value="6">6 - Celujący</option>
+          </select>
+          <label for="oceny" class="form-label">Matamatyka</label>
+        </div><div class="mb-3 form-floating">
+        <select name="oceny1Obcy" id="oceny" class="form-select">
+          <option value="0">0 - Brak Oceny</option>
+          <option value="1">1 - Niedostateczny</option>
+          <option value="2">2 - Dopuszczający</option>
+          <option value="3">3 - Dostateczny</option>
+          <option value="4">4 - Dobry</option>
+          <option value="5">5 - Bardzo Dobry</option>
+          <option value="6">6 - Celujący</option>
+        </select>
+        <label for="oceny" class="form-label">Język Obcy</label>
+      </div><div class="mb-3 form-floating">
+      <select name="oceny1Geografia" id="oceny" class="form-select">
+        <option value="0">0 - Brak Oceny</option>
+        <option value="1">1 - Niedostateczny</option>
+        <option value="2">2 - Dopuszczający</option>
+        <option value="3">3 - Dostateczny</option>
+        <option value="4">4 - Dobry</option>
+        <option value="5">5 - Bardzo Dobry</option>
+        <option value="6">6 - Celujący</option>
+      </select>
+      <label for="oceny" class="form-label">Geografia</label>
+    </div>`;
+        }
+      }
+      function Kierunek2(){
+        if(kierunek2.value === 'TECHNIK GRAFIKI I POLIGRAFII CYFROWEJ' || kierunek2.value === 'TECHNIK INFORMATYK') {
+            console.log('inf');
+            kierunek2Inputs.innerHTML = `<div class="mb-3 form-floating">
+            <select name="oceny2Polski" id="oceny" class="form-select">
+              <option value="0">0 - Brak Oceny</option>
+              <option value="1">1 - Niedostateczny</option>
+              <option value="2">2 - Dopuszczający</option>
+              <option value="3">3 - Dostateczny</option>
+              <option value="4">4 - Dobry</option>
+              <option value="5">5 - Bardzo Dobry</option>
+              <option value="6">6 - Celujący</option>
+            </select>
+            <label for="oceny" class="form-label">Język polski</label>
+          </div><div class="mb-3 form-floating">
+          <select name="oceny2Matematyka" id="oceny" class="form-select">
+            <option value="0">0 - Brak Oceny</option>
+            <option value="1">1 - Niedostateczny</option>
+            <option value="2">2 - Dopuszczający</option>
+            <option value="3">3 - Dostateczny</option>
+            <option value="4">4 - Dobry</option>
+            <option value="5">5 - Bardzo Dobry</option>
+            <option value="6">6 - Celujący</option>
+          </select>
+          <label for="oceny" class="form-label">Matamatyka</label>
+        </div><div class="mb-3 form-floating">
+        <select name="oceny2Obcy" id="oceny" class="form-select">
+          <option value="0">0 - Brak Oceny</option>
+          <option value="1">1 - Niedostateczny</option>
+          <option value="2">2 - Dopuszczający</option>
+          <option value="3">3 - Dostateczny</option>
+          <option value="4">4 - Dobry</option>
+          <option value="5">5 - Bardzo Dobry</option>
+          <option value="6">6 - Celujący</option>
+        </select>
+        <label for="oceny" class="form-label">JęzykObcy</label>
+      </div><div class="mb-3 form-floating">
+      <select name="oceny2Informatyka" id="oceny" class="form-select">
+        <option value="0">0 - Brak Oceny</option>
+        <option value="1">1 - Niedostateczny</option>
+        <option value="2">2 - Dopuszczający</option>
+        <option value="3">3 - Dostateczny</option>
+        <option value="4">4 - Dobry</option>
+        <option value="5">5 - Bardzo Dobry</option>
+        <option value="6">6 - Celujący</option>
+      </select>
+      <label for="oceny" class="form-label">Informatyka</label>
+    </div>`;
+        } else {
+            console.log('geo');
+            kierunek2Inputs.innerHTML = `<div class="mb-3 form-floating">
+            <select name="oceny2Polski" id="oceny" class="form-select">
+              <option value="0">0 - Brak Oceny</option>
+              <option value="1">1 - Niedostateczny</option>
+              <option value="2">2 - Dopuszczający</option>
+              <option value="3">3 - Dostateczny</option>
+              <option value="4">4 - Dobry</option>
+              <option value="5">5 - Bardzo Dobry</option>
+              <option value="6">6 - Celujący</option>
+            </select>
+            <label for="oceny" class="form-label">Język polski</label>
+          </div><div class="mb-3 form-floating">
+          <select name="oceny2Matematyka" id="oceny" class="form-select">
+            <option value="0">0 - Brak Oceny</option>
+            <option value="1">1 - Niedostateczny</option>
+            <option value="2">2 - Dopuszczający</option>
+            <option value="3">3 - Dostateczny</option>
+            <option value="4">4 - Dobry</option>
+            <option value="5">5 - Bardzo Dobry</option>
+            <option value="6">6 - Celujący</option>
+          </select>
+          <label for="oceny" class="form-label">Matamatyka</label>
+        </div><div class="mb-3 form-floating">
+        <select name="oceny2Obcy" id="oceny" class="form-select">
+          <option value="0">0 - Brak Oceny</option>
+          <option value="1">1 - Niedostateczny</option>
+          <option value="2">2 - Dopuszczający</option>
+          <option value="3">3 - Dostateczny</option>
+          <option value="4">4 - Dobry</option>
+          <option value="5">5 - Bardzo Dobry</option>
+          <option value="6">6 - Celujący</option>
+        </select>
+        <label for="oceny" class="form-label">Język Obcy</label>
+      </div><div class="mb-3 form-floating">
+      <select name="oceny2Geografia" id="oceny" class="form-select">
+        <option value="0">0 - Brak Oceny</option>
+        <option value="1">1 - Niedostateczny</option>
+        <option value="2">2 - Dopuszczający</option>
+        <option value="3">3 - Dostateczny</option>
+        <option value="4">4 - Dobry</option>
+        <option value="5">5 - Bardzo Dobry</option>
+        <option value="6">6 - Celujący</option>
+      </select>
+      <label for="oceny" class="form-label">Geografia</label>
+    </div>`;
+        }
+      }
+      function Kierunek3(){
+        if(kierunek3.value === 'TECHNIK GRAFIKI I POLIGRAFII CYFROWEJ' || kierunek3.value === 'TECHNIK INFORMATYK') {
+            console.log('inf');
+            kierunek3Inputs.innerHTML = `<div class="mb-3 form-floating">
+            <select name="oceny3Polski" id="oceny" class="form-select">
+              <option value="0">0 - Brak Oceny</option>
+              <option value="1">1 - Niedostateczny</option>
+              <option value="2">2 - Dopuszczający</option>
+              <option value="3">3 - Dostateczny</option>
+              <option value="4">4 - Dobry</option>
+              <option value="5">5 - Bardzo Dobry</option>
+              <option value="6">6 - Celujący</option>
+            </select>
+            <label for="oceny" class="form-label">Język polski</label>
+          </div><div class="mb-3 form-floating">
+          <select name="oceny3Matematyka" id="oceny" class="form-select">
+            <option value="0">0 - Brak Oceny</option>
+            <option value="1">1 - Niedostateczny</option>
+            <option value="2">2 - Dopuszczający</option>
+            <option value="3">3 - Dostateczny</option>
+            <option value="4">4 - Dobry</option>
+            <option value="5">5 - Bardzo Dobry</option>
+            <option value="6">6 - Celujący</option>
+          </select>
+          <label for="oceny" class="form-label">Matamatyka</label>
+        </div><div class="mb-3 form-floating">
+        <select name="oceny3Obcy" id="oceny" class="form-select">
+          <option value="0">0 - Brak Oceny</option>
+          <option value="1">1 - Niedostateczny</option>
+          <option value="2">2 - Dopuszczający</option>
+          <option value="3">3 - Dostateczny</option>
+          <option value="4">4 - Dobry</option>
+          <option value="5">5 - Bardzo Dobry</option>
+          <option value="6">6 - Celujący</option>
+        </select>
+        <label for="oceny" class="form-label">JęzykObcy</label>
+      </div><div class="mb-3 form-floating">
+      <select name="oceny3Informatyka" id="oceny" class="form-select">
+        <option value="0">0 - Brak Oceny</option>
+        <option value="1">1 - Niedostateczny</option>
+        <option value="2">2 - Dopuszczający</option>
+        <option value="3">3 - Dostateczny</option>
+        <option value="4">4 - Dobry</option>
+        <option value="5">5 - Bardzo Dobry</option>
+        <option value="6">6 - Celujący</option>
+      </select>
+      <label for="oceny" class="form-label">Informatyka</label>
+    </div>`;
+        } else {
+            console.log('geo');
+            kierunek3Inputs.innerHTML = `<div class="mb-3 form-floating">
+            <select name="oceny3Polski" id="oceny" class="form-select">
+              <option value="0">0 - Brak Oceny</option>
+              <option value="1">1 - Niedostateczny</option>
+              <option value="2">2 - Dopuszczający</option>
+              <option value="3">3 - Dostateczny</option>
+              <option value="4">4 - Dobry</option>
+              <option value="5">5 - Bardzo Dobry</option>
+              <option value="6">6 - Celujący</option>
+            </select>
+            <label for="oceny" class="form-label">Język polski</label>
+          </div><div class="mb-3 form-floating">
+          <select name="oceny3Matematyka" id="oceny" class="form-select">
+            <option value="0">0 - Brak Oceny</option>
+            <option value="1">1 - Niedostateczny</option>
+            <option value="2">2 - Dopuszczający</option>
+            <option value="3">3 - Dostateczny</option>
+            <option value="4">4 - Dobry</option>
+            <option value="5">5 - Bardzo Dobry</option>
+            <option value="6">6 - Celujący</option>
+          </select>
+          <label for="oceny" class="form-label">Matamatyka</label>
+        </div><div class="mb-3 form-floating">
+        <select name="oceny3Obcy" id="oceny" class="form-select">
+          <option value="0">0 - Brak Oceny</option>
+          <option value="1">1 - Niedostateczny</option>
+          <option value="2">2 - Dopuszczający</option>
+          <option value="3">3 - Dostateczny</option>
+          <option value="4">4 - Dobry</option>
+          <option value="5">5 - Bardzo Dobry</option>
+          <option value="6">6 - Celujący</option>
+        </select>
+        <label for="oceny" class="form-label">Język Obcy</label>
+      </div><div class="mb-3 form-floating">
+      <select name="oceny3Geografia" id="oceny" class="form-select">
+        <option value="0">0 - Brak Oceny</option>
+        <option value="1">1 - Niedostateczny</option>
+        <option value="2">2 - Dopuszczający</option>
+        <option value="3">3 - Dostateczny</option>
+        <option value="4">4 - Dobry</option>
+        <option value="5">5 - Bardzo Dobry</option>
+        <option value="6">6 - Celujący</option>
+      </select>
+      <label for="oceny" class="form-label">Geografia</label>
+    </div>`;
+        }
       }

@@ -203,6 +203,11 @@ $idOpiekuna = $pdo->insert_id;
 
 //opieka
 
+//punkty
+
 //wniosek
 
+
+$pdo->close();
+$link->close();
  ?>
