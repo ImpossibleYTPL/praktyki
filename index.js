@@ -60,7 +60,6 @@ const kandydatTab = document.getElementById('home-tab');
 const opiekuniTab = document.getElementById('profile-tab');
 const ocenyTab = document.getElementById('contact-tab');
 const osiagnieciaTab = document.getElementById('osiagniecia-tab');
-const kryteriaTab = document.getElementById('kryteria-tab');
 const wyslijTab = document.getElementById('wyslij-tab');
 
 //buttony
@@ -76,9 +75,6 @@ const OPD = document.getElementById('OPD');
 //oceny
 const OCP = document.getElementById('OCP');
 const OCD = document.getElementById('OCD');
-//kryteria
-const KRP = document.getElementById('KRP');
-const KRD = document.getElementById('KRD');
 //osiagniecia
 const OSP = document.getElementById('OSP');
 const OSD = document.getElementById('OSD');
@@ -127,12 +123,9 @@ function events(){
      OCD.addEventListener('click', ()=>{ToOsiagniecia()});
      //osiagniecia
      OSP.addEventListener('click', ()=>{ToOceny()});
-     OSD.addEventListener('click', ()=>{ToKryteria()});
-     //kryteria
-     KRP.addEventListener('click', ()=>{ToOsiagniecia()});
-     KRD.addEventListener('click', ()=>{ToWyslij()});
+     OSD.addEventListener('click', ()=>{ToWyslij()});
      //wyslij
-     WP.addEventListener('click', ()=>{ToKryteria()});
+     WP.addEventListener('click', ()=>{ToOsiagniecia()});
 
      //first page Event Listeners
      nazwisko.addEventListener('input', ()=>{FirstPageCheck()});
@@ -227,14 +220,6 @@ function ToOsiagniecia(){
     osiagnieciaTab.click();
     osiagnieciaTab.setAttribute('disabled', '');
     topFunction();
-}
-
-function ToKryteria(){
-    kryteriaTab.removeAttribute('disabled');
-    kryteriaTab.click();
-    kryteriaTab.setAttribute('disabled', '');
-    topFunction();
-    enableDisabled();
 }
 
 function ToWyslij(){
