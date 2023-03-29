@@ -120,7 +120,7 @@
                           <label for="floatingNazwisko sm">Drugie Imie</label>
                         </div>
                         <div class="form-floating mb-3 position-relative">
-                          <input type="date" name="DataUrodzenia" id="floatingDataUrodzenia" class="form-control" placeholder="Data Urodzenia">
+                          <input type="date" name="DataUrodzenia" pattern="dd-mm-yyyy" id="floatingDataUrodzenia" class="form-control" placeholder="Data Urodzenia">
                           <label for="floatingDataUrodzenia">Data Urodzenia</label>
                         </div>
                         <div class="form-floating mb-3 position-relative">
@@ -201,7 +201,7 @@
 
                           </div>
                           <script>
-                                var ok = `<select id="wyborSzkola" class="form-select">`;
+                                var ok = `<select id="wyborSzkola" class="form-select" name='szkola'>`;
                                 fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf-8' }})
                                   .then(response => response.arrayBuffer())
                                   .then(buffer => {
@@ -361,7 +361,7 @@
                         <div class="form-floating"></div>
                         <div class="mb-3 form-floating">
                             <div class="form-floating"></div>
-                            <select name="ocena Zachowanie" id="oceny" class="form-select">
+                            <select name="ocenaZachowanie" id="oceny" class="form-select">
                               <option value="Naganne">Naganne</option>
                               <option value="Nieodpowiednie">Nieodpowiednie</option>
                               <option value="Poprawne">Poprawne</option>
@@ -378,15 +378,15 @@
                           </div>
                           <div class="mb-3 form-floating">
                             <div class="form-floating mb-3 position-relative">
-                                <input type="text" name="ocena Egzamin polski" id="EgzPol" class="form-control">
+                                <input type="text" name="EgzPol" id="EgzPol" class="form-control">
                                 <label for="EgzPol">Język Polski</label>
                             </div>
                             <div class="form-floating mb-3 position-relative">
-                                <input type="text" name="ocena Egzamin matematyka" id="EgzMat" class="form-control">
+                                <input type="text" name="EgzMat" id="EgzMat" class="form-control">
                                 <label for="EgzMat">Matematyka</label>
                             </div>
                             <div class="form-floating mb-3 position-relative">
-                                <input type="text" name="ocena Egzamin angielski" id="EgzAng" class="form-control">
+                                <input type="text" name="EgzAng" id="EgzAng" class="form-control">
                                 <label for="EgzAng">Angielski</label>
                             </div>
                           </div>
