@@ -288,10 +288,15 @@ if(isset($idOpiekuna)) {
 
 //wyroznienia
 $punktyOsiagniecia = 0;
+$punktySwiadectwo = 0;
 foreach($osiagniecia as $key => $value) {
+    if(str_contains($key, '1') || str_contains($key, '2'))
+    $punktySwiadectwo += $value;
+    else
     $punktyOsiagniecia += $value;
 }
 if($punktyOsiagniecia > 18) $punktyOsiagniecia = 18;
+$punktyOsiagniecia += $punktySwiadectwo;
 
 
 $punktyEgzamin = 0;
