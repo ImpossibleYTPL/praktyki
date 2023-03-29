@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 24 Mar 2023, 10:46
+-- Czas generowania: 29 Mar 2023, 09:28
 -- Wersja serwera: 10.4.27-MariaDB
 -- Wersja PHP: 8.2.0
 
@@ -55,24 +55,7 @@ CREATE TABLE `kandydat` (
   `ID Adres` int(11) NOT NULL,
   `ID Zameldowania` int(11) NOT NULL,
   `ID Oceny` int(11) NOT NULL,
-  `ID Osiagniecia` int(11) NOT NULL,
-  `ID Kryteria` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `kryteria`
---
-
-CREATE TABLE `kryteria` (
-  `ID` int(11) NOT NULL,
-  `Problemy zdrowotne` tinyint(1) NOT NULL,
-  `Wielodzietnosc rodziny` tinyint(1) NOT NULL,
-  `Niepelnosprawnosc kandydata` tinyint(1) NOT NULL,
-  `Niepelnosprawnosc dziecka kandydata` tinyint(1) NOT NULL,
-  `Niepelnosprawnosc innej osoby` tinyint(1) NOT NULL,
-  `Samotnie wychowywane dziecko` tinyint(1) NOT NULL
+  `ID Osiagniecia` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
@@ -83,28 +66,15 @@ CREATE TABLE `kryteria` (
 
 CREATE TABLE `oceny` (
   `ID` int(11) NOT NULL,
-  `Zachowanie` varchar(15) NOT NULL,
-  `Egzamin polski` int(3) DEFAULT NULL,
-  `Egzamin angielski` int(3) DEFAULT NULL,
-  `Egzamin matematyka` int(3) DEFAULT NULL,
-  `Polski` int(1) NOT NULL,
-  `Angielski` int(1) NOT NULL,
-  `Niemiecki` int(1) DEFAULT NULL,
-  `Rosyjski` int(1) DEFAULT NULL,
-  `Historia` int(1) NOT NULL,
-  `Wiedza o społeczenstwie` int(1) NOT NULL,
-  `Matematyka` int(1) NOT NULL,
-  `Chemia` int(1) NOT NULL,
-  `Fizyka` int(1) NOT NULL,
-  `Geografia` int(1) NOT NULL,
-  `Biologia` int(1) NOT NULL,
-  `Przyroda` int(1) NOT NULL,
-  `Muzyka` int(1) NOT NULL,
-  `Technika` int(1) NOT NULL,
-  `Edukacja dla bezpieczeństwa` int(1) NOT NULL,
-  `Plastyka` int(1) NOT NULL,
-  `Religia/Etyka` int(1) DEFAULT NULL,
-  `Wychowanie fizyczne` int(1) DEFAULT NULL
+  `Zachowanie` varchar(20) NOT NULL,
+  `Egzamin polski` int(3) NOT NULL,
+  `Egzamin matematyka` tinyint(2) NOT NULL,
+  `Egzamin jezyk obcy` tinyint(2) NOT NULL,
+  `Polski` tinyint(2) NOT NULL,
+  `Matematyka` tinyint(2) NOT NULL,
+  `Jezyk obcy` tinyint(2) NOT NULL,
+  `Geografia` tinyint(2) DEFAULT NULL,
+  `Informatyka` tinyint(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
@@ -142,30 +112,28 @@ CREATE TABLE `opiekun` (
 
 CREATE TABLE `osiagniecia` (
   `ID` int(11) NOT NULL,
-  `1` tinyint(1) NOT NULL,
-  `2` tinyint(1) NOT NULL,
-  `3` tinyint(1) NOT NULL,
-  `4` tinyint(1) NOT NULL,
-  `5` tinyint(1) NOT NULL,
-  `6` tinyint(1) NOT NULL,
-  `7` tinyint(1) NOT NULL,
-  `8` tinyint(1) NOT NULL,
-  `9` tinyint(1) NOT NULL,
-  `10` tinyint(1) NOT NULL,
-  `11` tinyint(1) NOT NULL,
-  `12` tinyint(1) NOT NULL,
-  `13` tinyint(1) NOT NULL,
-  `14` tinyint(1) NOT NULL,
-  `15` tinyint(1) NOT NULL,
-  `16` tinyint(1) NOT NULL,
-  `17` tinyint(1) NOT NULL,
-  `18` tinyint(1) NOT NULL,
-  `19` tinyint(1) NOT NULL,
-  `20` tinyint(1) NOT NULL,
-  `21` tinyint(1) NOT NULL,
-  `22` tinyint(1) NOT NULL,
-  `23` tinyint(1) NOT NULL,
-  `24` tinyint(1) NOT NULL
+  `wyroznienie1` tinyint(2) DEFAULT NULL,
+  `wyroznienie2` tinyint(2) DEFAULT NULL,
+  `wyroznienie3` tinyint(2) DEFAULT NULL,
+  `wyroznienie4` tinyint(2) DEFAULT NULL,
+  `wyroznienie5` tinyint(2) DEFAULT NULL,
+  `wyroznienie6` tinyint(2) DEFAULT NULL,
+  `wyroznienie7` tinyint(2) DEFAULT NULL,
+  `wyroznienie8` tinyint(2) DEFAULT NULL,
+  `wyroznienie9` tinyint(2) DEFAULT NULL,
+  `wyroznienie10` tinyint(2) DEFAULT NULL,
+  `wyroznienie11` tinyint(2) DEFAULT NULL,
+  `wyroznienie12` tinyint(2) DEFAULT NULL,
+  `wyroznienie13` tinyint(2) DEFAULT NULL,
+  `wyroznienie14` tinyint(2) DEFAULT NULL,
+  `wyroznienie15` tinyint(2) DEFAULT NULL,
+  `wyroznienie16` tinyint(2) DEFAULT NULL,
+  `wyroznienie17` tinyint(2) DEFAULT NULL,
+  `wyroznienie18` tinyint(2) DEFAULT NULL,
+  `wyroznienie19` tinyint(2) DEFAULT NULL,
+  `wyroznienie20` tinyint(2) DEFAULT NULL,
+  `wyroznienie21` tinyint(2) DEFAULT NULL,
+  `wyroznienie22` tinyint(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
@@ -176,14 +144,15 @@ CREATE TABLE `osiagniecia` (
 
 CREATE TABLE `wniosek` (
   `ID` int(11) NOT NULL,
-  `Data` date NOT NULL,
-  `Godzina` time NOT NULL,
+  `Data` date NOT NULL DEFAULT current_timestamp(),
+  `Godzina` time NOT NULL DEFAULT current_timestamp(),
   `Kierunek1` varchar(80) NOT NULL,
-  `Kierunek2` varchar(80) NOT NULL,
-  `Kierunek3` varchar(80) NOT NULL,
+  `Kierunek2` varchar(80) DEFAULT NULL,
+  `Kierunek3` varchar(80) DEFAULT NULL,
   `Szkola` varchar(255) NOT NULL,
   `ID Kandydat` int(11) NOT NULL,
-  `Punkty` int(11) NOT NULL
+  `Punkty informatyka` int(11) DEFAULT NULL,
+  `Punkty geografia` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
@@ -203,17 +172,10 @@ ALTER TABLE `kandydat`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indeksy dla tabeli `kryteria`
---
-ALTER TABLE `kryteria`
-  ADD PRIMARY KEY (`ID`);
-
---
 -- Indeksy dla tabeli `oceny`
 --
 ALTER TABLE `oceny`
-  ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `Angielski` (`Angielski`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indeksy dla tabeli `opieka`
@@ -256,12 +218,6 @@ ALTER TABLE `kandydat`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `kryteria`
---
-ALTER TABLE `kryteria`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT dla tabeli `oceny`
 --
 ALTER TABLE `oceny`
@@ -290,16 +246,6 @@ ALTER TABLE `osiagniecia`
 --
 ALTER TABLE `wniosek`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
-  --
-  --TRIGGER
-  --
-  CREATE TRIGGER `Sprawdz kod pocztowy` BEFORE INSERT ON `adres`
- FOR EACH ROW BEGIN
-  IF NEW.`Kod pocztowy` NOT REGEXP '^[0-9]{2}-[0-9]{3}$' THEN
-    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Nieprawidłowy kod pocztowy';
-  END IF;
-END
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
