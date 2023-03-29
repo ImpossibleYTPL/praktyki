@@ -194,7 +194,7 @@ function ToRekrutacja(){
     topFunction();
 }
 function ToKandydat(){
-    console.log('To kondydat')
+    //console.log('To kondydat')
     kandydatTab.removeAttribute('disabled');
     kandydatTab.click();
     kandydatTab.setAttribute('disabled', '');
@@ -355,7 +355,7 @@ else pesel.classList.remove("is-invalid");
     }
 
     function Validate1STForm(){
-        console.log('validating..')
+        //console.log('validating..')
         if(nazwisko.value === '') return true;
         else if(imie.value === '') return true;
         else if(dataUrodzenia.value === '') return true;

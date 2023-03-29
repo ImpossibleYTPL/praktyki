@@ -58,7 +58,7 @@
             </ul>
         </div>
       </nav>
-        <form novalidate action="test.php" method="post">
+        <form novalidate action="test.php" method="post" enctype="multipart/form-data">
         <ul class="nav nav-tabs nav-fill justify-content-center" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="rekrutacja-tab" disabled data-bs-toggle="tab" data-bs-target="#rekrutacja" type="button" role="tab" aria-controls="rekrutacja" aria-selected="true">Rekrutacja</button>
@@ -168,35 +168,22 @@
                               Niepoprowany adres e-mail
                             </div>
                           </div>
+
                         <div class="mb-3">
-                          <label for="formFile" class="form-label">Zdjęcie</label>
+                          <label for="formFile" class="form-label">Zdjęcie pierwszej strony świadectwa</label>
                           <input class="form-control" type="file" id="formFile">
                         </div>
-                          <div id="szkola" class="mb-3 form-floating">
 
-                          </div>
-                          <script>
-                                var ok = `<select id="wyborSzkola" class="form-select" name='szkola'>`;
-                                fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf-8' }})
-                                  .then(response => response.arrayBuffer())
-                                  .then(buffer => {
-                                      const decoder = new TextDecoder('utf-8');
-                                      const text = decoder.decode(buffer);
-                                      const rows = text.trim().split('\n');
-                                      const table = [];
-                                      for (let i = 0; i < rows.length; i++) {
-                                          const columns = rows[i].split(';'); 
-                                          table.push(columns);
-                                      }
-                                      for (let i = 0; i < rows.length; i++) {
-                                          const row = table[i]; 
-                                          if(i == 0) continue;
-                                          ok += ("<option>" + row[4].substring(1,row[4].length-1) + " " + row[13].substring(1, row[13].length-1) +  " " + row[15].substring(1, row[15].length-1) + " " + row[16].substring(1, row[16].length-1) + "</option>");
-                                      }
-                                    ok += "<option>INNA SZKOŁA SPOZA POWIATU</option></select><label for='wyborSzkola'>Szkoła do której uczęszczał kandydat</label>";
-                                    document.getElementById("szkola").innerHTML = ok;
-                                  });                         
-                          </script>
+                        <div class="mb-3">
+                          <label for="formFile" class="form-label">Zdjęcie drugiej strony świadectwa</label>
+                          <input class="form-control" type="file" id="formFile">
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="formFile" class="form-label">Zdjęcie zaświadczenia o egzaminie ósmoklasisty</label>
+                          <input class="form-control" type="file" id="formFile">
+                        </div>
+
                         </div>
                         <div class="col-sm-6 position-relative">
                           <h4>Adres zamieszkania</h4>
@@ -245,6 +232,31 @@
                             <input type="text" name="PocztaZameldowanie" class="form-control" id="floatingInputZameldowaniePoczta" placeholder="Poczta">
                             <label for="floatingInputZameldoewaniePoczta">Poczta</label>
                         </div>
+                          <div id="szkola" class="mb-3 form-floating">
+
+                          </div>
+                          <script>
+                                var ok = `<select id="wyborSzkola" class="form-select" name='szkola'>`;
+                                fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf-8' }})
+                                  .then(response => response.arrayBuffer())
+                                  .then(buffer => {
+                                      const decoder = new TextDecoder('utf-8');
+                                      const text = decoder.decode(buffer);
+                                      const rows = text.trim().split('\n');
+                                      const table = [];
+                                      for (let i = 0; i < rows.length; i++) {
+                                          const columns = rows[i].split(';'); 
+                                          table.push(columns);
+                                      }
+                                      for (let i = 0; i < rows.length; i++) {
+                                          const row = table[i]; 
+                                          if(i == 0) continue;
+                                          ok += ("<option>" + row[4].substring(1,row[4].length-1) + " " + row[13].substring(1, row[13].length-1) +  " " + row[15].substring(1, row[15].length-1) + " " + row[16].substring(1, row[16].length-1) + "</option>");
+                                      }
+                                    ok += "<option>INNA SZKOŁA SPOZA POWIATU</option></select><label for='wyborSzkola'>Szkoła do której uczęszczał kandydat</label>";
+                                    document.getElementById("szkola").innerHTML = ok;
+                                  });                         
+                          </script>
                       </div>
 
                       <div class="btn-group d-flex justify-content-end p-3">
