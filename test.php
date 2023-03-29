@@ -233,6 +233,14 @@ if(isset($idOpiekuna)) {
 }
 //punkty
 
+//wyroznienia
+$punktyOsiagniecia = 0;
+foreach($osiagniecia as $key => $value) {
+    $punktyOsiagniecia += $value;
+}
+if($punktyOsiagniecia > 18) $punktyOsiagniecia = 18;
+
+
 $punktyEgzamin = 0;
 
 $punktyEgzamin = ($egzPol * 0.35) + ($egzMat * 0.35) + ($egzAng * 0.30);
@@ -272,11 +280,14 @@ function GetPointValue($ocena){
     }
 }
 
-
 //wniosek
-
+$pdo->close();
+$pdo = $link->prepare("INSERT INTO `wniosek`(`Kierunek1`, `Kierunek2`, `Kierunek3`, `Szkola`, `ID Kandydat`,
+                    `Punkty informatyka`, `Punkty geografia`) VALUES (?, ?, ?, ?, ?, ?, ?)");
+$pdo->bind_param("ssssiii", $data['kierunek1'], $data['kierunek2'], $data['kierunek3'], $data['szkola'], $idKandydata, $punktyInformatyka, $punktyGeografia);
+$pdo->execute();
 
 $pdo->close();
 $link->close();
-//header("Location: test5.html");
+//header("Location: https://pzsklanino.edu.pl/");
  ?>
