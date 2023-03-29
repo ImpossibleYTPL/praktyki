@@ -233,6 +233,44 @@ if(isset($idOpiekuna)) {
 }
 //punkty
 
+$punktyEgzamin = 0;
+
+$punktyEgzamin = ($egzPol * 0.35) + ($egzMat * 0.35) + ($egzAng * 0.30);
+
+if(isset($informatyka))
+$punktyInformatyka = GetPointValue($polski) + GetPointValue($matematyka) + GetPointValue($obcy) +GetPointValue($informatyka) + $punktyEgzamin;
+else $punktyInformatyka = NULL;
+if(isset($geografia))
+$punktyGeografia = GetPointValue($polski) + GetPointValue($matematyka) + GetPointValue($obcy) +GetPointValue($geografia) + $punktyEgzamin;
+else $punktyGeografia = NULL;
+
+function GetPointValue($ocena){
+    switch($ocena) {
+        case 0:
+            return null;
+            break;
+        case 1:
+            return null;
+            break;
+        case 2:
+            return 2;
+            break;
+        case 3:
+            return 8;
+            break;
+        case 4:
+            return 14;
+            break;
+        case 5:
+            return 17;
+            break;
+        case 6:
+            return 18;
+            break;
+        default:
+            return null;
+    }
+}
 
 
 //wniosek
