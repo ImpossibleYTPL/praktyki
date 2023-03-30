@@ -475,11 +475,14 @@ else pesel.classList.remove("is-invalid");
     function Validate3rdPage(){
       var oceny = document.getElementsByClassName("przedmiot");
       oceny = Array.from(oceny);
-      var err = oceny.forEach(element => {
+      var err = !oceny.map(element => {
         if(element.value == '0' || element.value == '1') {
+          console.log(element)
           return true;
-        } else return false
-      });
+        }
+        return false;
+      }).every(result => result === false);
+      console.log(err);
       if(zachowanie.value == "Naganne") return true;
       else if(err) return true;
       else if(egzAng.value == '') return true;
@@ -594,7 +597,7 @@ else pesel.classList.remove("is-invalid");
       if (element.getAttribute('listener') !== 'true') {
       if(element.value == '0') {
         element.setAttribute('listener' , 'true')
-        element.addEventListener('change', ()=>{Validate3rdPage();})
+        element.addEventListener('change', ()=>{ValidateOceny();})
       }
       }
     })
@@ -651,7 +654,7 @@ else pesel.classList.remove("is-invalid");
       if (element.getAttribute('listener') !== 'true') {
       if(element.value == '0') {
         element.setAttribute('listener' , 'true')
-        element.addEventListener('change', ()=>{Validate3rdPage();})
+        element.addEventListener('change', ()=>{ValidateOceny();})
       }
       }
     })
@@ -711,7 +714,7 @@ else pesel.classList.remove("is-invalid");
       if (element.getAttribute('listener') !== 'true') {
       if(element.value == '0') {
         element.setAttribute('listener' , 'true')
-        element.addEventListener('change', ()=>{Validate3rdPage();})
+        element.addEventListener('change', ()=>{ValidateOceny();})
       }
       }
     })
@@ -768,7 +771,7 @@ else pesel.classList.remove("is-invalid");
       if (element.getAttribute('listener') !== 'true') {
       if(element.value == '0') {
         element.setAttribute('listener' , 'true')
-        element.addEventListener('change', ()=>{Validate3rdPage();})
+        element.addEventListener('change', ()=>{ValidateOceny();})
       }
       }
     })
@@ -827,7 +830,7 @@ else pesel.classList.remove("is-invalid");
       if (element.getAttribute('listener') !== 'true') {
       if(element.value == '0') {
         element.setAttribute('listener' , 'true')
-        element.addEventListener('change', ()=>{Validate3rdPage();})
+        element.addEventListener('change', ()=>{ValidateOceny();})
       }
       }
     })
@@ -884,7 +887,7 @@ else pesel.classList.remove("is-invalid");
     oceny.forEach(element => {
       if(element.value == '0') {
         element.setAttribute('listener' , 'true')
-        element.addEventListener('change', ()=>{Validate3rdPage();})
+        element.addEventListener('change', ()=>{ValidateOceny();})
       }
     })
   }
