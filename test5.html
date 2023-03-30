@@ -143,7 +143,7 @@
                           <label for="floatingNazwisko sm">Drugie Imie</label>
                         </div>
                         <div class="form-floating mb-3 position-relative">
-                          <input type="date" name="DataUrodzenia" pattern="dd-mm-yyyy" id="floatingDataUrodzenia" class="form-control" placeholder="Data Urodzenia">
+                          <input type="date" name="DataUrodzenia" pattern="dd-mm-yyyy" id="floatingDataUrodzenia" class="form-control" placeholder="Data Urodzenia" value="">
                           <label for="floatingDataUrodzenia">Data Urodzenia</label>
                         </div>
                         <div class="form-floating mb-3 position-relative">
@@ -396,7 +396,7 @@
                         <div class="form-floating"></div>
                         <div class="mb-3 form-floating">
                             <div class="form-floating"></div>
-                            <select name="ocenaZachowanie" id="oceny" class="form-select">
+                            <select name="ocenaZachowanie" id="ocenaZachowanie" class="form-select">
                               <option value="Naganne">Naganne</option>
                               <option value="Nieodpowiednie">Nieodpowiednie</option>
                               <option value="Poprawne">Poprawne</option>
@@ -413,15 +413,15 @@
                           </div>
                           <div class="mb-3 form-floating">
                             <div class="form-floating mb-3 position-relative">
-                                <input type="text" name="EgzPol" id="EgzPol" class="form-control">
+                                <input type="number" name="EgzPol" id="EgzPol" class="form-control">
                                 <label for="EgzPol">Język Polski</label>
                             </div>
                             <div class="form-floating mb-3 position-relative">
-                                <input type="text" name="EgzMat" id="EgzMat" class="form-control">
+                                <input type="number" name="EgzMat" id="EgzMat" class="form-control">
                                 <label for="EgzMat">Matematyka</label>
                             </div>
                             <div class="form-floating mb-3 position-relative">
-                                <input type="text" name="EgzAng" id="EgzAng" class="form-control">
+                                <input type="number" name="EgzAng" id="EgzAng" class="form-control">
                                 <label for="EgzAng">Angielski</label>
                             </div>
                           </div>
@@ -1025,6 +1025,6 @@
           </div>
           <!-- Copyright -->
         </footer>
-        <script src="index.js"></script>
+        <script src="index.js?ver=123"></script>
       </body>
 </html>

@@ -1,4 +1,3 @@
-var error = true;
 var errMatka, errOjciec, errOpiekun = false;
 
 const switchElement = document.getElementById("flexSwitchCheckDefaultKandydat");
@@ -91,6 +90,11 @@ const kierunek1Inputs = document.getElementById('kierunek1Inputs');
 const kierunek2Inputs = document.getElementById('kierunek2Inputs');
 const kierunek3Inputs = document.getElementById('kierunek3Inputs');
 
+const zachowanie = document.getElementById("ocenaZachowanie");
+const egzPol = document.getElementById("EgzPol");
+const egzMat = document.getElementById("EgzMat");
+const egzAng = document.getElementById("EgzAng");
+
 //zgoda
 const zgoda = document.getElementById('zgoda');
 
@@ -99,9 +103,9 @@ function events(){
      zgoda.addEventListener('change', ()=>Zgoda());
 
      switchElement.addEventListener('change', ()=>{adres(); FirstPageCheck()});
-     switchElementMatki.addEventListener('change', ()=>adres());
-     switchElementOjca.addEventListener('change', ()=>adres());
-     switchElementOpiekuna.addEventListener('change', ()=>adres());
+     switchElementMatki.addEventListener('change', ()=>{adres(); SecondPageValidateForm()});
+     switchElementOjca.addEventListener('change', ()=>{adres(); SecondPageValidateForm()});
+     switchElementOpiekuna.addEventListener('change', ()=>{adres(); SecondPageValidateForm()});
      
      adresMiejscowosc.addEventListener('input', ()=>adres());
      adresUlica.addEventListener("input", ()=>adres());
@@ -179,9 +183,15 @@ function events(){
      opiekunKod.addEventListener('input', ()=>{SecondPageValidateForm()});
     
     //oceny
-    kierunek1.addEventListener('change', ()=>{Kierunek1()});
-    kierunek2.addEventListener('change', ()=>{Kierunek2()});
-    kierunek3.addEventListener('change', ()=>{Kierunek3()});
+    kierunek1.addEventListener('change', ()=>{Kierunek1(); ValidateOceny()});
+    kierunek2.addEventListener('change', ()=>{Kierunek2(); ValidateOceny()});
+    kierunek3.addEventListener('change', ()=>{Kierunek3(); ValidateOceny()});
+
+    egzAng.addEventListener('input', ()=>{ValidateOceny()});
+    egzMat.addEventListener('input', ()=>{ValidateOceny()});
+    egzPol.addEventListener('input', ()=>{ValidateOceny()});
+
+    zachowanie.addEventListener('change', ()=>{Validate3rdPage()})
     }
 
 
@@ -349,7 +359,7 @@ else pesel.classList.remove("is-invalid");
 
 
     function FirstPageCheck(){
-        error = Validate1STForm()
+        error = Validate1STForm();
         if(error) KD.setAttribute('disabled', '');
         else KD.removeAttribute('disabled');
     }
@@ -357,23 +367,22 @@ else pesel.classList.remove("is-invalid");
     function Validate1STForm(){
         //console.log('validating..')
         if(nazwisko.value === '') return true;
-        else if(imie.value === '') return true;
-        else if(dataUrodzenia.value === '') return true;
+        else if(imie.value === '') return true; 
+        else if(dataUrodzenia.value === '') return true; 
         else if(MiejsceUrodzenia.value === '') return true;
-        else if(pesel.value === '') return true;
-        else if(adresMiejscowosc.value === '') return true;
-        else if(adresUlica.value === '') return true;
-        else if(adresKod.value === '') return true;
-        else if(adresGmina.value === '') return true;
-        else if(adresPoczta.value === '') return true;
-        else if(zameldowanieMiejscowosc.value === '') return true;
-        else if(zameldowanieUlica.value === '') return true;
-        else if(zameldowanieKod.value === '') return true;
-        else if(zameldowanieGmina.value === '') return true;
-        else if(zameldowaniePoczta.value === '') return true;
-        else if(!validateEmail(mail.value)) return true;
-        else if(!validatePESEL(pesel.value)) return true;
-        else if (document.getElementById('kierunek1').value === '') return true;
+        else if(pesel.value === '') return true; 
+        else if(adresMiejscowosc.value === '') return true; 
+        else if(adresUlica.value === '') return true; 
+        else if(adresKod.value === '') return true; 
+        else if(adresGmina.value === '') return true; 
+        else if(adresPoczta.value === '') return true; 
+        else if(zameldowanieMiejscowosc.value === '') return true; 
+        else if(zameldowanieUlica.value === '') return true; 
+        else if(zameldowanieKod.value === '') return true; 
+        else if(zameldowanieGmina.value === '') return true; 
+        else if(zameldowaniePoczta.value === '') return true; 
+        else if(!validateEmail(mail.value)) return true; 
+        else if(!validatePESEL(pesel.value)) return true; 
         else return false;
     }
 
@@ -403,11 +412,11 @@ else pesel.classList.remove("is-invalid");
         opiekunUlica.value != '' ||
         opiekunKod.value != '')
 
-        console.log("matka: " + matka + " ojciec: " + ojciec + " opiekun: " + opiekun)
+        //console.log("matka: " + matka + " ojciec: " + ojciec + " opiekun: " + opiekun)
 
         if(!matka && !ojciec && !opiekun) {
             OPD.setAttribute('disabled', '');
-            return false();
+            return false;
         }
 
         if (matka) {
@@ -453,13 +462,42 @@ else pesel.classList.remove("is-invalid");
         }
     }
 
+    //strona z ocenami
+
+    function ValidateOceny(){
+      error = Validate3rdPage();
+      if(error)
+        OCD.setAttribute("disabled", '');
+      else
+        OCD.removeAttribute("disabled")
+    }
+
+    function Validate3rdPage(){
+      var oceny = document.getElementsByClassName("przedmiot");
+      oceny = Array.from(oceny);
+      var err = oceny.forEach(element => {
+        if(element.value == '0' || element.value == '1') {
+          return true;
+        } else return false
+      });
+      if(zachowanie.value == "Naganne") return true;
+      else if(err) return true;
+      else if(egzAng.value == '') return true;
+      else if(egzMat.value == '') return true;
+      else if(egzPol.value == '') return true;
+      else if(kierunek1.value == '') return true;
+      else false;
+    }
+
     function Load(){
         document.getElementById('rekrutacja-tab').removeAttribute('disabled');
         document.getElementById('rekrutacja-tab').click;
         document.getElementById('rekrutacja-tab').setAttribute('disabled', '');
         events();
-        console.log('loaded');
+        //console.log('loaded');
         //FirstPageCheck();
+        //SecondPageValidateForm();
+        ValidateOceny();
       }
 
       function disableDisabled() {
@@ -504,9 +542,9 @@ else pesel.classList.remove("is-invalid");
 
       function Kierunek1(){
         if(kierunek1.value === 'TECHNIK GRAFIKI I POLIGRAFII CYFROWEJ' || kierunek1.value === 'TECHNIK INFORMATYK') {
-            console.log('inf')
+            //console.log('inf')
             kierunek1Inputs.innerHTML = `<div class="mb-3 form-floating">
-            <select name="oceny1Polski" id="oceny" class="form-select">
+            <select name="oceny1Polski" id="oceny" class="form-select przedmiot">
               <option value="0">0 - Brak Oceny</option>
               <option value="1">1 - Niedostateczny</option>
               <option value="2">2 - Dopuszczający</option>
@@ -517,7 +555,7 @@ else pesel.classList.remove("is-invalid");
             </select>
             <label for="oceny" class="form-label">Język polski</label>
           </div><div class="mb-3 form-floating">
-          <select name="oceny1Matematyka" id="oceny" class="form-select">
+          <select name="oceny1Matematyka" id="oceny" class="form-select przedmiot">
             <option value="0">0 - Brak Oceny</option>
             <option value="1">1 - Niedostateczny</option>
             <option value="2">2 - Dopuszczający</option>
@@ -528,7 +566,7 @@ else pesel.classList.remove("is-invalid");
           </select>
           <label for="oceny" class="form-label">Matamatyka</label>
         </div><div class="mb-3 form-floating">
-        <select name="oceny1Obcy" id="oceny" class="form-select">
+        <select name="oceny1Obcy" id="oceny" class="form-select przedmiot">
           <option value="0">0 - Brak Oceny</option>
           <option value="1">1 - Niedostateczny</option>
           <option value="2">2 - Dopuszczający</option>
@@ -539,7 +577,7 @@ else pesel.classList.remove("is-invalid");
         </select>
         <label for="oceny" class="form-label">JęzykObcy</label>
       </div><div class="mb-3 form-floating">
-      <select name="oceny1Informatyka" id="oceny" class="form-select">
+      <select name="oceny1Informatyka" id="oceny" class="form-select przedmiot">
         <option value="0">0 - Brak Oceny</option>
         <option value="1">1 - Niedostateczny</option>
         <option value="2">2 - Dopuszczający</option>
@@ -550,10 +588,20 @@ else pesel.classList.remove("is-invalid");
       </select>
       <label for="oceny" class="form-label">Informatyka</label>
     </div>`;
+        var oceny = document.getElementsByClassName("przedmiot");
+    oceny = Array.from(oceny);
+    oceny.forEach(element => {
+      if (element.getAttribute('listener') !== 'true') {
+      if(element.value == '0') {
+        element.setAttribute('listener' , 'true')
+        element.addEventListener('change', ()=>{Validate3rdPage();})
+      }
+      }
+    })
         } else {
-            console.log('geo');
+            //console.log('geo');
             kierunek1Inputs.innerHTML = `<div class="mb-3 form-floating">
-            <select name="oceny1Polski" id="oceny" class="form-select">
+            <select name="oceny1Polski" id="oceny" class="form-select przedmiot">
               <option value="0">0 - Brak Oceny</option>
               <option value="1">1 - Niedostateczny</option>
               <option value="2">2 - Dopuszczający</option>
@@ -564,7 +612,7 @@ else pesel.classList.remove("is-invalid");
             </select>
             <label for="oceny" class="form-label">Język polski</label>
           </div><div class="mb-3 form-floating">
-          <select name="oceny1Matematyka" id="oceny" class="form-select">
+          <select name="oceny1Matematyka" id="oceny" class="form-select przedmiot">
             <option value="0">0 - Brak Oceny</option>
             <option value="1">1 - Niedostateczny</option>
             <option value="2">2 - Dopuszczający</option>
@@ -575,7 +623,7 @@ else pesel.classList.remove("is-invalid");
           </select>
           <label for="oceny" class="form-label">Matamatyka</label>
         </div><div class="mb-3 form-floating">
-        <select name="oceny1Obcy" id="oceny" class="form-select">
+        <select name="oceny1Obcy" id="oceny" class="form-select przedmiot">
           <option value="0">0 - Brak Oceny</option>
           <option value="1">1 - Niedostateczny</option>
           <option value="2">2 - Dopuszczający</option>
@@ -586,7 +634,7 @@ else pesel.classList.remove("is-invalid");
         </select>
         <label for="oceny" class="form-label">Język Obcy</label>
       </div><div class="mb-3 form-floating">
-      <select name="oceny1Geografia" id="oceny" class="form-select">
+      <select name="oceny1Geografia" id="oceny" class="form-select przedmiot">
         <option value="0">0 - Brak Oceny</option>
         <option value="1">1 - Niedostateczny</option>
         <option value="2">2 - Dopuszczający</option>
@@ -597,13 +645,23 @@ else pesel.classList.remove("is-invalid");
       </select>
       <label for="oceny" class="form-label">Geografia</label>
     </div>`;
-        }
+        var oceny = document.getElementsByClassName("przedmiot");
+    oceny = Array.from(oceny);
+    oceny.forEach(element => {
+      if (element.getAttribute('listener') !== 'true') {
+      if(element.value == '0') {
+        element.setAttribute('listener' , 'true')
+        element.addEventListener('change', ()=>{Validate3rdPage();})
       }
+      }
+    })
+  }
+}
       function Kierunek2(){
         if(kierunek2.value === 'TECHNIK GRAFIKI I POLIGRAFII CYFROWEJ' || kierunek2.value === 'TECHNIK INFORMATYK') {
-            console.log('inf');
+            //console.log('inf');
             kierunek2Inputs.innerHTML = `<div class="mb-3 form-floating">
-            <select name="oceny2Polski" id="oceny" class="form-select">
+            <select name="oceny2Polski" id="oceny" class="form-select przedmiot">
               <option value="0">0 - Brak Oceny</option>
               <option value="1">1 - Niedostateczny</option>
               <option value="2">2 - Dopuszczający</option>
@@ -614,7 +672,7 @@ else pesel.classList.remove("is-invalid");
             </select>
             <label for="oceny" class="form-label">Język polski</label>
           </div><div class="mb-3 form-floating">
-          <select name="oceny2Matematyka" id="oceny" class="form-select">
+          <select name="oceny2Matematyka" id="oceny" class="form-select przedmiot">
             <option value="0">0 - Brak Oceny</option>
             <option value="1">1 - Niedostateczny</option>
             <option value="2">2 - Dopuszczający</option>
@@ -625,7 +683,7 @@ else pesel.classList.remove("is-invalid");
           </select>
           <label for="oceny" class="form-label">Matamatyka</label>
         </div><div class="mb-3 form-floating">
-        <select name="oceny2Obcy" id="oceny" class="form-select">
+        <select name="oceny2Obcy" id="oceny" class="form-select przedmiot">
           <option value="0">0 - Brak Oceny</option>
           <option value="1">1 - Niedostateczny</option>
           <option value="2">2 - Dopuszczający</option>
@@ -636,7 +694,7 @@ else pesel.classList.remove("is-invalid");
         </select>
         <label for="oceny" class="form-label">JęzykObcy</label>
       </div><div class="mb-3 form-floating">
-      <select name="oceny2Informatyka" id="oceny" class="form-select">
+      <select name="oceny2Informatyka" id="oceny" class="form-select przedmiot">
         <option value="0">0 - Brak Oceny</option>
         <option value="1">1 - Niedostateczny</option>
         <option value="2">2 - Dopuszczający</option>
@@ -647,10 +705,20 @@ else pesel.classList.remove("is-invalid");
       </select>
       <label for="oceny" class="form-label">Informatyka</label>
     </div>`;
+        var oceny = document.getElementsByClassName("przedmiot");
+    oceny = Array.from(oceny);
+    oceny.forEach(element => {
+      if (element.getAttribute('listener') !== 'true') {
+      if(element.value == '0') {
+        element.setAttribute('listener' , 'true')
+        element.addEventListener('change', ()=>{Validate3rdPage();})
+      }
+      }
+    })
         } else {
-            console.log('geo');
+            //console.log('geo');
             kierunek2Inputs.innerHTML = `<div class="mb-3 form-floating">
-            <select name="oceny2Polski" id="oceny" class="form-select">
+            <select name="oceny2Polski" id="oceny" class="form-select przedmiot">
               <option value="0">0 - Brak Oceny</option>
               <option value="1">1 - Niedostateczny</option>
               <option value="2">2 - Dopuszczający</option>
@@ -661,7 +729,7 @@ else pesel.classList.remove("is-invalid");
             </select>
             <label for="oceny" class="form-label">Język polski</label>
           </div><div class="mb-3 form-floating">
-          <select name="oceny2Matematyka" id="oceny" class="form-select">
+          <select name="oceny2Matematyka" id="oceny" class="form-select przedmiot">
             <option value="0">0 - Brak Oceny</option>
             <option value="1">1 - Niedostateczny</option>
             <option value="2">2 - Dopuszczający</option>
@@ -672,7 +740,7 @@ else pesel.classList.remove("is-invalid");
           </select>
           <label for="oceny" class="form-label">Matamatyka</label>
         </div><div class="mb-3 form-floating">
-        <select name="oceny2Obcy" id="oceny" class="form-select">
+        <select name="oceny2Obcy" id="oceny" class="form-select przedmiot">
           <option value="0">0 - Brak Oceny</option>
           <option value="1">1 - Niedostateczny</option>
           <option value="2">2 - Dopuszczający</option>
@@ -683,7 +751,7 @@ else pesel.classList.remove("is-invalid");
         </select>
         <label for="oceny" class="form-label">Język Obcy</label>
       </div><div class="mb-3 form-floating">
-      <select name="oceny2Geografia" id="oceny" class="form-select">
+      <select name="oceny2Geografia" id="oceny" class="form-select przedmiot">
         <option value="0">0 - Brak Oceny</option>
         <option value="1">1 - Niedostateczny</option>
         <option value="2">2 - Dopuszczający</option>
@@ -694,13 +762,23 @@ else pesel.classList.remove("is-invalid");
       </select>
       <label for="oceny" class="form-label">Geografia</label>
     </div>`;
+        var oceny = document.getElementsByClassName("przedmiot");
+    oceny = Array.from(oceny);
+    oceny.forEach(element => {
+      if (element.getAttribute('listener') !== 'true') {
+      if(element.value == '0') {
+        element.setAttribute('listener' , 'true')
+        element.addEventListener('change', ()=>{Validate3rdPage();})
+      }
+      }
+    })
         }
       }
       function Kierunek3(){
         if(kierunek3.value === 'TECHNIK GRAFIKI I POLIGRAFII CYFROWEJ' || kierunek3.value === 'TECHNIK INFORMATYK') {
-            console.log('inf');
+            //console.log('inf');
             kierunek3Inputs.innerHTML = `<div class="mb-3 form-floating">
-            <select name="oceny3Polski" id="oceny" class="form-select">
+            <select name="oceny3Polski" id="oceny" class="form-select przedmiot">
               <option value="0">0 - Brak Oceny</option>
               <option value="1">1 - Niedostateczny</option>
               <option value="2">2 - Dopuszczający</option>
@@ -711,7 +789,7 @@ else pesel.classList.remove("is-invalid");
             </select>
             <label for="oceny" class="form-label">Język polski</label>
           </div><div class="mb-3 form-floating">
-          <select name="oceny3Matematyka" id="oceny" class="form-select">
+          <select name="oceny3Matematyka" id="oceny" class="form-select przedmiot">
             <option value="0">0 - Brak Oceny</option>
             <option value="1">1 - Niedostateczny</option>
             <option value="2">2 - Dopuszczający</option>
@@ -722,7 +800,7 @@ else pesel.classList.remove("is-invalid");
           </select>
           <label for="oceny" class="form-label">Matamatyka</label>
         </div><div class="mb-3 form-floating">
-        <select name="oceny3Obcy" id="oceny" class="form-select">
+        <select name="oceny3Obcy" id="oceny" class="form-select przedmiot">
           <option value="0">0 - Brak Oceny</option>
           <option value="1">1 - Niedostateczny</option>
           <option value="2">2 - Dopuszczający</option>
@@ -733,7 +811,7 @@ else pesel.classList.remove("is-invalid");
         </select>
         <label for="oceny" class="form-label">JęzykObcy</label>
       </div><div class="mb-3 form-floating">
-      <select name="oceny3Informatyka" id="oceny" class="form-select">
+      <select name="oceny3Informatyka" id="oceny" class="form-select przedmiot">
         <option value="0">0 - Brak Oceny</option>
         <option value="1">1 - Niedostateczny</option>
         <option value="2">2 - Dopuszczający</option>
@@ -743,11 +821,20 @@ else pesel.classList.remove("is-invalid");
         <option value="6">6 - Celujący</option>
       </select>
       <label for="oceny" class="form-label">Informatyka</label>
-    </div>`;
+    </div>`;        var oceny = document.getElementsByClassName("przedmiot");
+    oceny = Array.from(oceny);
+    oceny.forEach(element => {
+      if (element.getAttribute('listener') !== 'true') {
+      if(element.value == '0') {
+        element.setAttribute('listener' , 'true')
+        element.addEventListener('change', ()=>{Validate3rdPage();})
+      }
+      }
+    })
         } else {
-            console.log('geo');
+            //console.log('geo');
             kierunek3Inputs.innerHTML = `<div class="mb-3 form-floating">
-            <select name="oceny3Polski" id="oceny" class="form-select">
+            <select name="oceny3Polski" id="oceny" class="form-select przedmiot">
               <option value="0">0 - Brak Oceny</option>
               <option value="1">1 - Niedostateczny</option>
               <option value="2">2 - Dopuszczający</option>
@@ -758,7 +845,7 @@ else pesel.classList.remove("is-invalid");
             </select>
             <label for="oceny" class="form-label">Język polski</label>
           </div><div class="mb-3 form-floating">
-          <select name="oceny3Matematyka" id="oceny" class="form-select">
+          <select name="oceny3Matematyka" id="oceny" class="form-select przedmiot">
             <option value="0">0 - Brak Oceny</option>
             <option value="1">1 - Niedostateczny</option>
             <option value="2">2 - Dopuszczający</option>
@@ -769,7 +856,7 @@ else pesel.classList.remove("is-invalid");
           </select>
           <label for="oceny" class="form-label">Matamatyka</label>
         </div><div class="mb-3 form-floating">
-        <select name="oceny3Obcy" id="oceny" class="form-select">
+        <select name="oceny3Obcy" id="oceny" class="form-select przedmiot">
           <option value="0">0 - Brak Oceny</option>
           <option value="1">1 - Niedostateczny</option>
           <option value="2">2 - Dopuszczający</option>
@@ -780,7 +867,7 @@ else pesel.classList.remove("is-invalid");
         </select>
         <label for="oceny" class="form-label">Język Obcy</label>
       </div><div class="mb-3 form-floating">
-      <select name="oceny3Geografia" id="oceny" class="form-select">
+      <select name="oceny3Geografia" id="oceny" class="form-select przedmiot">
         <option value="0">0 - Brak Oceny</option>
         <option value="1">1 - Niedostateczny</option>
         <option value="2">2 - Dopuszczający</option>
@@ -791,5 +878,15 @@ else pesel.classList.remove("is-invalid");
       </select>
       <label for="oceny" class="form-label">Geografia</label>
     </div>`;
+    var oceny = document.getElementsByClassName("przedmiot");
+    oceny = Array.from(oceny);
+    if (element.getAttribute('listener') !== 'true') {
+    oceny.forEach(element => {
+      if(element.value == '0') {
+        element.setAttribute('listener' , 'true')
+        element.addEventListener('change', ()=>{Validate3rdPage();})
+      }
+    })
+  }
         }
       }

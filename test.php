@@ -23,14 +23,14 @@ foreach ($_POST as $key => $value) {
     if(str_contains($key, 'wyroznienie')) $osiagniecia[$key] = $value;
 }
 
-
-// $stmt = $link->prepare("SELECT * FROM `kandydat` WHERE `Pesel` = ?");
-// $stmt->bind_param("s", "$data[Pesel]");
-// $stmt->execute();
-
-// if($stmt->num_rows() >= 1) {
-//     die("Taki pesel znajduje się już w bazie danych");
-// }
+//sprawdzenie czy kandydat jest w bazie danych
+$stmt = $link->prepare("SELECT * FROM `kandydat` WHERE `PESEL` = ?");
+$stmt->bind_param("i", $data['Pesel']);
+$stmt->execute();
+$stmt->store_result();
+if($stmt->num_rows >= 1) {
+    die("Pesel kandydata został już zarejestrowany");
+}
 
 //wprowadzenie osiagniec do bazy
 $osiagniecia = array();
@@ -52,7 +52,6 @@ foreach($osiagniecia as $key => $value) {
 $sql .= substr($keys, 0, -2).") ".substr($values, 0, -2).")";
 $stmt = $link->prepare($sql);
 $stmt ->execute();
-$stmt->close();
 
 $idOsiagniec = $stmt->insert_id;
 echo $sql." id: ".$idOsiagniec;
@@ -247,17 +246,10 @@ $stmt->close();
 
 //kandydat
 
-$stmt = $link->prepare("SELECT * FROM `kandydat` WHERE `PESEL` = ?");
-$stmt->bind_param("i", $data['Pesel']);
-$stmt->execute();
-$stmt->store_result();
-if($stmt->num_rows >= 1) {
-    die("Pesel kandydata został już zarejestrowany");
-}
 
 $stmt = $link->prepare("INSERT INTO `kandydat`(`Nazwisko`, `Imie`, `Drugie imie`, `Data urodzenia`, `Miejsce urodzenia`, `PESEL`, `Numer telefonu`, `Mail`, `ID Adres`, `ID Zameldowania`, `ID Oceny`, `ID Osiagniecia`)
  VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
-$stmt->bind_param("sssssissiiii", $data['Nazwisko'], $data['Imie'], $data['DrugieImie'], $data['DataUrodzenia'], $data['MiejsceUrodzenia'], $data['Pesel'], $data['NumerTelefonu'], $data['Mail'], $idAdres, $idZameldowanie, $idOceny, $idOsiagniec);
+$stmt->bind_param("ssssssssiiii", $data['Nazwisko'], $data['Imie'], $data['DrugieImie'], $data['DataUrodzenia'], $data['MiejsceUrodzenia'], $data['Pesel'], $data['NumerTelefonu'], $data['Mail'], $idAdres, $idZameldowanie, $idOceny, $idOsiagniec);
 $stmt->execute();
 $idKandydata = $stmt->insert_id;
 $stmt->close();
@@ -347,5 +339,5 @@ $stmt->execute();
 
 $stmt->close();
 $link->close();
-//header("Location: https://pzsklanino.edu.pl/");
+header("Location: https://pzsklanino.edu.pl/");
  ?>
