@@ -477,17 +477,17 @@ else pesel.classList.remove("is-invalid");
       oceny = Array.from(oceny);
       var err = !oceny.map(element => {
         if(element.value == '0' || element.value == '1') {
-          console.log(element)
+          //console.log(element)
           return true;
         }
         return false;
       }).every(result => result === false);
-      console.log(err);
+      //console.log(err);
       if(zachowanie.value == "Naganne") return true;
       else if(err) return true;
-      else if(egzAng.value == '') return true;
-      else if(egzMat.value == '') return true;
-      else if(egzPol.value == '') return true;
+      else if(egzAng.value == '' || parseInt(egzAng.value) < 0 || parseInt(egzAng.value) > 100) return true;
+      else if(egzMat.value == '' || parseInt(egzMat.value) < 0 || parseInt(egzMat.value) > 100) return true;
+      else if(egzPol.value == '' || parseInt(egzPol.value) < 0 || parseInt(egzPol.value) > 100) return true;
       else if(kierunek1.value == '') return true;
       else false;
     }
@@ -498,8 +498,8 @@ else pesel.classList.remove("is-invalid");
         document.getElementById('rekrutacja-tab').setAttribute('disabled', '');
         events();
         //console.log('loaded');
-        //FirstPageCheck();
-        //SecondPageValidateForm();
+        FirstPageCheck();
+        SecondPageValidateForm();
         ValidateOceny();
       }
 
