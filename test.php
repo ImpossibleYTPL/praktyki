@@ -54,7 +54,6 @@ $stmt = $link->prepare($sql);
 $stmt ->execute();
 
 $idOsiagniec = $stmt->insert_id;
-echo $sql." id: ".$idOsiagniec;
 
 } else $idOsiagniec = NULL;
 
@@ -95,7 +94,6 @@ $stmt->close();
 $stmt = $link->prepare("SELECT * FROM `adres` WHERE `Miejscowosc` = '$data[Miejscowosc]' AND `Ulica` = '$data[UlicaNrDomu]' AND `Kod pocztowy` = '$data[kodPocztowy]' AND `Gmina` = '$data[Gmina]' AND `Poczta` = '$data[Poczta]'");
 $stmt->execute();
 $stmt->store_result();
-echo $stmt->num_rows;
 if($stmt->num_rows >= 1) {
     $stmt = $link->prepare("SELECT * FROM `adres` WHERE `Miejscowosc` = '$data[Miejscowosc]' AND `Ulica` = '$data[UlicaNrDomu]' AND `Kod pocztowy` = '$data[kodPocztowy]' AND `Gmina` = '$data[Gmina]' AND `Poczta` = '$data[Poczta]'");
     $stmt->execute();
@@ -279,28 +277,26 @@ if(isset($idOpiekuna)) {
 //punkty
 
 //wyroznienia
+
 $punktyOsiagniecia = 0;
-$punktySwiadectwo = 0;
-foreach($osiagniecia as $key => $value) {
-    if(str_contains($key, '1') || str_contains($key, '2'))
-    $punktySwiadectwo += $value;
-    else
+$punktyEgzamin = 0;
+
+foreach ($osiagniecia as $key => $value) {
     $punktyOsiagniecia += $value;
 }
 if($punktyOsiagniecia > 18) $punktyOsiagniecia = 18;
-$punktyOsiagniecia += $punktySwiadectwo;
-
-
-$punktyEgzamin = 0;
+if(isset($osiagniecia['wyroznienie1'])) $punktyOsiagniecia += 7;
+if(isset($osiagniecia['wyroznienie2'])) $punktyOsiagniecia += 3;
 
 $punktyEgzamin = ($egzPol * 0.35) + ($egzMat * 0.35) + ($egzAng * 0.30);
 
 if(isset($informatyka))
-$punktyInformatyka = GetPointValue($polski) + GetPointValue($matematyka) + GetPointValue($obcy) +GetPointValue($informatyka) + $punktyEgzamin;
+$punktyInformatyka = GetPointValue($polski) + GetPointValue($matematyka) + GetPointValue($obcy) +GetPointValue($informatyka) + $punktyEgzamin + $punktyOsiagniecia;
 else $punktyInformatyka = NULL;
 if(isset($geografia))
-$punktyGeografia = GetPointValue($polski) + GetPointValue($matematyka) + GetPointValue($obcy) +GetPointValue($geografia) + $punktyEgzamin;
+$punktyGeografia = GetPointValue($polski) + GetPointValue($matematyka) + GetPointValue($obcy) +GetPointValue($geografia) + $punktyEgzamin + $punktyOsiagniecia;
 else $punktyGeografia = NULL;
+echo $punktyEgzamin . " " . $punktyGeografia . " " . $punktyInformatyka;
 
 function GetPointValue($ocena){
     switch($ocena) {
@@ -336,6 +332,38 @@ $stmt = $link->prepare("INSERT INTO `wniosek`(`Kierunek1`, `Kierunek2`, `Kierune
                     `Punkty informatyka`, `Punkty geografia`) VALUES (?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("ssssiii", $data['kierunek1'], $data['kierunek2'], $data['kierunek3'], $data['szkola'], $idKandydata, $punktyInformatyka, $punktyGeografia);
 $stmt->execute();
+
+
+//zdjecia
+
+$nazwa_pliku1 = $data['Pesel'].'-1';
+$nazwa_pliku2 = $data['Pesel'].'-2';
+$nazwa_pliku3 = $data['Pesel'].'-3';
+
+// Pobierz pliki przesłane przez formularz
+$plik1 = $_FILES['plik1']['tmp_name'];
+$plik2 = $_FILES['plik2']['tmp_name'];
+$plik3 = $_FILES['plik3']['tmp_name'];
+
+// Określ typ MIME dla każdego pliku
+$typ_pliku1 = exif_imagetype($plik1);
+$typ_pliku2 = exif_imagetype($plik2);
+$typ_pliku3 = exif_imagetype($plik3);
+
+// Przypisz odpowiednie rozszerzenia plików
+$rozszerzenie_pliku1 = image_type_to_extension($typ_pliku1);
+$rozszerzenie_pliku2 = image_type_to_extension($typ_pliku2);
+$rozszerzenie_pliku3 = image_type_to_extension($typ_pliku3);
+
+// Utwórz ścieżki do zapisu plików
+$sciezka_do_pliku1 = "swiadectwa/" . $nazwa_pliku1 . $rozszerzenie_pliku1;
+$sciezka_do_pliku2 = "swiadectwa/" . $nazwa_pliku2 . $rozszerzenie_pliku2;
+$sciezka_do_pliku3 = "egzaminy/" . $nazwa_pliku3 . $rozszerzenie_pliku3;
+
+// Zapisz pliki na serwerze
+move_uploaded_file($plik1, $sciezka_do_pliku1);
+move_uploaded_file($plik2, $sciezka_do_pliku2);
+move_uploaded_file($plik3, $sciezka_do_pliku3);
 
 $stmt->close();
 $link->close();
