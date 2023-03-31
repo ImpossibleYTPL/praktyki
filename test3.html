@@ -2,324 +2,184 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./Assets/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./Assets/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="./Assets/dist/js/bootstrap.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <title>Formularz Rekrutacyjny PZS Kłanino</title>
-</head>
-<body>
-    <style>
-        body {        
-            background: rgb(25,0,167);
-            background: linear-gradient(90deg, rgba(25,0,167,1) 0%, rgba(255,255,255,1) 50%, rgba(255,148,0,1) 100%);
-            font-family: Arial Narrow, sans-serif;	
-        }
-        .formularz, .formularz p{
-            text-align: center;
-            font-size: 20px;
-        }
-        #data_uro,#adres,#adres1, #adres2, #adres3{
-            font-weight: lighter;
-        }
-    
-        .formularz p{
-            font-weight: bold;
-        }
-        .formularz select, .formularz input{
-            text-align: center;
-            width: 500px;
-            height: 40px;
-            border-width: 1px;
-            border-style: groove;
-            border-color: #ffffff;
-            font-size: 20px;
-            }
-        #reset, #submit{
-        background-color: #2c55a1;
-        color: white;
-        font-size: 25px;
-        border: none;
-        cursor: pointer;
-        text-align: center;
-        float: none;
-        width: 250px;
-        transition: background-color 1s;
-        }
-        #reset:hover, #submit:hover{
-            background-color: orangered;
-        }
-        #zamche, #MATche, #OJCAche, #OPche{
-            text-align: center;
-            width: 30px;
-            height: 15px;
-        }
-        #szkola select{
-            text-align: left;
-            font-size: 15px;
-        }
-    </style>
-    <form>
-    <div class="formularz">
-        <h1>FORMULARZ REKRUTACYJNY PZS KłANINO</h1>
-        <br>
-        <p>Dane Osobowe:</p>
-        <input name="Nazwisko" placeholder="Nazwisko"><br>
-        <input name="Imie" placeholder="Imię"><br>
-        <input name="drugie_imie" placeholder="Drugie Imię"><br>
-        <p id="data_uro">Data Urodzenia: </p><input type="date" name="Data_ur"> <br>
-        <input name="miejsce_ur" placeholder="Miejsce Urodzenia"><br>
-        <input type="text" maxlength="11" name="PESEL" placeholder="PESEL" id="pesel"><br>
-        <input type="tel" maxlength="9" name="nr_tel" placeholder="Numer Telefonu Kandydata"> <br>
-        <input type="email" name="email" placeholder="Email"><br>
-        <input type="hidden" name="data" id="data" value=""><br>
-        <input type="hidden" name="godz" id="godz" value="">
-        
-        <p>Profil: </p>
-        <select name="profil" id="profil">
-        <option></option>
-        <option value="informatyk">Technik Informatyk</option>
-        <option value="hotelarka">Technik Hotelarstwa</option>
-        <option value="org_tur">Technik Organizacji Turystyki</option>
-        <option value="ziug">Technik Żywienia i Usług Gastronomicznych</option>
-        <option value="grafik">Tehcnik Grafiki i Poligrafii Cyfrowej</option>
-        <option value="kucharz">Kucharz</option>
-        <option value="monter">Monter Kadłubów i Jednostek Pływających</option>
-        <option value="mechanik">Mechanik</option>
-        <option value="wielo_zaw">Klasa Wielozawodowa</option>
-        <option value="mundur">Liceum Mundurowe</option>
-        <option value="dietetyk">Liceum profil dietetyka i aktywność fizyczna</option>
-        </select>
-        
-        <p>Drugi Profil: </p>
-        <select name="profil2" id="profil2">
-        <option value="brak2">Brak</option>
-        <option value="informatyk2">Technik Informatyk</option>
-        <option value="hotelarka2">Technik Hotelarstwa</option>
-        <option value="org_tur2">Technik Organizacji Turystyki</option>
-        <option value="ziug2">Technik Żywienia i Usług Gastronomicznych</option>
-        <option value="grafik2">Tehcnik Grafiki i Poligrafii Cyfrowej</option>
-        <option value="kucharz2">Kucharz</option>
-        <option value="monter2">Monter Kadłubów i Jednostek Pływających</option>
-        <option value="mechanik2">Mechanik</option>
-        <option value="wielo_zaw2">Klasa Wielozawodowa</option>
-        <option value="mundur2">Liceum Mundurowe</option>
-        <option value="dietetyk2">Liceum profil dietetyka i aktywność fizyczna</option>
-        </select>
-        
-        <p>Trzeci Profil: </p>
-        <select name="profil3" id="profil3">
-        <option value="brak3">Brak</option>
-        <option value="informatyk3">Technik Informatyk</option>
-        <option value="hotelarka3">Technik Hotelarstwa</option>
-        <option value="org_tur3">Technik Organizacji Turystyki</option>
-        <option value="ziug3">Technik Żywienia i Usług Gastronomicznych</option>
-        <option value="grafik3">Tehcnik Grafiki i Poligrafii Cyfrowej</option>
-        <option value="kucharz3">Kucharz</option>
-        <option value="monter3">Monter Kadłubów i Jednostek Pływających</option>
-        <option value="mechanik3">Mechanik</option>
-        <option value="wielo_zaw3">Klasa Wielozawodowa</option>
-        <option value="mundur3">Liceum Mundurowe</option>
-        <option value="dietetyk3">Liceum profil dietetyka i aktywność fizyczna</option>
-        </select> <br> <br>
-        
-        
-        <p>Adres Zamieszkania: </p>
-        <input type="text" name="miejsce_zam" maxlength="32" placeholder="Miejscowość"><br>
-        <input type="text" name="ulica" maxlength="52" placeholder="Ulica Nr. Domu"><br>
-        <input type="text" name="kod_pocztowy" maxlength="6" placeholder="Kod Pocztowy"> <br>
-        <input type="text" name="gmina" placeholder="Gmina"><br>
-        <input type="text" name="poczta" placeholder="Poczta"><br>
-        
+  </head>
+  
+  <body>
     <br>
-        <p>Adres Zameldowania: </p>
-    
-            <b id="adres">Adres Zameldowania taki sam jak zamieszkania</b><input type="checkbox" id="zamche" name="zamche">
+    <form action="" method="post">
+      <div class="container">
+        <div class="row justify-content-around gx-5">
+          <div class="col-lg-6 position-relative">
+            <h4>Dane kandydata</h4>
+            <div class="form-floating mb-3 position-relative">
+              <input type="text" name="Nazwisko" id="floatingNazwisko" class="form-control" placeholder="Nazwisko">
+              <label for="floatingNazwisko">Nazwisko</label>
+            </div>
+            <div class="form-floating mb-3 position-relative">
+              <input type="text" name="Imie" id="floatingImie" class="form-control" placeholder="Imie">
+              <label for="floatingImie">Imie</label>
+              <br>
+              <div class="col-sm mb-3 ">
+                <!-- kierunek1 -->
+                <h5 class="h5xd">ㅤ</h5>
+                <style>
+                  .h5xd{
+                    -webkit-user-select: none;
+                    -moz-user-select: none; 
+                    -ms-user-select: none; 
+                    user-select: none; 
+                  }
+                  </style>
+                  <h4>Kierunek Kandydata</h4>
+                <div class="form-floating mb-3">
+                  <select name="kierunek1" id="kierunek1" class="form-select">
+                    <option value=""></option>
+                    <optgroup label="Liceum">
+                    <option>Liceum o profilu mundurowym</option>
+                    <option>Liceum o profilu dietetyka i aktywność fizyczna</option>
+                    </optgroup>
+                    <optgroup label="Technikum">
+                    <option>TECHNIK GRAFIKI I POLIGRAFII CYFROWEJ</option>
+                    <option>TECHNIK ORGANIZACJI TURYSTYKI</option>
+                    <option>TECHNIK ŻYWIENIA I USŁUG GASTRONOMICZNYCH</option>
+                    <option>TECHNIK HOTELARSTWA</option>
+                    <option>TECHNIK INFORMATYK</option>
+                  </optgroup>
+                  <optgroup label="Szkoła branżowa I stopnia">
+                    <option>Pracownik obsługi hotelowej</option>
+                    <option>Mechanik - monter maszyn i urządzeń Monter kadłubów jednostek pływających</option>
+                    <option>Kucharz</option>
+                  </optgroup>
+                  </select>
+                  <label for="kierunek1" class="form-label">Kierunek</label>
+                </div>
+                <!-- kierunek1 inputs -->
+                <div class="container" id="kierunek1Inputs">
             
-            <div id="zameldowanie">
-        <input type="text" name="miejsce_zamel" maxlength="32" placeholder="Miejscowość"><br>
-        <input type="text" name="ulica_zamel" maxlength="52" placeholder="Ulica Nr. Domu"><br>
-        <input type="text" name="kod_pocztowy_zamel" maxlength="6" placeholder="Kod Pocztowy"> <br>
-        <input type="text" name="gmina_zamel" placeholder="Gmina"><br>
-        <input type="text" name="poczta_zamel" placeholder="Poczta"> <br>
-        </div>
-        
-        <script>
-          document.getElementById("zamche").addEventListener("change", ()=> {
-            if(document.getElementById("zamche").checked) {
-              document.getElementById("zameldowanie").innerHTML = "";
-            } else document.getElementById("zameldowanie").innerHTML = 
-               `<input type="text" name="miejsce_zamel" maxlength="32" placeholder="Miejscowość"><br>
-                <input type="text" name="ulica_zamel" maxlength="52" placeholder="Ulica Nr. Domu"><br>
-                <input type="text" name="gmina_zamel" placeholder="Gmina"><br>
-                <input type="text" name="kod_pocztowy_zamel" maxlength="6" placeholder="Kod Pocztowy"> <br>
-                <input type="text" name="poczta_zamel" placeholder="Poczta"> <br>`
-          });
-        </script>
-        <br>
-        <p>Dane Osobowe Rodziców/Opiekunów Prawnych: </p>
-        <input name="Imie_matki" placeholder="Imię Matki"><br>
-        <input name="Nazwisko_matki" placeholder="Nazwisko Matki"><br>
-        <input type="tel" maxlength="9" name="nr_tel_matki" placeholder="Numer Telefonu"><br>
-        <input type="email" name="email_matki" placeholder="Email"><br>
-    
-         <b id="adres1">Adres taki sam jak Kandydata</b> <input type="checkbox" id="MATche" name="MATche" >
-    
-        <div id="adresMAT">
-        <input type="text" name="miejsce_zamMAT" maxlength="32" placeholder="Miejscowość"><br>
-        <input type="text" name="ulicaMAT" maxlength="52" placeholder="Ulica Nr. Domu"><br>
-        <input type="text" name="kod_pocztowyMAT" maxlength="6" placeholder="Kod Pocztowy"> <br>
-        </div>
-    
-        <script>
-          document.getElementById("MATche").addEventListener("change", ()=> {
-            if(document.getElementById("MATche").checked) {
-              document.getElementById("adresMAT").innerHTML = "";
-            } else document.getElementById("adresMAT").innerHTML = `<input type="text" name="miejsce_zamMAT" maxlength="32" placeholder="Miejscowość"><br>
-        <input type="text" name="ulicaMAT" maxlength="52" placeholder="Ulica Nr. Domu"><br>
-        <input type="text" name="kod_pocztowyMAT" maxlength="6" placeholder="Kod Pocztowy"> <br>`
-          });
-        </script> <br>
-    
-         <br>
-        <input name="Imie_ojca" placeholder="Imię Ojca"><br>
-        <input name="Nazwisko_ojca" placeholder="Nazwisko Ojca"><br>
-        <input type="tel" maxlength="9" name="nr_tel_ojca" placeholder=" Numer Telefonu"><br>
-        <input type="email" name="email_ojca" placeholder="Email"><br>
-    
-        <b id="adres2">Adres taki sam jak Kandydata</b> <input type="checkbox" id="OJCAche" name="OJCAche">
-        
-        <div id="adresOJCA">
-        <input type="text" name="miejsce_zOJCA" maxlength="32" placeholder="Miejscowość"><br>
-        <input type="text" name="ulicaOJCA" maxlength="52" placeholder="Ulica Nr. Domu"><br>
-        <input type="text" name="kod_pocztowyOJCA" maxlength="6" placeholder="Kod Pocztowy"> <br>
-        </div>
-        
-        <script>
-        document.getElementById("OJCAche").addEventListener("change", ()=> {
-          if(document.getElementById("OJCAche").checked) {
-            document.getElementById("adresOJCA").innerHTML = "";
-          } else document.getElementById("adresOJCA").innerHTML = `<input type="text" name="miejsce_zamOP" maxlength="32" placeholder="Miejscowość"><br>
-        <input type="text" name="ulicaOJCA" maxlength="52" placeholder="Ulica Nr. Domu"><br>
-        <input type="text" name="kod_pocztowyOJCA" maxlength="6" placeholder="Kod Pocztowy"> <br>`
-        });
-        </script><br><br>
-        
-        <input name="Imie_op" placeholder="Imię Opiekuna Prawnego"><br>
-        <input name="Nazwisko_op" placeholder="Nazwisko Opiekuna Prawnego"><br>
-        <input type="tel" maxlength="9" name="nr_tel_op" placeholder="Numer Telfeonu"><br>
-        <input type="email" name="email_op" placeholder="Email"><br>
-        
-        <b id="adres3">Adres taki sam jak Kandydata</b> <input type="checkbox" id="OPche" name="OPche">
-        
-        <div id="adresOP">
-            <input type="text" name="miejsce_zOP" maxlength="32" placeholder="Miejscowość"><br>
-            <input type="text" name="ulicaOP" maxlength="52" placeholder="Ulica Nr. Domu"><br>
-            <input type="text" name="kod_pocztowyOP" maxlength="6" placeholder="Kod Pocztowy"> <br>
-            </div> <br>
-    
-        <script>
-            document.getElementById("OPche").addEventListener("change", ()=> {
-              if(document.getElementById("OPche").checked) {
-                document.getElementById("adresOP").innerHTML = "";
-              } else document.getElementById("adresOP").innerHTML = `<input type="text" name="miejsce_zamOP" maxlength="32" placeholder="Miejscowość"><br>
-            <input type="text" name="ulicaOP" maxlength="52" placeholder="Ulica Nr. Domu"><br>
-            <input type="text" name="kod_pocztowyOP" maxlength="6" placeholder="Kod Pocztowy"> <br>`
-            });
-            </script>
-        
-        
-        <p>Szkoała Podstawowa do Której Uczęszczał Kandydat</p>
-        <div id="szkola">
-         
-        </div>
-      
-        <br><br>
-        <input type="submit" value="Wyślij formularz" id="submit">
-        <input type="reset" value="Wyczyść dane" id="reset">
-        </div>
-    </div>
-    </form>
-    <script>
-      var ok = "<select>";
-      fetch('rspo_2023_03_06.csv', { headers: { 'Content-Type': 'text/csv; charset=utf-8' }})
-      .then(response => response.arrayBuffer())
-      .then(buffer => {
-  const decoder = new TextDecoder('utf-8');
-  const text = decoder.decode(buffer);
-  const rows = text.trim().split('\n');
-  const table = [];
-  for (let i = 0; i < rows.length; i++) {
-    const columns = rows[i].split(';'); 
-    table.push(columns);
-  }
-  for (let i = 0; i < rows.length; i++) {
-  const row = table[i]; 
-  if(i == 0) continue;
-  ok += ("<option>" + row[4].substring(1,row[4].length-1) + " " + row[13].substring(1, row[13].length-1) +  " " + row[15].substring(1, row[15].length-1) + " " + row[16].substring(1, row[16].length-1) + "</option>");
-  }
-      ok += "</select>";
-      document.getElementById("szkola").innerHTML = ok;
-  });
-  </script>
-  <script>
-      const date = new Date();
-  
-      var data = date.getFullYear() + "-" + parseFloat(date.getMonth() + 1) + "-" + date.getDate();
-      var clock = date.getHours() + ":" + ('0' + date.getMinutes()).slice(-2) + ":" + ('0' + date.getSeconds()).slice(-2);
-  
-      document.getElementById("data").value = data;
-      document.getElementById("godz").value = clock;
-  </script>
-    <script>
-      //validate form
-      const pesel = document.querySelector("#pesel");
-      pesel.classList.add("test");
-      const mails = document.querySelectorAll("input[type=email]");
-      const dataur = document.querySelector("input[type=date]");
-      pesel.addEventListener("input", ()=>{validatePesel()});
-      console.log(mails);
-      mails.forEach((mails)=>{mails.addEventListener("input", (target) => {validateMail(target.target)});});
-      function validatePESEL(pesel) {
-        console.log(pesel);
-        var weights = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3];
-        var sum = 0;
-        
-        // Sprawdzenie długości numeru PESEL
-        if (pesel.length !== 11) {
-        return false;
+                </div>
+                <br>
+                <h4>Oceny</h4>
+                <div class="mb-3 form-floating">
+                  <select name="oceny1Polski" id="oceny" class="form-select przedmiot">
+                    <option value="0">0 - Brak Oceny</option>
+                    <option value="1">1 - Niedostateczny</option>
+                    <option value="2">2 - Dopuszczający</option>
+                    <option value="3">3 - Dostateczny</option>
+                    <option value="4">4 - Dobry</option>
+                    <option value="5">5 - Bardzo Dobry</option>
+                    <option value="6">6 - Celujący</option>
+                  </select>
+                  <label for="oceny" class="form-label">Język polski</label>
+                </div><div class="mb-3 form-floating">
+                <select name="oceny1Matematyka" id="oceny" class="form-select przedmiot">
+                  <option value="0">0 - Brak Oceny</option>
+                  <option value="1">1 - Niedostateczny</option>
+                  <option value="2">2 - Dopuszczający</option>
+                  <option value="3">3 - Dostateczny</option>
+                  <option value="4">4 - Dobry</option>
+                  <option value="5">5 - Bardzo Dobry</option>
+                  <option value="6">6 - Celujący</option>
+                </select>
+                <label for="oceny" class="form-label">Matamatyka</label>
+              </div><div class="mb-3 form-floating">
+              <select name="oceny1Obcy" id="oceny" class="form-select przedmiot">
+                <option value="0">0 - Brak Oceny</option>
+                <option value="1">1 - Niedostateczny</option>
+                <option value="2">2 - Dopuszczający</option>
+                <option value="3">3 - Dostateczny</option>
+                <option value="4">4 - Dobry</option>
+                <option value="5">5 - Bardzo Dobry</option>
+                <option value="6">6 - Celujący</option>
+              </select>
+              <label for="oceny" class="form-label">JęzykObcy</label>
+            </div><div class="mb-3 form-floating">
+            <select name="oceny1Informatyka" id="oceny" class="form-select przedmiot">
+              <option value="0">0 - Brak Oceny</option>
+              <option value="1">1 - Niedostateczny</option>
+              <option value="2">2 - Dopuszczający</option>
+              <option value="3">3 - Dostateczny</option>
+              <option value="4">4 - Dobry</option>
+              <option value="5">5 - Bardzo Dobry</option>
+              <option value="6">6 - Celujący</option>
+            </select>
+            <label for="oceny" class="form-label">Informatyka</label>
+            </div>
+                      <br><h5>Wyniki Egzaminu Ósmoklasisty</h5>
+                      <div class="form-check mb-3">
+                        <input type="checkbox" value="1" name="egzamin" id="egzamin">
+                        <label for="egzamin" class="form-label">Zwolniony z egzaminu</label>
+                      </div>
+                      <div class="mb-3 form-floating">
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="number" name="EgzPol" id="EgzPol" class="form-control">
+                            <label for="EgzPol">Język Polski</label>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="number" name="EgzMat" id="EgzMat" class="form-control">
+                            <label for="EgzMat">Matematyka</label>
+                        </div>
+                        <div class="form-floating mb-3 position-relative">
+                            <input type="number" name="EgzAng" id="EgzAng" class="form-control">
+                            <label for="EgzAng">Angielski</label>
+                        </div>
+                      </div>
+                </div> 
+
+                
+
+           <br> <h4>Osiagniecia</h4>
+
+          </div>
+          <div class="col ps-3">  
+            <div class="form-check">
+              <input type="checkbox" value="7" name="wyroznienie1" id="wyroznienie" >
+              <label for="wyroznienie">
+                Świadectwo ukończenia szkoły podstawowej z wyróżnieniem - 7 pkt.
+              </label>
+            </div>
+
+            <div class="form-check" id="specjalny">
+              <input type="checkbox" value="3" name="wyroznienie2" id="wyroznienie2">
+              <label for="wyroznienienie2">
+                Wolontariat – 3 punkty
+              </label>
+            </div>
+
+            <div class="form-floating mb-3 position-relative">
+              <input type="number" name="konkursy" id="konkursy" class="form-control">
+              <label for="konkursy">Konkursy(MAX 18pkt)</label>
+          </div>
+
+                  </div>
+                </div> 
+              </div>
+            </div>
+          </div>
+      </form>
+      <style>
+        .form-check {
+          display: flex !important;
+          align-items: flex-start;
         }
-      
-        // Obliczenie sumy kontrolnej
-        for (var i = 0; i < 10; i++) {
-        sum += pesel[i] * weights[i];
+        
+        .form-check>input {
+          margin-top: 7px;
         }
-      
-        // Sprawdzenie poprawności sumy kontrolnej
-        var checksum = (10 - (sum % 10)) % 10;
-        if (checksum !== parseInt(pesel[10])) {
-          return false;
+        
+        .form-check>label {
+          padding-left: 7px;
         }
-        return true;
-      }
-    
-      function validateEmail(email) {
-          // Wzorzec do sprawdzania poprawności adresu e-mail
-          var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      
-          // Testowanie wzorca na adresie e-mail
-        console.log(pattern.test(email));
-          return pattern.test(email);
-      }
-    
-      function validatePesel() {
-        console.log(validatePESEL(pesel.value));
-        if(!validatePESEL(pesel.value)) pesel.style.border = "red 1px solid"
-        else pesel.style.border = "";
-      }
-    
-      function validateMail(target){
-        console.log(target);
-        if(!validateEmail(target.value)) target.style.border = "red 1px solid"
-        else target.style.border = "";
-      }
-    </script>
-</body>
-</html>
+
+        </style>
+    </body>
+    </html>
