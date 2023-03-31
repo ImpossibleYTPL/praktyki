@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 29 Mar 2023, 09:28
+-- Czas generowania: 31 Mar 2023, 12:00
 -- Wersja serwera: 10.4.27-MariaDB
 -- Wersja PHP: 8.2.0
 
@@ -49,13 +49,13 @@ CREATE TABLE `kandydat` (
   `Drugie imie` varchar(60) DEFAULT NULL,
   `Data urodzenia` date NOT NULL,
   `Miejsce urodzenia` varchar(60) NOT NULL,
-  `PESEL` int(11) NOT NULL,
+  `PESEL` varchar(11) NOT NULL,
   `Numer telefonu` varchar(15) NOT NULL,
   `Mail` varchar(255) NOT NULL,
   `ID Adres` int(11) NOT NULL,
   `ID Zameldowania` int(11) NOT NULL,
   `ID Oceny` int(11) NOT NULL,
-  `ID Osiagniecia` int(11) NOT NULL
+  `ID Osiagniecia` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
